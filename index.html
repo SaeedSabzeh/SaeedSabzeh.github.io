@@ -211,9 +211,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 
 /* language switch */
-.langs{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--paper-2)}
-.langs button{font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--ink-soft);padding:5px 11px;border-radius:999px;cursor:pointer;min-width:38px;transition:background .2s,color .2s}
-.langs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.langs{position:relative;display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--paper-2);view-transition-name:langs}
+.langs button{position:relative;z-index:1;font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--ink-soft);padding:5px 11px;border-radius:999px;cursor:pointer;min-width:38px;transition:color .3s}
+.langs button[aria-pressed="true"]{color:var(--paper)}
+/* the pressed pill slides between languages; JS sets its position */
+.langs::before{content:"";position:absolute;top:3px;bottom:3px;left:0;width:var(--pill-w,38px);transform:translateX(var(--pill-x,3px));border-radius:999px;background:var(--ink);transition:transform .45s cubic-bezier(.3,.7,.2,1),width .45s cubic-bezier(.3,.7,.2,1)}
+.langs:not(.ready)::before{transition:none}
 .langs button:hover:not([aria-pressed="true"]){color:var(--ink)}
 .toplinks{align-items:center}
 
@@ -265,6 +268,19 @@ html[lang="fa"] .mail a{text-align:left}
   .grow path{animation:draw 1.4s cubic-bezier(.3,.7,.2,1) .25s backwards}
 }
 @keyframes draw{from{stroke-dashoffset:1}}
+
+/* language switch: the page cross-fades with a slight lift, the switcher itself stays put */
+@media (prefers-reduced-motion:no-preference){
+  ::view-transition-old(root){animation:lang-out .22s ease-in both}
+  ::view-transition-new(root){animation:lang-in .42s cubic-bezier(.2,.7,.2,1) .08s both}
+  ::view-transition-old(langs){display:none}
+  ::view-transition-new(langs){animation:none}
+  ::view-transition-group(langs){animation-duration:.45s}
+  main,footer{transition:opacity .2s ease,transform .2s ease}
+  .lang-swap main,.lang-swap footer{opacity:0;transform:translateY(6px)}
+}
+@keyframes lang-out{to{opacity:0}}
+@keyframes lang-in{from{opacity:0;transform:translateY(8px)}}
 </style>
 
 </head>
@@ -278,7 +294,7 @@ html[lang="fa"] .mail a{text-align:left}
     <nav class="toplinks" aria-label="Sections">
       <a href="#work" data-i="n_work">Work</a>
       <a href="#services" data-i="n_svc">Services</a>
-      <div class="langs" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="fa" lang="fa" aria-pressed="false">فا</button><button type="button" data-l="it" aria-pressed="false">IT</button></div>
+      <div class="langs" role="group" aria-label="Language" dir="ltr"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="fa" lang="fa" aria-pressed="false">فا</button><button type="button" data-l="it" aria-pressed="false">IT</button></div>
       <a class="hire" href="#contact" data-i="n_hire">Work with me</a>
     </nav>
   </div>
@@ -569,12 +585,37 @@ it: {
     var d=document.documentElement;d.lang=l;d.dir=l==='fa'?'rtl':'ltr';
     nodes.forEach(function(n){var t=l!=='en'&&I18N[l][n.dataset.i];n.innerHTML=t!=null&&t!==false?t:n.dataset.en});
     btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false')});
+    movePill();
     b.textContent=tx('copy');
     c.setAttribute('aria-label',tx('stripLbl'));
     try{localStorage.setItem('lang',l)}catch(x){}
     if(window.drawStrip)drawStrip();
   }
-  btns.forEach(function(x){x.addEventListener('click',function(){setLang(x.dataset.l)})});
+  var group=document.querySelector('.langs');
+  function movePill(){
+    var on=btns.filter(function(b){return b.dataset.l===cur})[0];
+    group.style.setProperty('--pill-x',on.offsetLeft+'px');
+    group.style.setProperty('--pill-w',on.offsetWidth+'px');
+  }
+  var calm=matchMedia('(prefers-reduced-motion: reduce)');
+  // Keep whatever the reader was looking at in the same place: line heights
+  // and wrapping differ between languages, so the page height changes.
+  function keepPlace(fn){
+    var a=[].slice.call(document.querySelectorAll('main h2,main h3,main p,main figure,main li,footer')).filter(function(e){return e.getBoundingClientRect().top>=0})[0];
+    var y=a&&a.getBoundingClientRect().top;
+    fn();
+    if(a&&scrollY>0)scrollBy(0,a.getBoundingClientRect().top-y);
+  }
+  function switchLang(l){
+    if(l===cur)return;
+    var swap=function(){keepPlace(function(){setLang(l)})};
+    if(calm.matches)return swap();
+    if(document.startViewTransition)return document.startViewTransition(swap);
+    var root=document.documentElement;
+    root.classList.add('lang-swap');
+    setTimeout(function(){swap();requestAnimationFrame(function(){root.classList.remove('lang-swap')})},200);
+  }
+  btns.forEach(function(x){x.addEventListener('click',function(){switchLang(x.dataset.l)})});
   // copy email
   var b=document.getElementById('copy'),e=document.getElementById('email');
   b.addEventListener('click',function(){
@@ -597,7 +638,10 @@ it: {
     }
   }
   window.drawStrip=draw;draw();addEventListener('resize',draw);
-  if(saved!=='en')setLang(saved);
+  if(saved!=='en')setLang(saved);else movePill();
+  requestAnimationFrame(function(){group.classList.add('ready')});
+  addEventListener('resize',movePill);
+  if(document.fonts)document.fonts.ready.then(movePill);
 })();
 </script>
 
