@@ -121,6 +121,10 @@ html[dir="rtl"] .go:hover::after,html[dir="rtl"] .repo-all:hover::after{transfor
 .p-qgis{flex-direction:column}
 .plate.p-qgis .vis{flex:none;min-height:0;background:#0B110D}
 .p-qgis .vis img{width:100%;height:auto;display:block}
+.qtabs{display:flex;flex-wrap:wrap;gap:8px;padding:16px 22px}
+.qtabs button{font:inherit;font-size:14px;font-weight:600;cursor:pointer;color:var(--plate-fg);background:transparent;border:1px solid rgba(231,239,227,.22);padding:7px 15px;border-radius:999px;transition:background .2s,color .2s,border-color .2s}
+.qtabs button:hover{border-color:rgba(156,219,159,.6)}
+.qtabs button[aria-pressed="true"]{background:#9CDB9F;color:#0F1712;border-color:#9CDB9F}
 /* Halloween mod: banner beside the text */
 .p-halloween .vis{flex:1.6}
 .p-halloween .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
@@ -396,7 +400,18 @@ html[lang="fa"] .mail a{text-align:left}
 
       <article class="plate p-ml p-qgis">
         <div class="vis">
-          <img src="img/qgis-plugin.webp" alt="QGIS with the Norme Milano panel open: a click on the Duomo shows the planning constraints, the governing articles and an answer to a question about building a basement" width="1456" height="783" loading="lazy" decoding="async">
+          <div class="qtabs" role="group" aria-label="Examples">
+            <button type="button" data-q="0" aria-pressed="true" data-i="qT1">Duomo, historic core</button>
+            <button type="button" data-q="1" aria-pressed="false" data-i="qT2">Chiaravalle, park area</button>
+          </div>
+          <picture data-qpane="0">
+            <source media="(max-width:700px)" srcset="img/qgis-duomo-panel.webp" width="640" height="880">
+            <img src="img/qgis-duomo.webp" alt="QGIS with the Norme Milano panel open after a click on the Duomo: a historic-core constraint, the governing articles, and an answer in Italian and English about building a basement" width="1600" height="860" loading="lazy" decoding="async">
+          </picture>
+          <picture data-qpane="1" hidden>
+            <source media="(max-width:700px)" srcset="img/qgis-chiaravalle-panel.webp" width="640" height="880">
+            <img src="img/qgis-chiaravalle.webp" alt="QGIS with the Norme Milano panel open after a click near Chiaravalle: a transformation area inside the Parco Agricolo Sud Milano, with the park-plan articles and an answer about what can be built" width="1600" height="860" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="cap cap-wide">
           <div>
@@ -613,6 +628,7 @@ fa: {
   hwH:'هالووین برای Age of Empires II',
   hwP:'یک مود گرافیکی که به همهٔ نقشه‌ها ظاهر هالووینی می‌دهد: گوسفندهای عنکبوتی، حیوان‌های شبح، جنگل‌های تسخیرشده، مزرعه‌های کدو و ساختمان‌های مرکزیِ تزیین‌شده. هر ۴۲۲ اسپرایت با کد پایتون ساخته شده، برای همهٔ تمدن‌ها، و با همهٔ ۱۸۰ اسکریپت نقشهٔ تصادفی بررسی شده است. در بازی چندنفره و رتبه‌ای هم کار می‌کند. برای ساختنش بخشی مستندنشده از فرمت اسپرایت بازی را رمزگشایی کردم. در سایت رسمی مودها منتشر شده است.',
   tRE:'مهندسی معکوس', tProc:'تولید رویه‌ای',
+  qT1:'دومو، بافت تاریخی', qT2:'کیاراوالله، منطقهٔ پارک',
   qf1:'<b>۹۶٪</b>مواد ارجاع‌شده درست', qf2:'<b>۰</b>ارجاع ساختگی', qf3:'<b>۴۰</b>سؤال آزمایشی',
   rh8:'ربات تلگرامیِ تقلید یک آدم', rp8:'یک مدل گفتگو را روی پیام‌های یک نفر از خروجی گروه فاین‌تیون می‌کند و به شکل ربات اجرا می‌کند. تقسیم زمانی داده، نشتی را که یک‌سوم دادهٔ اعتبارسنجی را درگیر کرده بود برطرف کرد، و هر پاسخ با نسخهٔ ساخت خودش ثبت می‌شود تا تغییرها قابل مقایسه باشند.',
   qgH:'Norme Milano، افزونهٔ QGIS',
@@ -671,6 +687,7 @@ it: {
   hwH:'Halloween per Age of Empires II',
   hwP:'Una mod grafica che dà a ogni mappa un look di Halloween: pecore ragno, animali fantasma, foreste stregate, campi di zucche e Centri città decorati. Tutti i 422 sprite sono generati da codice Python, per ogni civiltà, e verificati su tutti i 180 script di mappe casuali. Funziona in multiplayer e nelle partite classificate. Per realizzarla ho decodificato una parte non documentata del formato sprite del gioco. Pubblicata sul sito ufficiale delle mod.',
   tRE:'Reverse engineering', tProc:'Generazione procedurale',
+  qT1:'Duomo, nucleo storico', qT2:'Chiaravalle, area del parco',
   qf1:'<b>96%</b>articoli citati corretti', qf2:'<b>0</b>citazioni inventate', qf3:'<b>40</b>domande di test',
   rh8:'Bot Telegram che imita una persona', rp8:'Addestra un modello di chat su una persona a partire dall\'export di un gruppo e lo fa girare come bot. Uno split cronologico ha eliminato una fuga di dati che toccava un terzo del set di validazione, e ogni risposta è marcata con la sua versione di build per confrontare le modifiche.',
   qgH:'Norme Milano, un plugin per QGIS',
@@ -769,5 +786,14 @@ it: {
 })();
 </script>
 
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.qtabs button')),panes=[].slice.call(document.querySelectorAll('[data-qpane]'));
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t?'true':'false')});
+    panes.forEach(function(p){p.hidden=p.getAttribute('data-qpane')!==t.getAttribute('data-q')});
+  })});
+})();
+</script>
 </body>
 </html>
