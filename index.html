@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M13 24V11' stroke='%232E7A3C' stroke-width='2.6' stroke-linecap='round' fill='none'/%3E%3Cpath d='M13 13C13 7 9 4 4 4c0 5 3.5 9 9 9z' fill='%232E7A3C'/%3E%3Cpath d='M13 11c0-5 3.5-8.5 9-8.5 0 5-3.8 8.5-9 8.5z' fill='%232E7A3C'/%3E%3C/svg%3E">
+<meta property="og:title" content="Saeed Sabzeh">
+<meta property="og:description" content="I build websites, Telegram bots and AI chatbots. AI master's student at the University of Milano-Bicocca.">
+<meta property="og:image" content="https://saeedsabzeh.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saeed Sabzeh: websites, Telegram bots and AI chatbots">
+<meta property="og:url" content="https://saeedsabzeh.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://saeedsabzeh.github.io/">
+<meta name="google-site-verification" content="U2I_u8QxCf67vhvJ4rJu6bhxYC17xVqTQmc-ld1xX9s">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#EDF1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1712" media="(prefers-color-scheme: dark)">
+<link rel="preload" as="image" href="img/portrait.webp" fetchpriority="high">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Saeed Sabzeh","url":"https://saeedsabzeh.github.io/","image":"https://saeedsabzeh.github.io/img/portrait.webp","email":"mailto:saeed.sabzeh.80@gmail.com","jobTitle":"Web, Telegram bot and AI chatbot developer","description":"Builds websites, Telegram bots and AI chatbots. AI master's student in Milan.","address":{"@type":"PostalAddress","addressLocality":"Milan","addressCountry":"IT"},"knowsLanguage":["en","fa","it"],"affiliation":{"@type":"CollegeOrUniversity","name":"University of Milano-Bicocca"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Iran University of Science and Technology"},"sameAs":["https://www.linkedin.com/in/saeedsabzeh/","https://www.kaggle.com/saeedsabzeh","https://github.com/SaeedSabzeh","https://www.fiverr.com/saeedsabzeh"]}
+</script>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Saeed Sabzeh · Web &amp; AI Developer in Milan</title>
+<meta name="description" content="Saeed Sabzeh builds websites, Telegram bots and AI chatbots. AI master's student at the University of Milano-Bicocca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: oversized name + arched portrait, then large project plates in an uneven two-column grid, services strip, contact. Left-aligned throughout. */
+:root{
+  --paper:#EDF1E8;      /* cool, faintly green paper */
+  --paper-2:#E1E8DB;    /* recessed surface */
+  --ink:#14211A;        /* green-black ink */
+  --ink-soft:#4C5A51;
+  --sabzeh:#2E7A3C;     /* wheatgrass green, the accent */
+  --sprout:#B9DDA0;     /* young-sprout tint */
+  --line:rgba(20,33,26,.14);
+  --plate:#18261E;      /* project plate ground (dark in both themes) */
+  --plate-fg:#E7EFE3;
+  --plate-soft:#9DB0A2;
+  --display:'Bricolage Grotesque','Figtree',system-ui,sans-serif;
+  --body:'Figtree',system-ui,-apple-system,sans-serif;
+  --gut-l:max(16px,env(safe-area-inset-left,0px));
+  --gut-r:max(16px,env(safe-area-inset-right,0px));
+  --arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F1712;--paper-2:#16211A;--ink:#E3ECDF;--ink-soft:#9FB1A4;--sabzeh:#7FC98C;--sprout:#2B4A31;
+  --line:rgba(227,236,223,.13);--plate:#1B2A21;--plate-fg:#E7EFE3;--plate-soft:#9DB0A2;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1712;--paper-2:#16211A;--ink:#E3ECDF;--ink-soft:#9FB1A4;--sabzeh:#7FC98C;--sprout:#2B4A31;
+  --line:rgba(227,236,223,.13);--plate:#1B2A21;--plate-fg:#E7EFE3;--plate-soft:#9DB0A2;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+:focus-visible{outline:2.5px solid var(--sabzeh);outline-offset:3px;border-radius:6px}
+
+/* ---------- top bar ---------- */
+.top{padding-block:22px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.mono{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.mono svg{width:26px;height:26px}
+.toplinks{display:flex;gap:6px;flex-wrap:wrap}
+.toplinks a{font-weight:500;font-size:15px;text-decoration:none;padding:8px 14px;border-radius:999px;color:var(--ink-soft);transition:background .25s,color .25s}
+.toplinks a:hover{background:var(--paper-2);color:var(--ink)}
+.toplinks a.hire{background:var(--ink);color:var(--paper)}
+.toplinks a.hire:hover{background:var(--sabzeh);color:var(--paper)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(28px,6vw,72px) clamp(56px,8vw,110px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(28px,5vw,72px);align-items:end}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(64px,13.5vw,188px);line-height:.86;letter-spacing:-.045em;font-variation-settings:'opsz' 96}
+.name span{display:block}
+.grow{display:block;width:min(420px,70%);height:56px;margin-top:18px}
+.grow path{fill:none;stroke:var(--sabzeh);stroke-width:2.6;stroke-linecap:round}
+.intro{margin-top:clamp(18px,3vw,30px);max-width:34ch;font-size:clamp(19px,2vw,23px);line-height:1.45;color:var(--ink-soft)}
+.intro b{color:var(--ink);font-weight:600}
+.where{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:14px;font-weight:500;padding:6px 13px;border-radius:999px;background:var(--paper-2);color:var(--ink-soft)}
+.arch{position:relative;justify-self:end;width:100%;max-width:340px;margin:0}
+.arch .frame{aspect-ratio:3/4;max-width:100%;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--sprout);box-shadow:0 0 0 7px var(--paper),0 0 0 9.5px var(--sabzeh)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+
+/* ---------- section heads ---------- */
+.sec{padding-block:clamp(48px,7vw,96px)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(26px,4vw,44px)}
+.h2{font-family:var(--display);font-weight:800;font-size:clamp(40px,6.4vw,84px);line-height:.95;letter-spacing:-.035em;text-wrap:balance}
+.sec-head p{max-width:40ch;color:var(--ink-soft)}
+
+/* ---------- project plates ---------- */
+.plates{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+.plate{position:relative;background:var(--plate);color:var(--plate-fg);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.plate .vis{position:relative;flex:1;min-height:300px;overflow:hidden}
+.plate .cap{padding:22px 26px 26px;display:flex;flex-direction:column;gap:8px}
+.plate h3{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.2vw,40px);line-height:1;letter-spacing:-.03em}
+.plate p{color:var(--plate-soft);font-size:16px;max-width:52ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tags span{font-size:13px;font-weight:500;padding:4px 11px;border-radius:999px;border:1px solid rgba(231,239,227,.2);color:var(--plate-fg)}
+.plate .go{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:8px;font-weight:600;font-size:15px;text-decoration:none;color:#0F1712;background:#9CDB9F;padding:10px 18px;border-radius:999px;transition:background .25s}
+.plate .go:hover{background:#C3EDC2}
+.go::after,.repo-all::after{content:"\2197";display:inline-block;transition:transform .25s}
+.go:hover::after,.repo-all:hover::after{transform:translate(2px,-2px)}
+html[dir="rtl"] .go::after,html[dir="rtl"] .repo-all::after{content:"\2196"}
+html[dir="rtl"] .go:hover::after,html[dir="rtl"] .repo-all:hover::after{transform:translate(-2px,-2px)}
+.p-coup{grid-column:1/-1}
+.p-coup .vis{min-height:0;background:radial-gradient(ellipse 80% 90% at 50% 0,#4A1630,#18261E 75%)}
+.p-bots{grid-column:1/8}
+.p-book{grid-column:8/-1}
+.p-bots .vis,.p-book .vis{min-height:420px}
+.p-ml{grid-column:1/-1;flex-direction:row}
+.p-ml .vis{flex:1.2;min-height:280px}
+.p-ml .cap{flex:1;justify-content:center;padding:30px}
+/* QGIS: framed screenshot (click to enlarge) beside the text */
+.plate.p-qgis .vis{flex:1.55;min-height:0;display:flex;flex-direction:column;justify-content:center;background:#0B110D}
+.qslider{margin:26px 22px 0;border-radius:12px;overflow:hidden;background:#0F1712;box-shadow:0 0 0 1px rgba(231,239,227,.16),0 26px 50px -26px #000}
+.qtrack{display:flex;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.qslide{flex:0 0 100%;min-width:0;margin:0}
+.qslide a{display:block;cursor:zoom-in}
+.qslide img{width:100%;height:auto;display:block}
+.qslide figcaption{padding:10px 16px 12px;font-size:13px;font-weight:500;color:var(--plate-soft)}
+.qdots{display:flex;justify-content:center;gap:8px;padding:14px 0 24px}
+.qdots button{width:9px;height:9px;padding:0;border:0;border-radius:99px;background:rgba(231,239,227,.28);cursor:pointer;transition:width .3s,background .3s}
+.qdots button[aria-current="true"]{width:26px;background:#9CDB9F}
+@media (prefers-reduced-motion:reduce){.qtrack{transition:none}}
+.qfacts{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:6px}
+.qfacts div{font-size:14px;line-height:1.3;color:var(--plate-soft)}
+.qfacts b{display:block;font-family:var(--display);font-weight:800;font-size:36px;line-height:1.05;color:#9CDB9F;font-variant-numeric:tabular-nums;unicode-bidi:isolate;direction:ltr}
+html[dir="rtl"] .qfacts b{text-align:right}
+@media (max-width:900px){.plate.p-qgis .vis{flex:none}}
+/* Halloween mod: banner beside the text */
+.p-halloween .vis{flex:1.6}
+.p-halloween .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+@media (max-width:900px){.plate.p-halloween .vis{flex:none;min-height:0;aspect-ratio:16/9}}
+
+/* COUP: four real phone screenshots */
+.phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,2vw,26px);padding:clamp(22px,4vw,48px) clamp(18px,4vw,48px) 0}
+.phones figure{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.phones img{width:100%;height:auto;aspect-ratio:520/1125;object-fit:cover;object-position:top;border-radius:clamp(14px,2vw,26px);border:clamp(3px,.5vw,6px) solid #0B110D;box-shadow:0 30px 60px -28px rgba(0,0,0,.9)}
+.phones figure:nth-child(even){transform:translateY(clamp(14px,3vw,40px))}
+.phones figcaption{font-size:13px;color:var(--plate-soft);text-align:center}
+.cap-wide{display:grid!important;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px 40px;align-items:start;padding-top:clamp(40px,5vw,64px)!important}
+.cap-wide>div:first-child{display:flex;flex-direction:column;gap:8px}
+.cap-wide .tags,.cap-wide .go{grid-column:1}
+.cap-wide .go{justify-self:start}
+.facts{grid-column:2;grid-row:1/4;display:grid;gap:14px;align-self:center}
+.facts div{display:flex;align-items:baseline;gap:12px;color:var(--plate-soft);font-size:15px;border-top:1px solid rgba(231,239,227,.12);padding-top:12px}
+.facts b{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;color:#9CDB9F;min-width:2.6ch;font-variant-numeric:tabular-nums}
+
+/* bot chat illustration */
+.p-bots .vis{display:flex;flex-direction:column;justify-content:space-between;gap:22px;padding:26px 26px 18px}
+.chat{display:flex;flex-direction:column;gap:10px;font-size:15px}
+.chat .m{max-width:78%;padding:10px 14px;border-radius:16px;line-height:1.35}
+.chat .me{align-self:flex-end;background:#2F6E44;border-bottom-right-radius:5px}
+.chat .bot{align-self:flex-start;background:#25362B;border-bottom-left-radius:5px}
+.chat .board{align-self:flex-start;width:min(300px,86%);background:#25362B;border-radius:16px;border-bottom-left-radius:5px;padding:12px 14px}
+.chat .board b{display:block;font-family:var(--display);font-size:14px;color:#9CDB9F;margin-bottom:6px}
+.chat .row{display:flex;justify-content:space-between;padding:5px 0;border-top:1px solid rgba(231,239,227,.08);font-variant-numeric:tabular-nums}
+.themes{display:flex;flex-wrap:wrap;gap:6px}
+.themes span{font-size:13px;padding:4px 10px;border-radius:999px;background:rgba(156,219,159,.14);color:#C3EDC2}
+
+/* rag illustration */
+.p-book .vis{display:flex;flex-direction:column;gap:18px;padding:26px 26px 8px}
+.qa{display:flex;flex-direction:column;gap:10px;font-size:15px}
+.qa .me{align-self:flex-end;max-width:85%;background:#2F6E44;padding:10px 14px;border-radius:16px;border-bottom-right-radius:5px}
+.qa .bot{align-self:flex-start;max-width:92%;background:#25362B;padding:10px 14px;border-radius:16px;border-bottom-left-radius:5px;line-height:1.4}
+.qa .call{align-self:flex-start;max-width:100%;display:flex;flex-direction:column;gap:3px;padding:8px 12px;border-radius:10px;border:1px dashed rgba(156,219,159,.32);background:rgba(156,219,159,.06);font:12.5px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#C3EDC2;direction:ltr;text-align:left;overflow-wrap:anywhere}
+.qa .call span::before{content:"\0192";margin-right:7px;color:#9CDB9F;opacity:.7}
+.qa .call em{font-style:normal;color:var(--plate-soft)}
+
+/* ML: leaderboard rank strip */
+.rank{position:absolute;inset:0;padding:32px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.rank .big{font-family:var(--display);font-weight:800;font-size:clamp(54px,8vw,104px);line-height:.9;letter-spacing:-.04em;color:#9CDB9F;font-variant-numeric:tabular-nums}
+.rank .big small{display:block;margin-top:12px;font-size:max(15px,.22em);line-height:1.3;color:var(--plate-soft);font-weight:600;letter-spacing:0}
+.strip{position:relative;height:46px;max-width:100%}
+.strip canvas{width:100%;height:100%;display:block}
+.strip-lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--plate-soft);font-variant-numeric:tabular-nums}
+
+/* ---------- other work ---------- */
+.repos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.repo{position:relative;padding:22px 44px 24px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0;text-decoration:none;color:inherit}
+a.repo::after{content:"";position:absolute;top:26px;right:18px;width:18px;height:18px;background:var(--ink-soft);-webkit-mask:var(--arrow) center/contain no-repeat;mask:var(--arrow) center/contain no-repeat;transition:transform .25s,background .25s}
+a.repo h3{transition:color .25s}
+a.repo:hover h3{color:var(--sabzeh)}
+a.repo:hover::after{background:var(--sabzeh);transform:translate(3px,-3px)}
+html[dir="rtl"] .repo{padding-right:0;padding-left:44px}
+html[dir="rtl"] a.repo::after{right:auto;left:18px;transform:scaleX(-1)}
+html[dir="rtl"] a.repo:hover::after{transform:scaleX(-1) translate(3px,-3px)}
+.repo-all{font-weight:600;font-size:15px;text-decoration:none;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);display:inline-flex;gap:8px;align-items:center;transition:border-color .25s,background .25s}
+.repo-all:hover{border-color:var(--sabzeh);background:var(--paper-2)}
+.sec.tight{padding-top:0}
+.h2.sm{font-size:clamp(32px,4.4vw,52px)}
+.repo:not(:nth-child(3n+1)){padding-left:22px;border-left:1px solid var(--line)}
+html[dir="rtl"] .repo:not(:nth-child(3n+1)){padding-left:44px;padding-right:22px;border-left:0;border-right:1px solid var(--line)}
+.repo h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.repo p{color:var(--ink-soft);font-size:15px}
+
+/* ---------- background ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:start}
+.edu{list-style:none;margin:0;padding:0}
+.edu li{position:relative;padding:0 0 30px 36px}
+.edu li::before{content:"";position:absolute;left:7px;top:14px;bottom:-4px;width:2px;background:var(--line)}
+.edu li:last-child::before{display:none}
+.edu li::after{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 3px var(--sabzeh)}
+.edu li:first-child::after{background:var(--sabzeh);box-shadow:0 0 0 5px var(--sprout)}
+html[dir="rtl"] .edu li{padding:0 36px 30px 0}
+html[dir="rtl"] .edu li::before{left:auto;right:7px}
+html[dir="rtl"] .edu li::after{left:auto;right:0}
+.edu .when{font-family:var(--display);font-weight:600;font-size:14px;color:var(--sabzeh);font-variant-numeric:tabular-nums}
+.edu h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.4vw,28px);line-height:1.15;letter-spacing:-.02em;margin:4px 0 6px;text-wrap:balance}
+.edu p{color:var(--ink-soft);font-size:16px;max-width:44ch}
+.proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:4px}
+.proof div{background:var(--paper-2);border-radius:20px;padding:18px 20px;color:var(--ink-soft);font-size:15px;line-height:1.35}
+.proof b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(36px,4vw,46px);line-height:1;letter-spacing:-.03em;color:var(--sabzeh);margin-bottom:8px;font-variant-numeric:tabular-nums;unicode-bidi:isolate;direction:ltr}
+html[dir="rtl"] .proof b{text-align:right}
+.tools{background:var(--plate);color:var(--plate-fg);border-radius:26px;padding:clamp(22px,3vw,34px)}
+.tools h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,34px);letter-spacing:-.03em;line-height:1;margin-bottom:14px}
+.tools dl{margin:0}
+.tools .grp{display:grid;grid-template-columns:140px minmax(0,1fr);gap:8px 18px;padding:14px 0;border-top:1px solid rgba(231,239,227,.12)}
+.tools .grp:last-child{padding-bottom:0}
+.tools dt{font-family:var(--display);font-weight:600;font-size:15px;color:#9CDB9F;padding-top:3px}
+.tools dd{margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.tools dd span{font-size:13px;font-weight:500;padding:4px 11px;border-radius:999px;border:1px solid rgba(231,239,227,.2);transition:background .2s,border-color .2s}
+.tools dd span:hover{background:rgba(156,219,159,.12);border-color:rgba(156,219,159,.45)}
+html[lang="fa"] .edu h3,html[lang="fa"] .tools h3,html[lang="fa"] .proof b{letter-spacing:0}
+
+/* ---------- services ---------- */
+.svc{background:var(--sabzeh);color:var(--paper)}
+.svc .h2{color:var(--paper)}
+.svc .sec-head p{color:var(--paper);opacity:.85}
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.svc-item{background:var(--paper);color:var(--ink);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.svc-item h3{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.svc-item p{color:var(--ink-soft);font-size:16px}
+.svc-item .from{margin-top:auto;padding-top:12px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--ink-soft)}
+.svc-item .from b{font-size:30px;color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums}
+
+.svc-item .order{align-self:flex-start;margin-top:6px;font-weight:600;font-size:15px;text-decoration:none;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--paper);transition:background .25s}
+.svc-item .order:hover{background:var(--sabzeh)}
+/* ---------- contact ---------- */
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:end}
+.contact .h2{font-size:clamp(46px,8vw,112px)}
+.cbox{display:flex;flex-direction:column;gap:12px}
+.mail{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--paper-2);border-radius:18px;padding:14px 14px 14px 20px}
+.mail a{font-weight:600;font-size:clamp(16px,2vw,20px);text-decoration:none;overflow-wrap:anywhere;flex:1;min-width:0;background:linear-gradient(var(--sabzeh),var(--sabzeh)) 0 100%/0 2px no-repeat;transition:background-size .3s,color .25s}
+.mail a:hover{color:var(--sabzeh);background-size:100% 2px}
+.btn{font:inherit;font-weight:600;font-size:15px;border:0;cursor:pointer;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;transition:background .25s}
+.btn:hover{background:var(--sabzeh)}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{text-decoration:none;font-weight:600;font-size:15px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);transition:border-color .25s,background .25s}
+.links a:hover{border-color:var(--sabzeh);background:var(--paper-2)}
+footer{padding-block:28px 40px;color:var(--ink-soft);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+
+
+/* language switch */
+.langs{position:relative;display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:var(--paper-2);view-transition-name:langs}
+.langs button{position:relative;z-index:1;font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--ink-soft);padding:5px 11px;border-radius:999px;cursor:pointer;min-width:38px;transition:color .3s}
+.langs button[aria-pressed="true"]{color:var(--paper)}
+/* the pressed pill slides between languages; JS sets its position */
+.langs::before{content:"";position:absolute;top:3px;bottom:3px;left:0;width:var(--pill-w,38px);transform:translateX(var(--pill-x,3px));border-radius:999px;background:var(--ink);transition:transform .45s cubic-bezier(.3,.7,.2,1),width .45s cubic-bezier(.3,.7,.2,1)}
+.langs:not(.ready)::before{transition:none}
+.langs button:hover:not([aria-pressed="true"]){color:var(--ink)}
+.toplinks{align-items:center}
+
+/* how it works */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.steps li{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:2px solid var(--ink);min-width:0}
+.steps .n{font-family:var(--display);font-weight:800;font-size:56px;line-height:1;color:var(--sabzeh);font-variant-numeric:tabular-nums}
+.steps h3{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-.02em;line-height:1.15}
+.steps p{color:var(--ink-soft);font-size:16px;max-width:36ch}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+
+/* Persian: its own face, no negative tracking (it breaks letter joining), taller lines */
+html[lang="fa"]{--display:'Vazirmatn','Figtree',system-ui,sans-serif;--body:'Vazirmatn','Figtree',system-ui,sans-serif}
+html[lang="fa"] .name,html[lang="fa"] .h2,html[lang="fa"] h3,html[lang="fa"] .mono,html[lang="fa"] .rank .big{letter-spacing:0}
+html[lang="fa"] .name{line-height:1.08;font-size:clamp(64px,12vw,170px)}
+html[lang="fa"] .h2{line-height:1.2}
+html[lang="fa"] body{line-height:1.8}
+.strip-lbl,.mail a{direction:ltr}
+html[lang="fa"] .mail a{text-align:left}
+
+.chat .m,.qa .me,.qa .bot>span{unicode-bidi:plaintext}
+.from b,.facts b{unicode-bidi:isolate;direction:ltr}
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .arch{justify-self:start;max-width:260px}
+  .p-bots,.p-book{grid-column:1/-1}
+  .p-ml{flex-direction:column}
+  .cap-wide{grid-template-columns:1fr}
+  .facts{grid-column:1;grid-row:auto}
+  .svc-grid{grid-template-columns:1fr}
+  .repos{grid-template-columns:1fr}
+  .repo,.repo:not(:nth-child(3n+1)),html[dir="rtl"] .repo,html[dir="rtl"] .repo:not(:nth-child(3n+1)){padding-inline:0 44px;border-inline:0}
+  .contact .wrap{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .toplinks a:not(.hire){display:none}
+  .toplinks a.hire{padding:7px 13px;font-size:14px}
+  .langs button{min-width:32px;padding:5px 8px}
+  .phones{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .phones figure:nth-child(even){transform:none}
+  .plate .vis{min-height:330px}
+  .tools .grp{grid-template-columns:1fr;gap:8px}
+}
+@media (max-width:380px){.mono-t{display:none}}
+
+/* ---------- the one motion moment: the sprout grows ---------- */
+.grow path{stroke-dasharray:1;stroke-dashoffset:0}
+@media (prefers-reduced-motion:no-preference){
+  .grow path{animation:draw 1.4s cubic-bezier(.3,.7,.2,1) .25s backwards}
+}
+@keyframes draw{from{stroke-dashoffset:1}}
+
+/* language switch: the page cross-fades with a slight lift, the switcher itself stays put */
+@media (prefers-reduced-motion:no-preference){
+  ::view-transition-old(root){animation:lang-out .22s ease-in both}
+  ::view-transition-new(root){animation:lang-in .42s cubic-bezier(.2,.7,.2,1) .08s both}
+  ::view-transition-old(langs){display:none}
+  ::view-transition-new(langs){animation:none}
+  ::view-transition-group(langs){animation-duration:.45s}
+  main,footer{transition:opacity .2s ease,transform .2s ease}
+  .lang-swap main,.lang-swap footer{opacity:0;transform:translateY(6px)}
+}
+@keyframes lang-out{to{opacity:0}}
+@keyframes lang-in{from{opacity:0;transform:translateY(8px)}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mono" href="#top" aria-label="Saeed Sabzeh, home">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 24V11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M13 13C13 7 9 4 4 4c0 5 3.5 9 9 9z" fill="var(--sabzeh)"/><path d="M13 11c0-5 3.5-8.5 9-8.5 0 5-3.8 8.5-9 8.5z" fill="var(--sabzeh)"/></svg>
+      <span class="mono-t">Saeed</span>
+    </a>
+    <nav class="toplinks" aria-label="Sections">
+      <a href="#work" data-i="n_work">Work</a>
+      <a href="#about" data-i="n_about">About</a>
+      <a href="#services" data-i="n_svc">Services</a>
+      <div class="langs" role="group" aria-label="Language" dir="ltr"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="fa" lang="fa" aria-pressed="false">فا</button><button type="button" data-l="it" aria-pressed="false">IT</button></div>
+      <a class="hire" href="#contact" data-i="n_hire">Work with me</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 class="name"><span data-i="h_first">Saeed</span> <span data-i="h_last">Sabzeh</span></h1>
+      <svg class="grow" viewBox="0 0 420 56" aria-hidden="true">
+        <path pathLength="1" d="M2 52 H418"/>
+        <path pathLength="1" d="M30 52 C30 40 27 31 21 24"/>
+        <path pathLength="1" d="M44 52 C44 36 47 24 54 12"/>
+        <path pathLength="1" d="M58 52 C58 42 56 35 52 30"/>
+        <path pathLength="1" d="M72 52 C72 38 76 28 83 20"/>
+        <path pathLength="1" d="M88 52 C88 44 86 39 82 35"/>
+        <path pathLength="1" d="M102 52 C102 34 99 22 93 10"/>
+        <path pathLength="1" d="M118 52 C118 42 121 35 126 30"/>
+      </svg>
+      <p class="intro" data-i="intro">I build <b>websites</b>, <b>Telegram bots</b> and <b>AI chatbots</b> that work on real phones, for real people.</p>
+      <div class="where"><span class="chip" data-i="chip1">M.Sc. in AI, University of Milano-Bicocca</span><span class="chip" data-i="chip2">English (C1), Persian, some Italian</span></div>
+    </div>
+    <figure class="arch">
+      <div class="frame"><img src="img/portrait.webp" alt="Portrait of Saeed Sabzeh" width="640" height="913" fetchpriority="high" decoding="async"></div>
+      
+    </figure>
+  </div>
+</section>
+
+<section class="sec" id="work" aria-labelledby="workH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="workH" data-i="workH">Things I've built</h2>
+      <p data-i="workP">Personal projects I designed, coded and shipped myself. The screenshots are the real apps.</p>
+    </div>
+
+    <div class="plates">
+      <article class="plate p-coup">
+        <div class="vis phones">
+          <figure><img src="img/coup-home.webp" alt="Coup home screen with Quick match, With friends and Vs computers" width="520" height="1125" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/coup-table.webp" alt="A Coup table where a computer player claims the Duke and you can challenge or pass" width="520" height="1125" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/coup-reformation.webp" alt="Coup Reformation table where players choose Loyalist or Reformist" width="520" height="1125" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/coup-home-fa.webp" alt="The Coup home screen in Persian, laid out right to left" width="520" height="1125" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="cap cap-wide">
+          <div>
+            <h3 data-i="coupH">Coup, a Telegram game</h3>
+            <p data-i="coupP">The bluffing card game for 2 to 6 players, running inside Telegram as a Mini App. Quick match with strangers, private rooms with friends, computer players that bluff by the odds, the Reformation expansion, player stats, and the whole app in English and Persian. The server runs the rules, so hidden cards never reach other players' phones, and a dropped connection picks up right where you left off.</p>
+          </div>
+          <div class="facts">
+            <div data-i="f1"><b>2–6</b>players per table</div>
+            <div data-i="f2"><b>349</b>automated tests</div>
+            <div data-i="f3"><b>2</b>languages, incl. right to left</div>
+          </div>
+          <div class="tags"><span>Telegram Mini App</span><span>React + TypeScript</span><span>Python FastAPI</span><span>WebSockets</span><span>Postgres</span></div>
+          <a class="go" href="https://t.me/coupminigamebot" target="_blank" rel="noopener" data-i="coupGo">Play on Telegram</a>
+        </div>
+      </article>
+
+      <article class="plate p-ml p-qgis">
+        <div class="vis">
+          <div class="qslider" role="group" aria-roledescription="carousel" aria-label="Norme Milano examples">
+            <div class="qtrack">
+              <figure class="qslide" aria-roledescription="slide">
+                <a href="img/qgis-duomo.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot"><picture>
+                  <source media="(max-width:700px)" srcset="img/qgis-duomo-panel.webp" width="640" height="880">
+                  <img src="img/qgis-duomo.webp" alt="QGIS with the Norme Milano panel open after a click on the Duomo: a historic-core constraint, the governing articles, and an answer about building a basement" width="1600" height="860" decoding="async">
+                </picture></a>
+                <figcaption data-i="qT1">Duomo, historic core</figcaption>
+              </figure>
+              <figure class="qslide" aria-roledescription="slide">
+                <a href="img/qgis-chiaravalle.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot"><picture>
+                  <source media="(max-width:700px)" srcset="img/qgis-chiaravalle-panel.webp" width="640" height="880">
+                  <img src="img/qgis-chiaravalle.webp" alt="QGIS with the Norme Milano panel open after a click near Chiaravalle: a transformation area inside the Parco Agricolo Sud Milano, with the park-plan articles and an answer about what can be built" width="1600" height="860" loading="lazy" decoding="async">
+                </picture></a>
+                <figcaption data-i="qT2">Chiaravalle, park area</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="qdots" role="group" aria-label="Choose a screenshot" dir="ltr"><button type="button" aria-label="Screenshot 1"></button><button type="button" aria-label="Screenshot 2"></button></div>
+        </div>
+        <div class="cap">
+          <h3 data-i="qgH">Norme Milano, a QGIS plugin</h3>
+          <p data-i="qgP">Click a point on the map of Milan and the plugin lists which planning rules apply there: the zoning, landscape, flood and park constraints from Regione Lombardia's live map services, with the governing articles of the PGT and the park plan. Optional AI answers in Italian or English use only those articles, and any citation outside them is removed. Version 0.1.3 is waiting for approval on the official QGIS plugin repository.</p>
+          <div class="qfacts">
+            <div data-i="qf1"><b>96%</b>of cited articles correct</div>
+            <div data-i="qf2"><b>0</b>invented citations</div>
+            <div data-i="qf3"><b>40</b>test questions</div>
+          </div>
+          <div class="tags"><span>Python</span><span>QGIS</span><span>RAG</span><span>Gemini</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/QGIS" target="_blank" rel="noopener" data-i="ragGo">See the code</a>
+        </div>
+      </article>
+
+      <article class="plate p-ml p-halloween">
+        <div class="vis">
+          <img src="img/aoe2-halloween.webp" alt="Age of Empires II with the Halloween mod: cobweb-covered pine trees, ghost deer, spider sheep, a skeleton boar, pumpkins and a decorated Town Center" width="1280" height="720" loading="lazy" decoding="async">
+        </div>
+        <div class="cap">
+          <h3 data-i="hwH">Halloween for Age of Empires II</h3>
+          <p data-i="hwP">A graphics mod that gives every map a Halloween makeover: spider sheep, ghost animals, haunted forests, pumpkin farms and decorated Town Centers. All 422 sprites are generated by Python code, for every civilization, and checked against all 180 random-map scripts. It works in multiplayer and ranked. To build it I decoded an undocumented part of the game's sprite format. Published on the official mod site.</p>
+          <div class="tags"><span>Python</span><span>NumPy</span><span data-i="tRE">Reverse engineering</span><span data-i="tProc">Procedural generation</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/aoe2-halloween-mod" target="_blank" rel="noopener" data-i="ragGo">See the code</a>
+        </div>
+      </article>
+
+      <article class="plate p-bots">
+        <div class="vis">
+          <div class="chat" aria-hidden="true">
+            <div class="m me">/play</div>
+            <div class="m bot" data-i="botMsg">You poured 7 cups of chai! Next round in 2 hours.</div>
+            <div class="m me">/top</div>
+            <div class="board"><b data-i="botBoard">This week's chai masters</b>
+              <div class="row"><span data-i="r1">1. Simin</span><span data-i="s1">412</span></div>
+              <div class="row"><span data-i="r2">2. Reza</span><span data-i="s2">388</span></div>
+              <div class="row"><span data-i="r3">3. Neda</span><span data-i="s3">301</span></div>
+            </div>
+          </div>
+          <div class="themes" data-i="themes"><span>Chai</span><span>Tahdig</span><span>Taarof</span><span>Konkur</span><span>Tehran traffic</span><span>Cats</span></div>
+        </div>
+        <div class="cap">
+          <h3 data-i="botsH">Telegram game bots</h3>
+          <p data-i="botsP">A family of group game bots, each with its own Persian in-joke theme. Members play once per cooldown, earn random scores and climb a group leaderboard.</p>
+          <div class="tags"><span>Python</span><span>Telegram Bot API</span><span data-i="tLead">Leaderboards</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/RankBots" target="_blank" rel="noopener" data-i="botsGo">See the code</a>
+        </div>
+      </article>
+
+      <article class="plate p-book">
+        <div class="vis">
+          <div class="qa" aria-hidden="true">
+            <div class="me" data-i="ragQ">Is The Silent Patient in stock? And how much is Atomic Habits?</div>
+            <div class="call"><span>check_stock("The Silent Patient") <em>&rarr; {"stock": 0}</em></span><span>get_price("Atomic Habits") <em>&rarr; "$18.75"</em></span></div>
+            <div class="bot"><span data-i="ragA">The Silent Patient is out of stock, we can order it in about five days. Atomic Habits is on the shelf at $18.75.</span></div>
+            <div class="me" data-i="ragQ2">I loved The Martian. What should I read next?</div>
+            <div class="call"><span>recommend_books(like="The Martian") <em>&rarr; Project Hail Mary, Dune&hellip;</em></span></div>
+            <div class="bot"><span data-i="ragA2">Try Project Hail Mary, also by Andy Weir. It's $19.99 and in stock.</span></div>
+          </div>
+        </div>
+        <div class="cap">
+          <h3 data-i="ragH">Bookstore assistant</h3>
+          <p data-i="ragP">A chat assistant for a bookstore that checks prices and stock by calling real functions instead of making answers up, and recommends books by meaning with semantic search. All 46 of its tests run offline, with no API key.</p>
+          <div class="tags"><span data-i="tTools">Function calling</span><span>RAG</span><span>OpenAI API</span><span>Gradio</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/booknow-assistant" target="_blank" rel="noopener" data-i="ragGo">See the code</a>
+        </div>
+      </article>
+
+      <article class="plate p-ml">
+        <div class="vis">
+          <div class="rank">
+            <div class="big" data-i="mlBig">Top 28%<small>1,300th of 4,730 teams</small></div>
+            <div class="strip"><canvas id="strip" aria-label="Final rank shown on a strip of all 4,730 teams" role="img"></canvas></div>
+            <div class="strip-lbl"><span data-i="sl1">1st</span><span data-i="sl2">4,730th</span></div>
+          </div>
+        </div>
+        <div class="cap">
+          <h3 data-i="mlH">Orbit Wars agent</h3>
+          <p data-i="mlP">A solo entry to a Kaggle real-time strategy competition. A hand-written orbital physics solver proposes strikes, and a PPO policy trained by self-play over 2 million steps decides which ones to take. It placed around 1,300th of 4,730 teams, and my post-mortem traces six measurement mistakes that capped it before training even began.</p>
+          <div class="tags"><span data-i="tRL">Reinforcement learning</span><span>PyTorch</span><span>Kaggle</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/orbit-wars-ppo/blob/main/docs/postmortem.md" target="_blank" rel="noopener" data-i="mlGo">Read the post-mortem</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight" aria-labelledby="moreH">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="h2 sm" id="moreH" data-i="moreH">More on GitHub</h2><a class="repo-all" href="https://github.com/SaeedSabzeh?tab=repositories" target="_blank" rel="noopener" data-i="allRepos">All repositories</a></div>
+    <div class="repos">
+      <a class="repo" href="https://github.com/SaeedSabzeh/telegram-persona-bot" target="_blank" rel="noopener"><h3 data-i="rh8">Telegram persona bot</h3><p data-i="rp8">Fine-tunes a chat model on one person from a group export and runs it as a bot. A chronological split removed a leak that hit a third of the validation set, and every reply is stamped with its build so changes can be compared.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/ossp-aco" target="_blank" rel="noopener"><h3 data-i="rh1">Ant colony scheduling</h3><p data-i="rp1">My B.Sc. thesis: ant colony optimization for open-shop scheduling, within 1.05% of the best published bounds, with a decoder rewritten to run about 11,000&times; faster.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/industrial-defect-detection" target="_blank" rel="noopener"><h3 data-i="rh2">Industrial defect detection</h3><p data-i="rp2">Three CNNs built from scratch in PyTorch. I caught a fake 100% score caused by data leakage, fixed the split, and reached 99.08% F1.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/neural-collaborative-filtering" target="_blank" rel="noopener"><h3 data-i="rh3">Neural recommendations</h3><p data-i="rp3">A NeuMF recommender on MovieLens 1M that beat popularity, user-CF, item-CF and SVD baselines on every metric.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/synthgen" target="_blank" rel="noopener"><h3 data-i="rh4">Synthgen</h3><p data-i="rp4">LLM-generated tabular datasets where every row is checked against a Pydantic schema, with a quality report on what came out.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/fastapi-game-backend" target="_blank" rel="noopener"><h3 data-i="rh5">Party-game backend</h3><p data-i="rp5">Async FastAPI server for a Unity mobile game: phone OTP login, JWT sessions and an admin console, running on a Linux VPS.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec about" id="about" aria-labelledby="aboutH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="aboutH" data-i="aboutH">Background</h2>
+      <p data-i="aboutP">Where I learned to build carefully, and what I build with.</p>
+    </div>
+    <div class="about-grid">
+      <div>
+        <ol class="edu">
+          <li><span class="when" data-i="ed1w">2025 – now</span><h3 data-i="ed1h">M.Sc. Artificial Intelligence for Science and Technology</h3><p data-i="ed1p">University of Milano-Bicocca, a joint degree with the University of Milan and the University of Pavia.</p></li>
+          <li><span class="when" data-i="ed2w">2020 – 2024</span><h3 data-i="ed2h">B.Sc. Computer Science</h3><p data-i="ed2p">Iran University of Science and Technology, Tehran. Thesis on ant colony optimization for scheduling.</p></li>
+        </ol>
+        <div class="proof">
+          <div data-i="pfT"><b>500+</b>automated tests across my projects</div>
+          <div data-i="pfE"><b>7.0</b>IELTS, English at C1 level</div>
+        </div>
+      </div>
+      <div class="tools">
+        <h3 data-i="tbH">Toolbox</h3>
+        <dl>
+          <div class="grp"><dt data-i="tg1">LLM systems</dt><dd><span>Function calling</span><span>RAG</span><span>Structured outputs</span><span>Pydantic</span><span>Prompt engineering</span><span>Fine-tuning</span></dd></div>
+          <div class="grp"><dt data-i="tg2">Backend</dt><dd><span>Python</span><span>FastAPI</span><span>WebSockets</span><span>PostgreSQL</span><span>Supabase</span><span>JWT &amp; OTP auth</span></dd></div>
+          <div class="grp"><dt data-i="tg3">Frontend</dt><dd><span>React</span><span>TypeScript</span><span>Vite</span><span>Telegram Mini Apps</span><span>Right-to-left &amp; i18n</span></dd></div>
+          <div class="grp"><dt data-i="tg4">Machine learning</dt><dd><span>PyTorch</span><span>PPO &amp; self-play</span><span>CNNs</span><span>LSTM &amp; GRU</span><span>Transformers</span><span>scikit-learn</span></dd></div>
+          <div class="grp"><dt data-i="tg5">Testing &amp; shipping</dt><dd><span>pytest</span><span>Hypothesis</span><span>Vitest</span><span>Playwright</span><span>Docker</span><span>Render</span><span>Linux VPS</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec svc" id="services" aria-labelledby="svcH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="svcH" data-i="svcH">What I can build for you</h2>
+      <p data-i="svcP">Tell me what you need and I'll suggest the simplest version that does the job, with a fixed price before I start.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-item"><h3 data-i="sv1h">Websites and landing pages</h3><p data-i="sv1p">Fast, mobile-first sites for a business, a shop or yourself. Contact forms, bookings, and a database when you need one.</p><div class="from"><span data-i="from">from</span> <b>$90</b></div><a class="order" href="https://www.fiverr.com/saeedsabzeh/build-a-responsive-website-or-landing-page-for-your-business" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
+      <div class="svc-item"><h3 data-i="sv2h">Telegram bots</h3><p data-i="sv2p">Group games, booking and order bots, admin tools and scheduled messages, written in Python.</p><div class="from"><span data-i="from">from</span> <b>$30</b></div><a class="order" href="https://www.fiverr.com/saeedsabzeh/create-a-custom-telegram-bot-in-python" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
+      <div class="svc-item"><h3 data-i="sv3h">AI chatbots on your documents</h3><p data-i="sv3p">A chatbot that answers from your own PDFs, FAQs or website, shows its sources, and can sit on your site.</p><div class="from"><span data-i="from">from</span> <b>$90</b></div><a class="order" href="https://www.fiverr.com/saeedsabzeh/build-an-ai-chatbot-that-answers-questions-from-your-documents" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec how" aria-labelledby="howH">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="h2" id="howH" data-i="howH">How it works</h2></div>
+    <ol class="steps">
+      <li><span class="n" data-i="n1">1</span><h3 data-i="st1h">Tell me the idea</h3><p data-i="st1p">Send a message with what you need, even if it's still rough. Screenshots of sites or bots you like help a lot.</p></li>
+      <li><span class="n" data-i="n2">2</span><h3 data-i="st2h">Get a plan and a fixed price</h3><p data-i="st2p">I reply with the simplest version that does the job, the price and the delivery date. No surprise costs later.</p></li>
+      <li><span class="n" data-i="n3">3</span><h3 data-i="st3h">See it come together</h3><p data-i="st3p">You see progress while I build and can ask for changes before delivery. You get all the code.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec contact" id="contact" aria-labelledby="cH">
+  <div class="wrap">
+    <h2 class="h2" id="cH" data-i="cH">Have an idea? Let's build it.</h2>
+    <div class="cbox">
+      <div class="mail"><a id="email" href="mailto:saeed.sabzeh.80@gmail.com">saeed.sabzeh.80@gmail.com</a><button class="btn" id="copy" type="button">Copy email</button></div>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/saeedsabzeh/" target="_blank" rel="noopener me">LinkedIn</a>
+        <a href="https://github.com/SaeedSabzeh" target="_blank" rel="noopener me">GitHub</a>
+        <a href="https://www.kaggle.com/saeedsabzeh" target="_blank" rel="noopener me">Kaggle</a>
+        <a href="https://www.fiverr.com/saeedsabzeh" target="_blank" rel="noopener">Fiverr</a>
+        <a href="https://t.me/coupminigamebot" target="_blank" rel="noopener" data-i="cCoup">Play Coup on Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><span data-i="ft2">Built by hand, like everything else here.</span></div></footer>
+
+<script>
+// Translations. English lives in the HTML; these replace it by data-i key.
+var I18N = {
+fa: {
+  n_work:'نمونه‌کارها', n_about:'درباره من', n_svc:'خدمات', n_hire:'همکاری با من',
+  h_first:'سعید', h_last:'سبزه',
+  intro:'<b>سایت</b>، <b>ربات تلگرام</b> و <b>چت‌بات هوش مصنوعی</b> می‌سازم؛ چیزهایی که روی گوشی واقعی، برای آدم‌های واقعی درست کار می‌کنند.',
+  chip1:'کارشناسی ارشد هوش مصنوعی، دانشگاه میلان-بیکوکا', chip2:'انگلیسی (C1)، فارسی، کمی ایتالیایی',
+  workH:'چیزهایی که ساخته‌ام',
+  workP:'پروژه‌های شخصی که خودم طراحی کردم، نوشتم و منتشر کردم. اسکرین‌شات‌ها از خودِ برنامه‌ها هستند.',
+  coupH:'کودتا، یک بازی تلگرامی',
+  coupP:'بازی کارتیِ بلوف برای ۲ تا ۶ نفر که به‌صورت مینی‌اپ داخل تلگرام اجرا می‌شود. بازی سریع با غریبه‌ها، اتاق خصوصی با دوستان، بازیکن‌های کامپیوتری که بر اساس احتمالات بلوف می‌زنند، بستهٔ الحاقی Reformation، آمار بازیکن‌ها، و کل برنامه به فارسی و انگلیسی. قوانین بازی روی سرور اجرا می‌شود، پس کارت‌های پنهان هیچ‌وقت به گوشی بازیکن‌های دیگر نمی‌رسد، و اگر اتصال قطع شود بازی دقیقاً از همان‌جا ادامه پیدا می‌کند.',
+  f1:'<b>۲–۶</b>بازیکن سر هر میز', f2:'<b>۳۴۹</b>تست خودکار', f3:'<b>۲</b>زبان، با پشتیبانی راست‌به‌چپ',
+  coupGo:'در تلگرام بازی کنید', botsGo:'دیدن کد', ragGo:'دیدن کد', mlGo:'خواندن تحلیل کامل', allRepos:'همهٔ مخزن‌ها',
+  botMsg:'۷ استکان چای ریختی! دور بعد ۲ ساعت دیگه.', botBoard:'استادهای چای این هفته',
+  r1:'۱. سیمین', r2:'۲. رضا', r3:'۳. ندا', s1:'۴۱۲', s2:'۳۸۸', s3:'۳۰۱',
+  themes:'<span>چای</span><span>ته‌دیگ</span><span>تعارف</span><span>کنکور</span><span>ترافیک تهران</span><span>گربه</span>',
+  botsH:'ربات‌های بازی تلگرام',
+  botsP:'خانواده‌ای از ربات‌های بازی گروهی که هرکدام با یک تم و شوخی بین‌خودی ایرانی ساخته شده‌اند. اعضا در هر بازهٔ انتظار فقط یک‌بار می‌توانند بازی کنند، امتیاز تصادفی می‌گیرند و در جدول گروه بالا می‌روند.',
+  tLead:'جدول امتیازات',
+  ragQ:'کتاب The Silent Patient موجوده؟ Atomic Habits چنده؟', ragA:'کتاب The Silent Patient الان موجود نیست؛ می‌توانیم حدود پنج روزه سفارشش بدهیم. Atomic Habits موجود است و قیمتش ۱۸٫۷۵ دلار است.',
+  ragQ2:'از The Martian خیلی خوشم اومد. بعدش چی بخونم؟', ragA2:'کتاب Project Hail Mary را امتحان کنید، آن هم از اندی ویر. قیمتش ۱۹٫۹۹ دلار است و موجود است.',
+  ragH:'دستیار کتاب‌فروشی',
+  ragP:'یک دستیار گفتگو برای کتاب‌فروشی که قیمت و موجودی را با صدا زدن توابع واقعی پیدا می‌کند، نه با حدس زدن، و با جستجوی معنایی کتاب پیشنهاد می‌دهد. هر ۴۶ تستش بدون اینترنت و بدون کلید API اجرا می‌شوند.',
+  tTools:'فراخوانی تابع',
+  mlBig:'۲۸٪ برتر<small>رتبهٔ ۱٬۳۰۰ از ۴٬۷۳۰ تیم</small>', stripLbl:'رتبهٔ نهایی روی نواری از همهٔ ۴٬۷۳۰ تیم', sl1:'رتبهٔ ۱', sl2:'رتبهٔ ۴٬۷۳۰',
+  mlH:'ایجنت Orbit Wars',
+  mlP:'شرکت انفرادی در یک مسابقهٔ استراتژی بلادرنگ در Kaggle. یک حل‌کنندهٔ فیزیک مداری که خودم نوشتم حمله‌ها را پیشنهاد می‌دهد و یک سیاست PPO که با بازی با خودش در ۲ میلیون گام آموزش دیده تصمیم می‌گیرد کدام‌ها اجرا شوند. حدوداً رتبهٔ ۱٬۳۰۰ از ۴٬۷۳۰ تیم را گرفت و در تحلیل نهایی‌ام شش خطای اندازه‌گیری را پیدا کردم که حتی قبل از شروع آموزش سقف نتیجه را پایین آورده بودند.',
+  tRL:'یادگیری تقویتی',
+  moreH:'بیشتر در گیت‌هاب',
+  rh1:'زمان‌بندی با کلونی مورچه', rp1:'پایان‌نامهٔ کارشناسی‌ام: بهینه‌سازی کلونی مورچه برای زمان‌بندی open-shop، در فاصلهٔ ۱٫۰۵٪ از بهترین کران‌های منتشرشده، با دیکودری که بازنویسی‌اش آن را حدود ۱۱٬۰۰۰ برابر سریع‌تر کرد.',
+  rh2:'تشخیص عیب صنعتی', rp2:'سه شبکهٔ CNN که از صفر با PyTorch ساختم. یک امتیاز ۱۰۰٪ جعلی را که از نشت داده می‌آمد پیدا کردم، تقسیم داده را درست کردم و به F1 برابر ۹۹٫۰۸٪ رسیدم.',
+  rh3:'سیستم پیشنهاددهندهٔ عصبی', rp3:'سیستم پیشنهاددهندهٔ NeuMF روی MovieLens 1M که در همهٔ معیارها از مدل‌های پایهٔ محبوبیت، user-CF، item-CF و SVD بهتر بود.',
+  rh4:'Synthgen', rp4:'ساخت دادهٔ جدولی با LLM که هر سطرش با یک اسکیمای Pydantic بررسی می‌شود، همراه با گزارش کیفیت خروجی.',
+  rh5:'بک‌اند بازی گروهی', rp5:'سرور async با FastAPI برای یک بازی موبایل Unity: ورود با کد یک‌بارمصرف پیامکی، نشست‌های JWT و پنل مدیریت، روی سرور لینوکسی.',
+  rh6:'Booknow assistant', rp6:'کدِ همان دستیار کتاب‌فروشی که بالاتر دیدید.',
+  hwH:'هالووین برای Age of Empires II',
+  hwP:'یک مود گرافیکی که به همهٔ نقشه‌ها ظاهر هالووینی می‌دهد: گوسفندهای عنکبوتی، حیوان‌های شبح، جنگل‌های تسخیرشده، مزرعه‌های کدو و ساختمان‌های مرکزیِ تزیین‌شده. هر ۴۲۲ اسپرایت با کد پایتون ساخته شده، برای همهٔ تمدن‌ها، و با همهٔ ۱۸۰ اسکریپت نقشهٔ تصادفی بررسی شده است. در بازی چندنفره و رتبه‌ای هم کار می‌کند. برای ساختنش بخشی مستندنشده از فرمت اسپرایت بازی را رمزگشایی کردم. در سایت رسمی مودها منتشر شده است.',
+  tRE:'مهندسی معکوس', tProc:'تولید رویه‌ای',
+  qT1:'دومو، بافت تاریخی', qT2:'کیاراوالله، منطقهٔ پارک',
+  qf1:'<b>۹۶٪</b>مواد ارجاع‌شده درست', qf2:'<b>۰</b>ارجاع ساختگی', qf3:'<b>۴۰</b>سؤال آزمایشی',
+  rh8:'ربات تلگرامیِ تقلید یک آدم', rp8:'یک مدل گفتگو را روی پیام‌های یک نفر از خروجی گروه فاین‌تیون می‌کند و به شکل ربات اجرا می‌کند. تقسیم زمانی داده، نشتی را که یک‌سوم دادهٔ اعتبارسنجی را درگیر کرده بود برطرف کرد، و هر پاسخ با نسخهٔ ساخت خودش ثبت می‌شود تا تغییرها قابل مقایسه باشند.',
+  qgH:'Norme Milano، افزونهٔ QGIS',
+  qgP:'روی یک نقطه از نقشهٔ میلان کلیک می‌کنید و افزونه نشان می‌دهد چه مقررات شهرسازی آنجا اعمال می‌شود: محدودیت‌های پهنه‌بندی، منظر، سیل و پارک از سرویس‌های نقشهٔ زندهٔ منطقهٔ لومباردی، همراه با موادِ حاکم در PGT و طرح پارک. پاسخ‌های اختیاریِ هوش مصنوعی به ایتالیایی یا انگلیسی فقط از همین مواد ساخته می‌شوند و هر ارجاعِ بیرون از آن‌ها حذف می‌شود. نسخهٔ ۰٫۱٫۳ منتظر تأیید در مخزن رسمی افزونه‌های QGIS است.',
+  aboutH:'پیشینه', aboutP:'جایی که یاد گرفتم با دقت بسازم، و ابزارهایی که با آن‌ها می‌سازم.',
+  ed1w:'۲۰۲۵ تا امروز', ed1h:'کارشناسی ارشد هوش مصنوعی برای علوم و فناوری', ed1p:'دانشگاه میلان-بیکوکا، مدرک مشترک با دانشگاه میلان و دانشگاه پاویا.',
+  ed2w:'۲۰۲۰ تا ۲۰۲۴', ed2h:'کارشناسی علوم کامپیوتر', ed2p:'دانشگاه علم و صنعت ایران، تهران. پایان‌نامه دربارهٔ بهینه‌سازی کلونی مورچه برای زمان‌بندی.',
+  pfT:'<b>۵۰۰+</b>تست خودکار در پروژه‌هایم', pfE:'<b>۷٫۰</b>آیلتس، انگلیسی در سطح C1',
+  tbH:'جعبه‌ابزار', tg1:'سیستم‌های LLM', tg2:'بک‌اند', tg3:'فرانت‌اند', tg4:'یادگیری ماشین', tg5:'تست و انتشار',
+  svcH:'چه چیزهایی می‌توانم برایتان بسازم؟',
+  svcP:'بگویید چه لازم دارید؛ ساده‌ترین نسخه‌ای را که کارتان را راه بیندازد پیشنهاد می‌دهم، با قیمت ثابت قبل از شروع کار.',
+  sv1h:'سایت و لندینگ پیج', sv1p:'سایت‌های سریع و مناسب موبایل برای کسب‌وکار، فروشگاه یا خودتان. فرم تماس، رزرو و در صورت نیاز دیتابیس.',
+  sv2h:'ربات‌های تلگرام', sv2p:'بازی‌های گروهی، ربات رزرو و سفارش، ابزارهای مدیریتی و پیام‌های زمان‌بندی‌شده، با پایتون.',
+  sv3h:'چت‌بات هوش مصنوعی روی اسناد شما', sv3p:'چت‌باتی که از روی PDF‌ها، سؤالات متداول یا سایت خودتان جواب می‌دهد، منابعش را نشان می‌دهد و می‌تواند روی سایتتان باشد.',
+  from:'از', order:'سفارش در فایور',
+  howH:'روال کار',
+  n1:'۱', n2:'۲', n3:'۳',
+  st1h:'ایده‌تان را بگویید', st1p:'پیام بدهید و بگویید چه می‌خواهید، حتی اگر هنوز دقیق نیست. اسکرین‌شات سایت یا رباتی که می‌پسندید کمک زیادی می‌کند.',
+  st2h:'طرح و قیمت ثابت بگیرید', st2p:'ساده‌ترین نسخه‌ای را که کار را راه بیندازد، همراه با قیمت و زمان تحویل برایتان می‌فرستم. بعداً هیچ هزینهٔ پیش‌بینی‌نشده‌ای در کار نیست.',
+  st3h:'شکل گرفتنش را ببینید', st3p:'در طول کار پیشرفت را می‌بینید و قبل از تحویل می‌توانید تغییر بخواهید. همهٔ کد را هم تحویل می‌گیرید.',
+  cH:'ایده‌ای دارید؟ بیایید آن را بسازیم.',
+  cCoup:'کودتا را در تلگرام بازی کنید',
+  ft1:'سعید سبزه، میلان', ft2:'با دست ساخته شده، مثل بقیهٔ چیزهای این صفحه.',
+  copy:'کپی ایمیل', copied:'کپی شد', selected:'انتخاب شد، Ctrl+C را بزنید'
+},
+it: {
+  n_work:'Progetti', n_about:'Chi sono', n_svc:'Servizi', n_hire:'Contattami',
+  intro:'Creo <b>siti web</b>, <b>bot Telegram</b> e <b>chatbot IA</b> che funzionano su telefoni veri, per persone vere.',
+  chip1:'Laurea magistrale in IA, Università di Milano-Bicocca', chip2:'Inglese (C1), persiano, un po\' di italiano',
+  workH:'Cosa ho costruito',
+  workP:'Progetti personali che ho ideato, sviluppato e pubblicato da solo. Gli screenshot arrivano dalle app vere.',
+  coupH:'Coup, un gioco su Telegram',
+  coupP:'Il gioco di carte e bluff per 2–6 giocatori, che gira dentro Telegram come Mini App. Partita rapida con sconosciuti, stanze private con gli amici, avversari controllati dal computer che bluffano secondo le probabilità, l\'espansione Reformation, statistiche dei giocatori e tutta l\'app in inglese e persiano. Le regole girano sul server, quindi le carte nascoste non arrivano mai ai telefoni degli altri giocatori, e se la connessione cade si riprende esattamente da dove eri.',
+  f1:'<b>2–6</b>giocatori per tavolo', f2:'<b>349</b>test automatici', f3:'<b>2</b>lingue, compresa una da destra a sinistra',
+  coupGo:'Gioca su Telegram', botsGo:'Guarda il codice', ragGo:'Guarda il codice', mlGo:'Leggi l\'analisi', allRepos:'Tutti i repository',
+  botMsg:'Hai versato 7 tazze di chai! Prossimo giro tra 2 ore.', botBoard:'I maestri del chai della settimana',
+  themes:'<span>Chai</span><span>Tahdig</span><span>Taarof</span><span>Konkur</span><span>Traffico di Teheran</span><span>Gatti</span>',
+  botsH:'Bot di gioco per Telegram',
+  botsP:'Una famiglia di bot per giochi di gruppo, ognuno con un tema ispirato a una battuta interna persiana. I membri giocano una volta a ogni intervallo di attesa, ottengono punteggi casuali e scalano la classifica del gruppo.',
+  tLead:'Classifiche',
+  ragQ:'The Silent Patient è disponibile? E quanto costa Atomic Habits?', ragA:'The Silent Patient al momento è esaurito, possiamo ordinarlo in circa cinque giorni. Atomic Habits è disponibile a $18.75.',
+  ragQ2:'Mi è piaciuto molto The Martian. Cosa leggo adesso?', ragA2:'Prova Project Hail Mary, sempre di Andy Weir. Costa $19.99 ed è disponibile.',
+  ragH:'Assistente per libreria',
+  ragP:'Un assistente in chat per una libreria che controlla prezzi e disponibilità chiamando funzioni vere invece di inventare le risposte, e consiglia libri per significato con la ricerca semantica. Tutti i suoi 46 test girano offline, senza chiave API.',
+  tTools:'Function calling', rh5:'Backend per party game',
+  mlBig:'Top 28%<small>1.300° su 4.730 squadre</small>', stripLbl:'Posizione finale su una striscia di tutte le 4.730 squadre', tRL:'Apprendimento per rinforzo', sl1:'1ª', sl2:'4.730ª',
+  mlH:'Agente per Orbit Wars',
+  mlP:'Una partecipazione in solitaria a una competizione Kaggle di strategia in tempo reale. Un risolutore di fisica orbitale scritto a mano propone gli attacchi e una policy PPO, addestrata in self-play per 2 milioni di passi, decide quali eseguire. Ha chiuso intorno al 1.300° posto su 4.730 squadre, e la mia analisi individua sei errori di misurazione che ne avevano limitato il risultato prima ancora dell\'addestramento.',
+  moreH:'Altro su GitHub',
+  rh1:'Scheduling con colonie di formiche', rp1:'La mia tesi triennale: ottimizzazione con colonie di formiche per l\'open-shop scheduling, entro l\'1,05% dai migliori limiti pubblicati, con un decoder riscritto per essere circa 11.000 volte più veloce.',
+  rh2:'Rilevamento difetti industriali', rp2:'Tre CNN costruite da zero in PyTorch. Ho scoperto un falso 100% causato da data leakage, ho corretto lo split e ho raggiunto il 99,08% di F1.',
+  rh3:'Raccomandazioni neurali', rp3:'Un recommender NeuMF su MovieLens 1M che ha battuto popolarità, user-CF, item-CF e SVD su ogni metrica.',
+  rp4:'Dataset tabellari generati con un LLM, dove ogni riga è validata da uno schema Pydantic, con un report sulla qualità del risultato.',
+  rp5:'Server FastAPI asincrono per un gioco mobile in Unity: login con OTP via SMS, sessioni JWT e una console di amministrazione, su un VPS Linux.',
+  rp6:'Il codice dell\'assistente per libreria qui sopra.',
+  hwH:'Halloween per Age of Empires II',
+  hwP:'Una mod grafica che dà a ogni mappa un look di Halloween: pecore ragno, animali fantasma, foreste stregate, campi di zucche e Centri città decorati. Tutti i 422 sprite sono generati da codice Python, per ogni civiltà, e verificati su tutti i 180 script di mappe casuali. Funziona in multiplayer e nelle partite classificate. Per realizzarla ho decodificato una parte non documentata del formato sprite del gioco. Pubblicata sul sito ufficiale delle mod.',
+  tRE:'Reverse engineering', tProc:'Generazione procedurale',
+  qT1:'Duomo, nucleo storico', qT2:'Chiaravalle, area del parco',
+  qf1:'<b>96%</b>articoli citati corretti', qf2:'<b>0</b>citazioni inventate', qf3:'<b>40</b>domande di test',
+  rh8:'Bot Telegram che imita una persona', rp8:'Addestra un modello di chat su una persona a partire dall\'export di un gruppo e lo fa girare come bot. Uno split cronologico ha eliminato una fuga di dati che toccava un terzo del set di validazione, e ogni risposta è marcata con la sua versione di build per confrontare le modifiche.',
+  qgH:'Norme Milano, un plugin per QGIS',
+  qgP:'Clicca un punto sulla mappa di Milano e il plugin elenca le norme urbanistiche che vi si applicano: i vincoli di zonizzazione, paesaggio, rischio alluvioni e parchi dai servizi cartografici in tempo reale di Regione Lombardia, con gli articoli del PGT e del piano del parco che li regolano. Le risposte opzionali dell\'IA, in italiano o inglese, usano solo quegli articoli e ogni citazione esterna viene rimossa. La versione 0.1.3 è in attesa di approvazione sul repository ufficiale dei plugin QGIS.',
+  aboutH:'Percorso', aboutP:'Dove ho imparato a costruire con cura, e con cosa costruisco.',
+  ed1w:'2025 – oggi', ed1h:'Laurea magistrale in Artificial Intelligence for Science and Technology', ed1p:"Università di Milano-Bicocca, titolo congiunto con l'Università degli Studi di Milano e l'Università di Pavia.",
+  ed2w:'2020 – 2024', ed2h:'Laurea triennale in Informatica', ed2p:"Iran University of Science and Technology, Teheran. Tesi sull'ottimizzazione con colonie di formiche per lo scheduling.",
+  pfT:'<b>500+</b>test automatici nei miei progetti', pfE:'<b>7.0</b>IELTS, inglese di livello C1',
+  tbH:'Strumenti', tg1:'Sistemi LLM', tg5:'Test e rilascio',
+  svcH:'Cosa posso costruire per te',
+  svcP:'Dimmi di cosa hai bisogno e ti propongo la versione più semplice che fa quello che ti serve, con un prezzo fisso prima di iniziare.',
+  sv1h:'Siti web e landing page', sv1p:'Siti veloci e pensati per il mobile, per un\'attività, un negozio o per te. Moduli di contatto, prenotazioni e un database quando serve.',
+  sv2h:'Bot Telegram', sv2p:'Giochi di gruppo, bot per prenotazioni e ordini, strumenti di amministrazione e messaggi programmati, scritti in Python.',
+  sv3h:'Chatbot IA sui tuoi documenti', sv3p:'Un chatbot che risponde in base ai tuoi PDF, alle FAQ o al tuo sito, mostra le fonti e può essere inserito nelle tue pagine.',
+  from:'da', order:'Ordina su Fiverr',
+  howH:'Come funziona',
+  st1h:'Raccontami l\'idea', st1p:'Mandami un messaggio con quello che ti serve, anche se è ancora vago. Gli screenshot di siti o bot che ti piacciono aiutano molto.',
+  st2h:'Ricevi un piano e un prezzo fisso', st2p:'Ti rispondo con la versione più semplice che fa quello che ti serve, il prezzo e la data di consegna. Nessun costo a sorpresa dopo.',
+  st3h:'Guardalo prendere forma', st3p:'Segui i progressi mentre lavoro e puoi chiedere modifiche prima della consegna. Ricevi tutto il codice.',
+  cH:'Hai un\'idea? Costruiamola.',
+  cCoup:'Gioca a Coup su Telegram',
+  ft1:'Saeed Sabzeh, Milano', ft2:'Fatto a mano, come tutto il resto qui.',
+  copy:'Copia email', copied:'Copiata', selected:'Selezionata, premi Ctrl+C'
+}
+};
+
+(function(){
+  var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',stripLbl:'Final rank shown on a strip of all 4,730 teams'},cur='en';
+  function tx(k){return (I18N[cur]&&I18N[cur][k])||EN[k]}
+  // language
+  var nodes=[].slice.call(document.querySelectorAll('[data-i]'));
+  nodes.forEach(function(n){n.dataset.en=n.innerHTML});
+  var btns=[].slice.call(document.querySelectorAll('.langs button'));
+  function setLang(l){
+    if(!I18N[l]&&l!=='en')l='en';cur=l;
+    var d=document.documentElement;d.lang=l;d.dir=l==='fa'?'rtl':'ltr';
+    nodes.forEach(function(n){var t=l!=='en'&&I18N[l][n.dataset.i];n.innerHTML=t!=null&&t!==false?t:n.dataset.en});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false')});
+    movePill();
+    b.textContent=tx('copy');
+    c.setAttribute('aria-label',tx('stripLbl'));
+    try{localStorage.setItem('lang',l)}catch(x){}
+    if(window.drawStrip)drawStrip();
+  }
+  var group=document.querySelector('.langs');
+  function movePill(){
+    var on=btns.filter(function(b){return b.dataset.l===cur})[0];
+    group.style.setProperty('--pill-x',on.offsetLeft+'px');
+    group.style.setProperty('--pill-w',on.offsetWidth+'px');
+  }
+  var calm=matchMedia('(prefers-reduced-motion: reduce)');
+  // Keep whatever the reader was looking at in the same place: line heights
+  // and wrapping differ between languages, so the page height changes.
+  function keepPlace(fn){
+    var a=[].slice.call(document.querySelectorAll('main h2,main h3,main p,main figure,main li,footer')).filter(function(e){return e.getBoundingClientRect().top>=0})[0];
+    var y=a&&a.getBoundingClientRect().top;
+    fn();
+    if(a&&scrollY>0)scrollBy(0,a.getBoundingClientRect().top-y);
+  }
+  function switchLang(l){
+    if(l===cur)return;
+    var swap=function(){keepPlace(function(){setLang(l)})};
+    if(calm.matches)return swap();
+    if(document.startViewTransition)return document.startViewTransition(swap);
+    var root=document.documentElement;
+    root.classList.add('lang-swap');
+    setTimeout(function(){swap();requestAnimationFrame(function(){root.classList.remove('lang-swap')})},200);
+  }
+  btns.forEach(function(x){x.addEventListener('click',function(){switchLang(x.dataset.l)})});
+  // copy email
+  var b=document.getElementById('copy'),e=document.getElementById('email');
+  b.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(e);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent=tx('selected');}
+    try{navigator.clipboard.writeText(e.textContent).then(function(){b.textContent=tx('copied');setTimeout(function(){b.textContent=tx('copy')},1800)},sel)}catch(x){sel()}
+  });
+  var saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(x){}
+  // rank strip: 4,730 thin ticks, the user's rank highlighted
+  var c=document.getElementById('strip');
+  function draw(){
+    var w=c.clientWidth,h=c.clientHeight,d=window.devicePixelRatio||1;
+    c.width=w*d;c.height=h*d;var g=c.getContext('2d');g.scale(d,d);
+    var N=4730,R=1300,cols=Math.max(60,Math.floor(w/4)),per=N/cols,bw=w/cols;
+    for(var i=0;i<cols;i++){
+      var lo=i*per,hi=(i+1)*per,mine=R>lo&&R<=hi;
+      var t=i/cols;
+      g.fillStyle=mine?'#9CDB9F':(lo<R?'rgba(156,219,159,.34)':'rgba(231,239,227,.13)');
+      var bh=mine?h:h*(.45+.25*Math.sin(i*1.7)*Math.sin(i*.37)+.15);
+      g.fillRect(i*bw+.5,(h-bh),Math.max(1,bw-1.2),bh);
+    }
+  }
+  window.drawStrip=draw;draw();addEventListener('resize',draw);
+  if(saved!=='en')setLang(saved);else movePill();
+  requestAnimationFrame(function(){group.classList.add('ready')});
+  addEventListener('resize',movePill);
+  if(document.fonts)document.fonts.ready.then(movePill);
+})();
+</script>
+
+<script>
+// QGIS screenshots slide on their own; hover, focus or the dots pause/jump.
+(function(){
+  var box=document.querySelector('.qslider'),track=document.querySelector('.qtrack');
+  if(!box||!track)return;
+  var slides=[].slice.call(track.children),dots=[].slice.call(document.querySelectorAll('.qdots button')),
+      i=0,timer=null,paused=false,visible=false,calm=matchMedia('(prefers-reduced-motion: reduce)');
+  function show(n){
+    i=(n+slides.length)%slides.length;
+    var dir=document.documentElement.dir==='rtl'?1:-1;
+    track.style.transform='translateX('+(dir*i*100)+'%)';
+    slides.forEach(function(s,k){if(k===i)s.removeAttribute('inert');else s.setAttribute('inert','');s.setAttribute('aria-hidden',k===i?'false':'true')});
+    dots.forEach(function(d,k){if(k===i)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')});
+  }
+  function stop(){clearInterval(timer);timer=null}
+  function start(){stop();if(calm.matches||paused||!visible||document.hidden)return;timer=setInterval(function(){show(i+1)},5200)}
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k);start()})});
+  box.addEventListener('mouseenter',function(){paused=true;stop()});
+  box.addEventListener('mouseleave',function(){paused=false;start()});
+  box.addEventListener('focusin',function(){paused=true;stop()});
+  box.addEventListener('focusout',function(){paused=false;start()});
+  document.addEventListener('visibilitychange',start);
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting;start()},{threshold:.35}).observe(box);else{visible=true;start()}
+  new MutationObserver(function(){show(i)}).observe(document.documentElement,{attributes:true,attributeFilter:['dir']});
+  show(0);
+})();
+</script>
+</body>
+</html>
