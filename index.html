@@ -243,6 +243,16 @@ html[lang="fa"] .edu h3,html[lang="fa"] .tools h3,html[lang="fa"] .proof b{lette
 
 .svc-item .order{align-self:flex-start;margin-top:6px;font-weight:600;font-size:15px;text-decoration:none;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--paper);transition:background .25s}
 .svc-item .order:hover{background:var(--sabzeh)}
+/* wide card: extend an existing app, with or without AI */
+.svc-item.svc-wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr);gap:18px 36px;align-items:start}
+.sw-main{display:flex;flex-direction:column;gap:10px;min-width:0}
+.sw-col{min-width:0;border-inline-start:1px solid var(--line);padding-inline-start:30px;display:flex;flex-direction:column;gap:8px}
+.sw-col h4{margin:0;font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.015em;line-height:1.15;color:var(--sabzeh)}
+html[lang="fa"] .sw-col h4{letter-spacing:0}
+@media (max-width:900px){
+  .svc-item.svc-wide{grid-template-columns:1fr}
+  .sw-col{border-inline-start:0;padding-inline-start:0;border-top:1px solid var(--line);padding-top:16px}
+}
 /* ---------- contact ---------- */
 .contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:end}
 .contact .h2{font-size:clamp(46px,8vw,112px)}
@@ -569,6 +579,21 @@ html[lang="fa"] .mail a{text-align:left}
       <div class="svc-item"><h3 data-i="sv1h">Websites and landing pages</h3><p data-i="sv1p">Fast, mobile-first sites for a business, a shop or yourself. Contact forms, bookings, and a database when you need one.</p><div class="from"><span data-i="from">from</span> <b>$90</b></div><a class="order" href="https://www.fiverr.com/saeedsabzeh/build-a-responsive-website-or-landing-page-for-your-business" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
       <div class="svc-item"><h3 data-i="sv2h">Telegram bots</h3><p data-i="sv2p">Group games, booking and order bots, admin tools and scheduled messages, written in Python.</p><div class="from"><span data-i="from">from</span> <b>$30</b></div><a class="order" href="https://www.fiverr.com/saeedsabzeh/create-a-custom-telegram-bot-in-python" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
       <div class="svc-item"><h3 data-i="sv3h">AI chatbots on your documents</h3><p data-i="sv3p">A chatbot that answers from your own PDFs, FAQs or website, shows its sources, and can sit on your site.</p><div class="from"><span data-i="from">from</span> <b>$90</b></div><a class="order" href="https://www.fiverr.com/saeedsabzeh/build-an-ai-chatbot-that-answers-questions-from-your-documents" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
+      <div class="svc-item svc-wide">
+        <div class="sw-main">
+          <h3 data-i="sv4h">Extensions for your existing app</h3>
+          <p data-i="sv4p">Already have an app, website or bot? I can add to it instead of rebuilding it, with or without AI.</p>
+          <a class="order" href="mailto:saeed.sabzeh.80@gmail.com?subject=App%20extension" data-i="sv4go">Tell me what you need</a>
+        </div>
+        <div class="sw-col">
+          <h4 data-i="sv4ah">New features</h4>
+          <p data-i="sv4ap">New screens and features, logins, admin panels, database and API work, and add-ons for Telegram bots and Mini Apps.</p>
+        </div>
+        <div class="sw-col">
+          <h4 data-i="sv4bh">AI features</h4>
+          <p data-i="sv4bp">A chatbot that answers from your own documents, search by meaning, summaries, or an assistant that checks real data instead of guessing.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -657,6 +682,9 @@ fa: {
   sv1h:'سایت و لندینگ پیج', sv1p:'سایت‌های سریع و مناسب موبایل برای کسب‌وکار، فروشگاه یا خودتان. فرم تماس، رزرو و در صورت نیاز دیتابیس.',
   sv2h:'ربات‌های تلگرام', sv2p:'بازی‌های گروهی، ربات رزرو و سفارش، ابزارهای مدیریتی و پیام‌های زمان‌بندی‌شده، با پایتون.',
   sv3h:'چت‌بات هوش مصنوعی روی اسناد شما', sv3p:'چت‌باتی که از روی PDF‌ها، سؤالات متداول یا سایت خودتان جواب می‌دهد، منابعش را نشان می‌دهد و می‌تواند روی سایتتان باشد.',
+  sv4h:'توسعهٔ اپ فعلی شما', sv4p:'اپ، سایت یا رباتی دارید؟ به‌جای ساختن دوباره، می‌توانم به همان قابلیت اضافه کنم؛ با هوش مصنوعی یا بدون آن.', sv4go:'بگویید چه لازم دارید',
+  sv4ah:'قابلیت‌های جدید', sv4ap:'صفحه‌ها و قابلیت‌های جدید، ورود و احراز هویت، پنل مدیریت، کار روی دیتابیس و API، و افزودنی برای ربات‌ها و مینی‌اپ‌های تلگرام.',
+  sv4bh:'قابلیت‌های هوش مصنوعی', sv4bp:'چت‌باتی که از روی اسناد خودتان جواب می‌دهد، جستجو بر اساس معنا، خلاصه‌سازی، یا دستیاری که به‌جای حدس زدن، داده‌های واقعی را بررسی می‌کند.',
   from:'از', order:'سفارش در فایور',
   howH:'روال کار',
   n1:'۱', n2:'۲', n3:'۳',
@@ -716,6 +744,9 @@ it: {
   sv1h:'Siti web e landing page', sv1p:'Siti veloci e pensati per il mobile, per un\'attività, un negozio o per te. Moduli di contatto, prenotazioni e un database quando serve.',
   sv2h:'Bot Telegram', sv2p:'Giochi di gruppo, bot per prenotazioni e ordini, strumenti di amministrazione e messaggi programmati, scritti in Python.',
   sv3h:'Chatbot IA sui tuoi documenti', sv3p:'Un chatbot che risponde in base ai tuoi PDF, alle FAQ o al tuo sito, mostra le fonti e può essere inserito nelle tue pagine.',
+  sv4h:'Estensioni per la tua app esistente', sv4p:'Hai già un\'app, un sito o un bot? Posso aggiungere funzioni senza rifare tutto da capo, con o senza IA.', sv4go:'Dimmi cosa ti serve',
+  sv4ah:'Nuove funzioni', sv4ap:'Nuove schermate e funzioni, login, pannelli di amministrazione, lavoro su database e API, e componenti aggiuntivi per bot Telegram e Mini App.',
+  sv4bh:'Funzioni con IA', sv4bp:'Un chatbot che risponde dai tuoi documenti, ricerca per significato, riassunti, o un assistente che controlla dati reali invece di inventare.',
   from:'da', order:'Ordina su Fiverr',
   howH:'Come funziona',
   st1h:'Raccontami l\'idea', st1p:'Mandami un messaggio con quello che ti serve, anche se è ancora vago. Gli screenshot di siti o bot che ti piacciono aiutano molto.',
