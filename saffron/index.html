@@ -1,0 +1,1934 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0E0A0B">
+<title>Sorkh Saffron</title>
+<meta name="description" content="Sorkh: a concept website for a luxury Persian saffron export house, designed and built by Saeed Sabzeh. Arabic, Persian and English, with a real-geography globe intro and real market prices.">
+<link rel="canonical" href="https://saeedsabzeh.github.io/saffron/">
+<meta property="og:title" content="Sorkh Saffron, a concept by Saeed Sabzeh">
+<meta property="og:image" content="https://saeedsabzeh.github.io/img/sorkh-hero.webp">
+
+<!-- fonts ship with the page (Google's font host is slow or blocked on some networks, Iran included) -->
+<link rel="preload" href="fonts/aref-ruqaa-arabic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/vazirmatn-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+/* self-hosted fonts (Fontsource 5.3.0), loaded per script through unicode-range */
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/vazirmatn-arabic-400-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/vazirmatn-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/vazirmatn-arabic-500-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/vazirmatn-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/vazirmatn-arabic-600-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/vazirmatn-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/vazirmatn-arabic-700-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/vazirmatn-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/amiri-arabic-400-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/amiri-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/amiri-arabic-700-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/amiri-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Aref Ruqaa';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/aref-ruqaa-arabic-700-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1}
+@font-face{font-family:'Aref Ruqaa';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/aref-ruqaa-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/inter-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --bg:#0E0A0B;
+  --crimson:#5E0F12;
+  --crimson-hi:#9B1B1F;
+  --gold:#D9B26A;
+  --gold-hi:#EBCB8C;
+  --gold-deep:#8A5A12;
+  --crocus:#2E1B40;
+  --ivory:#F7F2EA;
+  --sand:#EFE6D8;
+  --ink:#1E1310;
+  --thread:#9B1B1F;        /* saffron thread colour (brightened on dark sections) */
+  --fall:#9A8C8C;          /* falls: muted grey-rose, never crimson */
+  --fall-l:#6F6262;
+  --mut:#B8AAA2;
+  --mut-l:#5E4B42;
+  --line:rgba(247,242,234,.10);
+  --line-l:rgba(30,19,16,.13);
+  --hdr:68px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --wrap:1240px;
+  --gut:clamp(16px,4vw,40px);
+  --sans:'Vazirmatn','Inter',system-ui,sans-serif;
+  --latin:'Inter','Vazirmatn',system-ui,sans-serif;
+  --serif:'Amiri','Cormorant Garamond',Georgia,serif;
+}
+html[lang=en]{--sans:'Inter','Vazirmatn',system-ui,sans-serif;--serif:'Cormorant Garamond','Amiri',Georgia,serif}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html[lang=en] body{line-height:1.7}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+h1,h2,h3,h4,p,ul{margin:0}
+ul{padding:0;list-style:none}
+[hidden]{display:none!important}
+section[id],footer[id]{scroll-margin-top:calc(var(--hdr) - 4px)}
+
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.num{font-family:var(--latin);font-variant-numeric:tabular-nums lining-nums;font-feature-settings:'tnum' 1,'lnum' 1;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;inset-inline-start:12px;top:-60px;z-index:100;background:var(--gold);color:var(--ink);padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none}
+.skip:focus{top:10px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.light :focus-visible,.sand :focus-visible{outline-color:var(--crimson-hi)}
+
+.dark{background:var(--bg);color:var(--ivory);--thread:#D4474C}
+.light{background:var(--ivory);color:var(--ink)}
+.sand{background:var(--sand);color:var(--ink)}
+
+/* type */
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;color:var(--gold-deep);margin-bottom:20px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+.dark .eyebrow{color:var(--gold)}
+html[lang=en] .eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:11.5px}
+.h2{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5vw,64px);line-height:1.2;text-wrap:balance}
+html[lang=en] .h2{font-weight:500;font-size:clamp(40px,5.8vw,76px);line-height:1.04;letter-spacing:-.01em}
+.lead{font-size:clamp(16px,1.5vw,18px);color:var(--mut-l);max-width:520px;margin-top:20px}
+.dark .lead{color:var(--mut)}
+
+/* buttons / links */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 28px;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--gold-hi)}
+.btn-outline{border-color:rgba(217,178,106,.6);color:var(--gold);background:transparent;min-height:44px;padding:0 20px;font-size:14px}
+.btn-outline:hover{background:rgba(217,178,106,.12);border-color:var(--gold)}
+.btn-crimson{background:var(--crimson);color:var(--ivory)}
+.btn-crimson:hover{background:var(--crimson-hi)}
+.arrow{width:16px;height:16px;flex:none;transition:transform .4s var(--ease)}
+html[dir=rtl] .arrow{transform:scaleX(-1)}
+a:hover>.arrow{transform:translateX(4px)}
+html[dir=rtl] a:hover>.arrow{transform:scaleX(-1) translateX(4px)}
+.textlink{display:inline-flex;align-items:center;gap:8px;min-height:48px;color:var(--ivory);text-decoration:none;font-weight:500;background:linear-gradient(var(--gold),var(--gold)) 0 100%/100% 1px no-repeat;padding-bottom:2px;transition:color .3s,background-size .5s var(--ease)}
+html[dir=rtl] .textlink{background-position:100% 100%}
+.textlink:hover{color:var(--gold)}
+
+/* saffron motifs */
+.mark{width:30px;height:30px;color:var(--gold);flex:none}
+.thread-div{display:block;width:min(220px,60%);height:28px;overflow:visible}
+.thread-div path{fill:none;stroke:var(--thread);stroke-width:1.4;stroke-linecap:round}
+.thread-div path.t2{stroke:var(--gold-deep);stroke-width:.8;opacity:.7}
+.dark .thread-div path.t2{stroke:var(--gold)}
+.js .thread-div path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2s var(--ease) .2s}
+.js .in .thread-div path,.js .thread-div.in path{stroke-dashoffset:0}
+.drift{position:absolute;pointer-events:none;color:var(--thread);opacity:.55}
+.drift path{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
+@keyframes drift{0%,100%{transform:translate3d(0,0,0) rotate(var(--r,0deg))}50%{transform:translate3d(10px,-18px,0) rotate(calc(var(--r,0deg) + 6deg))}}
+.drift{animation:drift 14s ease-in-out infinite}
+
+/* language switch crossfade */
+::view-transition-old(root),::view-transition-new(root){animation-duration:.45s;animation-timing-function:var(--ease)}
+body>*:not(script){transition:opacity .22s var(--ease)}
+body.lang-fade>*:not(script){opacity:0}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(14,10,11,.84);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);border-bottom:1px solid var(--line);color:var(--ivory);--thread:#D4474C}
+.hdr-in{height:var(--hdr);display:flex;align-items:center;gap:20px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--gold);font-family:var(--serif);font-weight:700;font-size:27px;line-height:1;white-space:nowrap;flex:none}
+html[lang=en] .brand{font-weight:600;letter-spacing:.3em;font-size:21px;text-transform:uppercase}
+.menu{display:flex;align-items:center;flex:1;min-width:0}
+.nav{display:flex;gap:2px;margin-inline-start:26px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 13px;color:var(--mut);text-decoration:none;font-size:15px;font-weight:500;border-radius:8px;transition:color .3s}
+.nav a:hover{color:var(--ivory)}
+.actions{margin-inline-start:auto;display:flex;align-items:center;gap:14px}
+.langs{display:flex;gap:2px}
+.langs button{min-width:44px;min-height:44px;padding:0 8px;border:0;background:transparent;color:var(--mut);font-size:14px;font-weight:500;cursor:pointer;border-radius:8px;transition:color .3s;position:relative}
+.langs button:hover{color:var(--ivory)}
+.langs button[aria-pressed=true]{color:var(--gold)}
+.langs button[aria-pressed=true]::after{content:"";position:absolute;inset-inline:10px;bottom:8px;height:1px;background:var(--gold)}
+.burger{display:none;margin-inline-start:auto;width:44px;height:44px;border:1px solid var(--line);border-radius:10px;background:transparent;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:18px;height:1.5px;background:var(--ivory);transition:transform .35s var(--ease),opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:980px){
+  .burger{display:inline-flex}
+  .menu{display:none;position:absolute;inset-inline:0;top:100%;flex-direction:column;align-items:stretch;gap:12px;padding:10px var(--gut) 22px;background:rgba(14,10,11,.97);border-bottom:1px solid var(--line)}
+  .menu.open{display:flex}
+  .nav{flex-direction:column;margin:0}
+  .nav a{padding:0 6px;border-bottom:1px solid var(--line);border-radius:0}
+  .actions{margin:0;flex-direction:column;align-items:stretch;gap:12px}
+  .langs{justify-content:center}
+  .actions .btn{width:100%}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:#0A0708;color:var(--ivory);min-height:max(640px,calc(100svh - var(--hdr)));display:grid;align-items:start;justify-items:center;--thread:#D4474C}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero-in{position:relative;text-align:center;max-width:1000px;padding:clamp(36px,8vh,100px) var(--gut) 0;opacity:calc(1 - var(--hp,0) * 1.4);transform:translate3d(0,calc(var(--hp,0) * -46px),0)}
+.hero-in::before{content:"";position:absolute;inset:-6% -18%;z-index:-1;background:radial-gradient(ellipse 50% 50% at 50% 48%,rgba(10,7,8,.6),rgba(10,7,8,0) 100%);pointer-events:none}
+.hero .textlink{text-shadow:0 1px 14px rgba(10,7,8,.9)}
+.hero .eyebrow{justify-content:center;margin-bottom:22px;color:var(--gold)}
+.hero .eyebrow::before{display:none}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(54px,11.5vw,168px);line-height:1.12;color:#FBF3E4;text-shadow:0 4px 60px rgba(14,10,11,.6)}
+html[lang=en] .hero h1{font-weight:500;font-size:clamp(64px,13vw,196px);line-height:.95;letter-spacing:-.015em}
+.hero .sub{font-size:clamp(17px,1.9vw,22px);color:#E3D6CB;max-width:600px;margin:22px auto 0;text-wrap:balance;text-shadow:0 2px 24px rgba(14,10,11,.8)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:6px 30px;justify-content:center;align-items:center;margin-top:34px}
+.hero .btn{min-height:54px;padding:0 34px;font-size:16px}
+.rise{animation:rise 1.5s var(--ease) both}
+.rise.d1{animation-delay:.1s}.rise.d2{animation-delay:.25s}.rise.d3{animation-delay:.45s}.rise.d4{animation-delay:.65s}
+.intro .rise.d1{animation-delay:.35s}.intro .rise.d2{animation-delay:.5s}.intro .rise.d3{animation-delay:.8s}.intro .rise.d4{animation-delay:1.05s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- story / manifesto (ivory) ---------- */
+.story{position:relative;overflow:hidden;padding-block:clamp(88px,12vw,168px)}
+.story-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;position:relative;z-index:1}
+.story .big{grid-column:1/5;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.story .big b{font-family:var(--serif);font-weight:400;font-size:clamp(140px,19vw,280px);line-height:.85;color:transparent;-webkit-text-stroke:1px var(--gold-deep);display:block;direction:ltr;width:fit-content}
+.story .big span{color:var(--gold-deep);font-size:14px;font-weight:600;max-width:200px}
+html[lang=en] .story .big span{letter-spacing:.18em;text-transform:uppercase;font-size:11.5px}
+.story .txt{grid-column:5/13}
+.story .quote{font-family:var(--serif);font-weight:700;font-size:clamp(28px,3.7vw,52px);line-height:1.5;text-wrap:balance}
+html[lang=en] .story .quote{font-weight:500;line-height:1.2;font-size:clamp(34px,4.4vw,62px);letter-spacing:-.01em}
+.story .sub{margin-top:34px;display:flex;flex-direction:column;gap:22px;color:var(--mut-l);max-width:520px}
+@media(max-width:860px){.story .big,.story .txt{grid-column:1/-1}.story .big{flex-direction:row;align-items:center;gap:20px}.story .big b{font-size:110px}}
+
+/* ---------- collection ---------- */
+.col{padding-block:clamp(72px,10vw,140px);background:#FBF8F2}
+.sec-head{margin-bottom:clamp(36px,5vw,64px);display:flex;flex-direction:column;align-items:flex-start}
+.cards{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line-l);border-radius:20px;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .4s}
+.card:hover{transform:translateY(-4px);border-color:rgba(138,90,18,.5);box-shadow:0 30px 60px -34px rgba(30,19,16,.45)}
+.card.c-negin{grid-column:1/8;grid-row:1/3}
+.card.c-sargol,.card.c-pushal{grid-column:8/13;flex-direction:row}
+.card.c-gift{grid-column:1/13;flex-direction:row}
+.vis{position:relative;background:radial-gradient(ellipse 70% 60% at 50% 40%,#F6EEE0,#E9DDCA);display:grid;place-items:center;overflow:hidden;color:var(--gold-deep);--thread:#9B1B1F}
+.vis::after{content:"";position:absolute;inset:12px;border:1px dashed rgba(30,19,16,.22);border-radius:12px;pointer-events:none}
+.vis>svg{width:58%;max-height:84%;transition:transform .9s var(--ease)}
+.card:hover .vis>svg{transform:translateY(-6px) scale(1.04)}
+.vis .ph{position:absolute;inset-inline-start:24px;bottom:20px;font-size:11px;color:rgba(30,19,16,.5);z-index:1;font-family:var(--latin)}
+.c-negin .vis{flex:1;min-height:360px;background:radial-gradient(ellipse 60% 55% at 50% 38%,#7a1a1e,#3a0a0d 70%,#240507);color:var(--gold);--thread:#E0575C}
+.c-negin .vis::after{border-color:rgba(217,178,106,.3)}
+.c-negin .vis .ph{color:rgba(247,242,234,.55)}
+.c-negin .vis>svg{width:44%}
+.c-negin .cbody{flex:none}
+.card.c-sargol .vis,.card.c-pushal .vis,.card.c-gift .vis{flex:0 0 38%;min-height:230px}
+.card.c-gift .vis{flex-basis:32%}
+.cbody{padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;gap:12px;flex:1;min-width:0}
+.c-gift .cbody{justify-content:center}
+.tag{align-self:flex-start;font-size:12px;font-weight:600;color:var(--crimson-hi);border:1px solid rgba(155,27,31,.3);padding:2px 12px;border-radius:999px;line-height:1.7}
+.card h3{font-family:var(--serif);font-weight:700;font-size:clamp(28px,3vw,40px);line-height:1.15}
+html[lang=en] .card h3{font-weight:500;font-size:clamp(34px,3.6vw,48px)}
+.c-negin h3{font-size:clamp(36px,4.4vw,60px)}
+html[lang=en] .c-negin h3{font-size:clamp(44px,5.4vw,76px)}
+.card p{color:var(--mut-l);font-size:15px;max-width:440px}
+.cfoot{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 18px;padding-top:14px;border-top:1px solid var(--line-l)}
+.cp{font-size:13px;color:var(--mut-l)}
+.cp .num{color:var(--ink);font-weight:600}
+.enq{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;font-size:14px;color:var(--crimson-hi);text-decoration:none}
+.enq:hover{color:var(--crimson)}
+@media(max-width:980px){
+  .card.c-negin{grid-column:1/-1;grid-row:auto}
+  .card.c-sargol,.card.c-pushal{grid-column:1/-1}
+  .c-negin .vis{min-height:300px}
+}
+@media(max-width:560px){
+  .card.c-sargol,.card.c-pushal,.card.c-gift{flex-direction:column}
+  .card.c-sargol .vis,.card.c-pushal .vis,.card.c-gift .vis{flex-basis:auto;min-height:210px}
+  .c-negin .vis>svg{width:56%}
+}
+
+/* ---------- craft (sand) ---------- */
+.craft{padding-block:clamp(80px,11vw,150px);position:relative;overflow:hidden}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative;margin-top:clamp(36px,5vw,64px)}
+.steps::before{content:"";position:absolute;inset-inline:0;top:26px;height:1px;background:rgba(138,90,18,.35)}
+.step{position:relative;padding:0 clamp(12px,2vw,28px) 0 0;padding-inline:0 clamp(12px,2vw,28px)}
+.step .n{display:inline-grid;place-items:center;min-width:54px;height:54px;padding-inline:8px;background:var(--sand);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--crimson-hi);position:relative;direction:ltr}
+.step .n::after{content:"";position:absolute;inset-inline-start:8px;top:-1px;width:6px;height:6px;border-radius:50%;background:var(--gold-deep);display:none}
+.step h3{font-family:var(--serif);font-weight:700;font-size:clamp(26px,2.4vw,34px);margin-top:22px;line-height:1.2}
+html[lang=en] .step h3{font-weight:500;font-size:clamp(30px,2.8vw,40px)}
+.step p{margin-top:10px;color:var(--mut-l);font-size:15px;max-width:240px}
+.craft-note{display:flex;align-items:center;gap:16px;margin-top:clamp(40px,6vw,80px);font-family:var(--serif);font-size:clamp(22px,2.4vw,32px);color:var(--crimson)}
+html[lang=en] .craft-note{font-style:italic;font-weight:500;font-size:clamp(26px,2.8vw,38px)}
+.craft-note svg{width:44px;height:44px;color:var(--gold-deep);flex:none}
+@media(max-width:860px){
+  .steps{grid-template-columns:1fr 1fr;gap:40px 20px}
+  .steps::before{display:none}
+}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* ---------- value (dark) ---------- */
+.val{padding-block:clamp(80px,11vw,150px);position:relative;overflow:hidden;background:radial-gradient(circle at 88% 0,rgba(217,178,106,.11),transparent 38%),radial-gradient(ellipse 60% 50% at 0 100%,rgba(46,27,64,.5),transparent 70%),var(--bg)}
+.val-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,6vw,88px);align-items:start}
+.tabs{display:flex;flex-wrap:wrap;gap:0 18px}
+.tabs button{position:relative;min-height:44px;min-width:44px;padding:0 4px;background:none;border:0;color:var(--mut);font-size:14px;font-weight:500;cursor:pointer;transition:color .3s}
+.tabs button::after{content:"";position:absolute;inset-inline:0;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .5s var(--ease)}
+.tabs button:hover{color:var(--ivory)}
+.tabs button[aria-pressed=true]{color:var(--ivory)}
+.tabs button[aria-pressed=true]::after{transform:scaleX(1)}
+.tabs.grades button{font-family:var(--serif);font-weight:700;font-size:clamp(24px,2.6vw,34px)}
+html[lang=en] .tabs.grades button{font-weight:500;font-size:clamp(28px,3vw,40px)}
+.tabs .lat{font-family:var(--latin);letter-spacing:.04em}
+.tabs-lbl{display:block;font-size:12px;color:var(--mut);margin-top:34px}
+.fxnote{margin-top:14px;font-size:13px;color:var(--mut);max-width:340px}
+.fxnote .num{color:var(--ivory)}
+.px-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:18px}
+.px-main{font-family:var(--latin);font-weight:600;font-size:clamp(46px,7vw,92px);line-height:1;letter-spacing:-.035em;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;color:var(--ivory)}
+.px-cur{font-family:var(--latin);font-weight:500;font-size:clamp(15px,1.8vw,20px);color:var(--mut);direction:ltr;unicode-bidi:isolate}
+.px-sub{display:flex;flex-wrap:wrap;gap:2px 16px;align-items:center;margin-top:12px;font-size:14px;color:var(--mut)}
+.chg{font-family:var(--latin);font-weight:500;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.chg.up{color:var(--gold)}
+.chg.dn{color:var(--fall)}
+.px-date{font-family:var(--latin);direction:ltr;unicode-bidi:isolate}
+.chart-box{position:relative;direction:ltr;height:clamp(280px,44vh,440px);margin-top:26px}
+.chart-box .fallback{position:absolute;inset:0}
+.range-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 20px;margin-top:6px}
+.chart-wrap{transition:opacity .3s var(--ease)}
+.stats{display:flex;gap:clamp(18px,3vw,36px);font-size:13px;color:var(--mut)}
+.stats .num{display:block;color:var(--ivory);font-weight:500;font-size:14px}
+.req{display:grid;place-items:center;text-align:center;min-height:clamp(280px,44vh,420px);padding:40px 20px;border:1px dashed rgba(217,178,106,.35);border-radius:16px;margin-top:26px;background:radial-gradient(ellipse 60% 70% at 50% 0,rgba(94,15,18,.35),transparent 70%)}
+.req>div{display:flex;flex-direction:column;align-items:center;gap:14px}
+.req h3{font-family:var(--serif);font-size:clamp(28px,3.6vw,44px);font-weight:700}
+.req p{color:var(--mut);max-width:420px}
+.val-foot{margin-top:clamp(36px,5vw,64px);padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--mut);display:flex;flex-direction:column;gap:14px}
+.val-foot .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;align-items:center}
+.val-foot .row a{color:var(--gold);text-decoration:underline;text-decoration-color:rgba(217,178,106,.4);text-underline-offset:5px;display:inline-flex;align-items:center;min-height:44px}
+.val-foot .row a:hover{text-decoration-color:var(--gold)}
+details.src summary{cursor:pointer;color:var(--gold);min-height:44px;display:inline-flex;align-items:center;font-weight:500;list-style:none}
+details.src summary::-webkit-details-marker{display:none}
+details.src summary::after{content:"+";margin-inline-start:10px;font-family:var(--latin)}
+details.src[open] summary::after{content:"\2212"}
+.srclist{direction:ltr;text-align:left;display:grid;gap:14px;margin-top:6px;font-size:12.5px;line-height:1.6;color:var(--mut);font-family:var(--latin)}
+.srclist li{overflow-wrap:anywhere;padding-inline-start:14px;border-inline-start:1px solid rgba(217,178,106,.4)}
+.srclist b{color:var(--ivory);font-weight:600}
+.srclist a{color:var(--gold-hi);border:0;word-break:break-all;display:inline-block;padding-block:12px;margin-block:-12px}
+@media(max-width:960px){.val-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:480px){.tabs{gap:0 12px}}
+
+/* ---------- export (ivory) ---------- */
+.exp{padding-block:clamp(80px,11vw,150px);background:var(--ivory)}
+.exp-top{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-bottom:clamp(36px,5vw,64px);align-items:end}
+.exp-top>div:first-child{grid-column:1/8}
+.exp-top>p{grid-column:8/13;color:var(--mut-l)}
+.xrow{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l)}
+.xblock{padding:clamp(26px,3.4vw,48px) clamp(18px,2.4vw,32px);display:flex;flex-direction:column;gap:10px;border-inline-end:1px solid var(--line-l);transition:background .5s var(--ease)}
+.xblock:last-child{border-inline-end:0}
+.xblock:hover{background:rgba(217,178,106,.1)}
+.xblock .idx{font-family:var(--latin);font-size:12px;color:var(--gold-deep);letter-spacing:.16em}
+.xblock h3{font-family:var(--serif);font-weight:700;font-size:clamp(36px,4.6vw,64px);line-height:1.3;margin-top:8px}
+html[lang=en] .xblock h3{font-weight:500;font-size:clamp(44px,5.4vw,80px)}
+.xblock .note{color:var(--mut-l);font-size:15px}
+.modes{display:flex;gap:12px;margin-top:8px;color:var(--gold-deep)}
+.modes svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:860px){.exp-top>div:first-child,.exp-top>p{grid-column:1/-1}}
+@media(max-width:700px){
+  .xrow{grid-template-columns:1fr}
+  .xblock{border-inline-end:0;border-bottom:1px solid var(--line-l)}
+  .xblock:last-child{border-bottom:0}
+}
+
+/* ---------- inquiry (sand) ---------- */
+.inq{padding-block:clamp(80px,11vw,150px);position:relative;overflow:hidden}
+.inq-in{max-width:780px;margin-inline:auto;position:relative;z-index:1}
+.form{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 24px;margin-top:40px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:13px;font-weight:600;color:var(--mut-l)}
+.field input,.field select{width:100%;min-height:52px;padding:0 16px;background:#FFFDF9;border:1px solid rgba(30,19,16,.22);border-radius:10px;color:var(--ink);font-family:var(--sans);font-size:16px;transition:border-color .3s,box-shadow .3s}
+.field input:hover,.field select:hover{border-color:rgba(30,19,16,.45)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--crimson-hi);box-shadow:0 0 0 3px rgba(155,27,31,.14)}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%235E4B42' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-inline-end:40px}
+html[dir=rtl] .field select{background-position:left 16px center}
+.field .num-in{direction:ltr;text-align:start}
+html[dir=rtl] .field input[type=tel],html[dir=rtl] .field input[type=number]{text-align:right}
+.form .full{grid-column:1/-1}
+.form-act{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.form-act .btn{min-width:200px}
+.thanks{display:flex;align-items:center;gap:12px;color:var(--gold-deep);font-weight:600;padding:14px 18px;border:1px solid rgba(138,90,18,.4);border-radius:12px;background:rgba(217,178,106,.14)}
+@media(max-width:620px){.form{grid-template-columns:1fr}.form-act .btn{width:100%}}
+
+/* ---------- footer ---------- */
+.foot{background:#080506;color:var(--ivory);border-top:1px solid var(--line);padding-block:clamp(56px,8vw,100px) 32px;--thread:#D4474C}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:36px 60px;align-items:flex-start}
+.foot .brand{font-size:clamp(34px,4.6vw,54px)}
+html[lang=en] .foot .brand{font-size:clamp(24px,3.2vw,34px)}
+.foot .mark{width:44px;height:44px}
+.foot .tag-l{color:var(--mut);margin-top:14px;max-width:340px}
+.foot nav{display:flex;flex-direction:column;gap:2px}
+.foot nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--mut);text-decoration:none;transition:color .3s}
+.foot nav a:hover{color:var(--gold)}
+.contact{display:flex;flex-direction:column;gap:6px;color:var(--mut);font-size:15px}
+.contact .num{color:var(--ivory)}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:clamp(40px,6vw,72px);padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:#8F8179}
+
+/* ---------- texture: paper grain on light sections, film grain on dark ---------- */
+:root{
+  --grain-paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .22 0 0 0 0 .12 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-film:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .95 0 0 0 0 .88 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.story,.col,.craft,.exp,.inq{background-image:var(--grain-paper)}
+.foot{background-image:var(--grain-film)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:var(--grain-film),linear-gradient(180deg,rgba(10,7,8,0) 84%,#0A0708 100%)}
+
+/* ---------- section transitions: night into morning ---------- */
+.story{padding-top:calc(clamp(88px,12vw,168px) + clamp(80px,10vw,170px))}
+.story::before{content:"";position:absolute;inset:0 0 auto;height:clamp(170px,19vw,300px);pointer-events:none;
+  background:var(--grain-paper),linear-gradient(180deg,#0A0708 0%,#1A090B 14%,#3E1214 32%,#7E3424 52%,#C88F5E 70%,#EBD3AE 84%,rgba(247,242,234,0) 100%)}
+.val{padding-block:calc(clamp(80px,11vw,150px) + clamp(60px,7vw,120px))}
+.val::before,.val::after{content:"";position:absolute;inset-inline:0;height:clamp(110px,12vw,200px);pointer-events:none}
+.val::before{top:0;background:var(--grain-paper),linear-gradient(180deg,var(--sand) 0%,#D7B48A 22%,#8E4A2E 46%,#3A1214 70%,rgba(14,10,11,0) 100%)}
+.val::after{bottom:0;background:var(--grain-paper),linear-gradient(0deg,var(--ivory) 0%,#E9CFA6 18%,#A85F38 40%,#3E1214 66%,rgba(14,10,11,0) 100%)}
+.val>.wrap{position:relative;z-index:1}
+
+/* ---------- hero headline: calligraphy + gold foil ---------- */
+html:not([lang=en]) .hero h1{font-family:'Aref Ruqaa','Amiri',serif;font-weight:700;line-height:1.35;font-size:clamp(58px,12vw,176px)}
+.hero h1{text-shadow:none;filter:drop-shadow(0 4px 40px rgba(14,10,11,.65))}
+.foil{background:linear-gradient(100deg,#FBF3E4 0%,#FBF3E4 36%,#E9C377 45%,#FFF6DD 50%,#E9C377 55%,#FBF3E4 64%,#FBF3E4 100%);background-size:280% 100%;background-position:0 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:foil 2.6s var(--ease) 1.4s both}
+.intro .foil{animation-delay:2.4s}
+.hero h1:hover .foil{animation:foil-again 2.2s var(--ease)}
+@keyframes foil{from{background-position:100% 0}to{background-position:0 0}}
+@keyframes foil-again{from{background-position:100% 0}to{background-position:0 0}}
+
+/* ---------- product art: glass jars that tilt with the pointer ---------- */
+.vis{perspective:900px}
+.vis::after{display:none}
+.vis svg.art{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .9s var(--ease);transform-style:preserve-3d}
+.card:hover .vis svg.art{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px) scale(1.04)}
+.vis svg.art .glint{transform:translateX(var(--gx,0px));transition:transform .9s var(--ease)}
+
+/* ---------- the saffron thread running through the page ---------- */
+@media(max-width:560px){.story .drift{display:none}}   /* no room beside the text on phones */
+main{position:relative}
+main .wrap{position:relative;z-index:1}
+.silk{position:absolute;top:0;left:0;width:100%;pointer-events:none;z-index:0;overflow:visible}
+.silk .s-main{fill:none;stroke:#9B1B1F;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.silk .s-sheen{fill:none;stroke:#E9C377;stroke-width:.6;stroke-linecap:round;opacity:.55}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s var(--ease) var(--d,0s),transform 1s var(--ease) var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rise,.drift,.foil{animation:none}
+  .hero-in{opacity:1;transform:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .js .thread-div path{stroke-dashoffset:0;transition:none}
+  *{transition-duration:.01ms!important}
+}
+.byline{position:fixed;z-index:60;inset-inline-end:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;background:rgba(14,10,11,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(217,178,106,.35);color:var(--gold);font-size:13px;font-weight:600;text-decoration:none;transition:background .3s,border-color .3s}
+.byline:hover{background:rgba(14,10,11,.95);border-color:var(--gold)}
+.byline::after{content:"\2197"}
+html[dir=rtl] .byline::after{content:"\2196"}
+.vis .ph:empty{display:none}
+</style>
+</head>
+<body>
+
+<!-- shared SVG symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="crocus" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M24 4c5.5 6 6.5 15.500 0 25c-6.500-9.500-5.500-19 0-25z"/>
+      <path d="M8 14c9.500-.5 15 4.500 16 15c-9.500 1-15-4-16-15z"/>
+      <path d="M40 14c-9.500-.5-15 4.500-16 15c9.500 1 15-4 16-15z"/>
+      <path d="M24 29v16"/>
+    </g>
+    <g fill="none" stroke="var(--thread)" stroke-width="1.7" stroke-linecap="round">
+      <path d="M24 29c-1.500 3-4 5.500-8 7"/><path d="M24 29c.2 4 0 7-1.500 10"/><path d="M24 29c2 3 4.500 5 8.500 6"/>
+    </g>
+  </symbol>
+</svg>
+
+<a class="skip" href="#collection" data-t="skip">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="top">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#crocus"/></svg><span data-t="brand">سُرخ</span></a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" data-t-aria="menu" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="menu" id="menu">
+      <nav class="nav" data-t-aria="navLabel" aria-label="Main">
+        <a href="#collection" data-t="navCol">Collection</a>
+        <a href="#story" data-t="navStory">Our story</a>
+        <a href="#value" data-t="navPrice">Prices</a>
+        <a href="#export" data-t="navExp">Export</a>
+        <a href="#contact" data-t="navContact">Contact</a>
+      </nav>
+      <div class="actions">
+        <div class="langs" role="group" data-t-aria="langLabel" aria-label="Language" id="langs"></div>
+        <a class="btn btn-outline" href="#inquiry" data-t="cta">Request a quote</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" aria-labelledby="heroH">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="eyebrow rise d1" data-t="heroLabel"></p>
+    <h1 id="heroH" class="rise d2"><span class="foil" data-t="heroH"></span></h1>
+    <p class="sub rise d3" data-t="heroSub"></p>
+    <div class="cta rise d4">
+      <a class="btn btn-gold" href="#collection"><span data-t="heroCta1"></span><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <a class="textlink" href="#value"><span data-t="heroCta2"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY (ivory) ============ -->
+<section class="light story" id="story" aria-labelledby="storyH">
+  <svg class="drift" style="top:34%;inset-inline-end:4%;width:180px;--r:-12deg" viewBox="0 0 180 120" aria-hidden="true"><path d="M6 100C40 90 50 30 96 40S150 90 174 14"/><path d="M30 112C60 96 80 60 118 70" opacity=".6"/></svg>
+  <svg class="drift" style="bottom:6%;inset-inline-start:2%;width:140px;--r:10deg;animation-delay:-5s" viewBox="0 0 140 100" aria-hidden="true"><path d="M4 20C30 10 50 70 84 56S120 20 136 84"/></svg>
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="big reveal"><b aria-hidden="true">3</b><span data-t="manCap"></span></div>
+      <div class="txt reveal" style="--d:.15s">
+        <p class="eyebrow" data-t="manLabel"></p>
+        <h2 class="quote" id="storyH" data-t="manText"></h2>
+        <div class="sub">
+          <span class="thread-div-slot" data-thread></span>
+          <p data-t="manSub"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLLECTION ============ -->
+<section class="col" id="collection" aria-labelledby="colH">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-t="colLabel"></p>
+      <h2 class="h2" id="colH" data-t="colTitle"></h2>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<!-- ============ CRAFT (sand) ============ -->
+<section class="sand craft" id="craft" aria-labelledby="craftH">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow" data-t="craftLabel"></p>
+      <h2 class="h2" id="craftH" data-t="craftTitle"></h2>
+    </div>
+    <ol class="steps reveal" id="steps" style="list-style:none;padding:0;margin-bottom:0"></ol>
+    <p class="craft-note reveal">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#crocus"/></svg>
+      <span data-t="craftNote"></span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ VALUE (dark) ============ -->
+<section class="dark val" id="value" aria-labelledby="valH">
+  <div class="wrap">
+    <div class="val-grid">
+      <div class="val-side reveal">
+        <p class="eyebrow" data-t="valLabel"></p>
+        <h2 class="h2" id="valH" data-t="valTitle"></h2>
+        <p class="lead" data-t="valLead"></p>
+        <span class="tabs-lbl" data-t="curLabel"></span>
+        <div class="tabs" id="curTabs" role="group" data-t-aria="curLabel" aria-label="Currency"></div>
+        <p class="fxnote" id="fxNote"></p>
+      </div>
+      <div class="val-main reveal" style="--d:.15s">
+        <div class="tabs grades" id="gradeTabs" role="group" data-t-aria="gradeLabel" aria-label="Grade"></div>
+        <div id="valData">
+          <div class="px-row">
+            <span class="px-main" id="pxMain" aria-live="polite">0</span>
+            <span class="px-cur" id="pxCur">USD</span>
+          </div>
+          <div class="px-sub">
+            <span><span data-t="perKg"></span></span>
+            <span id="pxChg"></span>
+            <span class="px-date" id="pxDate"></span>
+          </div>
+          <div class="chart-wrap" id="chartWrap">
+            <div class="chart-box" id="chart" role="img" data-t-aria="chartAria" aria-label="Price chart"></div>
+          </div>
+          <div class="range-row">
+            <div class="tabs" id="rangeTabs" role="group" data-t-aria="rangeLabel" aria-label="Time range"></div>
+            <div class="stats" id="stats"></div>
+          </div>
+        </div>
+        <div class="req" id="valReq" hidden>
+          <div>
+            <h3 data-t="reqTitle"></h3>
+            <p data-t="reqText"></p>
+            <a class="btn btn-gold" id="waBtn" href="#" target="_blank" rel="noopener"><span data-t="reqCta"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="val-foot">
+      <div class="row">
+        <span data-t="dataNote"></span>
+        <a href="https://www.tradingview.com/" target="_blank" rel="noopener">Charts by TradingView</a>
+      </div>
+      <details class="src">
+        <summary data-t="srcTitle"></summary>
+        <ul class="srclist" id="srcList"></ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPORT (ivory) ============ -->
+<section class="exp light" id="export" aria-labelledby="expH">
+  <div class="wrap">
+    <div class="exp-top reveal">
+      <div>
+        <p class="eyebrow" data-t="expLabel"></p>
+        <h2 class="h2" id="expH" data-t="expTitle" style="white-space:pre-line"></h2>
+      </div>
+      <p data-t="expText"></p>
+    </div>
+    <div class="xrow reveal" id="xrow"></div>
+  </div>
+</section>
+
+<!-- ============ INQUIRY (sand) ============ -->
+<section class="sand inq" id="inquiry" aria-labelledby="inqH">
+  <svg class="drift" style="top:10%;inset-inline-start:3%;width:200px;--r:8deg" viewBox="0 0 200 120" aria-hidden="true"><path d="M6 20C50 0 70 90 110 70S170 20 194 100"/></svg>
+  <div class="wrap">
+    <div class="inq-in reveal">
+      <p class="eyebrow" data-t="cta"></p>
+      <h2 class="h2" id="inqH" data-t="inqTitle"></h2>
+      <p class="lead" data-t="inqText"></p>
+      <form class="form" id="form" novalidate>
+        <div class="field"><label for="fName" data-t="fName"></label><input id="fName" name="name" type="text" autocomplete="organization" required></div>
+        <div class="field"><label for="fCountry" data-t="fCountry"></label><input id="fCountry" name="country" type="text" autocomplete="country-name" required></div>
+        <div class="field"><label for="fPhone" data-t="fPhone"></label><input class="num-in" id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+000 000 000 000" required></div>
+        <div class="field"><label for="fGrade" data-t="fGrade"></label><select id="fGrade" name="grade" required></select></div>
+        <div class="field full"><label for="fQty" data-t="fQty"></label><input class="num-in" id="fQty" name="qty" type="number" inputmode="decimal" min="0" step="any" required></div>
+        <div class="form-act full">
+          <button class="btn btn-crimson" type="submit"><span data-t="send"></span></button>
+          <p class="thanks" id="thanks" role="status" tabindex="-1" hidden>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8.2"/><path d="M6.4 10.3l2.4 2.4 4.8-5"/></svg>
+            <span data-t="thanks"></span>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<a class="byline" href="https://saeedsabzeh.github.io/#work" data-t="byline">Concept by Saeed Sabzeh</a>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#crocus"/></svg><span data-t="brand">سُرخ</span></a>
+        <p class="tag-l" data-t="footTag"></p>
+      </div>
+      <nav data-t-aria="footNav" aria-label="Footer">
+        <a href="#collection" data-t="navCol"></a>
+        <a href="#story" data-t="navStory"></a>
+        <a href="#value" data-t="navPrice"></a>
+        <a href="#export" data-t="navExp"></a>
+        <a href="#inquiry" data-t="cta"></a>
+      </nav>
+      <div class="contact">
+        <span data-t="footContact"></span>
+        <a class="num" href="https://saeedsabzeh.github.io/">saeedsabzeh.github.io</a>
+        <span data-t="footAddr"></span>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span data-t="brand">سُرخ</span></span>
+      <span data-t="footNote"></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* =====================================================================
+   CONFIG
+   ===================================================================== */
+// Hero intro (Earth-limb sunrise + export arcs). Set to false to compare with the plain static hero.
+const HERO_INTRO = true;
+
+// Per-grade "price on request" switch. true = hide number + chart, show WhatsApp card.
+const PRICE_ON_REQUEST = { negin: false, sargol: false, pushal: false };
+const WHATSAPP_NUMBER = '000000000000'; // placeholder, digits only, with country code
+
+// Exchange rates (units per 1 USD), hard-coded with their dates. See the "Sources" list on the page.
+const FX_DATE = '2026-10-23';
+const RATES = {
+  USD: 1,
+  AED: 3.6725,   // official peg (UAE dirham)
+  OMR: 0.3845,   // official peg (Omani rial)
+  IQD: 1310,     // Central Bank of Iraq official rate (the street rate is ~1,516; see Sources)
+  TOMAN: 269900  // bonbast.com free-market USD sell rate, "rate as of" 2026-10-23
+};
+const CUR = { USD: { d: 2 }, AED: { d: 2 }, OMR: { d: 3 }, IQD: { d: 0 }, TOMAN: { d: 0 } };
+const RANGES = { '1M': 30, '6M': 182, '1Y': 365, 'ALL': Infinity };
+
+const GRADES = [
+  { id: 'negin',  n: 'p1n', g: 'p1g', d: 'p1d' },
+  { id: 'sargol', n: 'p2n', g: 'p2g', d: 'p2d' },
+  { id: 'pushal', n: 'p3n', g: 'p3g', d: 'p3d' }
+];
+
+/* ---------------------------------------------------------------------
+   REAL SAFFRON QUOTES. Every point is a dated wholesale quote from the page named in SRC,
+   in toman per kg (ranges are stored as their midpoint). FX_AT is bonbast.com's free-market
+   USD sell rate (toman) on that same date, from bonbast's archive. Nothing between the
+   quote dates is real: the chart interpolates linearly and marks the real points.
+   --------------------------------------------------------------------- */
+const NG = 'https://nabzgheymat.ir/';
+const SRC = {
+  a: { name: 'nabzebourse.com', date: '2026-01-12', url: 'https://nabzebourse.com/fa/news/122724/', note: 'Council vice-chair quote, 22 Dey 1404: negin 194-203M, sargol 175-180M, pushal 165M toman/kg (range midpoints used).' },
+  b: { name: 'nabzgheymat.ir', date: '2026-09-15', url: NG + '%D8%A2%D8%AE%D8%B1%DB%8C%D9%86-%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1-%D9%82%DB%8C%D9%85%D8%AA-%D8%B2%D8%B9%D9%81%D8%B1%D8%A7%D9%86-%D8%A7%D9%85%D8%B1%D9%88%D8%B2-%D8%B3%D9%87%D8%B4%D9%86%D8%A8%D9%87/', note: 'Article of 24 Shahrivar 1405 (Shahrivar wholesale text): super negin 285-294M, pushal 250-255M toman/kg (midpoints).' },
+  c: { name: 'nabzgheymat.ir', date: '2026-10-05', url: NG + '%D9%82%DB%8C%D9%85%D8%AA-%D8%AC%D8%AF%DB%8C%D8%AF-%D8%B2%D8%B9%D9%81%D8%B1%D8%A7%D9%86-%D8%A7%D9%85%D8%B1%D9%88%D8%B2-%D8%AF%D9%88%D8%B4%D9%86%D8%A8%D9%87-%DB%B1%DB%B3-%D9%85%D9%87%D8%B1-%DB%B1%DB%B4/', note: '13 Mehr 1405: negin super (gold) 275-280M, pushal 255-260M toman/kg (midpoints).' },
+  d: { name: 'nabzgheymat.ir', date: '2026-10-11', url: NG + '%D9%82%DB%8C%D9%85%D8%AA-%D8%B2%D8%B9%D9%81%D8%B1%D8%A7%D9%86-%D8%A7%D9%85%D8%B1%D9%88%D8%B2-%DB%B1%DB%B9-%D9%85%D9%87%D8%B1-%DB%B1%DB%B4%DB%B0%DB%B5-%E2%94%82-%D8%AA%D9%81%D8%A7%D9%88%D8%AA-%D9%86/', note: '19 Mehr 1405: negin grade 1 = 310M, sargol grade 1 = 300M, pushal grade 1 = 278M toman/kg.' },
+  e: { name: 'redgolden.net', date: '2026-10-23', url: 'https://redgolden.net/saffron-price/', note: '1 Aban 1405, Mashhad purchase table: negin super (ottoi) 265M, sargol momtaz 255M, pushal (regular) 235M toman/kg. Listed for reference only and not charted: its grade definitions differ from the nabzgheymat.ir lists, so mixing them made a false 16% drop.' }
+};
+const FX_AT = { '2026-01-12': 142950, '2026-09-15': 231200, '2026-10-05': 269600, '2026-10-11': 264000, '2026-10-23': 269900 };
+const QUOTES = {
+  // one series per grade: the Jan council quote, then nabzgheymat.ir's own lists (redgolden.net 'e' is reference-only)
+  negin:  [['a', 198.5e6], ['b', 289.5e6], ['c', 277.5e6], ['d', 310e6]],
+  sargol: [['a', 177.5e6], ['d', 300e6]],
+  pushal: [['a', 165e6], ['b', 252.5e6], ['c', 257.5e6], ['d', 278e6]]
+};
+
+/* =====================================================================
+   COPY (ar / en / fa)
+   ===================================================================== */
+const T = {
+  ar: {
+    title: 'سُرخ · زعفران إيراني',
+    skip: 'تخطَّ إلى المحتوى', brand: 'سُرخ',
+    navLabel: 'التنقل الرئيسي', navCol: 'المجموعة', navStory: 'قصتنا', navPrice: 'الأسعار', navExp: 'التصدير', navContact: 'تواصل',
+    cta: 'طلب عرض سعر', menu: 'القائمة', langLabel: 'اللغة',
+    heroLabel: 'زعفران إيراني · محصول الموسم',
+    heroH: 'الذهب الأحمر',
+    heroSub: 'يُقطف عند الفجر، ويُفرز باليد. ثلاث شعيرات قرمزية من كل زهرة.',
+    heroCta1: 'اكتشف المجموعة', heroCta2: 'قيمة الزعفران اليوم',
+    manLabel: 'قصتنا', manCap: 'شعيرات في كل زهرة',
+    manText: 'لا نبيع الزعفران بالوزن وحده. نبيع لونًا لا يتبدّل، ورائحةً صادقة، وساعةً قبل الشروق محفوظةً في علبة.',
+    manSub: 'تتفتح زهرة الزعفران لأيام قليلة كل خريف. نقطفها قبل الشروق، ونفصل المياسم باليد في اليوم نفسه حتى لا يضيع شيء من لونها ورائحتها.',
+    colLabel: 'المجموعة', colTitle: 'ثلاث درجات، معيار واحد', discover: 'استفسر', onReq: 'السعر عند الطلب', indic: 'سعر استرشادي', kgShort: '/ كغ', photo: '',
+    p1n: 'نِگين', p1g: 'الفاخر', p1d: 'أطول الشعيرات وأعلى قوة تلوين، للأسواق الراقية.',
+    p2n: 'سَرگُل', p2g: 'الأكثر طلبًا', p2d: 'مياسم حمراء بالكامل من دون الذيل الأصفر، خيار المطاعم والموزعين.',
+    p3n: 'بوشال', p3g: 'للجملة', p3d: 'شعيرات مع جزء من الذيل الأصفر، رائحة قوية وتعبئة سائبة.',
+    p4n: 'علبة الهدية', p4g: 'حسب الطلب', p4d: 'علب فاخرة جاهزة للتجزئة والمناسبات، تُصنع بعلامتكم أو بعلامتنا.',
+    craftLabel: 'الحِرفة', craftTitle: 'من الزهرة إلى الخيط', craftNote: 'ثلاث شعيرات في كل زهرة، تُفصل كل واحدة منها باليد.',
+    steps: [
+      { n: 'I', title: 'القطف', text: 'تُقطف الأزهار يدويًا عند الفجر.' },
+      { n: 'II', title: 'الفرز', text: 'تُفصل المياسم الحمراء باليد.' },
+      { n: 'III', title: 'التحليل', text: 'تحليل كل دفعة مخبريًا. [الشهادات]' },
+      { n: 'IV', title: 'التغليف', text: 'عبوات محكمة ضد الضوء والرطوبة.' }
+    ],
+    valLabel: 'الأسعار', valTitle: 'قيمة الزعفران', valLead: 'ما بلغته قيمة كل درجة بعملتكم، من أسعار حقيقية مؤرَّخة.',
+    gradeLabel: 'الدرجة', curLabel: 'العملة', rangeLabel: 'المدى الزمني', perKg: 'للكيلوغرام',
+    since: 'منذ', stHigh: 'الأعلى', stLow: 'الأدنى', quote: 'السعر المعروض', interp: 'قيمة مقدَّرة', chartAria: 'مخطط قيمة الزعفران',
+    up: 'ارتفاع', down: 'انخفاض',
+    dataNote: 'النقاط على المخطط أسعار حقيقية مؤرَّخة من المصادر أدناه، والقيم بينها مقدَّرة بالاستيفاء. الأسعار استرشادية وليست عرضًا ملزمًا، وقد تختلف قوائم الأسعار فيما بينها.',
+    srcTitle: 'المصادر والمنهج', fxPeg: 'سعر صرف مُثبّت رسميًا', fxCbi: 'سعر البنك المركزي العراقي الرسمي', fxAsOf: 'السعر بتاريخ',
+    reqTitle: 'السعر عند الطلب', reqText: 'تواصلوا معنا لمعرفة سعر اليوم لهذه الدرجة.', reqCta: 'اسألوا عبر واتساب',
+    waMsg: 'مرحبًا، أودّ معرفة سعر اليوم لدرجة {g}.',
+    expLabel: 'التصدير', expTitle: 'علامتكم.\nزعفراننا.',
+    expText: 'نعمل مع المستوردين والموزعين وسلاسل المتاجر، مع التعبئة بعلامتكم الخاصة وملصقات عربية وفق متطلبات كل سوق.',
+    countries: [{ name: 'العراق', note: 'بري وجوي', modes: ['land', 'air'] }, { name: 'الإمارات (دبي)', note: 'جوي', modes: ['air'] }, { name: 'عُمان', note: 'جوي وبحري', modes: ['air', 'sea'] }],
+    modeLand: 'بري', modeAir: 'جوي', modeSea: 'بحري',
+    cIran: 'إيران', cBaghdad: 'بغداد', cDubai: 'دبي', cMuscat: 'مسقط', cRiyadh: 'الرياض', cIstanbul: 'إسطنبول', cMoscow: 'موسكو', cMadrid: 'مدريد', cLondon: 'لندن', cMumbai: 'مومباي', cHongKong: 'هونغ كونغ', cNewYork: 'نيويورك',
+    inqTitle: 'لنتحدث عن طلبكم', inqText: 'أخبرونا بالدرجة والكمية، وسنرد بسعر اليوم خلال 24 ساعة.',
+    fName: 'الاسم / الشركة', fCountry: 'الدولة', fPhone: 'واتساب', fGrade: 'الدرجة', fQty: 'الكمية (كغ)', send: 'إرسال',
+    thanks: 'هذا موقع تجريبي، لذلك لم تُرسل أي رسالة.',
+    footNav: 'روابط التذييل', footTag: 'تصميم مفهومي لدار زعفران فاخرة.', byline: 'تصميم مفهومي: سعيد سبزه', footContact: 'تصميم وبرمجة', footAddr: 'سعيد سبزه', footNote: 'مشروع تجريبي وليس متجرًا حقيقيًا. الأسعار اقتباسات سوقية حقيقية ومؤرخة.'
+  },
+  en: {
+    title: 'Sorkh · Persian Saffron',
+    skip: 'Skip to content', brand: 'SORKH',
+    navLabel: 'Main navigation', navCol: 'Collection', navStory: 'Our story', navPrice: 'Prices', navExp: 'Export', navContact: 'Contact',
+    cta: 'Request a quote', menu: 'Menu', langLabel: 'Language',
+    heroLabel: 'Persian saffron · This season’s harvest',
+    heroH: 'Red Gold',
+    heroSub: 'Picked at dawn. Sorted by hand. Three crimson threads from every flower.',
+    heroCta1: 'Discover the collection', heroCta2: 'What saffron is worth today',
+    manLabel: 'Our story', manCap: 'threads in every flower',
+    manText: 'We do not sell saffron by weight alone. We sell colour that holds, an aroma that is honest, and the hour before sunrise, kept in a jar.',
+    manSub: 'The saffron crocus blooms for only a few days each autumn. We pick before sunrise and separate the stigmas by hand the same day, so nothing of their colour or aroma is lost.',
+    colLabel: 'The collection', colTitle: 'Three grades, one standard', discover: 'Enquire', onReq: 'Price on request', indic: 'Indicative', kgShort: '/kg', photo: '',
+    p1n: 'Negin', p1g: 'Prestige', p1d: 'The longest threads and the strongest colour, for premium markets.',
+    p2n: 'Sargol', p2g: 'Most requested', p2d: 'All-red stigmas, no style — the choice of restaurants and distributors.',
+    p3n: 'Pushal', p3g: 'Wholesale', p3d: 'Threads with part of the style. Strong aroma, packed in bulk.',
+    p4n: 'The gift box', p4g: 'Made to order', p4d: 'Retail-ready boxes for seasons and occasions, made under your label or ours.',
+    craftLabel: 'Savoir-faire', craftTitle: 'From flower to thread', craftNote: 'Three threads per flower, each one separated by hand.',
+    steps: [
+      { n: 'I', title: 'Harvest', text: 'Hand-picked at dawn.' },
+      { n: 'II', title: 'Sorting', text: 'Red stigmas separated by hand.' },
+      { n: 'III', title: 'Analysis', text: 'Every batch lab-tested. [Certificates]' },
+      { n: 'IV', title: 'Packing', text: 'Sealed against light and moisture.' }
+    ],
+    valLabel: 'Prices', valTitle: 'The value of saffron', valLead: 'What each grade has been worth, in your currency, drawn from real dated quotes.',
+    gradeLabel: 'Grade', curLabel: 'Currency', rangeLabel: 'Time range', perKg: 'per kg',
+    since: 'since', stHigh: 'High', stLow: 'Low', quote: 'quoted price', interp: 'interpolated', chartAria: 'Saffron value chart',
+    up: 'Up', down: 'Down',
+    dataNote: 'Dots on the chart are real dated quotes from the sources below; values between them are interpolated. Prices are indicative, not an offer, and different price lists are not strictly comparable.',
+    srcTitle: 'Sources and method', fxPeg: 'official peg', fxCbi: 'Central Bank of Iraq official rate', fxAsOf: 'rate as of',
+    reqTitle: 'Price on request', reqText: 'Contact us for today’s price of this grade.', reqCta: 'Ask on WhatsApp',
+    waMsg: 'Hello, I would like today’s price for {g}.',
+    expLabel: 'Export', expTitle: 'Your brand.\nOur saffron.',
+    expText: 'We work with importers, distributors and retail chains, with private-label packing and Arabic labelling to each market’s requirements.',
+    countries: [{ name: 'Iraq', note: 'Land & air', modes: ['land', 'air'] }, { name: 'UAE (Dubai)', note: 'Air', modes: ['air'] }, { name: 'Oman', note: 'Air & sea', modes: ['air', 'sea'] }],
+    modeLand: 'Land', modeAir: 'Air', modeSea: 'Sea',
+    cIran: 'Iran', cBaghdad: 'Baghdad', cDubai: 'Dubai', cMuscat: 'Muscat', cRiyadh: 'Riyadh', cIstanbul: 'Istanbul', cMoscow: 'Moscow', cMadrid: 'Madrid', cLondon: 'London', cMumbai: 'Mumbai', cHongKong: 'Hong Kong', cNewYork: 'New York',
+    inqTitle: 'Let’s talk about your order', inqText: 'Tell us the grade and quantity, and we’ll reply with today’s price within 24 hours.',
+    fName: 'Name / company', fCountry: 'Country', fPhone: 'WhatsApp', fGrade: 'Grade', fQty: 'Quantity (kg)', send: 'Send',
+    thanks: 'This is a concept site, so nothing was sent.',
+    footNav: 'Footer links', footTag: 'A design concept for a luxury saffron house.', byline: 'Concept by Saeed Sabzeh', footContact: 'Designed and built by', footAddr: 'Saeed Sabzeh', footNote: 'A concept project, not a real store. The prices are real, dated market quotes.'
+  },
+  fa: {
+    title: 'سُرخ · زعفران ایرانی',
+    skip: 'رفتن به محتوای اصلی', brand: 'سُرخ',
+    navLabel: 'پیمایش اصلی', navCol: 'مجموعه', navStory: 'داستان ما', navPrice: 'قیمت‌ها', navExp: 'صادرات', navContact: 'تماس',
+    cta: 'استعلام قیمت', menu: 'منو', langLabel: 'زبان',
+    heroLabel: 'زعفران ایرانی · برداشت امسال',
+    heroH: 'طلای سرخ',
+    heroSub: 'سپیده‌دم چیده می‌شود و با دست جدا می‌شود. از هر گل، سه رشتهٔ سرخ.',
+    heroCta1: 'مشاهدهٔ مجموعه', heroCta2: 'ارزش امروز زعفران',
+    manLabel: 'داستان ما', manCap: 'رشته در هر گل',
+    manText: 'ما زعفران را فقط با وزن نمی‌فروشیم. رنگی ماندگار، عطری صادق و ساعتی پیش از طلوع را در شیشه‌ای حفظ می‌کنیم.',
+    manSub: 'گل زعفران هر پاییز فقط چند روز باز است. پیش از طلوع می‌چینیم و همان روز کلاله‌ها را با دست جدا می‌کنیم تا چیزی از رنگ و عطرش از دست نرود.',
+    colLabel: 'مجموعه', colTitle: 'سه گرید، یک معیار', discover: 'استعلام', onReq: 'قیمت پس از استعلام', indic: 'قیمت تقریبی', kgShort: '/ کیلو', photo: '',
+    p1n: 'نگین', p1g: 'ممتاز', p1d: 'بلندترین رشته‌ها با بیشترین رنگ‌دهی، برای بازار لوکس.',
+    p2n: 'سرگل', p2g: 'پرتقاضا', p2d: 'کلالهٔ کاملاً سرخ بدون ریشه، انتخاب رستوران‌ها و توزیع‌کنندگان.',
+    p3n: 'پوشال', p3g: 'عمده', p3d: 'رشته همراه بخشی از ریشه؛ عطر قوی، بسته‌بندی فله.',
+    p4n: 'جعبهٔ هدیه', p4g: 'سفارشی', p4d: 'جعبه‌های نفیس آمادهٔ فروش برای مناسبت‌ها، با برند شما یا ما.',
+    craftLabel: 'هنر و مهارت', craftTitle: 'از گل تا رشته', craftNote: 'سه رشته در هر گل، و هر کدام با دست جدا می‌شود.',
+    steps: [
+      { n: 'I', title: 'چیدن', text: 'سپیده‌دم، با دست.' },
+      { n: 'II', title: 'جداسازی', text: 'کلالهٔ سرخ با دست جدا می‌شود.' },
+      { n: 'III', title: 'آزمایش', text: 'آزمایش هر سری. [گواهی‌ها]' },
+      { n: 'IV', title: 'بسته‌بندی', text: 'محافظ در برابر نور و رطوبت.' }
+    ],
+    valLabel: 'قیمت‌ها', valTitle: 'ارزش زعفران', valLead: 'ارزش هر گرید به ارز شما، بر پایهٔ قیمت‌های واقعی تاریخ‌دار.',
+    gradeLabel: 'گرید', curLabel: 'ارز', rangeLabel: 'بازهٔ زمانی', perKg: 'هر کیلوگرم',
+    since: 'از', stHigh: 'بالاترین', stLow: 'پایین‌ترین', quote: 'قیمت اعلام‌شده', interp: 'مقدار درون‌یابی‌شده', chartAria: 'نمودار ارزش زعفران',
+    up: 'افزایش', down: 'کاهش',
+    dataNote: 'نقطه‌های روی نمودار قیمت‌های واقعی و تاریخ‌دار از منابع زیر هستند و مقادیر میان آن‌ها درون‌یابی شده است. قیمت‌ها تقریبی‌اند و پیشنهاد قطعی محسوب نمی‌شوند؛ فهرست‌های قیمت مختلف دقیقاً قابل مقایسه نیستند.',
+    srcTitle: 'منابع و روش', fxPeg: 'نرخ ثابت رسمی', fxCbi: 'نرخ رسمی بانک مرکزی عراق', fxAsOf: 'نرخ در تاریخ',
+    reqTitle: 'قیمت پس از استعلام', reqText: 'برای دانستن قیمت امروز این گرید با ما تماس بگیرید.', reqCta: 'استعلام قیمت در واتساپ',
+    waMsg: 'سلام، قیمت امروز گرید {g} را می‌خواستم.',
+    expLabel: 'صادرات', expTitle: 'برند شما.\nزعفران ما.',
+    expText: 'با واردکنندگان، توزیع‌کنندگان و فروشگاه‌های زنجیره‌ای کار می‌کنیم؛ با بسته‌بندی با نشان تجاری اختصاصی شما و برچسب عربی مطابق الزامات هر بازار.',
+    countries: [{ name: 'عراق', note: 'زمینی و هوایی', modes: ['land', 'air'] }, { name: 'امارات (دبی)', note: 'هوایی', modes: ['air'] }, { name: 'عمان', note: 'هوایی و دریایی', modes: ['air', 'sea'] }],
+    modeLand: 'زمینی', modeAir: 'هوایی', modeSea: 'دریایی',
+    cIran: 'ایران', cBaghdad: 'بغداد', cDubai: 'دبی', cMuscat: 'مسقط', cRiyadh: 'ریاض', cIstanbul: 'استانبول', cMoscow: 'مسکو', cMadrid: 'مادرید', cLondon: 'لندن', cMumbai: 'بمبئی', cHongKong: 'هنگ‌کنگ', cNewYork: 'نیویورک',
+    inqTitle: 'دربارهٔ سفارش‌تان صحبت کنیم', inqText: 'گرید و مقدار را بگویید؛ ظرف 24 ساعت قیمت روز را اعلام می‌کنیم.',
+    fName: 'نام / شرکت', fCountry: 'کشور', fPhone: 'واتساپ', fGrade: 'گرید', fQty: 'مقدار (کیلوگرم)', send: 'ارسال',
+    thanks: 'این یک سایت نمایشی است و پیامی ارسال نشد.',
+    footNav: 'پیوندهای پایین صفحه', footTag: 'طرحی مفهومی برای یک برند لوکس زعفران.', byline: 'طرح مفهومی: سعید سبزه', footContact: 'طراحی و ساخت', footAddr: 'سعید سبزه', footNote: 'پروژه‌ای نمایشی است، نه فروشگاه واقعی. قیمت‌ها نرخ‌های واقعی و تاریخ‌دار بازارند.'
+  }
+};
+const LOCALES = { ar: 'ar-u-nu-latn', en: 'en-US', fa: 'fa-IR-u-nu-latn-ca-gregory' };
+
+/* =====================================================================
+   DATA: real quotes -> daily series (smooth monotone curve between real points:
+   it passes through every quote and never overshoots between them)
+   ===================================================================== */
+const DAYSEC = 86400;
+const ANCH = {}, SERIES = {};
+function monotone(xs, ys){
+  const n = xs.length, d = [], m = new Array(n).fill(0);
+  for (let i = 0; i < n - 1; i++) d.push((ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]));
+  if (n > 1) { m[0] = d[0]; m[n - 1] = d[n - 2]; }
+  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+  for (let i = 0; i < n - 1; i++) {
+    if (d[i] === 0) { m[i] = m[i + 1] = 0; continue; }
+    const a = m[i] / d[i], b = m[i + 1] / d[i], s = a * a + b * b;
+    if (s > 9) { const k = 3 / Math.sqrt(s); m[i] = k * a * d[i]; m[i + 1] = k * b * d[i]; }
+  }
+  return (i, f) => {
+    const h = xs[i + 1] - xs[i], f2 = f * f, f3 = f2 * f;
+    return (2 * f3 - 3 * f2 + 1) * ys[i] + (f3 - 2 * f2 + f) * h * m[i] + (-2 * f3 + 3 * f2) * ys[i + 1] + (f3 - f2) * h * m[i + 1];
+  };
+}
+GRADES.forEach(g => {
+  const q = QUOTES[g.id].map(([k, tom]) => {
+    const s = SRC[k], fx = FX_AT[s.date];
+    return { k, date: s.date, t: Date.parse(s.date + 'T00:00:00Z') / 1000, tom, usd: tom / fx };
+  });
+  const ts = q.map(p => p.t), fU = monotone(ts, q.map(p => p.usd)), fT = monotone(ts, q.map(p => p.tom));
+  const out = [];
+  for (let i = 0; i < q.length - 1; i++) {
+    const a = q[i], b = q[i + 1], n = Math.round((b.t - a.t) / DAYSEC);
+    for (let d = 0; d < n; d++) { const f = d / n; out.push({ t: a.t + d * DAYSEC, usd: fU(i, f), tom: fT(i, f), real: d === 0 }); }
+  }
+  const z = q[q.length - 1]; out.push({ t: z.t, usd: z.usd, tom: z.tom, real: true });
+  ANCH[g.id] = q; SERIES[g.id] = out;
+});
+
+/* =====================================================================
+   HELPERS
+   ===================================================================== */
+const $ = s => document.querySelector(s);
+const state = { grade: 'negin', cur: 'USD', range: 'ALL' };
+let lang = 'ar';
+const nfs = {};
+function fmt(v, d){ return (nfs[d] || (nfs[d] = new Intl.NumberFormat('en-US', { minimumFractionDigits: d, maximumFractionDigits: d }))).format(v); }
+function val(p, cur){ const d = CUR[cur].d, x = cur === 'TOMAN' ? p.tom : p.usd * RATES[cur]; return d === 0 ? Math.round(x) : +x.toFixed(d); }
+function lastP(id){ const s = SERIES[id]; return s[s.length - 1]; }
+function price(id, cur){ return fmt(val(lastP(id), cur), CUR[cur].d); }
+function axisFmt(v){
+  const a = Math.abs(v);
+  if (a >= 1e8) return (v / 1e6).toFixed(0) + 'M';
+  if (a >= 1e6) return (v / 1e6).toFixed(2) + 'M';
+  return fmt(v, 0);
+}
+function qChange(id, cur){
+  const q = ANCH[id], a = q[q.length - 2], b = q[q.length - 1];
+  return { pct: cur === 'TOMAN' ? (b.tom - a.tom) / a.tom * 100 : (b.usd - a.usd) / a.usd * 100, from: a.t };
+}
+function chgHTML(p){
+  const up = p >= 0, t = T[lang];
+  return `<span class="chg ${up ? 'up' : 'dn'}"><span class="sr">${up ? t.up : t.down} </span>${up ? '+' : '−'}${Math.abs(p).toFixed(1)}%</span>`;
+}
+function curLabel(c){ return c === 'TOMAN' && lang === 'fa' ? 'تومان' : c; }
+function fmtDate(sec){
+  try { return new Intl.DateTimeFormat(LOCALES[lang], { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(sec * 1000); }
+  catch (e) { return new Date(sec * 1000).toISOString().slice(0, 10); }
+}
+function waLink(name){ return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(T[lang].waMsg.replace('{g}', name)); }
+const ARROW = '<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>';
+
+/* thread dividers (drawn in code) */
+function threadSVG(){
+  return '<svg class="thread-div" viewBox="0 0 220 28" aria-hidden="true"><path pathLength="1" d="M4 14C40-2 70 30 110 14S180 0 216 14"/><path class="t2" pathLength="1" d="M26 19C62 6 92 28 128 15S190 9 206 19"/></svg>';
+}
+
+/* =====================================================================
+   VALUE SECTION (chart)
+   ===================================================================== */
+let chart = null, series = null, hovered = null, chartFailed = false;
+
+function buildTabs(){
+  const t = T[lang];
+  $('#gradeTabs').innerHTML = GRADES.map(g => `<button type="button" data-grade="${g.id}" aria-pressed="${state.grade === g.id}">${t[g.n]}</button>`).join('');
+  const curs = ['USD', 'AED', 'OMR', 'IQD'].concat(lang === 'fa' ? ['TOMAN'] : []);
+  if (!curs.includes(state.cur)) state.cur = 'USD';
+  $('#curTabs').innerHTML = curs.map(c => `<button type="button" class="lat" data-cur="${c}" aria-pressed="${state.cur === c}">${curLabel(c)}</button>`).join('');
+  $('#rangeTabs').innerHTML = Object.keys(RANGES).map(r => `<button type="button" class="lat" data-range="${r}" aria-pressed="${state.range === r}">${r}</button>`).join('');
+}
+function syncPressed(){
+  document.querySelectorAll('#gradeTabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.grade === state.grade));
+  document.querySelectorAll('#curTabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.cur === state.cur));
+  document.querySelectorAll('#rangeTabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.range === state.range));
+}
+function fxNote(){
+  const t = T[lang], c = state.cur, r = RATES[c];
+  if (c === 'USD') return '';
+  const eq = `1 USD = <span class="num">${fmt(r, c === 'AED' ? 4 : c === 'OMR' ? 4 : 0)}</span> ${curLabel(c)}`;
+  const why = c === 'TOMAN' ? `${t.fxAsOf} <span class="num">${FX_DATE}</span> · bonbast.com` : c === 'IQD' ? t.fxCbi : t.fxPeg;
+  return `${eq} · ${why}`;
+}
+
+// The chart library (160 KB) loads after the page, once the price section is near or the browser is idle.
+let chartLib = null;
+function loadChartLib(){
+  if (chartLib) return chartLib;
+  chartLib = new Promise((ok, no) => {
+    const s = document.createElement('script');
+    s.src = 'https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js';
+    s.onload = ok; s.onerror = no; document.head.appendChild(s);
+  }).then(() => { renderValue(); }, () => { chartFailed = true; });
+  return chartLib;
+}
+function initChart(){
+  if (chart || chartFailed) return;
+  const LC = window.LightweightCharts, el = $('#chart');
+  if (!LC) return;                                      // drawn as a simple SVG line until the library arrives
+  try {
+    chart = LC.createChart(el, {
+      autoSize: true,
+      layout: { background: { type: 'solid', color: 'transparent' }, textColor: '#9A8C8C', fontFamily: 'Inter, Vazirmatn, sans-serif', fontSize: 12 },
+      grid: { vertLines: { visible: false }, horzLines: { color: 'rgba(247,242,234,0.045)' } },
+      crosshair: {
+        mode: LC.CrosshairMode.Magnet,
+        vertLine: { color: 'rgba(217,178,106,0.28)', width: 1, style: LC.LineStyle.Solid, labelVisible: false },
+        horzLine: { visible: false, labelVisible: false }
+      },
+      rightPriceScale: { borderVisible: false, scaleMargins: { top: 0.16, bottom: 0.08 } },
+      timeScale: { borderVisible: false, timeVisible: false, fixLeftEdge: true, fixRightEdge: true, rightOffset: 0 },
+      handleScroll: false, handleScale: false,
+      localization: { locale: 'en-US' }
+    });
+    series = chart.addAreaSeries({
+      lineColor: '#E3BE76', lineWidth: 2,
+      topColor: 'rgba(155,27,31,0.42)', bottomColor: 'rgba(94,15,18,0)',
+      crosshairMarkerRadius: 4, crosshairMarkerBorderColor: '#0E0A0B', crosshairMarkerBackgroundColor: '#D9B26A',
+      lastValueVisible: false, priceLineVisible: false
+    });
+    chart.subscribeCrosshairMove(p => {
+      if (!p || !p.time || !p.seriesData || !p.seriesData.size) hovered = null;
+      else { const d = p.seriesData.get(series); hovered = d && d.value != null ? { t: typeof p.time === 'number' ? p.time : Date.UTC(p.time.year, p.time.month - 1, p.time.day) / 1000, v: d.value } : null; }
+      paintHead();
+    });
+  } catch (e) { console.warn('Chart unavailable', e); chart = null; chartFailed = true; }
+}
+function setChartLocale(){
+  if (!chart) return;
+  try { chart.applyOptions({ localization: { locale: LOCALES[lang] } }); }
+  catch (e) { chart.applyOptions({ localization: { locale: 'en-US' } }); }
+}
+function rangeSlice(){
+  const s = SERIES[state.grade], n = RANGES[state.range];
+  return n >= s.length ? s : s.slice(s.length - n);
+}
+
+function paintHead(){
+  const id = state.grade, cur = state.cur, t = T[lang], sl = rangeSlice(), d = CUR[cur].d;
+  $('#pxMain').textContent = fmt(hovered ? hovered.v : val(lastP(id), cur), d);
+  $('#pxCur').textContent = curLabel(cur);
+  if (hovered) {
+    const pt = sl.find(p => p.t === hovered.t);
+    $('#pxDate').textContent = '· ' + fmtDate(hovered.t) + (pt ? ' · ' + (pt.real ? t.quote : t.interp) : '');
+    $('#pxChg').innerHTML = '';
+  } else {
+    const c = qChange(id, cur);
+    $('#pxDate').textContent = '· ' + fmtDate(lastP(id).t);
+    $('#pxChg').innerHTML = chgHTML(c.pct) + ` <span style="color:var(--mut)">${t.since} ${fmtDate(c.from)}</span>`;
+  }
+  const vs = sl.map(p => val(p, cur));
+  $('#stats').innerHTML = `<span>${t.stHigh}<span class="num">${fmt(Math.max(...vs), d)}</span></span><span>${t.stLow}<span class="num">${fmt(Math.min(...vs), d)}</span></span>`;
+}
+
+function renderChart(){
+  const el = $('#chart'), cur = state.cur, d = CUR[cur].d, sl = rangeSlice();
+  if (!chart && !chartFailed) initChart();
+  if (chart) {
+    el.querySelectorAll('.fallback').forEach(n => n.remove());
+    series.applyOptions({ priceFormat: { type: 'custom', formatter: axisFmt, minMove: d === 0 ? 1 : Math.pow(10, -d) } });
+    series.setData(sl.map(p => ({ time: p.t, value: val(p, cur) })));
+    series.setMarkers(sl.filter(p => p.real).map(p => ({ time: p.t, position: 'inBar', color: '#EBCB8C', shape: 'circle', size: 1 })));
+    chart.timeScale().fitContent();
+  } else {
+    const vals = sl.map(p => val(p, cur)), mn = Math.min(...vals), mx = Math.max(...vals), W = 1000, H = 400;
+    const pts = vals.map((v, i) => [i / (vals.length - 1) * W, H - 30 - (v - mn) / (mx - mn || 1) * (H - 60)]);
+    const line = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join('');
+    el.innerHTML = `<svg class="fallback" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9B26A" stop-opacity=".25"/><stop offset="1" stop-color="#D9B26A" stop-opacity="0"/></linearGradient></defs><path d="${line}L${W} ${H}L0 ${H}Z" fill="url(#fg)"/><path d="${line}" fill="none" stroke="#D9B26A" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`;
+  }
+}
+function renderValue(){
+  const id = state.grade, g = GRADES.find(x => x.id === id), req = PRICE_ON_REQUEST[id];
+  $('#valData').hidden = req;
+  $('#valReq').hidden = !req;
+  $('#waBtn').href = waLink(T[lang][g.n]);
+  $('#fxNote').innerHTML = fxNote();
+  hovered = null;
+  syncPressed();
+  if (req) return;
+  paintHead();
+  renderChart();
+}
+
+function renderSources(){
+  const items = [];
+  Object.keys(SRC).forEach(k => {
+    const s = SRC[k];
+    items.push(`<li><b>${s.date}</b> · <a href="${s.url}" target="_blank" rel="noopener">${s.name}</a><br>${s.note}</li>`);
+  });
+  items.push(`<li><b>${FX_DATE}</b> · <a href="https://www.bonbast.com/" target="_blank" rel="noopener">bonbast.com</a> (free-market rates, toman)<br>USD sell 269,900 toman (read ${FX_DATE} from bonbast's own JSON feed). The USD value of each saffron quote uses bonbast's archive rate for the quote date (<a href="https://www.bonbast.com/archive" target="_blank" rel="noopener">bonbast.com/archive</a>): 2026-01-12 = 142,950; 2026-09-15 = 231,200; 2026-10-05 = 269,600; 2026-10-11 = 264,000. TOMAN view charts the quoted toman prices directly.</li>`);
+  items.push(`<li><b>AED 3.6725 · OMR 0.3845</b> per USD: official currency pegs (hard-coded).</li>`);
+  items.push(`<li><b>IQD 1,310</b> per USD: Central Bank of Iraq official rate (<a href="https://cbi.iq/" target="_blank" rel="noopener">cbi.iq</a>; a CBI bulletin dated 2026-06-24 shows 1,300 buy / 1,310 sell, not re-checked on ${FX_DATE}). Iraq's street rate is higher: bonbast's IQD quote (17,800 toman per 100 IQD) implies about 1,516 per USD, and <a href="https://open.er-api.com/v6/latest/USD" target="_blank" rel="noopener">open.er-api.com</a> showed 1,517.43 on ${FX_DATE}. Neither is used.</li>`);
+  items.push(`<li><b>Not used:</b> two nabzebourse.com price lists (25 Dey and 25 Bahman 1404: negin 100M and 120M toman/kg) because they disagree by roughly 2x with the council quote of the same week; retail per-mesghal quotes (1 mesghal = 4.608 g); undated vendor USD lists. For context only, Selina Wamucii reports a 2022 UN Comtrade export unit value of US$934/kg (<a href="https://www.selinawamucii.com/insights/prices/iran/saffron/" target="_blank" rel="noopener">source</a>).</li>`);
+  items.push(`<li><b>Method:</b> ranges are stored as midpoints; grades are matched by name across lists (negin = super/regular negin, sargol = sargol momtaz/grade 1, pushal = regular/grade 1 pushal), so lists differ in exact quality. Day-to-day values between quotes are a smooth monotone interpolation (it passes through every quote and never overshoots), not market data.</li>`);
+  $('#srcList').innerHTML = items.join('');
+}
+
+/* =====================================================================
+   PRODUCT ART (code-drawn placeholders)
+   ===================================================================== */
+// Glass jars drawn in code until real photography arrives. The threads inside show the grade:
+// negin = long all-red threads, sargol = short red threads, pushal = red threads with yellow style tails.
+const JAR = {
+  negin:  { seed: 11, bx: 50, bw: 100, by: 78,  bh: 158, fill: .62, n: 80,  len: [24, 36] },
+  sargol: { seed: 23, bx: 42, bw: 116, by: 104, bh: 132, fill: .58, n: 120, len: [11, 19] },
+  pushal: { seed: 37, bx: 44, bw: 112, by: 94,  bh: 142, fill: .66, n: 95,  len: [16, 26] }
+};
+let artSeq = 0;
+function art(kind, dark){
+  const id = 'a' + (++artSeq);
+  if (kind === 'gift') return giftArt(id);
+  const J = JAR[kind], r = mulberry32(J.seed), { bx, bw, by, bh } = J, rad = 20;
+  const top = by + bh * (1 - J.fill), bottom = by + bh - 6;
+  const reds = ['#7A0E12', '#9B1B1F', '#B4241F', '#8A1216', '#C2321F'];
+  let th = '';
+  for (let i = 0; i < J.n; i++) {
+    const x = bx + 8 + r() * (bw - 16), y = top + 6 + Math.pow(r(), .75) * (bottom - top - 6);
+    const a = r() * Math.PI * 2, L = J.len[0] + r() * (J.len[1] - J.len[0]);
+    const x2 = x + Math.cos(a) * L, y2 = y + Math.sin(a) * L * .55;
+    const qx = (x + x2) / 2 + (r() - .5) * 12, qy = (y + y2) / 2 + (r() - .5) * 10, w = 1.4 + r() * 1.4;
+    th += `<path d="M${x.toFixed(1)} ${y.toFixed(1)}Q${qx.toFixed(1)} ${qy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${reds[i % 5]}" stroke-width="${w.toFixed(2)}"/>`;
+    if (kind === 'pushal' && r() < .7) th += `<path d="M${x.toFixed(1)} ${y.toFixed(1)}l${(-Math.cos(a) * 8).toFixed(1)} ${(-Math.sin(a) * 4.4).toFixed(1)}" stroke="#E2B95A" stroke-width="${(w * .7).toFixed(2)}"/>`;
+  }
+  const edge = dark ? 'rgba(255,238,210,.55)' : 'rgba(94,58,30,.42)', g = dark ? 1 : 1.6;
+  const lx = bx + 16, lw = bw - 32, ly = by + bh * .36, lh = Math.min(48, bh * .32);
+  return `<svg class="art" viewBox="0 0 200 260" aria-hidden="true">
+    <defs>
+      <clipPath id="${id}c"><rect x="${bx + 3}" y="${by + 3}" width="${bw - 6}" height="${bh - 6}" rx="${rad - 3}"/></clipPath>
+      <linearGradient id="${id}g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="${.30 * g}"/><stop offset=".16" stop-color="#fff" stop-opacity="${.07 * g}"/><stop offset=".5" stop-color="#fff" stop-opacity="${.02 * g}"/><stop offset=".84" stop-color="#fff" stop-opacity="${.08 * g}"/><stop offset="1" stop-color="#fff" stop-opacity="${.26 * g}"/></linearGradient>
+      <linearGradient id="${id}l" x1="0" x2="1"><stop offset="0" stop-color="#5E3E12"/><stop offset=".22" stop-color="#B98E48"/><stop offset=".42" stop-color="#F3DCA4"/><stop offset=".62" stop-color="#C79C55"/><stop offset="1" stop-color="#4E3310"/></linearGradient>
+      <linearGradient id="${id}h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <radialGradient id="${id}s"><stop offset="0" stop-color="#000" stop-opacity="${dark ? .5 : .28}"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    </defs>
+    <ellipse cx="100" cy="${by + bh + 8}" rx="${bw * .62}" ry="9" fill="url(#${id}s)"/>
+    <g clip-path="url(#${id}c)" fill="none" stroke-linecap="round">${th}</g>
+    <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${rad}" fill="url(#${id}g)" stroke="${edge}" stroke-width="1.2"/>
+    <ellipse cx="100" cy="${by + bh - 5}" rx="${bw / 2 - 10}" ry="3" fill="none" stroke="${edge}" stroke-width=".8" opacity=".6"/>
+    <rect x="${lx}" y="${ly}" width="${lw}" height="${lh}" rx="2" fill="#F6EDDC" opacity=".95" stroke="#B58A44" stroke-width=".8"/>
+    <rect x="${lx + 3}" y="${ly + 3}" width="${lw - 6}" height="${lh - 6}" rx="1" fill="none" stroke="#B58A44" stroke-width=".4" opacity=".8"/>
+    <svg x="${100 - 12}" y="${ly + lh / 2 - 13}" width="24" height="24" style="color:#8A5A12;--thread:#9B1B1F"><use href="#crocus"/></svg>
+    <rect x="${bx + 18}" y="${by - 18}" width="${bw - 36}" height="20" rx="4" fill="url(#${id}g)" stroke="${edge}" stroke-width="1"/>
+    <rect x="${bx + 12}" y="${by - 46}" width="${bw - 24}" height="30" rx="5" fill="url(#${id}l)"/>
+    <path d="${Array.from({ length: 6 }, (_, i) => `M${bx + 14} ${by - 41 + i * 4}h${bw - 28}`).join('')}" stroke="#3A260B" stroke-opacity=".22" stroke-width=".6"/>
+    <g class="glint"><rect x="${bx + 9}" y="${by + 12}" width="7" height="${bh - 30}" rx="3.5" fill="url(#${id}h)" opacity=".7"/><rect x="${bx + bw - 15}" y="${by + 22}" width="3" height="${bh - 64}" rx="1.5" fill="url(#${id}h)" opacity=".4"/></g>
+  </svg>`;
+}
+function giftArt(id){
+  return `<svg class="art" viewBox="0 0 220 220" aria-hidden="true">
+    <defs>
+      <linearGradient id="${id}b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E1F22"/><stop offset="1" stop-color="#430A0D"/></linearGradient>
+      <linearGradient id="${id}t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A2282B"/><stop offset="1" stop-color="#5E0F12"/></linearGradient>
+      <linearGradient id="${id}r" x1="0" x2="1"><stop offset="0" stop-color="#8A5A12"/><stop offset=".45" stop-color="#F3DCA4"/><stop offset="1" stop-color="#9C6B22"/></linearGradient>
+      <radialGradient id="${id}s"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    </defs>
+    <ellipse cx="110" cy="200" rx="88" ry="9" fill="url(#${id}s)"/>
+    <rect x="38" y="98" width="144" height="98" rx="2" fill="url(#${id}b)"/>
+    <rect x="38" y="140" width="144" height="11" fill="url(#${id}r)"/>
+    <rect x="30" y="76" width="160" height="26" rx="2" fill="url(#${id}t)"/>
+    <rect x="102" y="76" width="16" height="120" fill="url(#${id}r)"/>
+    <path d="M110 76c-10-30-46-36-44-14 2 12 24 14 44 14zM110 76c10-30 46-36 44-14-2 12-24 14-44 14z" fill="url(#${id}r)" stroke="#6E4A16" stroke-width=".6"/>
+    <path d="M104 78l-14 22M116 78l14 22" stroke="#C79C55" stroke-width="5" stroke-linecap="round"/>
+    <g class="glint"><rect x="40" y="80" width="54" height="3" rx="1.5" fill="#fff" opacity=".28"/><rect x="44" y="104" width="4" height="84" rx="2" fill="#fff" opacity=".12"/></g>
+  </svg>`;
+}
+function cardHTML(cls, kind, tag, name, desc, foot, grade){
+  const t = T[lang];
+  return `<article class="card ${cls} reveal"><div class="vis">${art(kind, kind === 'negin')}<span class="ph">${t.photo}</span></div>
+    <div class="cbody"><span class="tag">${tag}</span><h3>${name}</h3><p>${desc}</p>
+    <div class="cfoot"><span class="cp">${foot}</span><a class="enq" href="#inquiry" data-grade="${grade}">${t.discover}${ARROW}</a></div></div></article>`;
+}
+function renderCards(){
+  const t = T[lang];
+  artSeq = 0;
+  const html = GRADES.map(g => {
+    const foot = PRICE_ON_REQUEST[g.id] ? t.onReq : `${t.indic} · <span class="num">${price(g.id, state.cur)}</span> ${curLabel(state.cur)}${t.kgShort}`;
+    return cardHTML('c-' + g.id, g.id, t[g.g], t[g.n], t[g.d], foot, g.id);
+  });
+  html.push(cardHTML('c-gift', 'gift', t.p4g, t.p4n, t.p4d, t.onReq, 'gift'));
+  $('#cards').innerHTML = html.join('');
+  observeReveals($('#cards'));
+}
+function renderSteps(){
+  $('#steps').innerHTML = T[lang].steps.map(s => `<li class="step"><span class="n">${s.n}</span><h3>${s.title}</h3><p>${s.text}</p></li>`).join('');
+}
+
+const ICONS = {
+  land: '<path d="M2 6h11v9H2zM13 9h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',
+  air:  '<path d="M2.5 14l8.5-3.2V5.5a1.5 1.5 0 013 0v5.3l8.5 3.2v2l-8.5-2v4.4l2.2 1.6V22l-3.7-1-3.7 1v-1.6l2.2-1.6v-4.4l-8.5 2z"/>',
+  sea:  '<path d="M3 15.5l2.2 4.5h13.6l2.2-4.5zM12 3v7M7.5 10.5h9L15 15.5H9z"/>'
+};
+function renderExport(){
+  const t = T[lang];
+  $('#xrow').innerHTML = t.countries.map((c, i) => `<div class="xblock"><span class="idx">0${i + 1}</span><h3>${c.name}</h3><span class="note">${c.note}</span>
+    <div class="modes">${c.modes.map(m => { const lb = t['mode' + m[0].toUpperCase() + m.slice(1)]; return `<svg viewBox="0 0 24 24" role="img" aria-label="${lb}"><title>${lb}</title>${ICONS[m]}</svg>`; }).join('')}</div></div>`).join('');
+}
+function renderSelect(){
+  const t = T[lang], sel = $('#fGrade'), keep = sel.value || '';
+  sel.innerHTML = GRADES.map(g => `<option value="${g.id}">${t[g.n]}</option>`).join('') + `<option value="gift">${t.p4n}</option>`;
+  if (keep) sel.value = keep;
+}
+
+/* =====================================================================
+   LANGUAGE
+   ===================================================================== */
+function applyLang(l){
+  lang = l;
+  const t = T[l], de = document.documentElement;
+  de.lang = l; de.dir = l === 'en' ? 'ltr' : 'rtl';
+  document.title = t.title;
+  document.querySelectorAll('[data-t]').forEach(el => { el.textContent = t[el.dataset.t]; });
+  document.querySelectorAll('[data-t-aria]').forEach(el => { el.setAttribute('aria-label', t[el.dataset.tAria]); });
+  $('#langs').innerHTML = [['ar', 'عربي'], ['en', 'EN'], ['fa', 'فارسی']]
+    .map(([id, lab]) => `<button type="button" data-lang="${id}" lang="${id}" aria-pressed="${id === l}">${lab}</button>`).join('');
+  buildTabs(); renderCards(); renderSteps(); renderExport(); renderSelect(); renderSources();
+  setChartLocale(); renderValue();
+  if (window.__hero) window.__hero.refresh();
+  if (window.__silk) requestAnimationFrame(() => window.__silk.build());
+}
+
+/* smooth language switch: crossfade, keep the reader's place on the page,
+   and don't replay reveal animations for content already on screen */
+function switchLang(l){
+  if (l === lang) return;
+  const anchor = [...document.querySelectorAll('main section, footer')].find(s => s.getBoundingClientRect().bottom > 80);
+  const top = anchor ? anchor.getBoundingClientRect().top : 0;
+  const cardsShown = !!document.querySelector('#cards .reveal.in');
+  const swap = () => {
+    applyLang(l);
+    if (cardsShown) document.querySelectorAll('#cards .reveal').forEach(e => e.classList.add('in'));
+    if (anchor) window.scrollBy(0, anchor.getBoundingClientRect().top - top);
+  };
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { swap(); return; }
+  if (document.startViewTransition) { document.startViewTransition(swap); return; }
+  const m = document.body;
+  m.classList.add('lang-fade');
+  setTimeout(() => { swap(); requestAnimationFrame(() => m.classList.remove('lang-fade')); }, 220);
+}
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('button,a'); if (!b) return;
+  if (b.dataset.lang) { switchLang(b.dataset.lang); return; }
+  if (b.closest('#gradeTabs') && b.dataset.grade) { state.grade = b.dataset.grade; renderValue(); return; }
+  if (b.closest('#curTabs') && b.dataset.cur) { state.cur = b.dataset.cur; renderCards(); renderValue(); return; }
+  if (b.closest('#rangeTabs') && b.dataset.range) { state.range = b.dataset.range; renderValue(); return; }
+  if (b.classList.contains('enq')) { const s = $('#fGrade'); if (s && b.dataset.grade) s.value = b.dataset.grade; }
+  if (b.closest('#menu') && b.tagName === 'A') closeMenu();
+});
+
+/* mobile menu */
+const burger = $('#burger'), menu = $('#menu');
+function closeMenu(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
+burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+/* form */
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  if (!f.checkValidity()) { f.reportValidity(); return; }
+  f.reset(); renderSelect();
+  const th = $('#thanks'); th.hidden = false; th.focus();
+});
+
+/* reveal on scroll (+ thread dividers) */
+let revealIO = null;
+function observeReveals(root){
+  const els = (root || document).querySelectorAll('.reveal:not(.in)');
+  if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+  if (!revealIO) revealIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); revealIO.unobserve(en.target); } }), { threshold: 0.08 });
+  els.forEach((e, i) => { if (e.classList.contains('card')) e.style.setProperty('--d', (i * 0.1) + 's'); revealIO.observe(e); });
+}
+document.querySelectorAll('[data-thread]').forEach(el => { el.innerHTML = threadSVG(); });
+
+/* living threads: when the cursor comes near, a saffron thread lifts off and
+   drifts away on a slow breeze, fluttering and fading, then quietly returns
+   to its place. Shape flutter is done by resampling each path into points. */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const N = 24, NEAR = 24, FLY_MS = 3800, BACK_MS = 4200;
+  const ptr = { x: -1e4, y: -1e4 };
+  const smooth = a => {
+    let d = `M${a[0].x.toFixed(1)} ${a[0].y.toFixed(1)}`;
+    for (let i = 0; i < a.length - 1; i++) {
+      const p0 = a[i - 1] || a[i], p1 = a[i], p2 = a[i + 1], p3 = a[i + 2] || p2;
+      d += `C${(p1.x + (p2.x - p0.x) / 6).toFixed(1)} ${(p1.y + (p2.y - p0.y) / 6).toFixed(1)} ${(p2.x - (p3.x - p1.x) / 6).toFixed(1)} ${(p2.y - (p3.y - p1.y) / 6).toFixed(1)} ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`;
+    }
+    return d;
+  };
+  const threads = [...document.querySelectorAll('svg.drift')].map(svg => ({
+    svg, base: parseFloat(getComputedStyle(svg).opacity) || .55, ph: Math.random() * 6.28,
+    state: 'idle', t0: 0, vx: 0, vy: 0, spin: 0, x: 0, y: 0, r: 0,
+    paths: [...svg.querySelectorAll('path')].map(p => {
+      const len = p.getTotalLength(), pts = [];
+      for (let i = 0; i < N; i++) { const q = p.getPointAtLength(len * i / (N - 1)); pts.push({ rx: q.x, ry: q.y, x: q.x, y: q.y, w: Math.sin(Math.PI * i / (N - 1)) }); }
+      return { p, pts };
+    })
+  }));
+  if (!threads.length) return;
+
+  const visible = new Set();
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+  threads.forEach(t => io.observe(t.svg));
+
+  const launch = (t, now) => {
+    const b = t.svg.getBoundingClientRect(), cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+    let dx = cx - ptr.x, dy = cy - ptr.y; const m = Math.hypot(dx, dy) || 1; dx /= m; dy /= m;
+    t.vx = dx * .9; t.vy = dy * .55 - .8;               // away from the cursor, and up
+    t.spin = (Math.random() < .5 ? -1 : 1) * (.06 + Math.random() * .06);
+    t.state = 'fly'; t.t0 = now; t.x = t.y = t.r = 0;
+  };
+
+  let raf = 0;
+  const tick = now => {
+    raf = 0;
+    let busy = false;
+    for (const t of threads) {
+      if (!visible.has(t.svg) && t.state === 'idle') continue;
+      busy = true;
+      const s = t.svg.style;
+      if (t.state === 'idle') {
+        const b = t.svg.getBoundingClientRect();
+        if (ptr.x > b.left - NEAR && ptr.x < b.right + NEAR && ptr.y > b.top - NEAR && ptr.y < b.bottom + NEAR) launch(t, now);
+      }
+      let flutter = 1.4, speed = .9;
+      if (t.state === 'fly') {
+        // carried off by the breeze, slowing to a hover
+        const k = Math.min(1, (now - t.t0) / FLY_MS);
+        const breeze = Math.sin(now / 900 + t.ph) * .22 * (1 - k);
+        t.vx *= .99; t.vy *= .99; t.spin *= .99;
+        t.x += t.vx + breeze; t.y += t.vy; t.r += t.spin;
+        flutter = 1.4 + 3.6 * (1 - k); speed = .9 + 1.7 * (1 - k);
+        s.opacity = (t.base * (1 - .3 * Math.sin(Math.PI * k / 2))).toFixed(3);
+        if (k >= 1) { t.state = 'back'; t.t0 = now; t.fx = t.x; t.fy = t.y; t.fr = t.r; }
+      } else if (t.state === 'back') {
+        // floats home along a soft curve
+        const k = Math.min(1, (now - t.t0) / BACK_MS), e = k * k * (3 - 2 * k);
+        const sway = Math.sin(Math.PI * k) * 14 * (t.spin < 0 ? -1 : 1);
+        t.x = t.fx * (1 - e) + sway; t.y = t.fy * (1 - e); t.r = t.fr * (1 - e);
+        s.opacity = (t.base * (.7 + .3 * e)).toFixed(3);
+        if (k >= 1) { t.state = 'idle'; t.x = t.y = t.r = 0; s.opacity = ''; }
+      }
+      if (t.state !== 'idle') { s.translate = `${t.x.toFixed(1)}px ${t.y.toFixed(1)}px`; s.rotate = `${t.r.toFixed(2)}deg`; }
+      else if (s.translate) { s.translate = ''; s.rotate = ''; }
+      const time = now / 1000;
+      for (const { p, pts } of t.paths) {
+        for (const q of pts) {
+          const tx = q.rx, ty = q.ry + Math.sin(time * speed + t.ph + q.rx * .04) * flutter * q.w;
+          q.x += (tx - q.x) * .12; q.y += (ty - q.y) * .12;
+        }
+        p.setAttribute('d', smooth(pts));
+      }
+    }
+    if (busy && !document.hidden) raf = requestAnimationFrame(tick);
+  };
+  const kick = () => { if (!raf && !document.hidden) raf = requestAnimationFrame(tick); };
+  const move = e => { ptr.x = e.clientX; ptr.y = e.clientY; kick(); };
+  addEventListener('pointermove', move, { passive: true });
+  addEventListener('pointerdown', move, { passive: true });
+  document.addEventListener('visibilitychange', kick);
+  addEventListener('scroll', kick, { passive: true });
+  kick();
+})();
+
+/* product jars tilt toward the pointer; the glass glint slides the other way */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cards = $('#cards'); let last = null;
+  const reset = c => { if (c) ['--rx', '--ry', '--gx'].forEach(v => c.style.removeProperty(v)); };
+  cards.addEventListener('pointermove', e => {
+    const c = e.target.closest('.card');
+    if (c !== last) { reset(last); last = c; }
+    if (!c || e.pointerType === 'touch') return;
+    const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    c.style.setProperty('--ry', (x * 16).toFixed(2) + 'deg');
+    c.style.setProperty('--rx', (-y * 10).toFixed(2) + 'deg');
+    c.style.setProperty('--gx', (-x * 18).toFixed(1) + 'px');
+  });
+  cards.addEventListener('pointerleave', () => { reset(last); last = null; });
+})();
+
+/* =====================================================================
+   THE THREAD: one saffron thread falls out of the dawn, loops the "3",
+   stitches between the product cards, runs along the craft steps and
+   ends as the stem of the crocus. It draws itself as the reader scrolls.
+   ===================================================================== */
+(function(){
+  const main = document.querySelector('main'), NS = 'http://www.w3.org/2000/svg';
+  const mk = (tag, attrs) => { const el = document.createElementNS(NS, tag); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; };
+  const svg = mk('svg', { class: 'silk', 'aria-hidden': 'true' });
+  const line = mk('path', { class: 's-main' }), sheen = mk('path', { class: 's-sheen' });
+  const halo = mk('circle', { r: 7, fill: 'rgba(233,195,119,.28)' }), tip = mk('circle', { r: 2.2, fill: '#F3DCA4' });
+  svg.append(line, sheen, halo, tip); main.appendChild(svg);
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let total = 0, S = null, cur = 0, target = 0, raf = 0, top0 = 0;   // S: samples along the curve
+
+  const box = el => {
+    const r = el.getBoundingClientRect(), m = main.getBoundingClientRect();
+    return { l: r.left - m.left, r: r.right - m.left, t: r.top - m.top, b: r.bottom - m.top, w: r.width, h: r.height, cx: r.left - m.left + r.width / 2, cy: r.top - m.top + r.height / 2 };
+  };
+  // Catmull-Rom through the anchors, as cubic Béziers: the SVG path plus the segments themselves
+  const toCurves = a => {
+    const segs = [], f = v => v.toFixed(1);
+    for (let i = 0; i < a.length - 1; i++) {
+      const p0 = a[i - 1] || a[i], p1 = a[i], p2 = a[i + 1], p3 = a[i + 2] || p2;
+      segs.push([p1, [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6], p2]);
+    }
+    return { d: `M${f(a[0][0])} ${f(a[0][1])}` + segs.map(([, b, c, e]) => `C${f(b[0])} ${f(b[1])} ${f(c[0])} ${f(c[1])} ${f(e[0])} ${f(e[1])}`).join(''), segs };
+  };
+  // One pass along the curve: cumulative length with x and y at each sample. (Calling
+  // getPointAtLength per sample re-walks the whole path every time and stalled page load.)
+  const sample = segs => {
+    const L = [0], X = [segs[0][0][0]], Y = [segs[0][0][1]];
+    for (const [a, b, c, e] of segs) for (let k = 1; k <= 24; k++) {
+      const t = k / 24, u = 1 - t, w0 = u * u * u, w1 = 3 * u * u * t, w2 = 3 * u * t * t, w3 = t * t * t;
+      const x = w0 * a[0] + w1 * b[0] + w2 * c[0] + w3 * e[0], y = w0 * a[1] + w1 * b[1] + w2 * c[1] + w3 * e[1];
+      L.push(L[L.length - 1] + Math.hypot(x - X[X.length - 1], y - Y[Y.length - 1])); X.push(x); Y.push(y);
+    }
+    return { L, X, Y };
+  };
+  const pointAt = len => {
+    const { L, X, Y } = S; let lo = 0, hi = L.length - 1;
+    while (hi - lo > 1) { const m = (lo + hi) >> 1; if (L[m] < len) lo = m; else hi = m; }
+    const k = (len - L[lo]) / ((L[hi] - L[lo]) || 1);
+    return { x: X[lo] + (X[hi] - X[lo]) * k, y: Y[lo] + (Y[hi] - Y[lo]) * k };
+  };
+
+  function anchors(){
+    const W = main.clientWidth, rtl = document.documentElement.dir === 'rtl', xs = f => rtl ? W * (1 - f) : W * f;
+    const q = s => document.querySelector(s);
+    const els = [q('#story'), q('#story .big b'), q('#story .big span'), q('#collection .sec-head'), q('#cards .c-negin'), q('#cards .c-sargol'), q('#cards .c-gift'), q('#steps'), q('.craft-note svg')];
+    if (els.some(e => !e)) return null;
+    const [story, big, cap, head, N, S, G, steps, note] = els.map(box);
+    // The thread only travels through empty space: the dawn band, around the "3", the page gutter,
+    // the gaps between cards and the craft line. Small x fractions are the reading-start side.
+    const wide = W > 860, out = rtl ? 1 : -1;                  // out = toward the start-side page edge
+    const startEdge = wide ? (rtl ? Math.max(big.r, cap.r) : Math.min(big.l, cap.l)) : (rtl ? big.r : big.l), innerEdge = rtl ? big.l : big.r;
+    const loopTop = big.t - 34, loopBot = (wide ? Math.max(big.b, cap.b) : big.b) + 26;
+    const band = Math.min(260, story.h * .16);
+    const pts = [
+      [xs(.5), story.t + 2],
+      [(xs(.5) + innerEdge) / 2, story.t + band * .75],
+      [innerEdge - out * 30, loopTop + 14],                    // loop around the outlined "3"
+      [big.cx, loopTop],
+      [startEdge + out * 34, (loopTop + loopBot) / 2],
+      [startEdge + out * 30, loopBot - 6],
+      [big.cx, loopBot]
+    ];
+    if (wide) pts.push([innerEdge - out * 26, loopBot + 34], [xs(.3), story.b - 36], [xs(.86), head.cy]);
+    else pts.push([xs(.02), loopBot + 60], [xs(.02), story.b - 20], [xs(.02), head.cy]);
+    const side = S.t < N.cy;                                   // negin and sargol side by side
+    const gapX = side ? (S.l > N.r ? (N.r + S.l) / 2 : (S.r + N.l) / 2) : xs(.02);
+    pts.push([gapX, N.t + 30], [gapX + 5, N.cy], [gapX - 3, N.b - 20]);
+    if (side) pts.push([gapX, N.b + 12], [xs(.5), N.b + 12]);
+    pts.push([xs(.012), G.cy]);
+    if (wide) {
+      // enter the craft line from its far end and run back along it to the crocus at the start
+      const ly = steps.t + 26, s0 = rtl ? steps.r : steps.l, s1 = rtl ? steps.l : steps.r, dir = Math.sign(s0 - s1);
+      pts.push([xs(.5), G.b + 44], [s1 - dir * 30, ly - 50], [s1 + dir * 12, ly], [(s0 + s1) / 2, ly + 1.5], [s0 - dir * 12, ly], [s0 + dir * 36, ly + 60]);
+      pts.push([note.cx + dir * 30, note.t - 14]);
+    } else {
+      pts.push([xs(.02), G.b + 30], [xs(.02), steps.t], [xs(.02), note.t - 30]);
+    }
+    pts.push([note.cx, note.t + note.h * .62]);                // ends as the crocus stem
+    return pts;
+  }
+
+  function build(){
+    const pts = anchors(); if (!pts) return;
+    const W = main.clientWidth, H = main.scrollHeight;
+    svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const { d, segs } = toCurves(pts);
+    line.setAttribute('d', d); sheen.setAttribute('d', d);
+    total = line.getTotalLength();
+    S = sample(segs);
+    const k = total / (S.L[S.L.length - 1] || 1); S.L = S.L.map(v => v * k);   // match the browser's length
+    [line, sheen].forEach(p => { p.style.strokeDasharray = `${total} ${total}`; });
+    top0 = main.getBoundingClientRect().top + scrollY;
+    if (still) cur = total;
+    else cur = Math.min(cur, total);
+    aim(); paint();
+  }
+  function aim(){
+    if (!S) return;
+    const yLine = scrollY + innerHeight * .78 - top0;
+    let i = 0; while (i < S.Y.length && S.Y[i] <= yLine) i++;
+    target = still ? total : Math.min(total, i < S.L.length ? S.L[i] : total);
+  }
+  function paint(){
+    const off = Math.max(0, total - cur);
+    line.style.strokeDashoffset = off; sheen.style.strokeDashoffset = off;
+    const show = cur > 2 && cur < total - 1;
+    halo.style.opacity = tip.style.opacity = show ? 1 : 0;
+    if (show) { const p = pointAt(cur); halo.setAttribute('cx', p.x); halo.setAttribute('cy', p.y); tip.setAttribute('cx', p.x); tip.setAttribute('cy', p.y); }
+  }
+  function tick(){
+    raf = 0;
+    cur += (target - cur) * .09;
+    if (Math.abs(target - cur) < .5) cur = target;
+    paint();
+    if (cur !== target) raf = requestAnimationFrame(tick);
+  }
+  const go = () => { aim(); if (!raf) raf = requestAnimationFrame(tick); };
+  addEventListener('scroll', go, { passive: true });
+  let rt = 0;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 160); });
+  addEventListener('load', build);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+  window.__silk = { build };
+})();
+
+/* =====================================================================
+   HERO CANVAS: saffron dawn over a dark planet. A real orthographic globe
+   (world-atlas land) seen from orbit near the horizon, with great-circle
+   export arcs from Iran to the Gulf and the wider world. Calm, slow,
+   scroll- and cursor-aware. The geography is never mirrored (same in every
+   language). d3-geo + topojson load asynchronously and only draw the land;
+   the projection used for cities, arcs and lights is plain math, so the
+   planet, cities and arcs still work if the CDN is unreachable.
+   ===================================================================== */
+(function(){
+  const cv = $('#heroCanvas'), ctx = cv.getContext('2d'), host = cv.parentElement;
+  const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const animated = () => HERO_INTRO && !rm.matches;
+  const cl = x => Math.min(1, Math.max(0, x)), eo = x => 1 - Math.pow(1 - x, 3), eio = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+  const TAU = 6.2832, D2R = Math.PI / 180;
+  let w = 0, h = 0, dpr = 1, R = 0, cx = 0, limbF = 0, sgn = 1;
+  let stars = [], dots = [], thr = [], bgG = null, rimG = null;
+  let T0 = performance.now(), prev = 0, raf = 0, running = false, visible = true;
+  let sT = 0, sC = 0, ptr = { x: .5, y: .35, sx: .5, sy: .35, a: 0, on: false };
+  const vig = document.createElement('canvas'), vx = vig.getContext('2d');
+
+  // ---- globe: orthographic view centred on (LON0, lat0). lat0 is solved in build() so Iran
+  // sits ~1/3 of the way down the visible band and the Gulf near the bottom.
+  const LON0 = 58; let lat0 = -33, sP0 = Math.sin(lat0 * D2R), cP0 = Math.cos(lat0 * D2R);
+  const LIFT = .06;                   // arc altitude as a fraction of the globe radius
+  // origin + markets: [translation key, lon, lat, global?]
+  const RT = [
+    ['cIran', 59.6, 36.3, 0], ['cBaghdad', 44.4, 33.3, 0], ['cDubai', 55.3, 25.2, 0], ['cMuscat', 58.5, 23.6, 0],
+    ['cRiyadh', 46.7, 24.7, 1], ['cIstanbul', 29.0, 41.0, 1], ['cMoscow', 37.6, 55.8, 1], ['cMadrid', -3.7, 40.4, 1],
+    ['cLondon', -0.1, 51.5, 1], ['cMumbai', 72.9, 19.1, 1], ['cHongKong', 114.2, 22.3, 1], ['cNewYork', -74.0, 40.7, 1]
+  ].map((c, i) => ({ k: c[0], lon: c[1], lat: c[2], g: c[3], i, x: 0, y: 0, vis: false, n: 0, xs: null, ys: null, ex: 0, ey: 0, t0: 0, dur: 1.7, pr: 0 }));
+  // population centres that get clusters of city lights: lon, lat, weight
+  const CENTRES = [
+    [51.4, 35.7, 3], [59.6, 36.3, 2], [51.7, 32.65, 1.5], [52.5, 29.6, 1], [46.3, 38.1, 1], [44.4, 33.3, 3], [47.8, 30.5, 1], [48.0, 29.4, 1.5],
+    [46.7, 24.7, 2.5], [39.2, 21.5, 1.5], [55.3, 25.2, 3], [51.5, 25.3, 1], [58.5, 23.6, 2], [67.0, 24.9, 2], [72.9, 19.1, 2.5], [77.2, 28.6, 2.5],
+    [74.3, 31.5, 1.5], [69.2, 34.5, 1], [69.2, 41.3, 1], [49.9, 40.4, 1], [29.0, 41.0, 3], [32.9, 39.9, 1.5], [31.2, 30.0, 3], [35.5, 32.0, 1.5],
+    [37.6, 55.8, 2.5], [30.5, 50.4, 1.5], [23.7, 38.0, 1], [-3.7, 40.4, 1.5], [-0.1, 51.5, 2], [2.3, 48.9, 1.5], [12.5, 41.9, 1], [13.4, 52.5, 1],
+    [90.4, 23.8, 1.5], [116.4, 39.9, 2], [121.5, 31.2, 2], [114.2, 22.3, 2], [100.5, 13.7, 1], [72.8, 33.7, 1], [66.9, 39.6, 1], [44.0, 15.4, 1]
+  ];
+
+  // land + lights (filled in once the CDN data has arrived)
+  let land = null, grat = null, mask = null, geoDots = [], landT = 0, off = null, offKey = '';
+  let lay = null;                                                   // label layout cache
+  const tmp = { x: 0, y: 0, c: 0 };
+
+  // pre-rendered glow sprites (no per-frame gradients)
+  const sprite = (r, g, b, a) => {
+    const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d');
+    const gg = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gg.addColorStop(0, `rgba(${r},${g},${b},${a})`); gg.addColorStop(1, `rgba(${r},${g},${b},0)`);
+    x.fillStyle = gg; x.fillRect(0, 0, 64, 64); return c;
+  };
+  const sprMark = sprite(235, 203, 140, .65), sprDot = sprite(255, 236, 190, .9);
+
+  // orthographic projection into the "limb frame": globe centre (cx, R), limb at y = 0.
+  // identical to d3.geoOrthographic().rotate([-LON0, -lat0]).scale(R).translate([cx, R]).
+  function pj(lon, lat, o){
+    const l = (lon - LON0) * D2R, p = lat * D2R, cp = Math.cos(p), sp = Math.sin(p), cl_ = Math.cos(l);
+    o.c = sP0 * sp + cP0 * cp * cl_;
+    o.x = cx + R * cp * Math.sin(l);
+    o.y = R - R * (cP0 * sp - sP0 * cp * cl_);
+    return o;
+  }
+
+  // great-circle arc between two cities, lifted into an arch, cut where it passes behind the limb
+  function buildArc(a, b, N){
+    const vec = c => { const la = c.lat * D2R, lo = c.lon * D2R; return [Math.cos(la) * Math.cos(lo), Math.cos(la) * Math.sin(lo), Math.sin(la)]; };
+    const va = vec(a), vb = vec(b);
+    const om = Math.acos(Math.max(-1, Math.min(1, va[0] * vb[0] + va[1] * vb[1] + va[2] * vb[2]))), so = Math.sin(om) || 1e-9;
+    const q = { x: 0, y: 0, c: 0 };
+    const at = t => {
+      const k1 = Math.sin((1 - t) * om) / so, k2 = Math.sin(t * om) / so;
+      const x = k1 * va[0] + k2 * vb[0], y = k1 * va[1] + k2 * vb[1], z = k1 * va[2] + k2 * vb[2];
+      pj(Math.atan2(y, x) / D2R, Math.asin(Math.max(-1, Math.min(1, z))) / D2R, q);
+      const s = 1 + LIFT * Math.sin(Math.PI * t);
+      q.rx = q.x; q.ry = q.y; q.x = cx + (q.x - cx) * s; q.y = R + (q.y - R) * s;
+      return q;
+    };
+    // visible = in front of the globe, or lifted clear of the disc silhouette
+    const vis = t => { at(t); return q.c > 0 || Math.hypot(q.x - cx, q.y - R) >= R; };
+    let tEnd = 1;
+    if (!vis(1)) {
+      let lo = 0, hi = 1;
+      for (let k = 0; k < 120; k++) { const t = k / 120; if (vis(t)) lo = t; else { hi = t; break; } }
+      for (let k = 0; k < 24; k++) { const m = (lo + hi) / 2; if (vis(m)) lo = m; else hi = m; }
+      tEnd = lo;
+    }
+    const xs = new Float32Array(N + 1), ys = new Float32Array(N + 1);
+    for (let k = 0; k <= N; k++) { at(tEnd * k / N); xs[k] = q.x; ys[k] = q.y; }
+    b.n = N; b.xs = xs; b.ys = ys; b.ex = xs[N]; b.ey = ys[N];
+  }
+
+  const limbAt = (x, limbY) => limbY + R - Math.sqrt(Math.max(0, R * R - (x - cx) * (x - cx)));
+
+  // land mask on a small equirectangular canvas: cheap "is this lon/lat land?" lookups
+  function makeMask(){
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+    const g = c.getContext('2d', { willReadFrequently: true });
+    const p = d3.geoPath(d3.geoEquirectangular().scale(1024 / (2 * Math.PI)).translate([512, 256]), g);
+    g.fillStyle = '#fff'; g.beginPath(); p(land); g.fill();
+    mask = g.getImageData(0, 0, 1024, 512).data;
+  }
+  const onLand = (lon, lat) => {
+    const x = Math.floor((lon + 180) / 360 * 1024), y = Math.floor((90 - lat) / 180 * 512);
+    return x >= 0 && x < 1024 && y >= 0 && y < 512 && mask[(y * 1024 + x) * 4 + 3] > 128;
+  };
+  // city lights on real land: clusters around real population centres + a sparse scatter
+  function genDots(){
+    const r = mulberry32(271828), cl_ = [], sc = [];
+    for (const [lon0, lat0_, wt] of CENTRES) {
+      const n = Math.round(wt * 26), sg = .55 + .3 * wt;
+      for (let k = 0, got = 0; k < n * 4 && got < n; k++) {
+        const lon = lon0 + gauss(r) * sg * 1.15, lat = lat0_ + gauss(r) * sg;
+        if (onLand(lon, lat)) { cl_.push({ lon, lat, s: .5 + r() * .9, a: .22 + r() * .5, ph: r() * 6.28 }); got++; }
+      }
+    }
+    for (let k = 0; k < 2600; k++) {
+      const lon = -15 + r() * 165, lat = -5 + r() * 75;
+      if (onLand(lon, lat)) sc.push({ lon, lat, s: .4 + r() * .7, a: .1 + r() * .22, ph: r() * 6.28 });
+    }
+    const shuf = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    geoDots = [shuf(cl_), shuf(sc)];
+  }
+
+  // static land layer, pre-rendered once per size in limb-relative coordinates
+  function renderLand(){
+    if (!land) { off = null; offKey = ''; return; }
+    const key = [w, h, dpr, lat0.toFixed(3)].join('|');
+    if (off && key === offKey) return;
+    offKey = key;
+    const offH = Math.ceil(h - limbF + 70);
+    off = off || document.createElement('canvas');
+    off.width = Math.round(w * dpr); off.height = Math.round(offH * dpr);
+    const o = off.getContext('2d'); o.setTransform(dpr, 0, 0, dpr, 0, 0); o.lineJoin = 'round';
+    const gp = d3.geoOrthographic().scale(R).translate([cx, R]).clipAngle(90).rotate([-LON0, -lat0]).precision(.4);
+    const path = d3.geoPath(gp, o);
+    o.beginPath(); path(grat); o.strokeStyle = 'rgba(235,203,140,.012)'; o.lineWidth = .5; o.stroke();
+    o.beginPath(); path(land); o.fillStyle = 'rgba(60,24,22,.22)'; o.fill();
+    o.save(); o.beginPath(); o.arc(cx, R, R - 1.6, 0, TAU); o.clip();      // keep the coastline stroke off the limb itself
+    o.beginPath(); path(land); o.strokeStyle = 'rgba(217,178,106,.05)'; o.lineWidth = .7; o.stroke();
+    o.restore();
+  }
+
+  function build(){
+    sgn = 1; // real geography: the globe looks the same in every language
+    cx = w / 2;
+    limbF = h * (w < 700 ? .77 : .73);
+    R = Math.max(w * .95, 520);
+    // choose the view centre: the Iran..Muscat midpoint (lat 30) sits ~55% down the visible band
+    { const B = h - limbF, th = Math.asin(Math.min(.999, Math.max(.2, (R - B * .55) / R))) / D2R;
+      lat0 = 30 - th; sP0 = Math.sin(lat0 * D2R); cP0 = Math.cos(lat0 * D2R); }
+    for (const c of RT) { pj(c.lon, c.lat, tmp); c.x = tmp.x; c.y = tmp.y; c.vis = tmp.c > .02; }
+    RT.forEach((c, i) => {
+      if (!i) return;
+      buildArc(RT[0], c, 84);
+      if (!c.g) { c.t0 = 2.5 + (i - 1) * .55; c.dur = 1.7; }
+      else { c.t0 = 4.2 + (i - 4) * .3; c.dur = 1.5; }
+    });
+    lay = null;
+    renderLand();
+    const r = mulberry32(31415);
+    const small = w < 700;
+    stars = Array.from({ length: small ? 70 : 150 }, () => ({ x: r() * w, y: r() * limbF, s: .5 + r() * 1.1, a: .25 + r() * .55, ph: r() * 6.28, sp: .4 + r() * 1.1, z: r() }));
+    // burn the random draws the old fake city dots used, so the sky threads keep their positions
+    for (let i = 0, nd = small ? 46 : 105; i < nd; i++) { if (r() < .5) { r(); gauss(r); gauss(r); r(); r(); r(); } else { r(); r(); r(); r(); r(); } }
+    dots = [];
+    if (geoDots.length) {
+      const cap = small ? [30, 22] : [70, 50], B = h - limbF + 8;
+      for (let kind = 0; kind < 2; kind++) {
+        let got = 0;
+        for (const g of geoDots[kind]) {
+          if (got >= cap[kind]) break;
+          pj(g.lon, g.lat, tmp);
+          if (tmp.c < .04 || tmp.y < 2 || tmp.y > B || tmp.x < -8 || tmp.x > w + 8) continue;
+          dots.push({ x: tmp.x, d: tmp.y, s: g.s, a: g.a, ph: g.ph }); got++;
+        }
+      }
+    }
+    thr = Array.from({ length: small ? 4 : 7 }, () => ({ x: r() * w, y: h * (.12 + r() * .42), len: 50 + r() * 70, ph: r() * 6.28, sp: .25 + r() * .3, vx: (r() - .5) * 7, rot: (r() - .5) * 1.4, a: .22 + r() * .3 }));
+    bgG = ctx.createLinearGradient(0, 0, 0, h);
+    bgG.addColorStop(0, '#060304'); bgG.addColorStop(.6, '#0D0809'); bgG.addColorStop(1, '#0E0A0B');
+    rimG = ctx.createLinearGradient(cx - w * .55, 0, cx + w * .55, 0);
+    rimG.addColorStop(0, 'rgba(155,27,31,0)'); rimG.addColorStop(.22, 'rgba(155,27,31,.55)'); rimG.addColorStop(.5, 'rgba(244,214,150,1)'); rimG.addColorStop(.78, 'rgba(155,27,31,.55)'); rimG.addColorStop(1, 'rgba(155,27,31,0)');
+    vig.width = Math.round(w * dpr); vig.height = Math.round(h * dpr);
+    vx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const vg = vx.createRadialGradient(w / 2, h * .5, Math.min(w, h) * .4, w / 2, h * .5, Math.max(w, h) * .78);
+    vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.55)');
+    vx.fillStyle = vg; vx.fillRect(0, 0, w, h);
+  }
+
+  function size(){
+    const b = host.getBoundingClientRect();
+    w = Math.max(1, Math.round(b.width)); h = Math.max(1, Math.round(b.height));
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+    build(); draw(performance.now());
+  }
+
+  function glow(c, x, y, rad, sq, stops, alpha){
+    c.save(); c.translate(x, y); c.scale(1, sq); c.globalAlpha = alpha;
+    const g = c.createRadialGradient(0, 0, 0, 0, 0, rad);
+    stops.forEach(s => g.addColorStop(s[0], s[1]));
+    c.fillStyle = g; c.fillRect(-rad, -rad, rad * 2, rad * 2); c.restore();
+  }
+
+  // label layout (limb-relative coordinates): primary labels first, then the global ones with
+  // simple collision avoidance; labels of hidden destinations sit just above the limb at the exit.
+  function layout(fs){
+    const t = T[lang], small = w < 700, fg = fs * .84, boxes = [], items = [];
+    const free = b => {
+      if (b[0] < 6 || b[2] > w - 6 || b[1] + limbF < 8 || b[3] + limbF > h - 6) return false;
+      for (const q of boxes) if (!(b[2] + 3 < q[0] || b[0] - 3 > q[2] || b[3] + 2 < q[1] || b[1] - 2 > q[3])) return false;
+      return true;
+    };
+    const box = (x, y, al, tw, th) => { const x0 = al === 'center' ? x - tw / 2 : al === 'left' ? x : x - tw; return [x0, y - th / 2, x0 + tw, y + th / 2]; };
+    ctx.font = `500 ${fs}px Vazirmatn, Inter, sans-serif`; ctx.textBaseline = 'middle';
+    for (let i = 0; i < 4; i++) {
+      const c = RT[i], txt = t[c.k], tw = ctx.measureText(txt).width;
+      let x = c.x, y = c.y - 15, al = 'center';
+      if (i === 2) { x = c.x - 10; y = c.y + 6; al = 'right'; }
+      if (i === 3) { x = c.x + 10; y = c.y + 6; al = 'left'; }
+      boxes.push(box(x, y, al, tw, fs * 1.3));
+      items.push({ i, txt, x, y, al, f: fs, a: .82 });
+    }
+    if (!small) {
+      ctx.font = `500 ${fg}px Vazirmatn, Inter, sans-serif`;
+      for (let i = 4; i < RT.length; i++) {
+        const c = RT[i], txt = t[c.k], tw = ctx.measureText(txt).width, th = fg * 1.3;
+        const cand = c.vis
+          ? [[c.x, c.y - 11, 'center'], [c.x, c.y + 11, 'center'], [c.x + 8, c.y, 'left'], [c.x - 8, c.y, 'right']]
+          : [[c.ex, c.ey - 9, 'center'], [c.ex + 6, c.ey - 8, 'left'], [c.ex - 6, c.ey - 8, 'right']];
+        for (const [x, y, al] of cand) {
+          const b = box(x, y, al, tw, th);
+          if (free(b)) { boxes.push(b); items.push({ i, txt, x, y, al, f: fg, a: .55 }); break; }
+        }
+      }
+    }
+    lay = { lang, fs, w, h, items };
+  }
+
+  function draw(now){
+    const A = animated(), tSec = A ? (now - T0) / 1000 : 99, tm = A ? now / 1000 : 0;
+    const dt = Math.min(.05, (now - prev) / 1000 || 0); prev = now;
+    if (A) {
+      sC += (sT - sC) * Math.min(1, dt * 5);
+      ptr.sx += (ptr.x - ptr.sx) * Math.min(1, dt * 2.5); ptr.sy += (ptr.y - ptr.sy) * Math.min(1, dt * 2.5);
+      ptr.a += ((ptr.on ? 1 : 0) - ptr.a) * Math.min(1, dt * 3);
+      if (Math.abs(sC - (+host.style.getPropertyValue('--hp') || 0)) > .003) host.style.setProperty('--hp', sC.toFixed(3));
+    } else { sC = 0; ptr.a = 0; }
+    const sA = eo(cl(tSec / 1.2)), rise = eo(cl((tSec - .2) / 2.0)), rimA = cl((tSec - .5) / 1.8);
+    const f = eo(cl((tSec - 1.5) / 2.2)), cityA = cl((tSec - 1.9) / 1.4), ptA = cl((tSec - 2.3) / 1.0), thrA = cl((tSec - 3.8) / 2.2);
+    const landA = off ? (A ? cl((now - landT) / 1500) : 1) : 0;
+    const limbY = h * 1.1 + (limbF - h * 1.1) * rise;
+    const pulse = A ? 1 + .035 * Math.sin(tm * .8) : 1;
+    const fi = f * pulse * (1 + .45 * sC);
+    const px = (ptr.sx - .5), fx = cx + sgn * w * .03 + px * w * .05;
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    ctx.fillStyle = bgG; ctx.fillRect(0, 0, w, h);
+
+    // stars
+    ctx.fillStyle = '#F3E6D2';
+    for (const s of stars) {
+      const tw = A ? .6 + .4 * Math.sin(tm * s.sp + s.ph) : 1;
+      ctx.globalAlpha = s.a * sA * tw * Math.min(1, (limbF - s.y) / (h * .1) + .15);
+      ctx.fillRect(s.x + px * s.z * 14, s.y, s.s, s.s);
+    }
+    ctx.globalAlpha = 1;
+
+    // sky glow (purple haze + crimson dawn)
+    ctx.globalCompositeOperation = 'lighter';
+    glow(ctx, fx, limbY, w * .85, .62, [[0, 'rgba(46,27,64,.85)'], [.5, 'rgba(46,27,64,.3)'], [1, 'rgba(46,27,64,0)']], f);
+    glow(ctx, fx, limbY, w * .5, .34, [[0, 'rgba(155,27,31,.75)'], [.5, 'rgba(94,15,18,.35)'], [1, 'rgba(94,15,18,0)']], f * (1 + .3 * sC));
+    ctx.globalCompositeOperation = 'source-over';
+
+    // planet group (scroll: scale, slight rotation, drift down)
+    const sc = 1 + .2 * sC, rot = sgn * .03 * sC, dy = sC * h * .05, cy = limbY + R;
+    ctx.save();
+    ctx.translate(cx, limbY + dy); ctx.rotate(rot); ctx.scale(sc, sc); ctx.translate(-cx, -limbY);
+    // atmosphere
+    let g = ctx.createRadialGradient(cx, cy, R * .995, cx, cy, R * 1.05);
+    g.addColorStop(0, 'rgba(240,170,100,.30)'); g.addColorStop(.3, 'rgba(155,27,31,.2)'); g.addColorStop(1, 'rgba(46,27,64,0)');
+    ctx.globalAlpha = rimA; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R * 1.05, 0, TAU); ctx.fill(); ctx.globalAlpha = 1;
+    // body
+    g = ctx.createRadialGradient(cx, cy, R * .82, cx, cy, R);
+    g.addColorStop(0, '#040203'); g.addColorStop(1, '#14080D');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.fill();
+    // surface (clipped to the disc)
+    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R - 1, 0, TAU); ctx.clip();
+    if (landA > 0) { ctx.globalAlpha = landA * cityA; ctx.drawImage(off, 0, limbY, w, off.height / dpr); ctx.globalAlpha = 1; }
+    glow(ctx, fx, limbY + 20, w * .5, .3, [[0, 'rgba(217,178,106,.5)'], [.5, 'rgba(155,27,31,.2)'], [1, 'rgba(155,27,31,0)']], f * .55 * (1 + .4 * sC));
+    ctx.fillStyle = '#EBCB8C';
+    for (const d of dots) {
+      const y = limbY + d.d;
+      if (y > h + 6 || y < 0) continue;
+      ctx.globalAlpha = d.a * cityA * landA * (A ? .75 + .25 * Math.sin(tm * .9 + d.ph) : 1);
+      ctx.beginPath(); ctx.arc(d.x, y, d.s, 0, TAU); ctx.fill();
+    }
+    ctx.globalAlpha = 1; ctx.restore();
+    // rim light
+    ctx.strokeStyle = rimG; ctx.lineCap = 'round';
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalAlpha = rimA * .08; ctx.lineWidth = 26; ctx.beginPath(); ctx.arc(cx, cy, R + 4, 0, TAU); ctx.stroke();
+    ctx.globalAlpha = rimA * .22; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(cx, cy, R + 1, 0, TAU); ctx.stroke();
+    ctx.globalAlpha = rimA * (.85 + .15 * f); ctx.lineWidth = 1.3; ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.stroke();
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+
+    // export routes: great-circle arcs from Iran (markets first, then the wider world)
+    ctx.lineJoin = 'round';
+    for (let i = 1; i < RT.length; i++) {
+      const a = RT[i], pr = a.pr = eo(cl((tSec - a.t0) / a.dur));
+      if (pr <= 0 || !a.xs) continue;
+      const fp = pr * a.n, full = Math.floor(fp), fr = fp - full;
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.beginPath(); ctx.moveTo(a.xs[0], a.ys[0] + limbY);
+      for (let k = 1; k <= full; k++) ctx.lineTo(a.xs[k], a.ys[k] + limbY);
+      if (full < a.n && fr > 0) ctx.lineTo(a.xs[full] + (a.xs[full + 1] - a.xs[full]) * fr, a.ys[full] + limbY + (a.ys[full + 1] - a.ys[full]) * fr);
+      ctx.strokeStyle = 'rgb(235,203,140)';
+      ctx.lineWidth = a.g ? 3.2 : 5; ctx.globalAlpha = (a.g ? .03 : .05) * ptA; ctx.stroke();
+      ctx.lineWidth = a.g ? .8 : 1.1; ctx.globalAlpha = (a.g ? .3 : .5) * ptA; ctx.stroke();
+      ctx.globalAlpha = 1;
+      if (pr >= 1 && A) {
+        const u = ((tm * (a.g ? .07 : .09) + i * .31) % 1) * a.n, k = Math.min(a.n - 1, Math.floor(u)), e = u - k;
+        const qx = a.xs[k] + (a.xs[k + 1] - a.xs[k]) * e, qy = a.ys[k] + (a.ys[k + 1] - a.ys[k]) * e + limbY, rr = a.g ? 6 : 9;
+        ctx.globalAlpha = a.g ? .7 : 1; ctx.drawImage(sprDot, qx - rr, qy - rr, rr * 2, rr * 2); ctx.globalAlpha = 1;
+      }
+      ctx.globalCompositeOperation = 'source-over';
+    }
+    // city points + labels
+    const fs = Math.min(14, Math.max(11, w * .0092));
+    // labels fade in late in the intro; measuring Arabic text before the web font arrives is slow, so wait until then
+    if (ptA > 0 && (!lay || lay.lang !== lang || lay.fs !== fs || lay.w !== w || lay.h !== h)) layout(fs);
+    for (let i = 0; i < RT.length; i++) {
+      const p = RT[i];
+      if (p.g && !p.vis) continue;
+      const mA = p.g ? cl((p.pr - .7) / .3) : 1, ya = p.y + limbY, rad = !i ? 16 : p.g ? 6 : 10;
+      if (mA <= 0) continue;
+      ctx.globalAlpha = ptA * mA;
+      ctx.globalCompositeOperation = 'lighter'; ctx.drawImage(sprMark, p.x - rad, ya - rad, rad * 2, rad * 2);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = '#FBF1D6'; ctx.beginPath(); ctx.arc(p.x, ya, !i ? 3.2 : p.g ? 1.6 : 2.2, 0, TAU); ctx.fill();
+      if (!i && A) { const u = (tm * .5) % 1; ctx.strokeStyle = 'rgba(235,203,140,' + (.5 * (1 - u)) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(p.x, ya, 4 + u * 14, 0, TAU); ctx.stroke(); }
+    }
+    ctx.textBaseline = 'middle';
+    // dark halo keeps labels readable over the sunrise glow
+    ctx.shadowColor = 'rgba(8,4,5,.95)'; ctx.shadowBlur = 8;
+    if (lay) for (const L of lay.items) {
+      const p = RT[L.i], mA = p.g ? eo(cl((p.pr - .55) / .45)) : ptA;
+      if (mA <= 0) continue;
+      ctx.font = `500 ${L.f}px Vazirmatn, Inter, sans-serif`;
+      ctx.globalAlpha = p.g ? mA : ptA; ctx.textAlign = L.al; ctx.fillStyle = 'rgba(247,242,234,' + L.a + ')';
+      ctx.fillText(L.txt, L.x, L.y + limbY);
+    }
+    ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+    ctx.restore();
+
+    // sunrise: a saffron flower opening over the limb
+    const fy = limbAt(fx, limbY) + dy - 2, L = w * .2 * fi;
+    ctx.globalCompositeOperation = 'lighter';
+    if (fi > .01) {
+      for (let k = 0; k < 7; k++) {
+        const ang = -Math.PI + (k + .5) * Math.PI / 7 + (A ? Math.sin(tm * .35 + k) * .015 : 0), len = L * (k === 3 ? 1.55 : 1.1 + .25 * Math.cos((k - 3) * .5));
+        ctx.save(); ctx.translate(fx, fy); ctx.rotate(ang);
+        const pg = ctx.createLinearGradient(0, 0, len, 0);
+        pg.addColorStop(0, 'rgba(244,214,150,.30)'); pg.addColorStop(1, 'rgba(155,27,31,0)');
+        ctx.fillStyle = pg; ctx.globalAlpha = .55 * Math.min(1, fi);
+        ctx.beginPath(); ctx.moveTo(0, 0); ctx.bezierCurveTo(len * .3, -len * .13, len * .75, -len * .1, len, 0); ctx.bezierCurveTo(len * .75, len * .1, len * .3, len * .13, 0, 0); ctx.fill();
+        ctx.restore();
+      }
+      ctx.globalAlpha = 1;
+    }
+    glow(ctx, fx, fy, w * .5, .48, [[0, 'rgba(244,200,120,.55)'], [.3, 'rgba(217,150,80,.24)'], [.65, 'rgba(155,27,31,.1)'], [1, 'rgba(155,27,31,0)']], Math.min(1, fi));
+    glow(ctx, fx, fy, w * .075, .6, [[0, 'rgba(255,246,222,.95)'], [.4, 'rgba(244,214,150,.4)'], [1, 'rgba(244,214,150,0)']], Math.min(1, fi));
+    glow(ctx, fx, fy, w * .62, .028, [[0, 'rgba(255,238,200,.9)'], [.4, 'rgba(244,200,120,.3)'], [1, 'rgba(244,200,120,0)']], Math.min(1, fi));
+    ctx.fillStyle = 'rgba(155,120,210,.5)';
+    [-.22, .17, .3].forEach((k, i) => { ctx.globalAlpha = .05 * Math.min(1, fi); ctx.beginPath(); ctx.arc(fx + k * w * sgn, fy - 1, 9 + i * 7, 0, TAU); ctx.fill(); });
+    ctx.globalAlpha = 1;
+    // cursor-reactive glow
+    if (ptr.a > .01) glow(ctx, ptr.sx * w, ptr.sy * h, 260, 1, [[0, 'rgba(235,203,140,.16)'], [1, 'rgba(235,203,140,0)']], ptr.a);
+    ctx.globalCompositeOperation = 'source-over';
+
+    // saffron threads drifting through the sky (after the intro)
+    if (thrA > 0 && limbY < h) {
+      ctx.lineCap = 'round';
+      for (const q of thr) {
+        const x = (q.x + (A ? tm * q.vx : 0) + px * 18 + w * 4) % (w + 160) - 80, y = q.y + (A ? Math.sin(tm * q.sp + q.ph) * 14 : 0), a = Math.sin(tm * q.sp * .7 + q.ph) * .35 + q.rot;
+        ctx.save(); ctx.translate(x, y); ctx.rotate(a);
+        ctx.strokeStyle = '#D4474C'; ctx.shadowColor = 'rgba(212,71,76,.5)'; ctx.shadowBlur = 8; ctx.globalAlpha = q.a * thrA; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(q.len * .3, -q.len * .22, q.len * .6, q.len * .2, q.len, -q.len * .06);
+        ctx.stroke(); ctx.shadowBlur = 0; ctx.restore();
+      }
+      ctx.globalAlpha = 1;
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(vig, 0, 0);
+  }
+
+  function loop(now){ raf = 0; if (!running) return; draw(now); raf = requestAnimationFrame(loop); }
+  function sync(){
+    const go = visible && !document.hidden && animated();
+    if (go && !running) { running = true; prev = performance.now(); raf = requestAnimationFrame(loop); }
+    else if (!go && running) { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+  }
+  function onScroll(){
+    if (!animated()) { sT = 0; return; }
+    const r = host.getBoundingClientRect();
+    sT = cl((68 - r.top) / (r.height * .9));
+  }
+
+  let rz = 0;
+  new ResizeObserver(() => { cancelAnimationFrame(rz); rz = requestAnimationFrame(size); }).observe(host);
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; sync(); }, { threshold: 0 }).observe(host);
+  document.addEventListener('visibilitychange', sync);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  host.addEventListener('pointermove', e => { if (!animated() || e.pointerType === 'touch') return; const b = host.getBoundingClientRect(); ptr.x = (e.clientX - b.left) / b.width; ptr.y = (e.clientY - b.top) / b.height; ptr.on = true; });
+  host.addEventListener('pointerleave', () => { ptr.on = false; });
+  const rmChange = () => { host.classList.toggle('intro', animated()); T0 = performance.now(); sync(); size(); };
+  rm.addEventListener ? rm.addEventListener('change', rmChange) : 0;
+
+  window.__hero = { refresh(){ if (!w) return; build(); draw(performance.now()); } };
+  host.classList.toggle('intro', animated());
+  requestAnimationFrame(() => { size(); sync(); });          // after the first paint of the page text
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { lay = null; if (!running) draw(performance.now()); });
+
+  // real land: d3-geo + topojson + world-atlas, loaded without blocking first paint.
+  // If anything fails the planet, cities, arcs and labels simply stay as they are, without land.
+  (function loadGeo(){
+    const CDN = 'https://cdn.jsdelivr.net/npm/';
+    const script = src => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); });
+    Promise.all([
+      script(CDN + 'd3-array@3.2.4/dist/d3-array.min.js').then(() => script(CDN + 'd3-geo@3.1.0/dist/d3-geo.min.js')),
+      script(CDN + 'topojson-client@3.1.0/dist/topojson-client.min.js'),
+      // local copy first (needed where only same-origin fetch is allowed), CDN as fallback
+      fetch('land-110m.json').then(r => { if (!r.ok) throw new Error('land'); return r.json(); })
+        .catch(() => fetch(CDN + 'world-atlas@2.0.2/land-110m.json').then(r => { if (!r.ok) throw new Error('land'); return r.json(); }))
+    ]).then(res => {
+      land = topojson.feature(res[2], res[2].objects.land);
+      grat = d3.geoGraticule10();
+      makeMask(); genDots();
+      landT = performance.now();
+      build(); draw(performance.now());
+    }).catch(() => {});
+  })();
+})();
+
+function mulberry32(a){ return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function gauss(r){ let u = 0, v = 0; while (!u) u = r(); while (!v) v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+/* boot */
+applyLang((function(){ try { const q = new URLSearchParams(location.search).get('lang'); return T[q] ? q : 'ar'; } catch (e) { return 'ar'; } })());
+observeReveals();
+
+// fetch the chart library when the price section comes near, or once the page is idle
+(function(){
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); loadChartLib(); } }, { rootMargin: '900px 0px' });
+    io.observe($('#value'));
+  }
+  const idle = window.requestIdleCallback ? cb => requestIdleCallback(cb, { timeout: 3000 }) : cb => setTimeout(cb, 1500);
+  addEventListener('load', () => idle(loadChartLib));
+})();
+</script>
+</body>
+</html>
