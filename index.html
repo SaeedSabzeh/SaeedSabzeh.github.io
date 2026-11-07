@@ -139,6 +139,14 @@ html[dir="rtl"] .qfacts b{text-align:right}
 .p-halloween .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 @media (max-width:900px){.plate.p-halloween .vis{flex:none;min-height:0;aspect-ratio:16/9}}
 
+/* Sorkh: the desktop page with the phone view standing in front */
+.p-sorkh{grid-column:1/-1}
+.plate.p-sorkh .vis{min-height:0;background:radial-gradient(ellipse 80% 90% at 50% 0,#4A1A14,#18261E 75%);padding:clamp(22px,4vw,48px) clamp(18px,4vw,48px) 0}
+.sk-shots{position:relative;max-width:1080px;margin:0 auto;padding-inline-end:9%}
+.sk-desk{display:block;width:100%;height:auto;border-radius:12px 12px 0 0;box-shadow:0 0 0 1px rgba(231,239,227,.16),0 30px 60px -28px rgba(0,0,0,.9)}
+.sk-phone{position:absolute;inset-inline-end:0;bottom:0;width:21%;height:auto;aspect-ratio:780/1688;object-fit:cover;object-position:top;border-radius:clamp(14px,2vw,26px) clamp(14px,2vw,26px) 0 0;border:clamp(3px,.5vw,6px) solid #0B110D;border-bottom:0;box-shadow:0 30px 60px -20px rgba(0,0,0,.95)}
+@media (max-width:700px){.sk-shots{padding-inline-end:15%}.sk-phone{width:21%}}   /* keeps the phone no taller than the desktop shot */
+
 /* COUP: four real phone screenshots */
 .phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,2vw,26px);padding:clamp(22px,4vw,48px) clamp(18px,4vw,48px) 0}
 .phones figure{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -417,6 +425,28 @@ html[lang="fa"] .mail a{text-align:left}
         </div>
       </article>
 
+      <article class="plate p-sorkh">
+        <div class="vis">
+          <div class="sk-shots">
+            <img class="sk-desk" src="img/sorkh-hero.webp" alt="The Sorkh home page: the headline Red Gold over a night globe at sunrise, with gold export routes from Iran to Baghdad, Dubai, Muscat and beyond" width="1920" height="1080" loading="lazy" decoding="async">
+            <img class="sk-phone" src="img/sorkh-phone.webp" alt="The same page on a phone in Arabic, laid out right to left, with the calligraphic headline الذهب الأحمر" width="780" height="1688" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="cap cap-wide">
+          <div>
+            <h3 data-i="skH">Sorkh, a luxury saffron website</h3>
+            <p data-i="skP">A concept site for a Persian saffron export house selling to Iraq, the UAE and Oman, designed as a pitch. The page opens on a night globe of real geography, with export routes drawn as great circles from Mashhad. It runs in Arabic, Persian and English, right to left where it should be, with a saffron thread that draws itself as you scroll, glass jars drawn in code, and a price chart of real, dated market quotes in five currencies. The fonts ship with the site, so it loads fast even where Google's font host is blocked.</p>
+          </div>
+          <div class="facts">
+            <div data-i="sk1"><b>3</b>languages, 2 right to left</div>
+            <div data-i="sk2"><b>5</b>currencies in the price chart</div>
+            <div data-i="sk3"><b>11</b>export routes on a real globe</div>
+          </div>
+          <div class="tags"><span>HTML · CSS · JavaScript</span><span>Canvas</span><span>d3-geo</span><span>Lightweight Charts</span><span>RTL</span></div>
+          <a class="go" href="saffron/" target="_blank" rel="noopener" data-i="skGo">Open the site</a>
+        </div>
+      </article>
+
       <article class="plate p-ml p-qgis">
         <div class="vis">
           <div class="qslider" role="group" aria-roledescription="carousel" aria-label="Norme Milano examples">
@@ -641,6 +671,9 @@ fa: {
   coupH:'کودتا، یک بازی تلگرامی',
   coupP:'بازی کارتیِ بلوف برای ۲ تا ۶ نفر که به‌صورت مینی‌اپ داخل تلگرام اجرا می‌شود. بازی سریع با غریبه‌ها، اتاق خصوصی با دوستان، بازیکن‌های کامپیوتری که بر اساس احتمالات بلوف می‌زنند، بستهٔ الحاقی Reformation، آمار بازیکن‌ها، و کل برنامه به فارسی و انگلیسی. قوانین بازی روی سرور اجرا می‌شود، پس کارت‌های پنهان هیچ‌وقت به گوشی بازیکن‌های دیگر نمی‌رسد، و اگر اتصال قطع شود بازی دقیقاً از همان‌جا ادامه پیدا می‌کند.',
   f1:'<b>۲–۶</b>بازیکن سر هر میز', f2:'<b>۳۴۹</b>تست خودکار', f3:'<b>۲</b>زبان، با پشتیبانی راست‌به‌چپ',
+  skH:'سُرخ، سایت لوکس زعفران',
+  skP:'طرحی مفهومی برای یک برند صادراتی زعفران ایرانی که به عراق، امارات و عمان می‌فروشد، که برای ارائه به مشتری طراحی شد. صفحه با کرهٔ زمین در شب و جغرافیای واقعی باز می‌شود و مسیرهای صادرات از مشهد روی آن کشیده می‌شوند. سایت به عربی، فارسی و انگلیسی است و هر جا لازم باشد راست‌به‌چپ؛ با رشتهٔ زعفرانی که با اسکرول کشیده می‌شود، شیشه‌های زعفرانی که با کد ساخته شده‌اند، و نمودار قیمتی از نرخ‌های واقعی و تاریخ‌دار بازار در پنج ارز. فونت‌ها همراه خود سایت هستند، پس حتی جایی که سرور فونت گوگل مسدود است هم سریع باز می‌شود.',
+  sk1:'<b>۳</b>زبان، دو تا راست‌به‌چپ', sk2:'<b>۵</b>ارز در نمودار قیمت', sk3:'<b>۱۱</b>مسیر صادرات روی کرهٔ واقعی', skGo:'دیدن سایت',
   coupGo:'در تلگرام بازی کنید', botsGo:'دیدن کد', ragGo:'دیدن کد', mlGo:'خواندن تحلیل کامل', allRepos:'همهٔ مخزن‌ها',
   botMsg:'۷ استکان چای ریختی! دور بعد ۲ ساعت دیگه.', botBoard:'استادهای چای این هفته',
   r1:'۱. سیمین', r2:'۲. رضا', r3:'۳. ندا', s1:'۴۱۲', s2:'۳۸۸', s3:'۳۰۱',
@@ -705,6 +738,9 @@ it: {
   coupH:'Coup, un gioco su Telegram',
   coupP:'Il gioco di carte e bluff per 2–6 giocatori, che gira dentro Telegram come Mini App. Partita rapida con sconosciuti, stanze private con gli amici, avversari controllati dal computer che bluffano secondo le probabilità, l\'espansione Reformation, statistiche dei giocatori e tutta l\'app in inglese e persiano. Le regole girano sul server, quindi le carte nascoste non arrivano mai ai telefoni degli altri giocatori, e se la connessione cade si riprende esattamente da dove eri.',
   f1:'<b>2–6</b>giocatori per tavolo', f2:'<b>349</b>test automatici', f3:'<b>2</b>lingue, compresa una da destra a sinistra',
+  skH:'Sorkh, un sito di zafferano di lusso',
+  skP:'Un sito concept per un esportatore di zafferano persiano che vende in Iraq, negli Emirati e in Oman, pensato come proposta per un cliente. La pagina si apre su un globo notturno con la geografia reale e le rotte di esportazione tracciate da Mashhad. È in arabo, persiano e inglese, da destra a sinistra dove serve, con un filo di zafferano che si disegna mentre scorri, vasetti di vetro disegnati in codice e un grafico con quotazioni di mercato reali e datate in cinque valute. I font sono inclusi nel sito, così si carica in fretta anche dove il server dei font di Google è bloccato.',
+  sk1:'<b>3</b>lingue, 2 da destra a sinistra', sk2:'<b>5</b>valute nel grafico dei prezzi', sk3:'<b>11</b>rotte di esportazione su un globo reale', skGo:'Apri il sito',
   coupGo:'Gioca su Telegram', botsGo:'Guarda il codice', ragGo:'Guarda il codice', mlGo:'Leggi l\'analisi', allRepos:'Tutti i repository',
   botMsg:'Hai versato 7 tazze di chai! Prossimo giro tra 2 ore.', botBoard:'I maestri del chai della settimana',
   themes:'<span>Chai</span><span>Tahdig</span><span>Taarof</span><span>Konkur</span><span>Traffico di Teheran</span><span>Gatti</span>',
