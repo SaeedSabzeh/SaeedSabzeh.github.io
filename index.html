@@ -354,15 +354,15 @@ html[lang="fa"] .mail a{text-align:left}
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="mono" href="#top" aria-label="Saeed Sabzeh, home">
+    <a class="mono" href="#top" aria-label="Saeed Sabzeh, home" data-i-aria-label="homeLabel">
       <svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 24V11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M13 13C13 7 9 4 4 4c0 5 3.5 9 9 9z" fill="var(--sabzeh)"/><path d="M13 11c0-5 3.5-8.5 9-8.5 0 5-3.8 8.5-9 8.5z" fill="var(--sabzeh)"/></svg>
-      <span class="mono-t">Saeed</span>
+      <span class="mono-t" data-i="h_first">Saeed</span>
     </a>
-    <nav class="toplinks" aria-label="Sections">
+    <nav class="toplinks" aria-label="Sections" data-i-aria-label="sectionsLabel">
       <a href="#work" data-i="n_work">Work</a>
       <a href="#about" data-i="n_about">About</a>
       <a href="#services" data-i="n_svc">Services</a>
-      <div class="langs" role="group" aria-label="Language" dir="ltr"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="fa" lang="fa" aria-pressed="false">فا</button><button type="button" data-l="it" aria-pressed="false">IT</button></div>
+      <div class="langs" role="group" aria-label="Language" data-i-aria-label="languageLabel" dir="ltr"><button type="button" data-l="en" lang="en" aria-pressed="true">EN</button><button type="button" data-l="fa" lang="fa" aria-pressed="false">فا</button><button type="button" data-l="it" lang="it" aria-pressed="false">IT</button></div>
       <a class="hire" href="#contact" data-i="n_hire">Work with me</a>
     </nav>
   </div>
@@ -384,10 +384,10 @@ html[lang="fa"] .mail a{text-align:left}
         <path pathLength="1" d="M118 52 C118 42 121 35 126 30"/>
       </svg>
       <p class="intro" data-i="intro">I build <b>AI systems</b> and <b>websites</b>, from machine learning research to apps people actually use.</p>
-      <div class="where"><span class="chip" data-i="chip1">M.Sc. in AI, University of Milano-Bicocca</span><span class="chip" data-i="chip2">English (C1), Persian, some Italian</span></div>
+      <div class="where"><span class="chip" data-i="chip1">Master’s student in AI, University of Milano-Bicocca</span><span class="chip" data-i="chip2">English (C1), Persian, some Italian</span></div>
     </div>
     <figure class="arch">
-      <div class="frame"><img src="img/portrait.webp" alt="Portrait of Saeed Sabzeh" width="640" height="913" fetchpriority="high" decoding="async"></div>
+      <div class="frame"><img src="img/portrait.webp" alt="Portrait of Saeed Sabzeh" data-i-alt="portraitAlt" width="640" height="913" fetchpriority="high" decoding="async"></div>
       
     </figure>
   </div>
@@ -397,16 +397,16 @@ html[lang="fa"] .mail a{text-align:left}
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2" id="workH" data-i="workH">Things I've built</h2>
-      <p data-i="workP">Personal projects I designed, coded and shipped myself. The screenshots are the real apps.</p>
+      <p data-i="workP">I designed, built and published these projects myself. The screenshots show the apps in use.</p>
     </div>
 
     <div class="plates">
       <article class="plate p-coup">
         <div class="vis phones">
-          <figure><img src="img/coup-home.webp" alt="Coup home screen inside Telegram, with Quick match, With friends and Vs computers" width="520" height="1130" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/coup-table.webp" alt="A Coup table where a computer player claims the Captain to steal from you, and you can challenge or pass" width="520" height="1130" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/coup-reformation.webp" alt="A Coup Reformation practice game where the coach tells you to make a player swap the Duke they showed" width="520" height="1130" loading="lazy" decoding="async"></figure>
-          <figure><img src="img/coup-learn.webp" alt="Coup Learn to play screen with a coached practice game and rules for Coup and the Reformation expansion" width="520" height="1130" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/coup-home.webp" alt="Coup home screen inside Telegram, with Quick match, With friends and Vs computers" data-i-alt="coupHomeAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/coup-table.webp" alt="A Coup table where a computer player claims the Captain to steal from you, and you can challenge or pass" data-i-alt="coupTableAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/coup-reformation.webp" alt="A Coup Reformation practice game where the coach tells you to make a player swap the Duke they showed" data-i-alt="coupPracticeAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
+          <figure><img src="img/coup-learn.webp" alt="Coup Learn to play screen with a coached practice game and rules for Coup and the Reformation expansion" data-i-alt="coupLearnAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
         </div>
         <div class="cap cap-wide">
           <div>
@@ -426,8 +426,8 @@ html[lang="fa"] .mail a{text-align:left}
       <article class="plate p-sorkh">
         <div class="vis">
           <div class="sk-shots">
-            <img class="sk-desk" src="img/sorkh-hero.webp" alt="The Sorkh home page: the headline Red Gold over a night globe at sunrise, with gold export routes from Iran to Baghdad, Dubai, Muscat and beyond" width="1920" height="1080" loading="lazy" decoding="async">
-            <img class="sk-phone" src="img/sorkh-phone.webp" alt="The same page on a phone in Arabic, laid out right to left, with the calligraphic headline الذهب الأحمر" width="780" height="1688" loading="lazy" decoding="async">
+            <img class="sk-desk" src="img/sorkh-hero.webp" alt="The Sorkh home page: the headline Red Gold over a night globe at sunrise, with gold export routes from Iran to Baghdad, Dubai, Muscat and beyond" data-i-alt="sorkhDesktopAlt" width="1920" height="1080" loading="lazy" decoding="async">
+            <img class="sk-phone" src="img/sorkh-phone.webp" alt="The same page on a phone in Arabic, laid out right to left, with the calligraphic headline الذهب الأحمر" data-i-alt="sorkhMobileAlt" width="780" height="1688" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="cap cap-wide">
@@ -447,25 +447,25 @@ html[lang="fa"] .mail a{text-align:left}
 
       <article class="plate p-ml p-qgis">
         <div class="vis">
-          <div class="qslider" role="group" aria-roledescription="carousel" aria-label="Norme Milano examples">
+          <div class="qslider" role="group" aria-roledescription="carousel" data-i-aria-roledescription="carouselLabel" aria-label="Norme Milano examples" data-i-aria-label="qgisExamples">
             <div class="qtrack">
-              <figure class="qslide" aria-roledescription="slide">
-                <a href="img/qgis-duomo.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot"><picture>
+              <figure class="qslide" aria-roledescription="slide" data-i-aria-roledescription="slideLabel">
+                <a href="img/qgis-duomo.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot" data-i-aria-label="openScreenshot"><picture>
                   <source media="(max-width:700px)" srcset="img/qgis-duomo-panel.webp" width="640" height="880">
-                  <img src="img/qgis-duomo.webp" alt="QGIS with the Norme Milano panel open after a click on the Duomo: a historic-core constraint, the governing articles, and an answer about building a basement" width="1600" height="860" decoding="async">
+                  <img src="img/qgis-duomo.webp" alt="QGIS with the Norme Milano panel open after a click on the Duomo: a historic-core constraint, the governing articles, and an answer about building a basement" data-i-alt="qgisDuomoAlt" width="1600" height="860" decoding="async">
                 </picture></a>
                 <figcaption data-i="qT1">Duomo, historic core</figcaption>
               </figure>
-              <figure class="qslide" aria-roledescription="slide">
-                <a href="img/qgis-chiaravalle.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot"><picture>
+              <figure class="qslide" aria-roledescription="slide" data-i-aria-roledescription="slideLabel">
+                <a href="img/qgis-chiaravalle.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot" data-i-aria-label="openScreenshot"><picture>
                   <source media="(max-width:700px)" srcset="img/qgis-chiaravalle-panel.webp" width="640" height="880">
-                  <img src="img/qgis-chiaravalle.webp" alt="QGIS with the Norme Milano panel open after a click near Chiaravalle: a transformation area inside the Parco Agricolo Sud Milano, with the park-plan articles and an answer about what can be built" width="1600" height="860" loading="lazy" decoding="async">
+                  <img src="img/qgis-chiaravalle.webp" alt="QGIS with the Norme Milano panel open after a click near Chiaravalle: a transformation area inside the Parco Agricolo Sud Milano, with the park-plan articles and an answer about what can be built" data-i-alt="qgisParkAlt" width="1600" height="860" loading="lazy" decoding="async">
                 </picture></a>
                 <figcaption data-i="qT2">Chiaravalle, park area</figcaption>
               </figure>
             </div>
           </div>
-          <div class="qdots" role="group" aria-label="Choose a screenshot" dir="ltr"><button type="button" aria-label="Screenshot 1"></button><button type="button" aria-label="Screenshot 2"></button></div>
+          <div class="qdots" role="group" aria-label="Choose a screenshot" data-i-aria-label="chooseScreenshot" dir="ltr"><button type="button" aria-label="Screenshot 1" data-i-aria-label="screenshot1"></button><button type="button" aria-label="Screenshot 2" data-i-aria-label="screenshot2"></button></div>
         </div>
         <div class="cap">
           <h3 data-i="qgH">Norme Milano, a QGIS plugin</h3>
@@ -482,7 +482,7 @@ html[lang="fa"] .mail a{text-align:left}
 
       <article class="plate p-ml p-halloween">
         <div class="vis">
-          <img src="img/aoe2-halloween.webp" alt="Age of Empires II with the Halloween mod: cobweb-covered pine trees, ghost deer, spider sheep, a skeleton boar, pumpkins and a decorated Town Center" width="1280" height="720" loading="lazy" decoding="async">
+          <img src="img/aoe2-halloween.webp" alt="Age of Empires II with the Halloween mod: cobweb-covered pine trees, ghost deer, spider sheep, a skeleton boar, pumpkins and a decorated Town Center" data-i-alt="halloweenAlt" width="1280" height="720" loading="lazy" decoding="async">
         </div>
         <div class="cap">
           <h3 data-i="hwH">Halloween for Age of Empires II</h3>
@@ -527,7 +527,7 @@ html[lang="fa"] .mail a{text-align:left}
         </div>
         <div class="cap">
           <h3 data-i="ragH">Bookstore assistant</h3>
-          <p data-i="ragP">A chat assistant for a bookstore that checks prices and stock by calling real functions instead of making answers up, and recommends books by meaning with semantic search. All 46 of its tests run offline, with no API key.</p>
+          <p data-i="ragP">A bookstore chat assistant that calls functions to check current prices and stock, then uses semantic search to recommend books. All 46 tests run offline without an API key.</p>
           <div class="tags"><span data-i="tTools">Function calling</span><span>RAG</span><span>OpenAI API</span><span>Gradio</span></div>
           <a class="go" href="https://github.com/SaeedSabzeh/booknow-assistant" target="_blank" rel="noopener" data-i="ragGo">See the code</a>
         </div>
@@ -537,13 +537,13 @@ html[lang="fa"] .mail a{text-align:left}
         <div class="vis">
           <div class="rank">
             <div class="big" data-i="mlBig">Top 28%<small>1,300th of 4,730 teams</small></div>
-            <div class="strip"><canvas id="strip" aria-label="Final rank shown on a strip of all 4,730 teams" role="img"></canvas></div>
+            <div class="strip"><canvas id="strip" aria-label="Final rank shown on a strip of all 4,730 teams" data-i-aria-label="stripLbl" role="img"></canvas></div>
             <div class="strip-lbl"><span data-i="sl1">1st</span><span data-i="sl2">4,730th</span></div>
           </div>
         </div>
         <div class="cap">
           <h3 data-i="mlH">Orbit Wars agent</h3>
-          <p data-i="mlP">A solo entry to a Kaggle real-time strategy competition. A hand-written orbital physics solver proposes strikes, and a PPO policy trained by self-play over 2 million steps decides which ones to take. It placed around 1,300th of 4,730 teams, and my post-mortem traces six measurement mistakes that capped it before training even began.</p>
+          <p data-i="mlP">I entered a Kaggle real-time strategy competition on my own. An orbital physics solver I wrote proposes attacks, and a PPO policy trained for 2 million self-play steps decides which ones to take. My agent placed around 1,300th out of 4,730 teams. In the post-mortem, I traced six measurement errors that limited its performance before training began.</p>
           <div class="tags"><span data-i="tRL">Reinforcement learning</span><span>PyTorch</span><span>Kaggle</span></div>
           <a class="go" href="https://github.com/SaeedSabzeh/orbit-wars-ppo/blob/main/docs/postmortem.md" target="_blank" rel="noopener" data-i="mlGo">Read the post-mortem</a>
         </div>
@@ -558,7 +558,7 @@ html[lang="fa"] .mail a{text-align:left}
     <div class="repos">
       <a class="repo" href="https://github.com/SaeedSabzeh/telegram-persona-bot" target="_blank" rel="noopener"><h3 data-i="rh8">Telegram persona bot</h3><p data-i="rp8">Fine-tunes a chat model on one person from a group export and runs it as a bot. A chronological split removed a leak that hit a third of the validation set, and every reply is stamped with its build so changes can be compared.</p></a>
       <a class="repo" href="https://github.com/SaeedSabzeh/ossp-aco" target="_blank" rel="noopener"><h3 data-i="rh1">Ant colony scheduling</h3><p data-i="rp1">My B.Sc. thesis: ant colony optimization for open-shop scheduling, within 1.05% of the best published bounds, with a decoder rewritten to run about 11,000&times; faster.</p></a>
-      <a class="repo" href="https://github.com/SaeedSabzeh/industrial-defect-detection" target="_blank" rel="noopener"><h3 data-i="rh2">Industrial defect detection</h3><p data-i="rp2">Three CNNs built from scratch in PyTorch. I caught a fake 100% score caused by data leakage, fixed the split, and reached 99.08% F1.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/industrial-defect-detection" target="_blank" rel="noopener"><h3 data-i="rh2">Industrial defect detection</h3><p data-i="rp2">I built three CNNs from scratch in PyTorch. Data leakage inflated the initial score to 100%. After correcting the data split, I reached an F1 score of 99.08%.</p></a>
       <a class="repo" href="https://github.com/SaeedSabzeh/neural-collaborative-filtering" target="_blank" rel="noopener"><h3 data-i="rh3">Neural recommendations</h3><p data-i="rp3">A NeuMF recommender on MovieLens 1M that beat popularity, user-CF, item-CF and SVD baselines on every metric.</p></a>
       <a class="repo" href="https://github.com/SaeedSabzeh/synthgen" target="_blank" rel="noopener"><h3 data-i="rh4">Synthgen</h3><p data-i="rp4">LLM-generated tabular datasets where every row is checked against a Pydantic schema, with a quality report on what came out.</p></a>
       <a class="repo" href="https://github.com/SaeedSabzeh/fastapi-game-backend" target="_blank" rel="noopener"><h3 data-i="rh5">Party-game backend</h3><p data-i="rp5">Async FastAPI server for a Unity mobile game: phone OTP login, JWT sessions and an admin console, running on a Linux VPS.</p></a>
@@ -570,7 +570,7 @@ html[lang="fa"] .mail a{text-align:left}
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2" id="aboutH" data-i="aboutH">Background</h2>
-      <p data-i="aboutP">Where I learned to build carefully, and what I build with.</p>
+      <p data-i="aboutP">My education and the tools I use to build these projects.</p>
     </div>
     <div class="about-grid">
       <div>
@@ -586,10 +586,10 @@ html[lang="fa"] .mail a{text-align:left}
       <div class="tools">
         <h3 data-i="tbH">Toolbox</h3>
         <dl>
-          <div class="grp"><dt data-i="tg1">LLM systems</dt><dd><span>Function calling</span><span>RAG</span><span>Structured outputs</span><span>Pydantic</span><span>Prompt engineering</span><span>Fine-tuning</span></dd></div>
-          <div class="grp"><dt data-i="tg2">Backend</dt><dd><span>Python</span><span>FastAPI</span><span>WebSockets</span><span>PostgreSQL</span><span>Supabase</span><span>JWT &amp; OTP auth</span></dd></div>
-          <div class="grp"><dt data-i="tg3">Frontend</dt><dd><span>React</span><span>TypeScript</span><span>Vite</span><span>Telegram Mini Apps</span><span>Right-to-left &amp; i18n</span></dd></div>
-          <div class="grp"><dt data-i="tg4">Machine learning</dt><dd><span>PyTorch</span><span>PPO &amp; self-play</span><span>CNNs</span><span>LSTM &amp; GRU</span><span>Transformers</span><span>scikit-learn</span></dd></div>
+          <div class="grp"><dt data-i="tg1">LLM systems</dt><dd><span data-i="tTools">Function calling</span><span>RAG</span><span data-i="tStructured">Structured outputs</span><span>Pydantic</span><span>Prompt engineering</span><span>Fine-tuning</span></dd></div>
+          <div class="grp"><dt data-i="tg2">Backend</dt><dd><span>Python</span><span>FastAPI</span><span>WebSockets</span><span>PostgreSQL</span><span>Supabase</span><span data-i="tAuth">JWT &amp; OTP auth</span></dd></div>
+          <div class="grp"><dt data-i="tg3">Frontend</dt><dd><span>React</span><span>TypeScript</span><span>Vite</span><span>Telegram Mini Apps</span><span data-i="tI18n">Right-to-left &amp; i18n</span></dd></div>
+          <div class="grp"><dt data-i="tg4">Machine learning</dt><dd><span>PyTorch</span><span data-i="tPpo">PPO &amp; self-play</span><span>CNNs</span><span>LSTM &amp; GRU</span><span>Transformers</span><span>scikit-learn</span></dd></div>
           <div class="grp"><dt data-i="tg5">Testing &amp; shipping</dt><dd><span>pytest</span><span>Hypothesis</span><span>Vitest</span><span>Playwright</span><span>Docker</span><span>Render</span><span>Linux VPS</span></dd></div>
         </dl>
       </div>
@@ -606,7 +606,7 @@ html[lang="fa"] .mail a{text-align:left}
     <div class="svc-grid">
       <div class="svc-item"><h3 data-i="sv1h">Websites and landing pages</h3><p data-i="sv1p">Fast, mobile-first sites for a business, a shop or yourself. Contact forms, bookings, and a database when you need one.</p><a class="order" href="https://www.fiverr.com/saeedsabzeh/build-a-responsive-website-or-landing-page-for-your-business" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
       <div class="svc-item"><h3 data-i="sv2h">Telegram bots</h3><p data-i="sv2p">Group games, booking and order bots, admin tools and scheduled messages, written in Python.</p><a class="order" href="https://www.fiverr.com/saeedsabzeh/create-a-custom-telegram-bot-in-python" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
-      <div class="svc-item"><h3 data-i="sv3h">AI chatbots on your documents</h3><p data-i="sv3p">A chatbot that answers from your own PDFs, FAQs or website, shows its sources, and can sit on your site.</p><a class="order" href="https://www.fiverr.com/saeedsabzeh/build-an-ai-chatbot-that-answers-questions-from-your-documents" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
+      <div class="svc-item"><h3 data-i="sv3h">AI chatbots that use your documents</h3><p data-i="sv3p">A chatbot you can embed on your site that answers questions using your PDFs, FAQs or website content and shows its sources.</p><a class="order" href="https://www.fiverr.com/saeedsabzeh/build-an-ai-chatbot-that-answers-questions-from-your-documents" target="_blank" rel="noopener" data-i="order">Order on Fiverr</a></div>
       <div class="svc-item svc-wide">
         <div class="sw-main">
           <h3 data-i="sv4h">Extensions for your existing app</h3>
@@ -619,7 +619,7 @@ html[lang="fa"] .mail a{text-align:left}
         </div>
         <div class="sw-col">
           <h4 data-i="sv4bh">AI features</h4>
-          <p data-i="sv4bp">A chatbot that answers from your own documents, search by meaning, summaries, or an assistant that checks real data instead of guessing.</p>
+          <p data-i="sv4bp">Add a chatbot that answers from your documents, semantic search, summaries or an assistant that checks live data before answering.</p>
         </div>
       </div>
     </div>
@@ -660,154 +660,211 @@ html[lang="fa"] .mail a{text-align:left}
 // Translations. English lives in the HTML; these replace it by data-i key.
 var I18N = {
 fa: {
-  n_work:'نمونه‌کارها', n_about:'درباره من', n_svc:'خدمات', n_hire:'همکاری با من',
+  homeLabel:'سعید سبزه، صفحهٔ اصلی',
+  sectionsLabel:'بخش‌های سایت',
+  languageLabel:'زبان',
+  portraitAlt:'عکس سعید سبزه',
+  coupHomeAlt:'صفحهٔ اصلی کودتا در تلگرام، با گزینه‌های بازی سریع، بازی با دوستان و بازی با کامپیوتر',
+  coupTableAlt:'میز بازی کودتا؛ یک حریف کامپیوتری با ادعای داشتن کارت کاپیتان از شما سکه می‌دزدد. می‌توانید ادعایش را به چالش بکشید یا رد شوید.',
+  coupPracticeAlt:'بازی تمرینی بستهٔ الحاقی Reformation؛ راهنما از شما می‌خواهد بازیکنی را وادار کنید کارت دوکی را که نشان داده عوض کند.',
+  coupLearnAlt:'صفحهٔ آموزش کودتا، با بازی تمرینیِ همراه با راهنما و قوانین بازی اصلی و بستهٔ الحاقی Reformation',
+  sorkhDesktopAlt:'صفحهٔ اصلی سُرخ با عنوان «طلای سرخ»، نمای شبانهٔ کرهٔ زمین و مسیرهای طلایی صادرات از ایران به بغداد، دبی، مسقط و شهرهای دیگر',
+  sorkhMobileAlt:'همان صفحه روی موبایل، به زبان عربی و با چیدمان راست‌به‌چپ، با عنوان خوش‌نویسی‌شدهٔ «الذهب الأحمر»',
+  qgisExamples:'نمونه‌هایی از افزونهٔ Norme Milano',
+  carouselLabel:'نمایش چرخشی تصاویر',
+  slideLabel:'اسلاید',
+  openScreenshot:'باز کردن تصویر در اندازهٔ کامل',
+  qgisDuomoAlt:'پنل Norme Milano در QGIS پس از انتخاب دومو، با محدودیت‌های بافت تاریخی، مواد قانونی مربوط و پاسخ به پرسشی دربارهٔ ساخت زیرزمین',
+  qgisParkAlt:'پنل Norme Milano در QGIS پس از انتخاب نقطه‌ای نزدیک کیاراواله، با محدودهٔ تحول شهری در پارک کشاورزی جنوب میلان، مواد طرح پارک و پاسخ به پرسشی دربارهٔ ساخت‌وساز مجاز',
+  chooseScreenshot:'انتخاب تصویر',
+  screenshot1:'تصویر ۱',
+  screenshot2:'تصویر ۲',
+  halloweenAlt:'مود هالووین Age of Empires II با کاج‌های پوشیده از تار عنکبوت، گوزن‌های شبح‌وار، گوسفندهای عنکبوتی، اسکلت گراز، کدوها و مرکز شهرِ تزیین‌شده',
+  tStructured:'خروجی ساختاریافته',
+  tAuth:'احراز هویت با JWT و رمز یک‌بارمصرف',
+  tI18n:'چیدمان راست‌به‌چپ و پشتیبانی چندزبانه',
+  tPpo:'PPO و بازی در برابر خود',
+  pageTitle:'سعید سبزه · توسعه‌دهندهٔ وب و هوش مصنوعی در میلان',
+  n_work:'نمونه‌کارها', n_about:'دربارهٔ من', n_svc:'خدمات', n_hire:'همکاری با من',
   h_first:'سعید', h_last:'سبزه',
-  intro:'<b>سیستم‌های هوش مصنوعی</b> و <b>وب‌سایت</b> می‌سازم؛ از پژوهش یادگیری ماشین تا اپ‌هایی که آدم‌ها واقعاً استفاده می‌کنند.',
-  chip1:'کارشناسی ارشد هوش مصنوعی، دانشگاه میلان-بیکوکا', chip2:'انگلیسی (C1)، فارسی، کمی ایتالیایی',
+  intro:'<b>سیستم‌های هوش مصنوعی</b> و <b>وب‌سایت</b> می‌سازم؛ از پژوهش در یادگیری ماشین تا اپ‌هایی که مردم واقعاً از آن‌ها استفاده می‌کنند.',
+  chip1:'دانشجوی کارشناسی ارشد هوش مصنوعی در دانشگاه میلان-بیکوکا', chip2:'انگلیسی (C1)، فارسی، کمی ایتالیایی',
   workH:'چیزهایی که ساخته‌ام',
-  workP:'پروژه‌های شخصی که خودم طراحی کردم، نوشتم و منتشر کردم. اسکرین‌شات‌ها از خودِ برنامه‌ها هستند.',
-  coupH:'کودتا، یک بازی تلگرامی',
-  coupP:'بازی کارتیِ بلوف برای ۲ تا ۶ نفر که به‌صورت مینی‌اپ داخل تلگرام اجرا می‌شود. بازی سریع با غریبه‌ها، اتاق خصوصی با دوستان، بازیکن‌های کامپیوتری که بر اساس احتمالات بلوف می‌زنند، بستهٔ الحاقی Reformation، آمار بازیکن‌ها، و کل برنامه به فارسی و انگلیسی. قوانین بازی روی سرور اجرا می‌شود، پس کارت‌های پنهان هیچ‌وقت به گوشی بازیکن‌های دیگر نمی‌رسد، و اگر اتصال قطع شود بازی دقیقاً از همان‌جا ادامه پیدا می‌کند.',
-  f1:'<b>۲–۶</b>بازیکن سر هر میز', f2:'<b>۳۴۹</b>تست خودکار', f3:'<b>۲</b>زبان، با پشتیبانی راست‌به‌چپ',
-  skH:'سُرخ، سایت لوکس زعفران',
-  skP:'طرحی مفهومی برای یک برند صادراتی زعفران ایرانی که به عراق، امارات و عمان می‌فروشد، که برای ارائه به مشتری طراحی شد. صفحه با کرهٔ زمین در شب و جغرافیای واقعی باز می‌شود و مسیرهای صادرات از مشهد روی آن کشیده می‌شوند. سایت به عربی، فارسی و انگلیسی است و هر جا لازم باشد راست‌به‌چپ؛ با رشتهٔ زعفرانی که با اسکرول کشیده می‌شود، شیشه‌های زعفرانی که با کد ساخته شده‌اند، و نمودار قیمتی از نرخ‌های واقعی و تاریخ‌دار بازار در پنج ارز. فونت‌ها همراه خود سایت هستند، پس حتی جایی که سرور فونت گوگل مسدود است هم سریع باز می‌شود.',
-  sk1:'<b>۳</b>زبان، دو تا راست‌به‌چپ', sk2:'<b>۵</b>ارز در نمودار قیمت', sk3:'<b>۱۱</b>مسیر صادرات روی کرهٔ واقعی', skGo:'دیدن سایت',
-  coupGo:'در تلگرام بازی کنید', botsGo:'دیدن کد', ragGo:'دیدن کد', mlGo:'خواندن تحلیل کامل', allRepos:'همهٔ مخزن‌ها',
+  workP:'این پروژه‌های شخصی را خودم طراحی، پیاده‌سازی و منتشر کرده‌ام. تصاویر، نمای واقعی برنامه‌ها را نشان می‌دهند.',
+  coupH:'کودتا، بازی کارتی در تلگرام',
+  coupP:'کودتا بازی کارتیِ بلوف‌زنی برای ۲ تا ۶ نفر است که در قالب مینی‌اپ تلگرام اجرا می‌شود. می‌توانید سریع با بازیکن‌های دیگر هم‌بازی شوید، با دوستانتان اتاق خصوصی بسازید یا با حریف‌های کامپیوتری بازی کنید که بر اساس احتمال‌ها بلوف می‌زنند. بازی شامل بستهٔ الحاقی Reformation و آمار بازیکن‌هاست و رابط آن به فارسی و انگلیسی در دسترس است. قوانین روی سرور اجرا می‌شوند، بنابراین کارت‌های پنهان به دستگاه بازیکن‌های دیگر فرستاده نمی‌شوند. اگر اتصال قطع شود، بازی را از همان‌جا ادامه می‌دهید.',
+  f1:'<b>۲–۶</b>بازیکن در هر میز', f2:'<b>۳۴۹</b>تست خودکار', f3:'<b>۲</b>زبان، با پشتیبانی راست‌به‌چپ',
+  skH:'سُرخ، وب‌سایتی برای یک برند لوکس زعفران',
+  skP:'نمونهٔ پیشنهادی برای وب‌سایت یک برند صادراتی زعفران ایرانی با بازارهایی در عراق، امارات و عمان. صفحه با نمای شبانهٔ کرهٔ زمین باز می‌شود و مسیرهای صادرات از مشهد را روی نقشه‌ای با جغرافیای واقعی نشان می‌دهد. سایت به عربی، فارسی و انگلیسی در دسترس است و در نسخه‌های عربی و فارسی چیدمان راست‌به‌چپ دارد. با پیمایش صفحه، رشته‌ای از زعفران به‌تدریج ترسیم می‌شود. شیشه‌های زعفران با کد ترسیم شده‌اند و نمودار، قیمت‌های واقعی بازار را با تاریخ ثبتشان در پنج ارز نشان می‌دهد. فونت‌ها از خود سایت بارگیری می‌شوند، حتی در جاهایی که دسترسی به فونت‌های گوگل مسدود است.',
+  sk1:'<b>۳</b>زبان، دو زبان با چیدمان راست‌به‌چپ', sk2:'<b>۵</b>ارز در نمودار قیمت', sk3:'<b>۱۱</b>مسیر صادرات روی کرهٔ زمین', skGo:'دیدن سایت',
+  coupGo:'در تلگرام بازی کنید', botsGo:'دیدن کد', ragGo:'دیدن کد', mlGo:'خواندن تحلیل کامل', allRepos:'همهٔ مخزن‌های گیت‌هاب',
   botMsg:'۷ استکان چای ریختی! دور بعد ۲ ساعت دیگه.', botBoard:'استادهای چای این هفته',
   r1:'۱. سیمین', r2:'۲. رضا', r3:'۳. ندا', s1:'۴۱۲', s2:'۳۸۸', s3:'۳۰۱',
   themes:'<span>چای</span><span>ته‌دیگ</span><span>تعارف</span><span>کنکور</span><span>ترافیک تهران</span><span>گربه</span>',
   botsH:'ربات‌های بازی تلگرام',
-  botsP:'خانواده‌ای از ربات‌های بازی گروهی که هرکدام با یک تم و شوخی بین‌خودی ایرانی ساخته شده‌اند. اعضا در هر بازهٔ انتظار فقط یک‌بار می‌توانند بازی کنند، امتیاز تصادفی می‌گیرند و در جدول گروه بالا می‌روند.',
+  botsP:'مجموعه‌ای از ربات‌های بازی گروهی که هرکدام با موضوعی آشنا و شوخی‌های ایرانی طراحی شده‌اند. بعد از هر نوبت باید مدتی صبر کنید تا دوباره بتوانید بازی کنید. امتیاز هر نوبت تصادفی است و جایگاهتان را در جدول گروه تعیین می‌کند.',
   tLead:'جدول امتیازات',
-  ragQ:'کتاب The Silent Patient موجوده؟ Atomic Habits چنده؟', ragA:'کتاب The Silent Patient الان موجود نیست؛ می‌توانیم حدود پنج روزه سفارشش بدهیم. Atomic Habits موجود است و قیمتش ۱۸٫۷۵ دلار است.',
-  ragQ2:'از The Martian خیلی خوشم اومد. بعدش چی بخونم؟', ragA2:'کتاب Project Hail Mary را امتحان کنید، آن هم از اندی ویر. قیمتش ۱۹٫۹۹ دلار است و موجود است.',
+  ragQ:'کتاب The Silent Patient موجوده؟ Atomic Habits چنده؟', ragA:'کتاب The Silent Patient فعلاً موجود نیست، اما می‌توانیم سفارش بدهیم تا حدود پنج روز دیگر برسد. Atomic Habits موجود است و ۱۸٫۷۵ دلار قیمت دارد.',
+  ragQ2:'از The Martian خیلی خوشم اومد. بعدش چی بخونم؟', ragA2:'اگر از The Martian خوشتان آمده، Project Hail Mary را بخوانید، آن هم نوشتهٔ اندی ویر است. موجود است و ۱۹٫۹۹ دلار قیمت دارد.',
   ragH:'دستیار کتاب‌فروشی',
-  ragP:'یک دستیار گفتگو برای کتاب‌فروشی که قیمت و موجودی را با صدا زدن توابع واقعی پیدا می‌کند، نه با حدس زدن، و با جستجوی معنایی کتاب پیشنهاد می‌دهد. هر ۴۶ تستش بدون اینترنت و بدون کلید API اجرا می‌شوند.',
+  ragP:'دستیار گفت‌وگوی کتاب‌فروشی که قیمت و موجودی را با فراخوانی توابع فروشگاه بررسی می‌کند و با جست‌وجوی معنایی کتاب پیشنهاد می‌دهد. هر ۴۶ آزمون آن بدون اینترنت و کلید API اجرا می‌شوند.',
   tTools:'فراخوانی تابع',
-  mlBig:'۲۸٪ برتر<small>رتبهٔ ۱٬۳۰۰ از ۴٬۷۳۰ تیم</small>', stripLbl:'رتبهٔ نهایی روی نواری از همهٔ ۴٬۷۳۰ تیم', sl1:'رتبهٔ ۱', sl2:'رتبهٔ ۴٬۷۳۰',
-  mlH:'ایجنت Orbit Wars',
-  mlP:'شرکت انفرادی در یک مسابقهٔ استراتژی بلادرنگ در Kaggle. یک حل‌کنندهٔ فیزیک مداری که خودم نوشتم حمله‌ها را پیشنهاد می‌دهد و یک سیاست PPO که با بازی با خودش در ۲ میلیون گام آموزش دیده تصمیم می‌گیرد کدام‌ها اجرا شوند. حدوداً رتبهٔ ۱٬۳۰۰ از ۴٬۷۳۰ تیم را گرفت و در تحلیل نهایی‌ام شش خطای اندازه‌گیری را پیدا کردم که حتی قبل از شروع آموزش سقف نتیجه را پایین آورده بودند.',
+  mlBig:'۲۸٪ برتر<small>رتبهٔ ۱٬۳۰۰ از ۴٬۷۳۰ تیم</small>', stripLbl:'جایگاه نهایی در میان ۴٬۷۳۰ تیم', sl1:'رتبهٔ ۱', sl2:'رتبهٔ ۴٬۷۳۰',
+  mlH:'عامل بازی Orbit Wars',
+  mlP:'این عامل را برای شرکت انفرادی در مسابقهٔ راهبردی بلادرنگ Kaggle ساختم. حل‌گری که برای فیزیک مداری نوشتم، حمله‌های ممکن را پیشنهاد می‌دهد و سیاست PPO انتخاب می‌کند کدام حمله انجام شود. این سیاست طی ۲ میلیون گام با بازی مقابل خودش آموزش دید. نتیجه، حدود رتبهٔ ۱٬۳۰۰ از میان ۴٬۷۳۰ تیم بود. در بررسی پس از مسابقه، شش خطای اندازه‌گیری را شناسایی کردم که از پیش از شروع آموزش، نتیجهٔ قابل دستیابی را محدود کرده بودند.',
   tRL:'یادگیری تقویتی',
   moreH:'بیشتر در گیت‌هاب',
-  rh1:'زمان‌بندی با کلونی مورچه', rp1:'پایان‌نامهٔ کارشناسی‌ام: بهینه‌سازی کلونی مورچه برای زمان‌بندی open-shop، در فاصلهٔ ۱٫۰۵٪ از بهترین کران‌های منتشرشده، با دیکودری که بازنویسی‌اش آن را حدود ۱۱٬۰۰۰ برابر سریع‌تر کرد.',
-  rh2:'تشخیص عیب صنعتی', rp2:'سه شبکهٔ CNN که از صفر با PyTorch ساختم. یک امتیاز ۱۰۰٪ جعلی را که از نشت داده می‌آمد پیدا کردم، تقسیم داده را درست کردم و به F1 برابر ۹۹٫۰۸٪ رسیدم.',
+  rh1:'زمان‌بندی با بهینه‌سازی کلونی مورچه', rp1:'در پایان‌نامهٔ کارشناسی‌ام از بهینه‌سازی کلونی مورچه برای حل مسئلهٔ زمان‌بندی کارگاه باز (open shop) استفاده کردم. نتیجه ۱٫۰۵٪ با بهترین کران‌های منتشرشده فاصله داشت و بازنویسی رمزگشا سرعت اجرای آن را حدود ۱۱٬۰۰۰ برابر کرد.',
+  rh2:'تشخیص عیب صنعتی', rp2:'سه شبکهٔ کانولوشنی را از صفر با PyTorch ساختم. بعد از اینکه فهمیدم امتیاز ۱۰۰٪ حاصل نشت داده بود، روش تقسیم داده‌ها را اصلاح کردم و به امتیاز F1 برابر با ۹۹٫۰۸٪ رسیدم.',
   rh3:'سیستم پیشنهاددهندهٔ عصبی', rp3:'سیستم پیشنهاددهندهٔ NeuMF روی MovieLens 1M که در همهٔ معیارها از مدل‌های پایهٔ محبوبیت، user-CF، item-CF و SVD بهتر بود.',
-  rh4:'Synthgen', rp4:'ساخت دادهٔ جدولی با LLM که هر سطرش با یک اسکیمای Pydantic بررسی می‌شود، همراه با گزارش کیفیت خروجی.',
-  rh5:'بک‌اند بازی گروهی', rp5:'سرور async با FastAPI برای یک بازی موبایل Unity: ورود با کد یک‌بارمصرف پیامکی، نشست‌های JWT و پنل مدیریت، روی سرور لینوکسی.',
+  rh4:'Synthgen', rp4:'با یک مدل زبانی بزرگ دادهٔ جدولی تولید می‌کند، هر ردیف را با یک شِمای Pydantic اعتبارسنجی می‌کند و گزارشی از کیفیت خروجی می‌دهد.',
+  rh5:'بک‌اند بازی گروهی', rp5:'سرور ناهمگام FastAPI برای یک بازی موبایلی ساخته‌شده با Unity، با ورود از طریق رمز یک‌بارمصرف پیامکی، نشست‌های JWT و پنل مدیریت. روی سرور مجازی لینوکس اجرا می‌شود.',
   rh6:'Booknow assistant', rp6:'کدِ همان دستیار کتاب‌فروشی که بالاتر دیدید.',
   hwH:'هالووین برای Age of Empires II',
-  hwP:'یک مود گرافیکی که به همهٔ نقشه‌ها ظاهر هالووینی می‌دهد: گوسفندهای عنکبوتی، حیوان‌های شبح، جنگل‌های تسخیرشده، مزرعه‌های کدو و ساختمان‌های مرکزیِ تزیین‌شده. هر ۴۲۲ اسپرایت با کد پایتون ساخته شده، برای همهٔ تمدن‌ها، و با همهٔ ۱۸۰ اسکریپت نقشهٔ تصادفی بررسی شده است. در بازی چندنفره و رتبه‌ای هم کار می‌کند. برای ساختنش بخشی مستندنشده از فرمت اسپرایت بازی را رمزگشایی کردم. در سایت رسمی مودها منتشر شده است.',
+  hwP:'یک مود گرافیکی که حال‌وهوای هالووین را به همهٔ نقشه‌ها می‌آورد. گوسفندهای عنکبوتی، حیوانات شبح‌وار، جنگل‌های تسخیرشده، مزارع کدو و مراکز شهرِ تزیین‌شده بخشی از آن‌اند. هر ۴۲۲ اسپرایت را با پایتون برای همهٔ تمدن‌ها تولید کردم و آن‌ها را با هر ۱۸۰ اسکریپت تولید نقشهٔ تصادفی آزمودم. مود در حالت چندنفره و مسابقات رتبه‌بندی‌شده کار می‌کند. برای ساخت آن، بخشی از قالب مستندنشدهٔ اسپرایت‌های بازی را با مهندسی معکوس بررسی کردم. مود در وب‌سایت رسمی مودهای بازی منتشر شده است.',
   tRE:'مهندسی معکوس', tProc:'تولید رویه‌ای',
-  qT1:'دومو، بافت تاریخی', qT2:'کیاراوالله، منطقهٔ پارک',
-  qf1:'<b>۹۶٪</b>مواد ارجاع‌شده درست', qf2:'<b>۰</b>ارجاع ساختگی', qf3:'<b>۴۰</b>سؤال آزمایشی',
-  rh8:'ربات تلگرامیِ تقلید یک آدم', rp8:'یک مدل گفتگو را روی پیام‌های یک نفر از خروجی گروه فاین‌تیون می‌کند و به شکل ربات اجرا می‌کند. تقسیم زمانی داده، نشتی را که یک‌سوم دادهٔ اعتبارسنجی را درگیر کرده بود برطرف کرد، و هر پاسخ با نسخهٔ ساخت خودش ثبت می‌شود تا تغییرها قابل مقایسه باشند.',
+  qT1:'دومو، بافت تاریخی', qT2:'کیاراواله، محدودهٔ پارک',
+  qf1:'<b>۹۶٪</b>ارجاع درست به مواد قانونی', qf2:'<b>۰</b>ارجاع ساختگی', qf3:'<b>۴۰</b>سؤال آزمایشی',
+  rh8:'ربات تلگرامی با سبک گفت‌وگوی یک نفر', rp8:'مدل گفت‌وگو با پیام‌های یک نفر از نسخهٔ خروجیِ گروه آموزش تکمیلی می‌بیند و در قالب ربات اجرا می‌شود. تقسیم زمانی داده‌ها نشت داده‌ای را که یک‌سوم مجموعهٔ اعتبارسنجی را تحت تأثیر قرار داده بود برطرف کرد. نسخهٔ نرم‌افزار هم کنار هر پاسخ ثبت می‌شود تا بتوان تغییرات را مقایسه کرد.',
   qgH:'Norme Milano، افزونهٔ QGIS',
-  qgP:'روی یک نقطه از نقشهٔ میلان کلیک می‌کنید و افزونه نشان می‌دهد چه مقررات شهرسازی آنجا اعمال می‌شود: محدودیت‌های پهنه‌بندی، منظر، سیل و پارک از سرویس‌های نقشهٔ زندهٔ منطقهٔ لومباردی، همراه با موادِ حاکم در PGT و طرح پارک. پاسخ‌های اختیاریِ هوش مصنوعی به ایتالیایی یا انگلیسی فقط از همین مواد ساخته می‌شوند و هر ارجاعِ بیرون از آن‌ها حذف می‌شود. نسخهٔ ۰٫۱٫۳ منتظر تأیید در مخزن رسمی افزونه‌های QGIS است.',
-  aboutH:'پیشینه', aboutP:'جایی که یاد گرفتم با دقت بسازم، و ابزارهایی که با آن‌ها می‌سازم.',
+  qgP:'با کلیک روی هر نقطه از نقشهٔ میلان، افزونه مقررات شهرسازی آن محل را نشان می‌دهد. محدودیت‌های کاربری زمین، حفاظت از منظر، خطر سیل و محدودهٔ پارک از سرویس‌های به‌روز نقشهٔ منطقهٔ لومباردی گرفته می‌شوند و همراه با مواد مرتبط در طرح شهرسازی (PGT) و طرح پارک نمایش داده می‌شوند. پاسخ‌های اختیاری هوش مصنوعی، به ایتالیایی یا انگلیسی، فقط به همین مواد استناد می‌کنند و ارجاع‌های خارج از آن‌ها حذف می‌شوند. نسخهٔ ۰٫۱٫۳ در انتظار تأیید برای انتشار در مخزن رسمی افزونه‌های QGIS است.',
+  aboutH:'پیشینه', aboutP:'مسیر تحصیلی‌ام و ابزارهایی که برای ساخت این پروژه‌ها به کار می‌برم.',
   ed1w:'۲۰۲۵ تا امروز', ed1h:'کارشناسی ارشد هوش مصنوعی برای علوم و فناوری', ed1p:'دانشگاه میلان-بیکوکا، مدرک مشترک با دانشگاه میلان و دانشگاه پاویا.',
   ed2w:'۲۰۲۰ تا ۲۰۲۴', ed2h:'کارشناسی علوم کامپیوتر', ed2p:'دانشگاه علم و صنعت ایران، تهران. پایان‌نامه دربارهٔ بهینه‌سازی کلونی مورچه برای زمان‌بندی.',
   pfT:'<b>۵۰۰+</b>تست خودکار در پروژه‌هایم', pfE:'<b>۷٫۰</b>آیلتس، انگلیسی در سطح C1',
   tbH:'جعبه‌ابزار', tg1:'سیستم‌های LLM', tg2:'بک‌اند', tg3:'فرانت‌اند', tg4:'یادگیری ماشین', tg5:'تست و انتشار',
   svcH:'چه چیزهایی می‌توانم برایتان بسازم؟',
-  svcP:'بگویید چه لازم دارید؛ ساده‌ترین نسخه‌ای را که کارتان را راه بیندازد پیشنهاد می‌دهم، با قیمت ثابت قبل از شروع کار.',
+  svcP:'بگویید چه نیاز دارید. ساده‌ترین راه‌حلی را که کارتان را راه بیندازد پیشنهاد می‌دهم و پیش از شروع، قیمت ثابتی اعلام می‌کنم.',
   sv1h:'سایت و لندینگ پیج', sv1p:'سایت‌های سریع و مناسب موبایل برای کسب‌وکار، فروشگاه یا خودتان. فرم تماس، رزرو و در صورت نیاز دیتابیس.',
   sv2h:'ربات‌های تلگرام', sv2p:'بازی‌های گروهی، ربات رزرو و سفارش، ابزارهای مدیریتی و پیام‌های زمان‌بندی‌شده، با پایتون.',
-  sv3h:'چت‌بات هوش مصنوعی روی اسناد شما', sv3p:'چت‌باتی که از روی PDF‌ها، سؤالات متداول یا سایت خودتان جواب می‌دهد، منابعش را نشان می‌دهد و می‌تواند روی سایتتان باشد.',
-  sv4h:'توسعهٔ اپ فعلی شما', sv4p:'اپ، سایت یا رباتی دارید؟ به‌جای ساختن دوباره، می‌توانم به همان قابلیت اضافه کنم؛ با هوش مصنوعی یا بدون آن.', sv4go:'بگویید چه لازم دارید',
-  sv4ah:'قابلیت‌های جدید', sv4ap:'صفحه‌ها و قابلیت‌های جدید، ورود و احراز هویت، پنل مدیریت، کار روی دیتابیس و API، و افزودنی برای ربات‌ها و مینی‌اپ‌های تلگرام.',
-  sv4bh:'قابلیت‌های هوش مصنوعی', sv4bp:'چت‌باتی که از روی اسناد خودتان جواب می‌دهد، جستجو بر اساس معنا، خلاصه‌سازی، یا دستیاری که به‌جای حدس زدن، داده‌های واقعی را بررسی می‌کند.',
+  sv3h:'چت‌بات هوش مصنوعی برای پاسخ‌گویی بر اساس اسناد شما', sv3p:'چت‌باتی که بر اساس فایل‌های PDF، پرسش‌های متداول یا محتوای وب‌سایتتان جواب می‌دهد، منابع پاسخ را نشان می‌دهد و می‌توان آن را به سایتتان اضافه کرد.',
+  sv4h:'افزودن امکانات به برنامهٔ فعلی شما', sv4p:'اپ، سایت یا رباتی دارید؟ می‌توانم امکانات تازه‌ای به همان اضافه کنم، با هوش مصنوعی یا بدون آن.', sv4go:'بگویید چه لازم دارید',
+  sv4ah:'قابلیت‌های جدید', sv4ap:'افزودن صفحه و قابلیت، ورود و احراز هویت، پنل مدیریت، توسعهٔ پایگاه داده و API، و امکانات تازه برای ربات‌ها و مینی‌اپ‌های تلگرام.',
+  sv4bh:'قابلیت‌های هوش مصنوعی', sv4bp:'چت‌باتی که بر اساس اسناد خودتان پاسخ می‌دهد، جست‌وجوی معنایی، خلاصه‌سازی یا دستیاری که پاسخ‌هایش را با بررسی داده‌های واقعی آماده می‌کند.',
   from:'از', order:'سفارش در فایور',
   howH:'روال کار',
   n1:'۱', n2:'۲', n3:'۳',
-  st1h:'ایده‌تان را بگویید', st1p:'پیام بدهید و بگویید چه می‌خواهید، حتی اگر هنوز دقیق نیست. اسکرین‌شات سایت یا رباتی که می‌پسندید کمک زیادی می‌کند.',
-  st2h:'طرح و قیمت ثابت بگیرید', st2p:'ساده‌ترین نسخه‌ای را که کار را راه بیندازد، همراه با قیمت و زمان تحویل برایتان می‌فرستم. بعداً هیچ هزینهٔ پیش‌بینی‌نشده‌ای در کار نیست.',
-  st3h:'شکل گرفتنش را ببینید', st3p:'در طول کار پیشرفت را می‌بینید و قبل از تحویل می‌توانید تغییر بخواهید. همهٔ کد را هم تحویل می‌گیرید.',
+  st1h:'از ایده‌تان بگویید', st1p:'پیام بدهید و بگویید چه می‌خواهید، حتی اگر هنوز دقیق نیست. اسکرین‌شات سایت یا رباتی که می‌پسندید کمک زیادی می‌کند.',
+  st2h:'طرح و قیمت قطعی', st2p:'ساده‌ترین راه‌حل مناسب، قیمت قطعی و زمان تحویل را برایتان می‌فرستم تا هزینه‌ها از ابتدا روشن باشد.',
+  st3h:'پیشرفت کار را دنبال کنید', st3p:'در طول کار نتیجه را مرحله‌به‌مرحله می‌بینید و پیش از تحویل می‌توانید درخواست تغییر بدهید. کد کامل هم به شما تحویل داده می‌شود.',
   cH:'ایده‌ای دارید؟ بیایید آن را بسازیم.',
   cCoup:'کودتا را در تلگرام بازی کنید',
-  ft1:'سعید سبزه، میلان', ft2:'با دست ساخته شده، مثل بقیهٔ چیزهای این صفحه.',
+  ft1:'سعید سبزه، میلان', ft2:'این سایت را هم مثل بقیهٔ پروژه‌های این صفحه خودم ساخته‌ام.',
   copy:'کپی ایمیل', copied:'کپی شد', selected:'انتخاب شد، Ctrl+C را بزنید'
 },
 it: {
+  homeLabel:'Saeed Sabzeh, pagina iniziale',
+  sectionsLabel:'Sezioni del sito',
+  languageLabel:'Lingua',
+  portraitAlt:'Ritratto di Saeed Sabzeh',
+  coupHomeAlt:'Schermata iniziale di Coup su Telegram, con le opzioni per una partita rapida, con gli amici o contro il computer',
+  coupTableAlt:'Partita a Coup. Un bot dichiara di avere il Capitano per rubarti monete. Puoi contestare la dichiarazione o passare.',
+  coupPracticeAlt:'Partita di prova di Coup Reformation. La guida ti invita a far cambiare a un giocatore la carta del Duca che ha mostrato.',
+  coupLearnAlt:'Schermata di apprendimento di Coup, con una partita guidata e le regole del gioco base e dell’espansione Reformation',
+  sorkhDesktopAlt:'Pagina iniziale di Sorkh con il titolo «Oro rosso» sul globo notturno e le rotte dorate dall’Iran verso Baghdad, Dubai, Mascate e altre città',
+  sorkhMobileAlt:'La stessa pagina su smartphone, in arabo e con impaginazione da destra a sinistra, con il titolo calligrafico «الذهب الأحمر»',
+  qgisExamples:'Esempi di Norme Milano',
+  carouselLabel:'carosello',
+  slideLabel:'diapositiva',
+  openScreenshot:'Apri lo screenshot a grandezza intera',
+  qgisDuomoAlt:'Pannello di Norme Milano in QGIS dopo un clic sul Duomo. Mostra il vincolo del centro storico, gli articoli applicabili e una risposta sulla costruzione di un interrato.',
+  qgisParkAlt:'Pannello di Norme Milano in QGIS dopo un clic vicino a Chiaravalle. Mostra un’area di trasformazione nel Parco Agricolo Sud Milano, gli articoli del piano del parco e una risposta su cosa si può costruire.',
+  chooseScreenshot:'Scegli uno screenshot',
+  screenshot1:'Screenshot 1',
+  screenshot2:'Screenshot 2',
+  halloweenAlt:'Mod di Halloween per Age of Empires II, con pini coperti di ragnatele, cervi fantasma, pecore-ragno, lo scheletro di un cinghiale, zucche e un centro città decorato',
+  tStructured:'Output strutturati',
+  tAuth:'Autenticazione con JWT e OTP',
+  tI18n:'Scrittura da destra a sinistra e internazionalizzazione',
+  tPpo:'PPO e self-play',
+  pageTitle:'Saeed Sabzeh · Sviluppatore web e IA a Milano',
   n_work:'Progetti', n_about:'Chi sono', n_svc:'Servizi', n_hire:'Contattami',
-  intro:'Creo <b>sistemi di IA</b> e <b>siti web</b>, dalla ricerca in machine learning alle app che le persone usano davvero.',
-  chip1:'Laurea magistrale in IA, Università di Milano-Bicocca', chip2:'Inglese (C1), persiano, un po\' di italiano',
-  workH:'Cosa ho costruito',
-  workP:'Progetti personali che ho ideato, sviluppato e pubblicato da solo. Gli screenshot arrivano dalle app vere.',
+  intro:'Sviluppo <b>sistemi di IA</b> e <b>siti web</b>, dalla ricerca sul machine learning alle app che si usano ogni giorno.',
+  chip1:'Studente di laurea magistrale in IA all’Università di Milano-Bicocca', chip2:'Inglese (C1), persiano, un po\' di italiano',
+  workH:'I miei progetti',
+  workP:'Ho ideato, sviluppato e pubblicato personalmente questi progetti. Gli screenshot mostrano le app in uso.',
   coupH:'Coup, un gioco su Telegram',
-  coupP:'Il gioco di carte e bluff per 2–6 giocatori, che gira dentro Telegram come Mini App. Partita rapida con sconosciuti, stanze private con gli amici, avversari controllati dal computer che bluffano secondo le probabilità, l\'espansione Reformation, statistiche dei giocatori e tutta l\'app in inglese e persiano. Le regole girano sul server, quindi le carte nascoste non arrivano mai ai telefoni degli altri giocatori, e se la connessione cade si riprende esattamente da dove eri.',
-  f1:'<b>2–6</b>giocatori per tavolo', f2:'<b>349</b>test automatici', f3:'<b>2</b>lingue, compresa una da destra a sinistra',
-  skH:'Sorkh, un sito di zafferano di lusso',
-  skP:'Un sito concept per un esportatore di zafferano persiano che vende in Iraq, negli Emirati e in Oman, pensato come proposta per un cliente. La pagina si apre su un globo notturno con la geografia reale e le rotte di esportazione tracciate da Mashhad. È in arabo, persiano e inglese, da destra a sinistra dove serve, con un filo di zafferano che si disegna mentre scorri, vasetti di vetro disegnati in codice e un grafico con quotazioni di mercato reali e datate in cinque valute. I font sono inclusi nel sito, così si carica in fretta anche dove il server dei font di Google è bloccato.',
-  sk1:'<b>3</b>lingue, 2 da destra a sinistra', sk2:'<b>5</b>valute nel grafico dei prezzi', sk3:'<b>11</b>rotte di esportazione su un globo reale', skGo:'Apri il sito',
+  coupP:'Un gioco di carte basato sul bluff, per 2–6 persone, disponibile come mini app di Telegram. Puoi fare una partita veloce con altri giocatori, creare una stanza privata per gli amici o sfidare bot che bluffano in base alle probabilità. Il gioco include l’espansione Reformation, le statistiche dei giocatori e un’interfaccia in inglese e persiano. Il server gestisce le regole e tiene segrete le carte degli altri giocatori. Se perdi la connessione, riprendi la partita da dove l’avevi lasciata.',
+  f1:'<b>2–6</b>giocatori per tavolo', f2:'<b>349</b>test automatici', f3:'<b>2</b>lingue, di cui una da destra a sinistra',
+  skH:'Sorkh, un sito per un marchio di zafferano di alta gamma',
+  skP:'Un sito dimostrativo pensato come proposta per un esportatore di zafferano iraniano che vende in Iraq, negli Emirati Arabi Uniti e in Oman. La pagina si apre su un globo notturno che mostra la geografia reale e le rotte di esportazione da Mashhad lungo archi di cerchio massimo. Il sito è disponibile in arabo, persiano e inglese, con impaginazione da destra a sinistra per arabo e persiano. Scorrendo la pagina, si disegna un filo di zafferano. Anche i vasetti sono disegnati via codice e il grafico mostra quotazioni di mercato reali, con data, in cinque valute. I caratteri vengono caricati dal sito stesso, anche dove Google Fonts è bloccato.',
+  sk1:'<b>3</b>lingue, 2 da destra a sinistra', sk2:'<b>5</b>valute nel grafico dei prezzi', sk3:'<b>11</b>rotte di esportazione sul globo', skGo:'Apri il sito',
   coupGo:'Gioca su Telegram', botsGo:'Guarda il codice', ragGo:'Guarda il codice', mlGo:'Leggi l\'analisi', allRepos:'Tutti i repository',
   botMsg:'Hai versato 7 tazze di chai! Prossimo giro tra 2 ore.', botBoard:'I maestri del chai della settimana',
   themes:'<span>Chai</span><span>Tahdig</span><span>Taarof</span><span>Konkur</span><span>Traffico di Teheran</span><span>Gatti</span>',
   botsH:'Bot di gioco per Telegram',
-  botsP:'Una famiglia di bot per giochi di gruppo, ognuno con un tema ispirato a una battuta interna persiana. I membri giocano una volta a ogni intervallo di attesa, ottengono punteggi casuali e scalano la classifica del gruppo.',
+  botsP:'Una serie di bot per giochi di gruppo ispirati all’umorismo e alla vita quotidiana in Iran. Dopo ogni turno bisogna aspettare prima di giocare di nuovo. Ogni turno assegna un punteggio casuale che conta nella classifica del gruppo.',
   tLead:'Classifiche',
-  ragQ:'The Silent Patient è disponibile? E quanto costa Atomic Habits?', ragA:'The Silent Patient al momento è esaurito, possiamo ordinarlo in circa cinque giorni. Atomic Habits è disponibile a $18.75.',
-  ragQ2:'Mi è piaciuto molto The Martian. Cosa leggo adesso?', ragA2:'Prova Project Hail Mary, sempre di Andy Weir. Costa $19.99 ed è disponibile.',
-  ragH:'Assistente per libreria',
-  ragP:'Un assistente in chat per una libreria che controlla prezzi e disponibilità chiamando funzioni vere invece di inventare le risposte, e consiglia libri per significato con la ricerca semantica. Tutti i suoi 46 test girano offline, senza chiave API.',
+  ragQ:'The Silent Patient è disponibile? E quanto costa Atomic Habits?', ragA:'Al momento The Silent Patient è esaurito, ma possiamo ordinarlo e farlo arrivare in circa cinque giorni. Atomic Habits è disponibile a 18,75 USD.',
+  ragQ2:'Mi è piaciuto molto The Martian. Cosa leggo adesso?', ragA2:'Prova Project Hail Mary, sempre di Andy Weir. È disponibile a 19,99 USD.',
+  ragH:'Assistente per una libreria',
+  ragP:'Un assistente per librerie che verifica prezzi e disponibilità interrogando il catalogo tramite chiamate a funzioni e suggerisce libri con la ricerca semantica. Tutti e 46 i test si eseguono offline e senza chiave API.',
   tTools:'Function calling', rh5:'Backend per party game',
-  mlBig:'Top 28%<small>1.300° su 4.730 squadre</small>', stripLbl:'Posizione finale su una striscia di tutte le 4.730 squadre', tRL:'Apprendimento per rinforzo', sl1:'1ª', sl2:'4.730ª',
+  mlBig:'Tra il 28% migliore<small>1.300º posto su 4.730 squadre</small>', stripLbl:'Posizione finale fra le 4.730 squadre', tRL:'Apprendimento per rinforzo', sl1:'1ª', sl2:'4.730ª',
   mlH:'Agente per Orbit Wars',
-  mlP:'Una partecipazione in solitaria a una competizione Kaggle di strategia in tempo reale. Un risolutore di fisica orbitale scritto a mano propone gli attacchi e una policy PPO, addestrata in self-play per 2 milioni di passi, decide quali eseguire. Ha chiuso intorno al 1.300° posto su 4.730 squadre, e la mia analisi individua sei errori di misurazione che ne avevano limitato il risultato prima ancora dell\'addestramento.',
+  mlP:'Ho partecipato da solo a una competizione Kaggle di strategia in tempo reale. Un risolutore di dinamica orbitale che ho sviluppato propone gli attacchi e una politica PPO, addestrata per 2 milioni di passi giocando contro sé stessa, decide quali eseguire. Il mio agente è arrivato intorno al 1.300º posto su 4.730 squadre. Nell’analisi a posteriori ho individuato sei errori di misurazione che ne limitavano il risultato già prima dell’addestramento.',
   moreH:'Altro su GitHub',
-  rh1:'Scheduling con colonie di formiche', rp1:'La mia tesi triennale: ottimizzazione con colonie di formiche per l\'open-shop scheduling, entro l\'1,05% dai migliori limiti pubblicati, con un decoder riscritto per essere circa 11.000 volte più veloce.',
-  rh2:'Rilevamento difetti industriali', rp2:'Tre CNN costruite da zero in PyTorch. Ho scoperto un falso 100% causato da data leakage, ho corretto lo split e ho raggiunto il 99,08% di F1.',
-  rh3:'Raccomandazioni neurali', rp3:'Un recommender NeuMF su MovieLens 1M che ha battuto popolarità, user-CF, item-CF e SVD su ogni metrica.',
-  rp4:'Dataset tabellari generati con un LLM, dove ogni riga è validata da uno schema Pydantic, con un report sulla qualità del risultato.',
+  rh1:'Scheduling con colonie di formiche', rp1:'Per la mia tesi triennale ho applicato l’ottimizzazione con colonie di formiche all’open-shop scheduling. Il risultato si è avvicinato ai migliori limiti pubblicati con uno scarto dell’1,05%. Riscrivendo il decoder, ne ho accelerato l’esecuzione di circa 11.000 volte.',
+  rh2:'Rilevamento di difetti industriali', rp2:'Ho sviluppato da zero tre reti convoluzionali in PyTorch. Un errore nella suddivisione dei dati gonfiava il risultato al 100%. Dopo aver corretto la suddivisione per eliminare la contaminazione tra gli insiemi, ho ottenuto un F1 del 99,08%.',
+  rh3:'Sistema di raccomandazione neurale', rp3:'Un sistema di raccomandazione NeuMF su MovieLens 1M che ha superato tutti i metodi di riferimento (popolarità, user-CF, item-CF e SVD) in ogni metrica.',
+  rp4:'Genera dati tabellari con un modello linguistico, convalida ogni riga con uno schema Pydantic e produce un rapporto sulla qualità dei dati.',
   rp5:'Server FastAPI asincrono per un gioco mobile in Unity: login con OTP via SMS, sessioni JWT e una console di amministrazione, su un VPS Linux.',
   rp6:'Il codice dell\'assistente per libreria qui sopra.',
   hwH:'Halloween per Age of Empires II',
-  hwP:'Una mod grafica che dà a ogni mappa un look di Halloween: pecore ragno, animali fantasma, foreste stregate, campi di zucche e Centri città decorati. Tutti i 422 sprite sono generati da codice Python, per ogni civiltà, e verificati su tutti i 180 script di mappe casuali. Funziona in multiplayer e nelle partite classificate. Per realizzarla ho decodificato una parte non documentata del formato sprite del gioco. Pubblicata sul sito ufficiale delle mod.',
+  hwP:'Una mod grafica che trasforma ogni mappa per Halloween, con pecore-ragno, animali fantasma, foreste infestate, campi di zucche e centri città decorati. Ho generato tutti e 422 gli sprite con Python, per ogni civiltà, e li ho verificati con tutti i 180 script delle mappe casuali. La mod funziona anche in multigiocatore e nelle partite classificate. Per realizzarla ho decifrato una parte non documentata del formato degli sprite del gioco. La mod è disponibile sul sito ufficiale delle mod.',
   tRE:'Reverse engineering', tProc:'Generazione procedurale',
-  qT1:'Duomo, nucleo storico', qT2:'Chiaravalle, area del parco',
-  qf1:'<b>96%</b>articoli citati corretti', qf2:'<b>0</b>citazioni inventate', qf3:'<b>40</b>domande di test',
-  rh8:'Bot Telegram che imita una persona', rp8:'Addestra un modello di chat su una persona a partire dall\'export di un gruppo e lo fa girare come bot. Uno split cronologico ha eliminato una fuga di dati che toccava un terzo del set di validazione, e ogni risposta è marcata con la sua versione di build per confrontare le modifiche.',
+  qT1:'Duomo, centro storico', qT2:'Chiaravalle, area del parco',
+  qf1:'<b>96%</b>di articoli citati correttamente', qf2:'<b>0</b>citazioni inventate', qf3:'<b>40</b>domande di test',
+  rh8:'Bot Telegram che imita una persona', rp8:'Addestra ulteriormente un modello conversazionale sui messaggi di una persona, ricavati dall’esportazione di una chat di gruppo, e lo usa in un bot. Una suddivisione cronologica ha eliminato la contaminazione che interessava un terzo del set di validazione. Ogni risposta riporta la versione del software con cui è stata generata, così si possono confrontare le modifiche.',
   qgH:'Norme Milano, un plugin per QGIS',
-  qgP:'Clicca un punto sulla mappa di Milano e il plugin elenca le norme urbanistiche che vi si applicano: i vincoli di zonizzazione, paesaggio, rischio alluvioni e parchi dai servizi cartografici in tempo reale di Regione Lombardia, con gli articoli del PGT e del piano del parco che li regolano. Le risposte opzionali dell\'IA, in italiano o inglese, usano solo quegli articoli e ogni citazione esterna viene rimossa. La versione 0.1.3 è in attesa di approvazione sul repository ufficiale dei plugin QGIS.',
-  aboutH:'Percorso', aboutP:'Dove ho imparato a costruire con cura, e con cosa costruisco.',
+  qgP:'Fai clic su un punto della mappa di Milano per vedere quali norme urbanistiche si applicano. Il plugin consulta i servizi cartografici della Regione Lombardia e mostra i vincoli urbanistici, paesaggistici, legati al rischio di alluvione e alle aree del parco, insieme agli articoli pertinenti del Piano di Governo del Territorio (PGT) e del piano del parco. Le risposte dell’IA sono facoltative, in italiano o in inglese, e si basano solo su quegli articoli. I riferimenti ad altri articoli vengono rimossi. La versione 0.1.3 è in attesa di approvazione per la pubblicazione nel repository ufficiale dei plugin di QGIS.',
+  aboutH:'Formazione e competenze', aboutP:'Il mio percorso di studi e gli strumenti che uso per sviluppare i miei progetti.',
   ed1w:'2025 – oggi', ed1h:'Laurea magistrale in Artificial Intelligence for Science and Technology', ed1p:"Università di Milano-Bicocca, titolo congiunto con l'Università degli Studi di Milano e l'Università di Pavia.",
-  ed2w:'2020 – 2024', ed2h:'Laurea triennale in Informatica', ed2p:"Iran University of Science and Technology, Teheran. Tesi sull'ottimizzazione con colonie di formiche per lo scheduling.",
-  pfT:'<b>500+</b>test automatici nei miei progetti', pfE:'<b>7.0</b>IELTS, inglese di livello C1',
+  ed2w:'2020 – 2024', ed2h:'Laurea triennale in Informatica', ed2p:'Iran University of Science and Technology, Teheran. Tesi sull’uso dell’ottimizzazione con colonie di formiche nei problemi di scheduling.',
+  pfT:'<b>500+</b>test automatici nei miei progetti', pfE:'<b>7,0</b>IELTS, inglese di livello C1',
   tbH:'Strumenti', tg1:'Sistemi LLM', tg5:'Test e rilascio',
-  svcH:'Cosa posso costruire per te',
-  svcP:'Dimmi di cosa hai bisogno e ti propongo la versione più semplice che fa quello che ti serve, con un prezzo fisso prima di iniziare.',
-  sv1h:'Siti web e landing page', sv1p:'Siti veloci e pensati per il mobile, per un\'attività, un negozio o per te. Moduli di contatto, prenotazioni e un database quando serve.',
+  svcH:'Cosa posso sviluppare per te',
+  svcP:'Dimmi cosa ti serve. Ti proporrò la soluzione più semplice adatta al tuo progetto, con un prezzo fisso concordato prima di iniziare.',
+  sv1h:'Siti web e landing page', sv1p:'Siti veloci, progettati per smartphone, per la tua attività o il tuo negozio, oppure per un progetto personale. Posso integrare moduli di contatto, prenotazioni e, se serve, un database.',
   sv2h:'Bot Telegram', sv2p:'Giochi di gruppo, bot per prenotazioni e ordini, strumenti di amministrazione e messaggi programmati, scritti in Python.',
-  sv3h:'Chatbot IA sui tuoi documenti', sv3p:'Un chatbot che risponde in base ai tuoi PDF, alle FAQ o al tuo sito, mostra le fonti e può essere inserito nelle tue pagine.',
-  sv4h:'Estensioni per la tua app esistente', sv4p:'Hai già un\'app, un sito o un bot? Posso aggiungere funzioni senza rifare tutto da capo, con o senza IA.', sv4go:'Dimmi cosa ti serve',
-  sv4ah:'Nuove funzioni', sv4ap:'Nuove schermate e funzioni, login, pannelli di amministrazione, lavoro su database e API, e componenti aggiuntivi per bot Telegram e Mini App.',
-  sv4bh:'Funzioni con IA', sv4bp:'Un chatbot che risponde dai tuoi documenti, ricerca per significato, riassunti, o un assistente che controlla dati reali invece di inventare.',
+  sv3h:'Chatbot IA che rispondono usando i tuoi documenti', sv3p:'Un chatbot da integrare nel tuo sito, che risponde basandosi sui tuoi PDF, sulle FAQ o sui contenuti del sito stesso e indica le fonti delle risposte.',
+  sv4h:'Nuove funzionalità per la tua app', sv4p:'Hai già un\'app, un sito o un bot? Posso aggiungere funzioni senza rifare tutto da capo, con o senza IA.', sv4go:'Dimmi cosa ti serve',
+  sv4ah:'Nuove funzioni', sv4ap:'Nuove schermate e funzioni, sistemi di accesso, pannelli di amministrazione, integrazioni con database e API, ed estensioni per bot e mini app di Telegram.',
+  sv4bh:'Funzioni con IA', sv4bp:'Chatbot che rispondono usando i tuoi documenti, ricerca semantica, riepiloghi o assistenti che verificano le informazioni consultando dati reali.',
   from:'da', order:'Ordina su Fiverr',
   howH:'Come funziona',
-  st1h:'Raccontami l\'idea', st1p:'Mandami un messaggio con quello che ti serve, anche se è ancora vago. Gli screenshot di siti o bot che ti piacciono aiutano molto.',
-  st2h:'Ricevi un piano e un prezzo fisso', st2p:'Ti rispondo con la versione più semplice che fa quello che ti serve, il prezzo e la data di consegna. Nessun costo a sorpresa dopo.',
-  st3h:'Guardalo prendere forma', st3p:'Segui i progressi mentre lavoro e puoi chiedere modifiche prima della consegna. Ricevi tutto il codice.',
+  st1h:'Raccontami l\'idea', st1p:'Scrivimi per spiegarmi cosa ti serve, anche se l’idea è ancora da definire. Se hai degli esempi, mandami qualche screenshot dei siti o dei bot che ti piacciono.',
+  st2h:'Proposta e prezzo fisso', st2p:'Ti mando una proposta con la soluzione più semplice, il prezzo e la data di consegna, senza costi a sorpresa.',
+  st3h:'Segui lo sviluppo', st3p:'Puoi seguire lo sviluppo e chiedere modifiche prima della consegna. Alla fine ricevi anche tutto il codice sorgente.',
   cH:'Hai un\'idea? Costruiamola.',
   cCoup:'Gioca a Coup su Telegram',
-  ft1:'Saeed Sabzeh, Milano', ft2:'Fatto a mano, come tutto il resto qui.',
+  ft1:'Saeed Sabzeh, Milano', ft2:'Ho sviluppato personalmente anche questo sito.',
   copy:'Copia email', copied:'Copiata', selected:'Selezionata, premi Ctrl+C'
 }
 };
 
 (function(){
-  var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',stripLbl:'Final rank shown on a strip of all 4,730 teams'},cur='en';
+  var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',pageTitle:document.title},cur='en';
   function tx(k){return (I18N[cur]&&I18N[cur][k])||EN[k]}
   // language
   var nodes=[].slice.call(document.querySelectorAll('[data-i]'));
   nodes.forEach(function(n){n.dataset.en=n.innerHTML});
+  var labels=[];
+  ['alt','aria-label','aria-roledescription'].forEach(function(attr){
+    document.querySelectorAll('[data-i-'+attr+']').forEach(function(node){
+      labels.push({node:node,attr:attr,key:node.getAttribute('data-i-'+attr),en:node.getAttribute(attr)});
+    });
+  });
   var btns=[].slice.call(document.querySelectorAll('.langs button'));
   function setLang(l){
     if(!I18N[l]&&l!=='en')l='en';cur=l;
     var d=document.documentElement;d.lang=l;d.dir=l==='fa'?'rtl':'ltr';
     nodes.forEach(function(n){var t=l!=='en'&&I18N[l][n.dataset.i];n.innerHTML=t!=null&&t!==false?t:n.dataset.en});
+    labels.forEach(function(label){label.node.setAttribute(label.attr,tx(label.key)||label.en)});
+    document.title=tx('pageTitle');
     btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l?'true':'false')});
     movePill();
     b.textContent=tx('copy');
-    c.setAttribute('aria-label',tx('stripLbl'));
     try{localStorage.setItem('lang',l)}catch(x){}
     if(window.drawStrip)drawStrip();
   }

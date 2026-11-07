@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0E0A0B">
-<title>Sorkh Saffron</title>
+<title>سُرخ · زعفران إيراني</title>
 <meta name="description" content="Sorkh: a concept website for a luxury Persian saffron export house, designed and built by Saeed Sabzeh. Arabic, Persian and English, with a real-geography globe intro and real market prices.">
 <link rel="canonical" href="https://saeedsabzeh.com/saffron/">
 <meta property="og:title" content="Sorkh Saffron, a concept by Saeed Sabzeh">
@@ -712,35 +712,36 @@ const QUOTES = {
    ===================================================================== */
 const T = {
   ar: {
+    ranges: { '1M': 'شهر', '6M': '٦ أشهر', '1Y': 'سنة', ALL: 'كل الفترة' },
     title: 'سُرخ · زعفران إيراني',
     skip: 'تخطَّ إلى المحتوى', brand: 'سُرخ',
-    navLabel: 'التنقل الرئيسي', navCol: 'المجموعة', navStory: 'قصتنا', navPrice: 'الأسعار', navExp: 'التصدير', navContact: 'تواصل',
+    navLabel: 'التنقل الرئيسي', navCol: 'المجموعة', navStory: 'قصتنا', navPrice: 'الأسعار', navExp: 'التصدير', navContact: 'تواصل معنا',
     cta: 'طلب عرض سعر', menu: 'القائمة', langLabel: 'اللغة',
     heroLabel: 'زعفران إيراني · محصول الموسم',
     heroH: 'الذهب الأحمر',
     heroSub: 'يُقطف عند الفجر، ويُفرز باليد. ثلاث شعيرات قرمزية من كل زهرة.',
-    heroCta1: 'اكتشف المجموعة', heroCta2: 'قيمة الزعفران اليوم',
+    heroCta1: 'اكتشف المجموعة', heroCta2: 'أسعار الزعفران',
     manLabel: 'قصتنا', manCap: 'شعيرات في كل زهرة',
-    manText: 'لا نبيع الزعفران بالوزن وحده. نبيع لونًا يدوم، وعطرًا صادقًا، وساعة ما قبل الشروق نحفظها في وعاء زجاجي.',
-    manSub: 'تتفتح زهرة الزعفران لأيام قليلة كل خريف. نقطفها قبل الشروق، ونفصل المياسم باليد في اليوم نفسه حتى لا يضيع شيء من لونها ورائحتها.',
+    manText: 'لا نبيع الزعفران بالوزن وحده. ففي كل عبوة لونٌ يدوم، وعبقٌ أصيل، وشيءٌ من هدوء الساعة التي تسبق الشروق.',
+    manSub: 'تزهر نبتة الزعفران لأيام قليلة كل خريف. نقطف الأزهار قبل الشروق ونفصل المياسم باليد في اليوم نفسه، لنحافظ على لونها وعبقها.',
     colLabel: 'المجموعة', colTitle: 'ثلاث درجات، معيار واحد', discover: 'استفسر', onReq: 'السعر عند الطلب', indic: 'سعر استرشادي', kgShort: '/ كغ', photo: '',
-    p1n: 'نِگين', p1g: 'الفاخر', p1d: 'أطول الشعيرات وأعلى قوة تلوين، للأسواق الراقية.',
-    p2n: 'سَرگُل', p2g: 'الأكثر طلبًا', p2d: 'مياسم حمراء بالكامل من دون الذيل الأصفر، خيار المطاعم والموزعين.',
-    p3n: 'بوشال', p3g: 'للجملة', p3d: 'شعيرات مع جزء من الذيل الأصفر. عطر قوي، وتعبئة بالجملة.',
-    p4n: 'علبة الهدية', p4g: 'حسب الطلب', p4d: 'علب جاهزة للبيع بالتجزئة للمواسم والمناسبات، نُعدّها بعلامتكم أو بعلامتنا.',
+    p1n: 'نِگين', p1g: 'الفاخر', p1d: 'أطول الشعيرات وأقواها تلوينًا، للأسواق الراقية.',
+    p2n: 'سَرگُل', p2g: 'الأكثر طلبًا', p2d: 'مياسم حمراء خالصة، من دون الجزء الأصفر. خيار المطاعم والموزّعين.',
+    p3n: 'بوشال', p3g: 'للجملة', p3d: 'شعيرات تحتفظ بجزء من ساقها الصفراء، بعبق قوي وتعبئة بالجملة.',
+    p4n: 'علبة هدايا', p4g: 'حسب الطلب', p4d: 'علب جاهزة للبيع بالتجزئة في المواسم والمناسبات، تحمل علامتكم التجارية أو علامتنا.',
     craftLabel: 'الحِرفة', craftTitle: 'من الزهرة إلى الشعيرة', craftNote: 'ثلاث شعيرات في كل زهرة، تُفصل كل واحدة منها باليد.',
     steps: [
       { n: 'I', title: 'القطف', text: 'تُقطف الأزهار يدويًا عند الفجر.' },
       { n: 'II', title: 'الفرز', text: 'تُفصل المياسم الحمراء باليد.' },
-      { n: 'III', title: 'التحليل', text: 'تُفحص كل دفعة مخبريًا. [الشهادات]' },
+      { n: 'III', title: 'التحليل', text: 'تُفحص كل دفعة في المختبر. [الشهادات]' },
       { n: 'IV', title: 'التغليف', text: 'عبوات محكمة للحماية من الضوء والرطوبة.' }
     ],
-    valLabel: 'الأسعار', valTitle: 'قيمة الزعفران', valLead: 'قيمة كل درجة عبر الوقت، بعملتكم، استنادًا إلى عروض أسعار فعلية مؤرخة.',
+    valLabel: 'الأسعار', valTitle: 'أسعار الزعفران', valLead: 'تابعوا تغيّر سعر كل درجة بعملتكم، استنادًا إلى عروض أسعار فعلية موثّقة بتاريخها.',
     gradeLabel: 'الدرجة', curLabel: 'العملة', rangeLabel: 'المدى الزمني', perKg: 'للكيلوغرام',
-    since: 'منذ', stHigh: 'الأعلى', stLow: 'الأدنى', quote: 'السعر المعروض', interp: 'قيمة مقدَّرة', chartAria: 'مخطط قيمة الزعفران',
+    since: 'منذ', stHigh: 'الأعلى', stLow: 'الأدنى', quote: 'السعر المعروض', interp: 'قيمة مقدَّرة', chartAria: 'مخطط أسعار الزعفران',
     up: 'ارتفاع', down: 'انخفاض',
-    dataNote: 'تمثّل النقاط على المخطط عروض أسعار فعلية مؤرخة من المصادر أدناه؛ وتُحسب القيم بينها بالاستيفاء. الأسعار استرشادية وليست عرض بيع، ولا يمكن المقارنة بين قوائم الأسعار المختلفة على أساس متكافئ تمامًا.',
-    srcTitle: 'المصادر والمنهج', fxPeg: 'سعر صرف مُثبّت رسميًا', fxCbi: 'سعر البنك المركزي العراقي الرسمي', fxAsOf: 'السعر بتاريخ',
+    dataNote: 'تمثّل نقاط المخطط عروض أسعار فعلية موثّقة بتاريخها من المصادر أدناه. أما القيم بين النقاط فتقديرية ومحسوبة بالاستيفاء. الأسعار استرشادية ولا تشكّل عرضًا للبيع، وقد تختلف أسس التسعير من مصدر إلى آخر.',
+    srcTitle: 'المصادر والمنهجية', fxPeg: 'سعر صرف مُثبّت رسميًا', fxCbi: 'سعر البنك المركزي العراقي الرسمي', fxAsOf: 'السعر بتاريخ',
     reqTitle: 'السعر عند الطلب', reqText: 'تواصلوا معنا لمعرفة سعر اليوم لهذه الدرجة.', reqCta: 'استفسروا عبر واتساب',
     waMsg: 'مرحبًا، أودّ معرفة سعر اليوم لدرجة {g}.',
     expLabel: 'التصدير', expTitle: 'علامتكم.\nزعفراننا.',
@@ -750,10 +751,11 @@ const T = {
     cIran: 'إيران', cBaghdad: 'بغداد', cDubai: 'دبي', cMuscat: 'مسقط', cRiyadh: 'الرياض', cIstanbul: 'إسطنبول', cMoscow: 'موسكو', cMadrid: 'مدريد', cLondon: 'لندن', cMumbai: 'مومباي', cHongKong: 'هونغ كونغ', cNewYork: 'نيويورك',
     inqTitle: 'لنتحدث عن طلبكم', inqText: 'أخبرونا بالدرجة والكمية، وسنرد بسعر اليوم خلال 24 ساعة.',
     fName: 'الاسم / الشركة', fCountry: 'الدولة', fPhone: 'واتساب', fGrade: 'الدرجة', fQty: 'الكمية (كغ)', send: 'إرسال',
-    thanks: 'هذا موقع لعرض تصوّر تصميمي، لذا لم تُرسل أي رسالة.',
-    footNav: 'روابط التذييل', footTag: 'تصوّر تصميمي لدار فاخرة للزعفران.', byline: 'تصميم مفهومي: سعيد سبزه', footContact: 'تصميم وبرمجة', footAddr: 'سعيد سبزه', footNote: 'مشروع لعرض تصوّر تصميمي، وليس متجرًا حقيقيًا. الأسعار المعروضة أسعار سوق فعلية مؤرخة.'
+    thanks: 'هذا الموقع نموذج تصميمي، ولم تُرسل أي رسالة.',
+    footNav: 'روابط التذييل', footTag: 'تصميم تجريبي لعلامة راقية للزعفران.', byline: 'تصميم الموقع: سعيد سبزه', footContact: 'تصميم وبرمجة', footAddr: 'سعيد سبزه', footNote: 'سُرخ نموذج تصميمي. الأسعار المعروضة مأخوذة من عروض أسعار فعلية في السوق وموثّقة بتاريخها.'
   },
   en: {
+    ranges: { '1M': '1 mo', '6M': '6 mo', '1Y': '1 yr', ALL: 'All' },
     title: 'Sorkh · Persian Saffron',
     skip: 'Skip to content', brand: 'SORKH',
     navLabel: 'Main navigation', navCol: 'Collection', navStory: 'Our story', navPrice: 'Prices', navExp: 'Export', navContact: 'Contact',
@@ -761,27 +763,27 @@ const T = {
     heroLabel: 'Persian saffron · This season’s harvest',
     heroH: 'Red Gold',
     heroSub: 'Picked at dawn. Sorted by hand. Three crimson threads from every flower.',
-    heroCta1: 'Discover the collection', heroCta2: 'What saffron is worth today',
+    heroCta1: 'Discover the collection', heroCta2: 'Explore saffron prices',
     manLabel: 'Our story', manCap: 'threads in every flower',
-    manText: 'We do not sell saffron by weight alone. We sell colour that holds, an aroma that is honest, and the hour before sunrise, kept in a jar.',
-    manSub: 'The saffron crocus blooms for only a few days each autumn. We pick before sunrise and separate the stigmas by hand the same day, so nothing of their colour or aroma is lost.',
+    manText: 'There’s more to saffron than its weight. Each jar holds lasting colour, a rich aroma and a little of the stillness before sunrise.',
+    manSub: 'The saffron crocus blooms for just a few days each autumn. We pick the flowers before sunrise and separate the stigmas by hand that same day to preserve their colour and aroma.',
     colLabel: 'The collection', colTitle: 'Three grades, one standard', discover: 'Enquire', onReq: 'Price on request', indic: 'Indicative', kgShort: '/kg', photo: '',
     p1n: 'Negin', p1g: 'Prestige', p1d: 'The longest threads and the strongest colour, for premium markets.',
-    p2n: 'Sargol', p2g: 'Most requested', p2d: 'All-red stigmas, no style — the choice of restaurants and distributors.',
-    p3n: 'Pushal', p3g: 'Wholesale', p3d: 'Threads with part of the style. Strong aroma, packed in bulk.',
-    p4n: 'The gift box', p4g: 'Made to order', p4d: 'Retail-ready boxes for seasons and occasions, made under your label or ours.',
-    craftLabel: 'Savoir-faire', craftTitle: 'From flower to thread', craftNote: 'Three threads per flower, each one separated by hand.',
+    p2n: 'Sargol', p2g: 'Most requested', p2d: 'All-red stigmas with the yellow style removed, a favourite with restaurants and distributors.',
+    p3n: 'Pushal', p3g: 'Wholesale', p3d: 'Aromatic threads with part of the yellow style still attached, packed in bulk.',
+    p4n: 'The gift box', p4g: 'Made to order', p4d: 'Retail-ready boxes for seasonal gifts and special occasions, available under your label or ours.',
+    craftLabel: 'Our craft', craftTitle: 'From flower to thread', craftNote: 'Three threads per flower, each one separated by hand.',
     steps: [
       { n: 'I', title: 'Harvest', text: 'Hand-picked at dawn.' },
       { n: 'II', title: 'Sorting', text: 'Red stigmas separated by hand.' },
       { n: 'III', title: 'Analysis', text: 'Every batch lab-tested. [Certificates]' },
       { n: 'IV', title: 'Packing', text: 'Sealed against light and moisture.' }
     ],
-    valLabel: 'Prices', valTitle: 'The value of saffron', valLead: 'What each grade has been worth, in your currency, drawn from real dated quotes.',
+    valLabel: 'Prices', valTitle: 'Saffron prices', valLead: 'Track prices by grade over time in your currency, using actual market quotes and their dates.',
     gradeLabel: 'Grade', curLabel: 'Currency', rangeLabel: 'Time range', perKg: 'per kg',
-    since: 'since', stHigh: 'High', stLow: 'Low', quote: 'quoted price', interp: 'interpolated', chartAria: 'Saffron value chart',
+    since: 'since', stHigh: 'High', stLow: 'Low', quote: 'quoted price', interp: 'interpolated', chartAria: 'Saffron price chart',
     up: 'Up', down: 'Down',
-    dataNote: 'Dots on the chart are real dated quotes from the sources below; values between them are interpolated. Prices are indicative, not an offer, and different price lists are not strictly comparable.',
+    dataNote: 'The dots show actual dated quotes from the sources below. Values between dots are interpolated. The chart is for guidance only. Quotes from different sources may use different pricing terms.',
     srcTitle: 'Sources and method', fxPeg: 'official peg', fxCbi: 'Central Bank of Iraq official rate', fxAsOf: 'rate as of',
     reqTitle: 'Price on request', reqText: 'Contact us for today’s price of this grade.', reqCta: 'Ask on WhatsApp',
     waMsg: 'Hello, I would like today’s price for {g}.',
@@ -793,49 +795,50 @@ const T = {
     inqTitle: 'Let’s talk about your order', inqText: 'Tell us the grade and quantity, and we’ll reply with today’s price within 24 hours.',
     fName: 'Name / company', fCountry: 'Country', fPhone: 'WhatsApp', fGrade: 'Grade', fQty: 'Quantity (kg)', send: 'Send',
     thanks: 'This is a concept site, so nothing was sent.',
-    footNav: 'Footer links', footTag: 'A design concept for a luxury saffron house.', byline: 'Concept by Saeed Sabzeh', footContact: 'Designed and built by', footAddr: 'Saeed Sabzeh', footNote: 'A concept project, not a real store. The prices are real, dated market quotes.'
+    footNav: 'Footer links', footTag: 'A design concept for a premium saffron brand.', byline: 'Concept by Saeed Sabzeh', footContact: 'Designed and built by', footAddr: 'Saeed Sabzeh', footNote: 'Sorkh is a concept site. The chart uses actual dated market quotes.'
   },
   fa: {
+    ranges: { '1M': '۱ ماه', '6M': '۶ ماه', '1Y': '۱ سال', ALL: 'کل بازه' },
     title: 'سُرخ · زعفران ایرانی',
     skip: 'رفتن به محتوای اصلی', brand: 'سُرخ',
-    navLabel: 'پیمایش اصلی', navCol: 'مجموعه', navStory: 'داستان ما', navPrice: 'قیمت‌ها', navExp: 'صادرات', navContact: 'تماس',
+    navLabel: 'منوی اصلی', navCol: 'مجموعه', navStory: 'داستان ما', navPrice: 'قیمت‌ها', navExp: 'صادرات', navContact: 'تماس با ما',
     cta: 'استعلام قیمت', menu: 'منو', langLabel: 'زبان',
-    heroLabel: 'زعفران ایرانی · برداشت این فصل',
+    heroLabel: 'زعفران ایرانی · برداشت فصل',
     heroH: 'طلای سرخ',
-    heroSub: 'در سپیده‌دم چیده و با دست جدا می‌شود. از هر گل، سه رشتهٔ سرخ.',
-    heroCta1: 'مشاهدهٔ مجموعه', heroCta2: 'ارزش امروز زعفران',
+    heroSub: 'گل‌ها را سپیده‌دم می‌چینیم و از هر گل، سه رشتهٔ سرخ را با دست جدا می‌کنیم.',
+    heroCta1: 'مشاهدهٔ مجموعه', heroCta2: 'قیمت زعفران',
     manLabel: 'داستان ما', manCap: 'رشته در هر گل',
-    manText: 'ما زعفران را تنها به وزن نمی‌فروشیم. آنچه می‌فروشیم رنگی ماندگار است، عطری صادق و ساعت پیش از طلوع که در شیشه‌ای حفظ شده است.',
-    manSub: 'گل زعفران هر پاییز تنها چند روز شکوفا می‌شود. پیش از طلوع آفتاب آن را می‌چینیم و همان روز کلاله‌ها را با دست جدا می‌کنیم تا چیزی از رنگ و عطرشان از دست نرود.',
-    colLabel: 'مجموعه', colTitle: 'سه گرید، یک معیار', discover: 'استعلام', onReq: 'قیمت پس از استعلام', indic: 'قیمت تقریبی', kgShort: '/ کیلو', photo: '',
-    p1n: 'نگین', p1g: 'ممتاز', p1d: 'بلندترین رشته‌ها با بیشترین رنگ‌دهی، برای بازارهای لوکس.',
-    p2n: 'سرگل', p2g: 'پرتقاضاترین', p2d: 'کلاله‌های یکدست سرخ، بدون ریشه؛ انتخاب رستوران‌ها و توزیع‌کنندگان.',
-    p3n: 'پوشال', p3g: 'عمده', p3d: 'رشته‌هایی همراه با بخشی از ریشه. عطری قوی، با بسته‌بندی فله.',
-    p4n: 'جعبهٔ هدیه', p4g: 'سفارشی', p4d: 'جعبه‌های آمادهٔ عرضه در فروشگاه‌ها برای فصل‌ها و مناسبت‌ها، با برند شما یا ما.',
-    craftLabel: 'هنر و مهارت', craftTitle: 'از گل تا رشته', craftNote: 'سه رشته در هر گل، و هر کدام با دست جدا می‌شود.',
+    manText: 'ارزش زعفران فراتر از وزن آن است. در هر شیشه، رنگی ماندگار، عطری اصیل و اندکی از آرامشِ پیش از طلوع را حفظ می‌کنیم.',
+    manSub: 'گل زعفران هر پاییز فقط چند روز شکوفاست. گل‌ها را پیش از طلوع می‌چینیم و همان روز کلاله‌ها را با دست جدا می‌کنیم تا رنگ و عطرشان حفظ شود.',
+    colLabel: 'مجموعه', colTitle: 'سه نوع زعفران، یک معیار کیفیت', discover: 'استعلام قیمت', onReq: 'قیمت با استعلام', indic: 'قیمت تقریبی', kgShort: '/ کیلو', photo: '',
+    p1n: 'نگین', p1g: 'ممتاز', p1d: 'بلندترین رشته‌ها و بیشترین قدرت رنگ‌دهی، مناسب بازار محصولات ممتاز.',
+    p2n: 'سرگل', p2g: 'پرطرفدار', p2d: 'کلاله‌های یکدست سرخ، بدون ریشه؛ انتخاب رستوران‌ها و توزیع‌کنندگان.',
+    p3n: 'پوشال', p3g: 'عمده', p3d: 'رشته‌های معطر زعفران با بخشی از ریشه، در بسته‌بندی عمده.',
+    p4n: 'جعبهٔ هدیه', p4g: 'سفارشی', p4d: 'جعبه‌های هدیهٔ آمادهٔ فروش برای مناسبت‌های مختلف، با نام تجاری شما یا سُرخ.',
+    craftLabel: 'شیوهٔ کار', craftTitle: 'از گل تا رشته', craftNote: 'از هر گل سه رشته به دست می‌آید که هرکدام را با دست جدا می‌کنیم.',
     steps: [
-      { n: 'I', title: 'برداشت', text: 'چیدن گل‌ها با دست، در سپیده‌دم.' },
+      { n: 'I', title: 'برداشت', text: 'گل‌ها را سپیده‌دم با دست می‌چینیم.' },
       { n: 'II', title: 'جداسازی', text: 'کلاله‌های سرخ با دست جدا می‌شوند.' },
       { n: 'III', title: 'آزمایش', text: 'هر محموله در آزمایشگاه بررسی می‌شود. [گواهی‌ها]' },
-      { n: 'IV', title: 'بسته‌بندی', text: 'بسته‌بندی پلمب‌شده، در برابر نور و رطوبت.' }
+      { n: 'IV', title: 'بسته‌بندی', text: 'زعفران در بسته‌های درزبندی‌شده از نور و رطوبت محافظت می‌شود.' }
     ],
-    valLabel: 'قیمت‌ها', valTitle: 'ارزش زعفران', valLead: 'ارزش هر گرید در گذر زمان، به ارز شما، بر پایهٔ قیمت‌های واقعیِ ثبت‌شده با تاریخ.',
-    gradeLabel: 'گرید', curLabel: 'ارز', rangeLabel: 'بازهٔ زمانی', perKg: 'هر کیلوگرم',
-    since: 'از', stHigh: 'بالاترین', stLow: 'پایین‌ترین', quote: 'قیمت اعلام‌شده', interp: 'مقدار درون‌یابی‌شده', chartAria: 'نمودار ارزش زعفران',
+    valLabel: 'قیمت‌ها', valTitle: 'قیمت زعفران', valLead: 'روند قیمت هر نوع زعفران را به ارز دلخواهتان ببینید. نمودار بر اساس قیمت‌های اعلام‌شده در بازار و تاریخ ثبت آن‌هاست.',
+    gradeLabel: 'نوع زعفران', curLabel: 'ارز', rangeLabel: 'بازهٔ زمانی', perKg: 'هر کیلوگرم',
+    since: 'از', stHigh: 'بالاترین', stLow: 'پایین‌ترین', quote: 'قیمت اعلام‌شده', interp: 'مقدار درون‌یابی‌شده', chartAria: 'نمودار قیمت زعفران',
     up: 'افزایش', down: 'کاهش',
-    dataNote: 'نقطه‌های روی نمودار، قیمت‌های واقعیِ ثبت‌شده با تاریخ از منابع زیر هستند؛ مقادیر میان آن‌ها با درون‌یابی محاسبه می‌شوند. قیمت‌ها تقریبی‌اند و پیشنهاد فروش محسوب نمی‌شوند؛ فهرست‌های قیمت مختلف را نمی‌توان کاملاً بر مبنایی یکسان مقایسه کرد.',
-    srcTitle: 'منابع و روش', fxPeg: 'نرخ ثابت رسمی', fxCbi: 'نرخ رسمی بانک مرکزی عراق', fxAsOf: 'نرخ در تاریخ',
-    reqTitle: 'قیمت پس از استعلام', reqText: 'برای دانستن قیمت امروز این گرید با ما تماس بگیرید.', reqCta: 'استعلام قیمت در واتساپ',
+    dataNote: 'هر نقطه در نمودار یکی از قیمت‌های اعلام‌شده در بازار است که تاریخ و منبع آن ثبت شده است. مقادیر میان نقاط با درون‌یابی برآورد می‌شوند. قیمت‌ها برای اطلاع‌اند و پیشنهاد فروش محسوب نمی‌شوند. شیوهٔ قیمت‌گذاری منابع ممکن است متفاوت باشد.',
+    srcTitle: 'منابع و روش محاسبه', fxPeg: 'نرخ ثابت رسمی', fxCbi: 'نرخ رسمی بانک مرکزی عراق', fxAsOf: 'نرخ در تاریخ',
+    reqTitle: 'قیمت با استعلام', reqText: 'برای اطلاع از قیمت روز این نوع زعفران با ما تماس بگیرید.', reqCta: 'استعلام قیمت در واتساپ',
     waMsg: 'سلام، لطفاً قیمت امروز {g} را اعلام کنید.',
     expLabel: 'صادرات', expTitle: 'برند شما.\nزعفران ما.',
-    expText: 'با واردکنندگان، توزیع‌کنندگان و فروشگاه‌های زنجیره‌ای همکاری می‌کنیم و بسته‌بندی با برند اختصاصی شما و برچسب‌گذاری به زبان عربی را مطابق الزامات هر بازار ارائه می‌دهیم.',
+    expText: 'با واردکنندگان، توزیع‌کنندگان و فروشگاه‌های زنجیره‌ای همکاری می‌کنیم. زعفران را با برند شما بسته‌بندی می‌کنیم و برچسب عربی را مطابق مقررات هر بازار آماده می‌کنیم.',
     countries: [{ name: 'عراق', note: 'زمینی و هوایی', modes: ['land', 'air'] }, { name: 'امارات (دبی)', note: 'هوایی', modes: ['air'] }, { name: 'عمان', note: 'هوایی و دریایی', modes: ['air', 'sea'] }],
     modeLand: 'زمینی', modeAir: 'هوایی', modeSea: 'دریایی',
     cIran: 'ایران', cBaghdad: 'بغداد', cDubai: 'دبی', cMuscat: 'مسقط', cRiyadh: 'ریاض', cIstanbul: 'استانبول', cMoscow: 'مسکو', cMadrid: 'مادرید', cLondon: 'لندن', cMumbai: 'بمبئی', cHongKong: 'هنگ‌کنگ', cNewYork: 'نیویورک',
-    inqTitle: 'دربارهٔ سفارش شما گفت‌وگو کنیم', inqText: 'گرید و مقدار را بگویید؛ ظرف 24 ساعت قیمت روز را اعلام می‌کنیم.',
-    fName: 'نام / شرکت', fCountry: 'کشور', fPhone: 'واتساپ', fGrade: 'گرید', fQty: 'مقدار (کیلوگرم)', send: 'ارسال',
-    thanks: 'این یک سایت نمایشی است و پیامی ارسال نشد.',
-    footNav: 'پیوندهای پایین صفحه', footTag: 'طرحی مفهومی برای یک برند لوکس زعفران.', byline: 'طرح مفهومی: سعید سبزه', footContact: 'طراحی و ساخت', footAddr: 'سعید سبزه', footNote: 'پروژه‌ای نمایشی است، نه فروشگاه واقعی. قیمت‌ها نرخ‌های واقعی و تاریخ‌دار بازارند.'
+    inqTitle: 'درخواست استعلام قیمت', inqText: 'نوع زعفران و مقدار مورد نیازتان را مشخص کنید تا ظرف ۲۴ ساعت قیمت روز را اعلام کنیم.',
+    fName: 'نام شخص یا شرکت', fCountry: 'کشور', fPhone: 'واتساپ', fGrade: 'نوع زعفران', fQty: 'مقدار (کیلوگرم)', send: 'ارسال',
+    thanks: 'این سایت نمایشی است و پیامی ارسال نشد.',
+    footNav: 'پیوندهای پایین صفحه', footTag: 'طرحی برای یک برند ممتاز زعفران.', byline: 'طراحی سایت: سعید سبزه', footContact: 'طراحی و پیاده‌سازی', footAddr: 'سعید سبزه', footNote: 'سُرخ یک سایت نمایشی است. قیمت‌های نمودار از بازار گرفته شده‌اند و تاریخ ثبتشان مشخص است.'
   }
 };
 const LOCALES = { ar: 'ar-u-nu-latn', en: 'en-US', fa: 'fa-IR-u-nu-latn-ca-gregory' };
@@ -925,7 +928,7 @@ function buildTabs(){
   const curs = ['USD', 'AED', 'OMR', 'IQD'].concat(lang === 'fa' ? ['TOMAN'] : []);
   if (!curs.includes(state.cur)) state.cur = 'USD';
   $('#curTabs').innerHTML = curs.map(c => `<button type="button" class="lat" data-cur="${c}" aria-pressed="${state.cur === c}">${curLabel(c)}</button>`).join('');
-  $('#rangeTabs').innerHTML = Object.keys(RANGES).map(r => `<button type="button" class="lat" data-range="${r}" aria-pressed="${state.range === r}">${r}</button>`).join('');
+  $('#rangeTabs').innerHTML = Object.keys(RANGES).map(r => `<button type="button" data-range="${r}" aria-pressed="${state.range === r}">${t.ranges[r]}</button>`).join('');
 }
 function syncPressed(){
   document.querySelectorAll('#gradeTabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.grade === state.grade));
