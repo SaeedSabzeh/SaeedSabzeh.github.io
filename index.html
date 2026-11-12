@@ -93,7 +93,12 @@ img{display:block;max-width:100%}
 .name span+span{font-style:italic;color:var(--accent);padding-inline-start:.42em}
 .intro{margin-top:clamp(22px,3vw,34px);max-width:32ch;font-family:var(--display);font-size:clamp(22px,2.3vw,28px);line-height:1.35;color:var(--ink)}
 .intro b{font-weight:500;font-style:italic;color:var(--accent)}
-.where{margin-top:22px;display:flex;flex-direction:column;max-width:560px}
+.hero-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.hero-cta a{font-weight:600;font-size:15px;line-height:1.2;text-decoration:none;padding:12px 20px;border:1px solid var(--ink);color:var(--ink);transition:background .2s,color .2s,border-color .2s}
+.hero-cta a.solid{background:var(--ink);color:var(--paper)}
+.hero-cta a.solid:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.hero-cta a:not(.solid):hover{border-color:var(--accent);color:var(--accent)}
+.where{margin-top:30px;display:flex;flex-direction:column;max-width:560px}
 .chip{font-family:var(--mono);font-size:13px;letter-spacing:.03em;padding:9px 0;border-top:1px solid var(--line);color:var(--ink-soft)}
 .chip:last-child{border-bottom:1px solid var(--line)}
 .chip::before{content:"";display:inline-block;width:7px;height:7px;background:var(--accent);margin-inline-end:12px;vertical-align:1px}
@@ -318,7 +323,7 @@ html[lang="fa"] .intro b{font-weight:700}
 html[lang="fa"] .tools dt{text-transform:none;font-size:14px}
 html[lang="fa"] .chip,html[lang="fa"] .facts div,html[lang="fa"] .qfacts div,html[lang="fa"] .proof div{font-size:14px}
 .strip-lbl,.mail a{direction:ltr}
-html[lang="fa"] .mail a{text-align:left;font-family:'Bodoni Moda',serif}
+html[lang="fa"] .mail a{text-align:left}
 .chat .m,.qa .me,.qa .bot>span{unicode-bidi:plaintext}
 
 /* ---------- responsive ---------- */
@@ -337,10 +342,23 @@ html[lang="fa"] .mail a{text-align:left;font-family:'Bodoni Moda',serif}
   .contact .wrap{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
 }
+/* phones: small portrait beside the name, everything else full width below */
 @media (max-width:640px){
-  .hero .wrap{grid-template-columns:1fr}
-  .arch{justify-self:start;max-width:250px;margin:10px 0 10px 10px}
-  html[dir="rtl"] .arch{margin:10px 10px 10px 0}
+  .hero{padding-block:22px 52px}
+  .hero .wrap{grid-template-columns:minmax(0,1fr) clamp(88px,27vw,128px);gap:0 18px;align-items:start}
+  .hero .wrap>div{display:contents}
+  .name{grid-column:1;grid-row:1;font-size:clamp(46px,15vw,84px);align-self:center}
+  html[lang="fa"] .name{font-size:clamp(54px,17vw,96px)}
+  .name span+span{padding-inline-start:.28em}
+  .arch{grid-column:2;grid-row:1;justify-self:stretch;max-width:none;margin:6px 6px 0 0}
+  html[dir="rtl"] .arch{margin:6px 0 0 6px}
+  .arch .frame{outline-offset:5px}
+  .intro,.hero-cta,.where{grid-column:1/-1}
+  .intro{margin-top:22px}
+  .hero-cta{margin-top:20px}
+  .hero-cta a{flex:1 1 auto;text-align:center;white-space:nowrap;padding:12px 14px}
+  .where{margin-top:24px}
+  .chip,html[lang="fa"] .chip{font-family:var(--body);font-size:15px;letter-spacing:0;padding:10px 0}
 }
 @media (max-width:560px){
   .toplinks a:not(.hire){display:none}
@@ -368,6 +386,43 @@ html[lang="fa"] .mail a{text-align:left;font-family:'Bodoni Moda',serif}
 }
 @keyframes lang-out{to{opacity:0}}
 @keyframes lang-in{from{opacity:0;transform:translateY(8px)}}
+
+/* ---------- tap targets, readable email, phone project layout (later rules win) ---------- */
+/* bigger tap targets (all widths) */
+.langs button{min-height:44px;min-width:40px}
+.toplinks a.hire{min-height:44px;display:inline-flex;align-items:center}
+.mono{min-height:44px}
+.btn{min-height:44px}
+.qdots{gap:0}
+.qdots button{width:44px;height:44px;background:none;position:relative}
+.qdots button::after{content:"";position:absolute;inset:auto;left:50%;top:50%;width:18px;height:3px;transform:translate(-50%,-50%);background:rgba(245,245,247,.3);transition:width .3s,background .3s}
+.qdots button[aria-current="true"]{width:44px;background:none}
+.qdots button[aria-current="true"]::after{width:34px;background:var(--hot)}
+/* readable email (all widths) */
+.mail a{font-family:var(--body);font-size:20px;line-height:1.5;flex:1 1 240px;min-width:0;font-weight:600}
+@media (max-width:560px){.langs button{min-width:36px}}
+@media (max-width:640px){
+  /* Coup screenshots as a swipe row; Sorkh phone shot below the desktop shot */
+  .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:22px 18px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .plate .phones{overflow-x:auto;overflow-y:hidden}
+  .phones::-webkit-scrollbar{display:none}
+  .phones figure{flex:0 0 72%;scroll-snap-align:center}
+  .phones figure:nth-child(even){transform:none}
+  .sk-shots{padding-inline-end:0}
+  .sk-phone{position:relative;inset:auto;display:block;width:56%;margin:18px auto 0}
+  /* project title first, then the image, then the rest of the caption */
+  .plate{display:flex;flex-direction:column}
+  .plate .cap{display:contents}
+  .plate .cap-wide{display:contents!important}
+  .cap-wide>div:first-child{display:contents}
+  .plate h3{order:-1;margin-bottom:16px}
+  .plate .vis{order:0;flex:none}
+  .plate .cap p,.plate .tags,.plate .facts,.plate .qfacts,.plate .go{order:1}
+  .plate .cap p{margin-top:20px}
+  .plate .tags,.plate .facts,.plate .qfacts{margin-top:14px}
+  .plate .go{margin-top:16px;align-self:flex-start}
+  .facts{grid-column:auto;grid-row:auto}
+}
 </style>
 
 </head>
@@ -394,6 +449,7 @@ html[lang="fa"] .mail a{text-align:left;font-family:'Bodoni Moda',serif}
     <div>
       <h1 class="name"><span data-i="h_first">Saeed</span> <span data-i="h_last">Sabzeh</span></h1>
       <p class="intro" data-i="intro">I build <b>AI systems</b> and <b>websites</b>, from machine learning research to apps people actually use.</p>
+      <div class="hero-cta"><a class="solid" href="#work" data-i="ctaWork">See my work</a><a href="#contact" data-i="ctaContact">Contact me</a></div>
       <div class="where"><span class="chip" data-i="chip1">Master’s student in AI, University of Milano-Bicocca</span><span class="chip" data-i="chip2">English (C1), Persian, some Italian</span></div>
     </div>
     <figure class="arch">
@@ -698,6 +754,7 @@ fa: {
   n_work:'نمونه‌کارها', n_about:'دربارهٔ من', n_svc:'خدمات', n_hire:'همکاری با من',
   h_first:'سعید', h_last:'سبزه',
   intro:'<b>سیستم‌های هوش مصنوعی</b> و <b>وب‌سایت</b> می‌سازم؛ از پژوهش در یادگیری ماشین تا اپ‌هایی که مردم واقعاً از آن‌ها استفاده می‌کنند.',
+  ctaWork:'دیدن نمونه‌کارها', ctaContact:'تماس با من',
   chip1:'دانشجوی کارشناسی ارشد هوش مصنوعی در دانشگاه میلان-بیکوکا', chip2:'انگلیسی (C1)، فارسی، کمی ایتالیایی',
   workH:'چیزهایی که ساخته‌ام',
   workP:'این پروژه‌ها را خودم طراحی کرده‌ام، ساخته‌ام و منتشر کرده‌ام. تصاویر، خودِ برنامه‌ها را در حال استفاده نشان می‌دهند.',
@@ -790,6 +847,7 @@ it: {
   pageTitle:'Saeed Sabzeh · Sviluppatore web e IA a Milano',
   n_work:'Progetti', n_about:'Chi sono', n_svc:'Servizi', n_hire:'Contattami',
   intro:'Sviluppo <b>sistemi di IA</b> e <b>siti web</b>, dalla ricerca sul machine learning alle app che si usano ogni giorno.',
+  ctaWork:'Guarda i progetti', ctaContact:'Contattami',
   chip1:'Studente di laurea magistrale in IA all’Università di Milano-Bicocca', chip2:'Inglese (C1), persiano, un po\' di italiano',
   workH:'I miei progetti',
   workP:'Ho ideato, sviluppato e pubblicato personalmente questi progetti. Gli screenshot mostrano le app in uso.',
