@@ -323,9 +323,9 @@ html[lang="fa"] .mail a{text-align:left;font-family:'Bodoni Moda',serif}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr}
-  .arch{justify-self:start;max-width:250px;margin:10px 0 10px 10px}
-  html[dir="rtl"] .arch{margin:10px 10px 10px 0}
+  .hero .wrap{grid-template-columns:minmax(0,1.5fr) minmax(0,.62fr);gap:28px}
+  .arch{margin:0 9px 9px 0}
+  html[dir="rtl"] .arch{margin:0 0 9px 9px}
   .p-bots,.p-book{grid-column:1/-1}
   .p-ml{flex-direction:column;align-items:stretch}
   .p-ml .cap{padding-top:4px}
@@ -336,6 +336,11 @@ html[lang="fa"] .mail a{text-align:left;font-family:'Bodoni Moda',serif}
   .repo,.repo:not(:nth-child(3n+1)),html[dir="rtl"] .repo,html[dir="rtl"] .repo:not(:nth-child(3n+1)){padding-inline:0 44px;border-inline:0}
   .contact .wrap{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero .wrap{grid-template-columns:1fr}
+  .arch{justify-self:start;max-width:250px;margin:10px 0 10px 10px}
+  html[dir="rtl"] .arch{margin:10px 10px 10px 0}
 }
 @media (max-width:560px){
   .toplinks a:not(.hire){display:none}
