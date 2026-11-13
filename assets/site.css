@@ -268,6 +268,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 .langs::before{content:"";position:absolute;top:2px;bottom:2px;left:0;width:var(--pill-w,38px);transform:translateX(var(--pill-x,2px));background:var(--ink);transition:transform .45s cubic-bezier(.3,.7,.2,1),width .45s cubic-bezier(.3,.7,.2,1)}
 .langs:not(.ready)::before{transition:none}
 .langs button:hover:not([aria-pressed="true"]){color:var(--ink)}
+/* theme switch: same hairline box and height as the language group */
+.theme{display:inline-grid;place-items:center;width:44px;height:50px;padding:0;border:1px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;margin-inline-start:6px;transition:color .2s,border-color .2s}
+.theme:hover{color:var(--ink);border-color:var(--ink)}
+.theme svg{display:block}
+.theme .i-sun{display:none}
+:root[data-theme="dark"] .theme .i-moon{display:none}
+:root[data-theme="dark"] .theme .i-sun{display:inline}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme .i-moon{display:none}:root:not([data-theme="light"]) .theme .i-sun{display:inline}}
+@media (max-width:560px){.theme{width:38px;margin-inline-start:2px}}
+@media (prefers-reduced-motion:no-preference){body{transition:background-color .25s ease,color .25s ease}}
 
 /* Persian: Markazi Text for display, Vazirmatn for text; no italics or negative tracking, taller lines */
 html[lang="fa"]{--display:'Markazi Text','Vazirmatn',serif;--body:'Vazirmatn',system-ui,sans-serif;--mono:'Vazirmatn',system-ui,sans-serif}
@@ -514,3 +524,5 @@ html[lang="fa"] .now{font-size:14px}
   .now i{animation:none}
   .hello span{transition:none}
 }
+/* narrowest phones: squeeze the header so it stays on one line (must stay last) */
+@media (max-width:420px){.top .wrap{gap:8px}.toplinks{gap:2px}.toplinks > a.keep{padding:7px 4px}.toplinks a.hire{padding:7px 9px}.langs{margin-inline-start:2px}.langs button{min-width:30px;padding:5px 4px}.theme{width:34px}}
