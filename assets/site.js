@@ -254,7 +254,10 @@
     if(calm.matches)return; // reduced motion: the still dots stay, no sparks
     hero.addEventListener('pointermove',near,{passive:true});
     hero.addEventListener('pointerdown',near,{passive:true});
-    if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting},{threshold:0}).observe(hero);
+    // when the hero comes back into view, finish any spark that was paused mid-flight instead of leaving it frozen
+    var wake=function(){if(visible&&!document.hidden&&!raf&&(pulses.length||nodes.some(function(a){return a.g>0}))){last=performance.now();raf=requestAnimationFrame(step)}};
+    if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting;wake()},{threshold:0}).observe(hero);
+    document.addEventListener('visibilitychange',wake);
     // unprompted sparks at random moments (sometimes two), so it is alive on phones too
     var rnd=function(){return nodes[Math.floor(Math.random()*nodes.length)]};
     (function idle(){
@@ -288,6 +291,18 @@
     }
     addEventListener('hashchange',mark);
     if(document.readyState==='complete')mark();else addEventListener('load',mark);
+  })();
+
+  // Keep #section out of the address bar once the page has scrolled there, so a refresh stays where you are
+  // instead of jumping back to that section (e.g. after tapping "Contact", every refresh used to land on Say hi).
+  (function(){
+    if(!history.replaceState)return;
+    var clean=function(){if(location.hash)history.replaceState(history.state,'',location.pathname+location.search)};
+    var t=0,later=function(){clearTimeout(t);t=setTimeout(clean,1500)}; // one timer, so a quick second click gets its full 1.5 s
+    // arriving with a #section (e.g. from the projects page): let the jump, the font/language re-scroll and the recognition highlight run first
+    if(location.hash)addEventListener('load',function(){(document.fonts?document.fonts.ready:Promise.resolve()).then(later)});
+    // in-page links: the browser jumps as usual, then the hash is dropped
+    addEventListener('hashchange',later);
   })();
 
   // Page dissolve: fade through the paper colour between Home and Projects (fallback for browsers without @view-transition)

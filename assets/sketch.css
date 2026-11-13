@@ -150,6 +150,10 @@ html:not(.sk-on) .sk-hold{display:none} /* the x-ray button only makes sense whi
 }
 .sk-on .plate .vis::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--plate);transform-origin:50% 100%;transition:transform .5s var(--sk-ease)}
 .sk-on .p-coup .vis::before{background:radial-gradient(ellipse 70% 90% at 50% 0,#4A1124,var(--plate) 72%)}
+/* on phones the Coup screenshots scroll sideways, and an absolute ::before would scroll away with them:
+   once the card has settled, the ground goes back onto the .vis itself */
+.sk-on .p-coup.sk-settled .vis{background:radial-gradient(ellipse 70% 90% at 50% 0,#4A1124,var(--plate) 72%)}
+.sk-on .p-coup.sk-settled .vis::before{content:none}
 .sk-on [data-sk]:not(.sk-built) .vis{outline-color:var(--pencil)}
 .sk-on [data-sk]:not(.sk-built) .vis::before{transform:scaleY(0)}
 .sk-on .sk-built:where(:not(.sk-settled)) .vis{transition-delay:0s,.45s}
