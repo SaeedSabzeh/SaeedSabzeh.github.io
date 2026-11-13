@@ -6,7 +6,8 @@
   var titleKey=root.getAttribute('data-title')||'pageTitle';
   var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',wololoBlue:'Wololo! This page now plays for the blue team.',wololoRed:'Wololo! Back to red.',
     // Milan time line under the contact text ({t} becomes the Milan time). Edit the wording here.
-    mtNow:'It’s {t} in Milan.'};
+    mtNow:'It’s {t} in Milan.',
+    themeToDark:'Switch to dark mode',themeToLight:'Switch to light mode'};
   EN[titleKey]=document.title;
   var cur='en',langHooks=[];
   function tx(k){return (typeof I18N!=='undefined'&&I18N[cur]&&I18N[cur][k])||EN[k]}
@@ -62,6 +63,27 @@
     setTimeout(function(){swap();requestAnimationFrame(function(){root.classList.remove('lang-swap')})},200);
   }
   btns.forEach(function(x){x.addEventListener('click',function(){switchLang(x.dataset.l)})});
+
+  // ---- light / dark switch ----
+  // With nothing saved the page follows the OS; the button flips whatever is shown now and saves the choice.
+  var themeBtn=document.querySelector('.toplinks .theme'),darkMq=matchMedia('(prefers-color-scheme: dark)');
+  function isDark(){return root.dataset.theme?root.dataset.theme==='dark':darkMq.matches}
+  function syncTheme(){
+    var forced=root.dataset.theme;
+    [].forEach.call(document.querySelectorAll('meta[name="theme-color"][data-c]'),function(m){
+      m.setAttribute('content',forced?(forced==='dark'?'#17171B':'#FFFFFF'):m.getAttribute('data-c'));
+    });
+    if(themeBtn){var t=tx(isDark()?'themeToLight':'themeToDark');themeBtn.setAttribute('aria-label',t);themeBtn.title=t}
+  }
+  if(themeBtn)themeBtn.addEventListener('click',function(){
+    var next=isDark()?'light':'dark';
+    root.dataset.theme=next;
+    try{localStorage.setItem('theme',next)}catch(x){}
+    syncTheme();recolour();
+  });
+  langHooks.push(syncTheme);
+  if(darkMq.addEventListener)darkMq.addEventListener('change',function(){syncTheme();recolour()});
+  syncTheme();
 
   // ---- copy email ----
   if(copyBtn&&mailEl){
@@ -249,8 +271,6 @@
     recolour=function(){colours();if(!raf)draw()};
     var rt=0,rebuild=function(){clearTimeout(rt);rt=setTimeout(function(){if(hero.clientWidth!==W||hero.clientHeight!==H)build()},120)};
     if('ResizeObserver' in window)new ResizeObserver(rebuild).observe(hero);else addEventListener('resize',rebuild);
-    var dark=matchMedia('(prefers-color-scheme: dark)');
-    if(dark.addEventListener)dark.addEventListener('change',function(){recolour()});
     if(calm.matches)return; // reduced motion: the still dots stay, no sparks
     hero.addEventListener('pointermove',near,{passive:true});
     hero.addEventListener('pointerdown',near,{passive:true});
