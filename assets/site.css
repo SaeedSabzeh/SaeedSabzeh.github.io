@@ -196,6 +196,7 @@ html[dir="rtl"] .qfacts b{text-align:right}
 .p-bridge .qa .who{font:11px/1 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;color:var(--plate-soft);margin-bottom:-4px;direction:ltr}
 .p-bridge .qa .who.c{align-self:flex-end}
 .p-bridge .qa .who.g{align-self:flex-start}
+.p-bridge-s .vis{min-height:300px}
 .p-bridge .qfacts div:nth-child(3) b{font-size:30px;line-height:1.2;margin-bottom:6px}
 .p-bridge .qa bdi{white-space:nowrap}
 .brn-box{unicode-bidi:plaintext}
