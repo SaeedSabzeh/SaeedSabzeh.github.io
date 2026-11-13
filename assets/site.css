@@ -178,6 +178,35 @@ html[dir="rtl"] .qfacts b{text-align:right}
 .qa .call span::before{content:"\0192";margin-right:7px;color:var(--hot);opacity:.8}
 .qa .call em{font-style:normal;color:var(--plate-soft)}
 
+/* AI Bridge: flow diagram above a chat */
+.p-bridge .vis{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:28px 28px 24px;min-height:430px}
+.brflow{display:flex;align-items:center;font-family:var(--mono)}
+.brn{flex:none;padding:7px 14px;border-radius:999px;font-size:13px;line-height:1.2;color:var(--plate-fg);white-space:nowrap}
+.brn-c{background:#9A1736}
+.brn-g{background:var(--plate-2)}
+.brn-box{flex:0 1 auto;min-width:0;white-space:normal;text-align:center;border-radius:0;padding:6px 10px;font-size:11.5px;line-height:1.35;border:1px dashed rgba(255,130,158,.4);background:rgba(255,130,158,.06);color:#FFC4D1}
+.brarrow{position:relative;flex:1 1 14px;min-width:10px;height:1px;margin:0 4px;background:var(--plate-soft)}
+.brarrow::before,.brarrow::after{content:"";position:absolute;top:-2.5px;width:5px;height:5px;border:solid var(--plate-soft);border-width:1px 1px 0 0}
+.brarrow::before{left:0;transform:rotate(-135deg)}
+.brarrow::after{right:0;transform:rotate(45deg)}
+.brarrow i{position:absolute;top:-2px;left:0;width:5px;height:5px;border-radius:50%;background:var(--hot);opacity:0;animation:brpulse 3.2s ease-in-out infinite}
+.brarrow+.brn-box+.brarrow i{animation-delay:1.6s}
+@keyframes brpulse{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 5px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.brarrow i{animation:none;display:none}}
+.p-bridge .qa .who{font:11px/1 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;color:var(--plate-soft);margin-bottom:-4px;direction:ltr}
+.p-bridge .qa .who.c{align-self:flex-end}
+.p-bridge .qa .who.g{align-self:flex-start}
+.p-bridge .qfacts div:nth-child(3) b{font-size:30px;line-height:1.2;margin-bottom:6px}
+.p-bridge .qa bdi{white-space:nowrap}
+.brn-box{unicode-bidi:plaintext}
+html[lang="fa"] .brn-box{line-height:1.6}
+@media (max-width:560px){
+  .p-bridge .vis{padding:22px 16px 18px}
+  .brn{padding:6px 10px;font-size:12px}
+  .brn-box{font-size:10.5px;padding:5px 7px}
+  .brarrow{min-width:8px;flex-basis:8px;margin:0 2px}
+}
+
 /* ML: leaderboard rank strip */
 .rank{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:center;gap:16px}
 .rank .big{font-family:var(--display);font-weight:500;font-size:clamp(56px,8vw,108px);line-height:.9;letter-spacing:-.02em;color:var(--hot);font-variant-numeric:lining-nums tabular-nums}
