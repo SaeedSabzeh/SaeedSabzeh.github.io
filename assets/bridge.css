@@ -1,0 +1,73 @@
+.bx{--bxmono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace}
+/* AI Bridge animations: the JSON-file relay (projects page) and the "second voice" Persian fix (homepage).
+   Driven by assets/bridge.js. Everything is scoped under .bx / .p-bridge so it cannot collide with site.css. */
+.p-bridge .vis{display:flex;align-items:center}
+.bx{position:relative;width:100%;font:15px/1.4 var(--body);color:var(--plate-fg);text-align:left;direction:ltr}
+.bx.bx-rst,.bx.bx-rst *{transition:none!important;animation:none!important}
+.bx.bx-fading .bx-u,.bx.bx-fading .bx-fd,.bx.bx-fading .bx-sent,.bx.bx-fading .bx-live{opacity:0!important;transition:opacity .4s ease!important}
+.bx-u{opacity:0}
+.bx-u.on{opacity:1}
+.bx-w{display:inline-block}
+.bx-fd{opacity:0;transition:opacity .4s ease}
+.bx-fd.on{opacity:1}
+@media (prefers-reduced-motion:reduce){.bx *,.bx *::before,.bx *::after{transition:none!important;animation:none!important}}
+html.rm .bx *,html.rm .bx *::before,html.rm .bx *::after{transition:none!important;animation:none!important}
+
+/* ===== JSON file (projects page) ===== */
+.bx3{display:flex;flex-direction:column;gap:12px;padding:24px 22px}
+.bx-terms{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bx-term{min-width:0;background:rgba(0,0,0,.32);border:1px solid rgba(245,245,247,.13)}
+.bx-thd{display:flex;align-items:center;gap:6px;padding:6px 10px;border-bottom:1px solid rgba(245,245,247,.1);font:11px/1.2 var(--bxmono);color:var(--plate-soft)}
+.bx-thd i{width:7px;height:7px;border-radius:50%;background:rgba(245,245,247,.2)}
+.bx-thd b{font-weight:500;color:var(--plate-fg);margin-left:4px}
+.bx-tb{padding:8px 10px;min-height:118px;font:11px/1.6 var(--bxmono);color:#D9D9E0;overflow-wrap:anywhere}
+.bx-pr{color:var(--hot)}
+.bx-sf{color:var(--plate-soft)}
+.bx-file{background:rgba(0,0,0,.32);border:1px solid rgba(245,245,247,.13)}
+.bx-fh{display:flex;justify-content:space-between;gap:8px;padding:6px 12px;border-bottom:1px solid rgba(245,245,247,.1);font:11px/1.2 var(--bxmono);color:var(--plate-soft)}
+.bx-fh b{font-weight:500;color:var(--plate-fg)}
+.bx-live{color:var(--hot);opacity:0;transition:opacity .3s}
+.bx-live.on{opacity:1}
+.bx-code{padding:10px 12px;font:12px/1.65 var(--bxmono);color:#E4E4EA;overflow-wrap:anywhere}
+.bx-ln{white-space:pre-wrap}
+.bx-k{color:var(--plate-soft)}
+.bx-p{color:#6f6f7c}
+.bx-st{color:var(--plate-soft);transition:color .3s}
+.bx-st[data-s="running"]{color:var(--plate-fg)}
+.bx-st[data-s="answered"]{color:var(--hot);font-weight:500}
+.bx-ans{color:#FFC4D1}
+
+/* ===== second voice (homepage) ===== */
+.bx4{display:flex;flex-direction:column;justify-content:center;gap:30px;min-height:300px;padding:26px 22px 22px}
+.bx-top{display:flex;align-items:flex-start;gap:8px}
+.bx-wire{position:relative;flex:1;height:0;margin-top:17px;border-top:1px dashed rgba(169,169,181,.4)}
+.bx-dot{position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--hot);box-shadow:0 0 8px var(--hot);opacity:0}
+.bx-dot.go{animation:bx-travel 1.1s ease-in-out 2 forwards}
+.bx-dot.back{animation:bx-travelb 1.1s ease-in-out 1 forwards}
+@keyframes bx-travel{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:calc(100% - 7px);opacity:0}}
+@keyframes bx-travelb{0%{left:calc(100% - 7px);opacity:0}12%{opacity:1}88%{opacity:1}100%{left:0;opacity:0}}
+.bx-mk{display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.45;transition:opacity .4s}
+.bx-mk b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font:500 13px var(--bxmono);color:var(--plate-fg);transition:box-shadow .4s}
+.bx-mk-c b{background:#9A1736}
+.bx-mk-g b{background:#4A4A55}
+.bx-mk span{font:10px/1 var(--bxmono);color:var(--plate-soft)}
+.bx-mk.lit{opacity:1}
+.bx-mk.lit b{box-shadow:0 0 0 6px rgba(255,130,158,.14)}
+.bx-mid{display:grid;min-width:0}
+.bx-sent{grid-area:1/1;direction:rtl;text-align:center;white-space:nowrap;font-family:'Vazirmatn',var(--body);font-size:clamp(18px,5.2vw,28px);line-height:1.9;transition:opacity .5s}
+.bx-run{position:relative;display:inline-block}
+.bx-run::after{content:"";position:absolute;right:0;bottom:.18em;width:100%;height:2px;background:var(--hot);transform:scaleX(0);transform-origin:right;transition:transform 1.2s ease}
+.bx-run.ul::after{transform:scaleX(1)}
+.bx-old.strike .bx-run{color:var(--plate-soft);text-decoration:line-through;text-decoration-color:var(--hot);text-decoration-thickness:2px}
+.bx-old.out{opacity:0}
+.bx-wd{display:inline-block;margin:0 .14em}
+.bx-new .bx-wd{opacity:0;transform:translateY(5px);color:#FFC4D1;transition:opacity .45s ease,transform .45s ease}
+.bx-new .bx-wd.on{opacity:1;transform:none}
+.bx-lbls{display:flex;flex-direction:column;gap:8px;min-height:56px;font:12.5px/1.4 var(--mono);color:var(--plate-soft)}
+.bx-lbls p{display:flex;align-items:baseline;gap:8px}
+.bx-lbls span{unicode-bidi:plaintext;text-align:start}
+html[lang="fa"] .bx-lbls span{font-family:'Vazirmatn',var(--mono)}
+.bx-lbls i{flex:none;width:8px;height:8px;border-radius:50%;background:#9A1736}
+.bx-l2{color:var(--plate-fg);justify-content:flex-end}
+.bx-l2 i{order:2;background:#8a8a96}
+@media (max-width:560px){.bx3{padding:20px 14px}.bx4{padding:22px 14px 18px}}

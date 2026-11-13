@@ -30,9 +30,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Markazi+Text:wght@400..700&family=Source+Sans+3:wght@400..700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=7">
+<link rel="stylesheet" href="assets/site.css?v=9">
 <link rel="stylesheet" href="assets/thread.css?v=1">
 <link rel="stylesheet" href="assets/sketch.css?v=1">
+<link rel="stylesheet" href="assets/bridge.css?v=2">
 </head>
 <body>
 <header class="top">
@@ -56,7 +57,7 @@
   <div class="wrap">
     <div>
       <h1 class="name"><span data-i="h_first">Saeed</span> <span data-i="h_last">Sabzeh</span></h1>
-      <p class="intro" data-i="intro">I build <b>AI systems</b>, <b>apps</b> and <b>websites</b>, but what really fascinates me is how minds work.</p>
+      <p class="intro" data-i="intro">I build <b>AI systems</b>, <b>apps</b> and <b>websites</b>, but what really fascinates me is <span class="mind-q">how minds work</span>.</p>
       <div class="hero-cta"><a class="solid" href="#about" data-i="ctaStory">My story</a><a href="#work" data-i="ctaWork">What I built lately</a><a href="#contact" data-i="ctaContact">How to reach me</a></div>
       <div class="where"><span class="chip" data-i="chip1">Master’s student in AI, University of Milano-Bicocca</span><span class="chip" data-i="chip2">From Iran. In Milan since October 2025.</span></div>
     </div>
@@ -75,7 +76,7 @@
     <p class="me-intro" data-sk data-i="meIntro">I've always been into games, and into building things: apps, websites, small electronics. I lose track of time when I do. What I like most is making something people actually use. I also write down research ideas now and then; most look naive a month later, and I've learned to enjoy that. These days I'm in Milan, learning Italian, getting through exams and trying to be practical. When I'm not, I'm probably playing Age of Empires.</p>
     <ol class="edu">
           <li data-sk><span class="when" data-i="ed1w">2025 – now</span><h3 data-i="ed1h">M.Sc. Artificial Intelligence for Science and Technology</h3><p data-i="ed1p">University of Milano-Bicocca, a joint degree with the University of Milan and the University of Pavia. I moved here in October 2025.</p></li>
-          <li data-sk><span class="when" data-i="edYw">2024 – 2025</span><h3 data-i="edYh">A year back home</h3><p data-i="edYp">Back home, preparing for Milan. I deleted Instagram, started meditating and reading great books. AI brought together my love of computers and a question I kept returning to: where do thoughts come from?</p></li>
+          <li data-sk class="year-room"><span class="when" data-i="edYw">2024 – 2025</span><h3 data-i="edYh">A year back home</h3><p data-i="edYp">Back home, preparing for Milan. I deleted Instagram, started meditating and reading great books. AI brought together my love of computers and a question I kept returning to: where do thoughts come from?</p></li>
           <li data-sk><span class="when" data-i="ed2w">2020 – 2024</span><h3 data-i="ed2h">B.Sc. Computer Science</h3><p data-i="ed2p">Iran University of Science and Technology. Two years online from home during COVID, then two in Tehran.</p></li>
           <li data-sk><span class="when" data-i="edGw">Until 2020</span><h3 data-i="edGh">Growing up</h3><p data-i="edGp">I grew up in Iran, asking my mother, a computer teacher, endless questions. For years I checked smartphone news far too often. Then came PCs and graphics cards; at 18, I assembled my own computer, with my father footing the bill.</p></li>
         </ol>
@@ -120,6 +121,20 @@
           <h3 data-i="qgH">Norme Milano, a QGIS plugin</h3>
           <p data-i="qgP">Click anywhere on the map of Milan and this QGIS plugin shows which planning rules apply there, with the articles behind them. Optional AI answers use only those articles, and any citation outside them is removed.</p>
           <a class="go int" href="projects/#norme-milano" data-i="moreAbout">More about this</a>
+          <div class="qinset" aria-hidden="true">
+            <svg viewBox="0 0 160 110" focusable="false">
+              <path class="wire" d="M38 40H78M78 24V88M78 24H98M78 56H98M78 88H98"/>
+              <path class="hl h0" pathLength="1" d="M38 40H78"/>
+              <path class="hl h1" pathLength="1" d="M78 40V24H98"/>
+              <path class="hl h2" pathLength="1" d="M78 40V56H98"/>
+              <path class="hl h3" pathLength="1" d="M78 56V88H98"/>
+              <circle class="pin-ring" cx="28" cy="40" r="10"/>
+              <circle class="pin" cx="28" cy="40" r="4"/>
+              <g class="slip s1"><rect x="98" y="12" width="52" height="24" rx="2"/><line x1="106" y1="20" x2="138" y2="20"/><line x1="106" y1="27" x2="124" y2="27"/></g>
+              <g class="slip s2"><rect x="98" y="44" width="52" height="24" rx="2"/><line x1="106" y1="52" x2="138" y2="52"/><line x1="106" y1="59" x2="124" y2="59"/></g>
+              <g class="slip s3"><rect x="98" y="76" width="52" height="24" rx="2"/><line x1="106" y1="84" x2="138" y2="84"/><line x1="106" y1="91" x2="124" y2="91"/></g>
+            </svg>
+          </div>
         </div>
       </article>
 
@@ -136,19 +151,21 @@
       </article>
 
       <article class="plate p-ml p-bridge p-bridge-s" data-sk>
-        <div class="vis" role="img" aria-label="A sample conversation where Claude asks ChatGPT whether a Persian sentence sounds natural" data-i-aria-label="abAltS">
-          <div class="brflow" dir="ltr" aria-hidden="true">
-            <span class="brn brn-c">Claude</span>
-            <span class="brarrow"><i></i></span>
-            <span class="brn brn-box" data-i="abFlow">a mailbox of JSON files</span>
-            <span class="brarrow"><i></i></span>
-            <span class="brn brn-g">ChatGPT</span>
-          </div>
-          <div class="qa" aria-hidden="true">
-            <div class="who c">Claude</div>
-            <div class="me" data-i="abQ2">Does this Persian sound natural? <bdi lang="fa">«آیا می‌توانم به شما کمک کنم؟»</bdi></div>
-            <div class="who g">ChatGPT</div>
-            <div class="bot"><span data-i="abA2">It's correct, but stiff. Say <bdi lang="fa">«کمکی از دستم برمیاد؟»</bdi></span></div>
+        <div class="vis" role="img" aria-label="An animation where ChatGPT marks a stiff Persian sentence and replaces it with a natural one" data-i-aria-label="abAltS">
+          <div class="bx bx4" dir="ltr" aria-hidden="true">
+            <div class="bx-top">
+              <div class="bx-mk bx-mk-c" data-k="mc"><b>C</b><span>Claude</span></div>
+              <div class="bx-wire"><i class="bx-dot" data-k="dot"></i></div>
+              <div class="bx-mk bx-mk-g" data-k="mg"><b>G</b><span>ChatGPT</span></div>
+            </div>
+            <div class="bx-mid">
+              <div class="bx-sent bx-old" lang="fa" dir="rtl" data-k="old"><span class="bx-run" data-k="run"><span class="bx-wd">آیا</span> <span class="bx-wd">می&zwnj;توانم</span> <span class="bx-wd">به</span> <span class="bx-wd">شما</span> <span class="bx-wd">کمک</span> <span class="bx-wd">کنم؟</span></span></div>
+              <div class="bx-sent bx-new" lang="fa" dir="rtl" data-k="new"><span class="bx-wd">کمکی</span> <span class="bx-wd">از</span> <span class="bx-wd">دستم</span> <span class="bx-wd">برمیاد؟</span></div>
+            </div>
+            <div class="bx-lbls">
+              <p class="bx-fd" data-k="l1"><i></i><span data-i="abL1" dir="auto">Claude: does this sound natural?</span></p>
+              <p class="bx-l2 bx-fd" data-k="l2"><i></i><span data-i="abL2" dir="auto">ChatGPT: correct, but stiff</span></p>
+            </div>
           </div>
         </div>
         <div class="cap">
@@ -187,10 +204,11 @@
 
 <footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><button type="button" class="egg" data-i="wololoHint">Played Age of Empires? Type &ldquo;wololo&rdquo;, or tap here.</button><button type="button" class="egg sk-hold" data-i="skHold">Hold to see the sketch</button><span data-i="ft2">Designed and built by me.</span></div></footer>
 
-<script src="assets/i18n.js?v=9"></script>
-<script src="assets/site.js?v=5"></script>
+<script src="assets/i18n.js?v=11"></script>
+<script src="assets/site.js?v=6"></script>
 <script src="assets/thread.js?v=1"></script>
 <script src="assets/sketch.js?v=1"></script>
+<script src="assets/bridge.js?v=2"></script>
 <script data-goatcounter="https://saeedsabzeh123.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
