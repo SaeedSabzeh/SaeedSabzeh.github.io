@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" data-title="pageTitleProjects">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<meta property="og:title" content="Projects · Saeed Sabzeh">
+<meta property="og:description" content="Saeed Sabzeh's projects in detail: a Telegram card game, a QGIS plugin for Milan's planning rules, a mod for Age of Empires II, a Kaggle reinforcement-learning agent and more.">
+<meta property="og:image" content="https://saeedsabzeh.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saeed Sabzeh">
+<meta property="og:url" content="https://saeedsabzeh.com/projects/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://saeedsabzeh.com/projects/">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17171B" media="(prefers-color-scheme: dark)">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Projects · Saeed Sabzeh</title>
+<meta name="description" content="Saeed Sabzeh's projects in detail: a Telegram card game, a QGIS plugin for Milan's planning rules, a mod for Age of Empires II, a Kaggle reinforcement-learning agent and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Markazi+Text:wght@400..700&family=Source+Sans+3:wght@400..700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=3">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mono" href="../" aria-label="Saeed Sabzeh, home" data-i-aria-label="homeLabel">
+      <span class="mark" aria-hidden="true">§</span>
+      <span class="mono-t" data-i="h_first">Saeed</span>
+    </a>
+    <nav class="toplinks" aria-label="Sections" data-i-aria-label="sectionsLabel">
+      <a class="keep" href="../" data-i="n_home">Home</a>
+      <div class="langs" role="group" aria-label="Language" data-i-aria-label="languageLabel" dir="ltr"><button type="button" data-l="en" lang="en" aria-pressed="true">EN</button><button type="button" data-l="fa" lang="fa" aria-pressed="false">فا</button><button type="button" data-l="it" lang="it" aria-pressed="false">IT</button></div>
+      <a class="hire" href="../#contact" data-i="n_hire">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="sec" id="projects" aria-labelledby="projH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h1 class="h2" id="projH" data-i="projH">Projects</h1>
+      <p data-i="projP">The longer, technical version.</p>
+    </div>
+
+    <div class="plates">
+      <article class="plate p-coup" id="coup">
+        <div class="vis phones">
+          <figure><img src="../img/coup-home.webp" alt="Coup home screen inside Telegram, with Quick match, With friends and Vs computers" data-i-alt="coupHomeAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
+          <figure><img src="../img/coup-table.webp" alt="A Coup table where a computer player claims the Captain to steal from you, and you can challenge or pass" data-i-alt="coupTableAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
+          <figure><img src="../img/coup-reformation.webp" alt="A Coup Reformation practice game where the coach tells you to make a player swap the Duke they showed" data-i-alt="coupPracticeAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
+          <figure><img src="../img/coup-learn.webp" alt="Coup Learn to play screen with a coached practice game and rules for Coup and the Reformation expansion" data-i-alt="coupLearnAlt" width="520" height="1130" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="cap cap-wide">
+          <div>
+            <h3 data-i="coupH">Coup, a Telegram game</h3>
+            <p data-i="coupFull">The bluffing card game for 2 to 6 players, running inside Telegram as a Mini App. Quick match with strangers, private rooms with friends, computer players that bluff by the odds, the Reformation expansion, player stats, and the whole app in English and Persian. The server runs the rules, so hidden cards never reach other players' phones, and a dropped connection picks up right where you left off.</p>
+          </div>
+          <div class="facts">
+            <div data-i="f1"><b>2–6</b>players per table</div>
+            <div data-i="f2"><b>349</b>automated tests</div>
+            <div data-i="f3"><b>2</b>languages, incl. right to left</div>
+          </div>
+          <div class="tags"><span>Telegram Mini App</span><span>React + TypeScript</span><span>Python FastAPI</span><span>WebSockets</span><span>Postgres</span></div>
+          <a class="go" href="https://t.me/coupminigamebot" target="_blank" rel="noopener" data-i="coupGo">Play on Telegram</a>
+        </div>
+      </article>
+
+      <article class="plate p-ml p-qgis" id="norme-milano">
+        <div class="vis">
+          <div class="qslider" role="group" aria-roledescription="carousel" data-i-aria-roledescription="carouselLabel" aria-label="Norme Milano examples" data-i-aria-label="qgisExamples">
+            <div class="qtrack">
+              <figure class="qslide" aria-roledescription="slide" data-i-aria-roledescription="slideLabel">
+                <a href="../img/qgis-duomo.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot" data-i-aria-label="openScreenshot"><picture>
+                  <source media="(max-width:700px)" srcset="../img/qgis-duomo-panel.webp" width="640" height="880">
+                  <img src="../img/qgis-duomo.webp" alt="QGIS with the Norme Milano panel open after a click on the Duomo: a historic-core constraint, the governing articles, and an answer about building a basement" data-i-alt="qgisDuomoAlt" width="1600" height="860" decoding="async">
+                </picture></a>
+                <figcaption data-i="qT1">Duomo, historic core</figcaption>
+              </figure>
+              <figure class="qslide" aria-roledescription="slide" data-i-aria-roledescription="slideLabel">
+                <a href="../img/qgis-chiaravalle.webp" target="_blank" rel="noopener" aria-label="Open the full-size screenshot" data-i-aria-label="openScreenshot"><picture>
+                  <source media="(max-width:700px)" srcset="../img/qgis-chiaravalle-panel.webp" width="640" height="880">
+                  <img src="../img/qgis-chiaravalle.webp" alt="QGIS with the Norme Milano panel open after a click near Chiaravalle: a transformation area inside the Parco Agricolo Sud Milano, with the park-plan articles and an answer about what can be built" data-i-alt="qgisParkAlt" width="1600" height="860" loading="lazy" decoding="async">
+                </picture></a>
+                <figcaption data-i="qT2">Chiaravalle, park area</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="qdots" role="group" aria-label="Choose a screenshot" data-i-aria-label="chooseScreenshot" dir="ltr"><button type="button" aria-label="Screenshot 1" data-i-aria-label="screenshot1"></button><button type="button" aria-label="Screenshot 2" data-i-aria-label="screenshot2"></button></div>
+        </div>
+        <div class="cap">
+          <h3 data-i="qgH">Norme Milano, a QGIS plugin</h3>
+          <p data-i="qgFull">Click a point on the map of Milan and the plugin lists which planning rules apply there: the zoning, landscape, flood and park constraints from Regione Lombardia's live map services, with the governing articles of the PGT and the park plan. Optional AI answers in Italian or English use only those articles, and any citation outside them is removed.</p>
+          <div class="qfacts">
+            <div data-i="qf1"><b>96%</b>of cited articles correct</div>
+            <div data-i="qf2"><b>0</b>invented citations</div>
+            <div data-i="qf3"><b>40</b>test questions</div>
+          </div>
+          <div class="tags"><span>Python</span><span>QGIS</span><span>RAG</span><span>Gemini</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/QGIS" target="_blank" rel="noopener" data-i="ragGo">See the code</a>
+        </div>
+      </article>
+
+      <article class="plate p-ml p-halloween" id="halloween">
+        <div class="vis">
+          <img src="../img/aoe2-halloween.webp" alt="Age of Empires II with the Halloween mod: cobweb-covered pine trees, ghost deer, spider sheep, a skeleton boar, pumpkins and a decorated Town Center" data-i-alt="halloweenAlt" width="1280" height="720" loading="lazy" decoding="async">
+        </div>
+        <div class="cap">
+          <h3 data-i="hwH">Halloween for Age of Empires II</h3>
+          <p data-i="hwFull">A graphics mod that gives every map a Halloween makeover: spider sheep, ghost animals, haunted forests, pumpkin farms and decorated Town Centers. All 422 sprites are generated by Python code, for every civilization, and checked against all 180 random-map scripts. It works in multiplayer and ranked. To build it I decoded an undocumented part of the game's sprite format. Published on the official mod site.</p>
+          <div class="tags"><span>Python</span><span>NumPy</span><span data-i="tRE">Reverse engineering</span><span data-i="tProc">Procedural generation</span></div>
+          <div class="golinks"><a class="go" href="https://github.com/SaeedSabzeh/aoe2-halloween-mod" target="_blank" rel="noopener" data-i="ragGo">See the code</a><a class="go" href="https://www.ageofempires.com/mods/details/562122" target="_blank" rel="noopener" data-i="getMod">Get the mod</a></div>
+        </div>
+      </article>
+
+      <article class="plate p-ml" id="orbit-wars">
+        <div class="vis">
+          <div class="rank">
+            <div class="big" data-i="mlBig">Top 28%<small>1,300th of 4,730 teams</small></div>
+            <div class="strip"><canvas id="strip" aria-label="Final rank shown on a strip of all 4,730 teams" data-i-aria-label="stripLbl" role="img"></canvas></div>
+            <div class="strip-lbl"><span data-i="sl1">1st</span><span data-i="sl2">4,730th</span></div>
+          </div>
+        </div>
+        <div class="cap">
+          <h3 data-i="mlH">Orbit Wars agent</h3>
+          <p data-i="mlFull">I entered a Kaggle real-time strategy competition on my own. An orbital physics solver I wrote proposes attacks, and a PPO policy trained for 2 million self-play steps decides which ones to take. My agent placed around 1,300th out of 4,730 teams. In the post-mortem, I traced six measurement errors that limited its performance before training began.</p>
+          <div class="tags"><span data-i="tRL">Reinforcement learning</span><span>PyTorch</span><span>Kaggle</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/orbit-wars-ppo/blob/main/docs/postmortem.md" target="_blank" rel="noopener" data-i="mlGo">Read the post-mortem</a>
+        </div>
+      </article>
+
+      <article class="plate p-sorkh" id="sorkh">
+        <div class="vis">
+          <div class="sk-shots">
+            <img class="sk-desk" src="../img/sorkh-hero.webp" alt="The Sorkh home page: the headline Red Gold over a night globe at sunrise, with gold export routes from Iran to Baghdad, Dubai, Muscat and beyond" data-i-alt="sorkhDesktopAlt" width="1920" height="1080" loading="lazy" decoding="async">
+            <img class="sk-phone" src="../img/sorkh-phone.webp" alt="The same page on a phone in Arabic, laid out right to left, with the calligraphic headline الذهب الأحمر" data-i-alt="sorkhMobileAlt" width="780" height="1688" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="cap cap-wide">
+          <div>
+            <h3 data-i="skH">Sorkh, a saffron website</h3>
+            <p data-i="skFull">A concept site for a Persian saffron export house selling to Iraq, the UAE and Oman, designed as a pitch. The page opens on a night globe of real geography, with export routes drawn as great circles from Mashhad. It runs in Arabic, Persian and English, right to left where it should be, with a saffron thread that draws itself as you scroll, glass jars drawn in code, and a price chart of real, dated market quotes in five currencies. The fonts ship with the site, so it loads fast even where Google's font host is blocked.</p>
+          </div>
+          <div class="facts">
+            <div data-i="sk1"><b>3</b>languages, 2 right to left</div>
+            <div data-i="sk2"><b>5</b>currencies in the price chart</div>
+            <div data-i="sk3"><b>11</b>export routes on a real globe</div>
+          </div>
+          <div class="tags"><span>HTML · CSS · JavaScript</span><span>Canvas</span><span>d3-geo</span><span>Lightweight Charts</span><span>RTL</span></div>
+          <a class="go" href="../saffron/" target="_blank" rel="noopener" data-i="skGo">Open the site</a>
+        </div>
+      </article>
+
+      <article class="plate p-bots" id="bots">
+        <div class="vis">
+          <div class="chat" aria-hidden="true">
+            <div class="m me">/play</div>
+            <div class="m bot" data-i="botMsg">You poured 7 cups of chai! Next round in 2 hours.</div>
+            <div class="m me">/top</div>
+            <div class="board"><b data-i="botBoard">This week's chai masters</b>
+              <div class="row"><span data-i="r1">1. Simin</span><span data-i="s1">412</span></div>
+              <div class="row"><span data-i="r2">2. Reza</span><span data-i="s2">388</span></div>
+              <div class="row"><span data-i="r3">3. Neda</span><span data-i="s3">301</span></div>
+            </div>
+          </div>
+          <div class="themes" data-i="themes"><span>Chai</span><span>Tahdig</span><span>Taarof</span><span>Konkur</span><span>Tehran traffic</span><span>Cats</span></div>
+        </div>
+        <div class="cap">
+          <h3 data-i="botsH">Telegram game bots</h3>
+          <p data-i="botsP">A family of group game bots, each with its own Persian in-joke theme. Members play once per cooldown, earn random scores and climb a group leaderboard.</p>
+          <div class="tags"><span>Python</span><span>Telegram Bot API</span><span data-i="tLead">Leaderboards</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/RankBots" target="_blank" rel="noopener" data-i="botsGo">See the code</a>
+        </div>
+      </article>
+
+      <article class="plate p-book" id="bookstore">
+        <div class="vis">
+          <div class="qa" aria-hidden="true">
+            <div class="me" data-i="ragQ">Is The Silent Patient in stock? And how much is Atomic Habits?</div>
+            <div class="call"><span>check_stock("The Silent Patient") <em>&rarr; {"stock": 0}</em></span><span>get_price("Atomic Habits") <em>&rarr; "$18.75"</em></span></div>
+            <div class="bot"><span data-i="ragA">The Silent Patient is out of stock, we can order it in about five days. Atomic Habits is on the shelf at $18.75.</span></div>
+            <div class="me" data-i="ragQ2">I loved The Martian. What should I read next?</div>
+            <div class="call"><span>recommend_books(like="The Martian") <em>&rarr; Project Hail Mary, Dune&hellip;</em></span></div>
+            <div class="bot"><span data-i="ragA2">Try Project Hail Mary, also by Andy Weir. It's $19.99 and in stock.</span></div>
+          </div>
+        </div>
+        <div class="cap">
+          <h3 data-i="ragH">Bookstore assistant</h3>
+          <p data-i="ragP">A bookstore chat assistant that calls functions to check current prices and stock, then uses semantic search to recommend books. All 46 tests run offline without an API key.</p>
+          <div class="tags"><span data-i="tTools">Function calling</span><span>RAG</span><span>OpenAI API</span><span>Gradio</span></div>
+          <a class="go" href="https://github.com/SaeedSabzeh/booknow-assistant" target="_blank" rel="noopener" data-i="ragGo">See the code</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight" id="github" aria-labelledby="moreH">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="h2 sm" id="moreH" data-i="moreH">More on GitHub</h2><a class="repo-all" href="https://github.com/SaeedSabzeh?tab=repositories" target="_blank" rel="noopener" data-i="allRepos">All repositories</a></div>
+    <div class="repos">
+      <a class="repo" href="https://github.com/SaeedSabzeh/telegram-persona-bot" target="_blank" rel="noopener"><h3 data-i="rh8">Telegram persona bot</h3><p data-i="rp8">Fine-tunes a chat model on one person from a group export and runs it as a bot. A chronological split removed a leak that hit a third of the validation set, and every reply is stamped with its build so changes can be compared.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/ossp-aco" target="_blank" rel="noopener"><h3 data-i="rh1">Ant colony scheduling</h3><p data-i="rp1">My B.Sc. thesis: ant colony optimization for open-shop scheduling, within 1.05% of the best published bounds, with a decoder rewritten to run about 11,000&times; faster.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/industrial-defect-detection" target="_blank" rel="noopener"><h3 data-i="rh2">Industrial defect detection</h3><p data-i="rp2">I built three CNNs from scratch in PyTorch. Data leakage inflated the initial score to 100%. After correcting the data split, I reached an F1 score of 99.08%.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/neural-collaborative-filtering" target="_blank" rel="noopener"><h3 data-i="rh3">Neural recommendations</h3><p data-i="rp3">A NeuMF recommender on MovieLens 1M that beat popularity, user-CF, item-CF and SVD baselines on every metric.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/synthgen" target="_blank" rel="noopener"><h3 data-i="rh4">Synthgen</h3><p data-i="rp4">LLM-generated tabular datasets where every row is checked against a Pydantic schema, with a quality report on what came out.</p></a>
+      <a class="repo" href="https://github.com/SaeedSabzeh/fastapi-game-backend" target="_blank" rel="noopener"><h3 data-i="rh5">Party-game backend</h3><p data-i="rp5">Async FastAPI server for a Unity mobile game: phone OTP login, JWT sessions and an admin console, running on a Linux VPS.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight toolbox" id="toolbox" aria-labelledby="tbH">
+  <div class="wrap">
+      <div class="tools">
+        <h3 data-i="tbH">Toolbox</h3>
+        <dl>
+          <div class="grp"><dt data-i="tg1">LLM systems</dt><dd><span data-i="tTools">Function calling</span><span>RAG</span><span data-i="tStructured">Structured outputs</span><span>Pydantic</span><span>Prompt engineering</span><span>Fine-tuning</span></dd></div>
+          <div class="grp"><dt data-i="tg2">Backend</dt><dd><span>Python</span><span>FastAPI</span><span>WebSockets</span><span>PostgreSQL</span><span>Supabase</span><span data-i="tAuth">JWT &amp; OTP auth</span></dd></div>
+          <div class="grp"><dt data-i="tg3">Frontend</dt><dd><span>React</span><span>TypeScript</span><span>Vite</span><span>Telegram Mini Apps</span><span data-i="tI18n">Right-to-left &amp; i18n</span></dd></div>
+          <div class="grp"><dt data-i="tg4">Machine learning</dt><dd><span>PyTorch</span><span data-i="tPpo">PPO &amp; self-play</span><span>CNNs</span><span>LSTM &amp; GRU</span><span>Transformers</span><span>scikit-learn</span></dd></div>
+          <div class="grp"><dt data-i="tg5">Testing &amp; shipping</dt><dd><span>pytest</span><span>Hypothesis</span><span>Vitest</span><span>Playwright</span><span>Docker</span><span>Render</span><span>Linux VPS</span></dd></div>
+        </dl>
+      </div>
+  </div>
+</section>
+
+<section class="sec closing" aria-label="Contact">
+  <div class="wrap">
+    <p data-i="projClose">Want to talk about any of these? <a href="../#contact">Say hi.</a></p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><span data-i="ft2">Designed and built by me.</span></div></footer>
+
+<script src="../assets/i18n.js?v=3"></script>
+<script src="../assets/site.js?v=3"></script>
+</body>
+</html>
