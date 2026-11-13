@@ -4,9 +4,11 @@
 (function(){
   var root=document.documentElement;
   var titleKey=root.getAttribute('data-title')||'pageTitle';
-  var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',wololoBlue:'Wololo! This page now plays for the blue team.',wololoRed:'Wololo! Back to red.'};
+  var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',wololoBlue:'Wololo! This page now plays for the blue team.',wololoRed:'Wololo! Back to red.',
+    // Milan time line under the contact text ({t} becomes the Milan time). Edit the wording here.
+    mtNow:'It’s {t} in Milan.'};
   EN[titleKey]=document.title;
-  var cur='en';
+  var cur='en',langHooks=[];
   function tx(k){return (typeof I18N!=='undefined'&&I18N[cur]&&I18N[cur][k])||EN[k]}
 
   // ---- language ----
@@ -39,6 +41,7 @@
     movePill();
     if(copyBtn)copyBtn.textContent=tx('copy');
     try{localStorage.setItem('lang',l)}catch(x){}
+    langHooks.forEach(function(fn){fn()});
     if(window.drawStrip)window.drawStrip();
   }
   var calm=matchMedia('(prefers-reduced-motion: reduce)');
@@ -69,20 +72,50 @@
   }
 
   // ---- rank strip: 4,730 thin ticks, the user's rank highlighted ----
+  // On first view the highlight sweeps from 4,730th to 1,300th and the number in the label counts along
+  // (unless reduced motion is on): prog goes 0 -> 1, and drawing at prog=1 is the plain final picture.
   var c=document.getElementById('strip');
-  if(c){
+  if(c&&c.getContext){
+    var N=4730,R=1300,prog=1,FAD='۰۱۲۳۴۵۶۷۸۹',RX=/[0-9۰-۹][0-9۰-۹.,٬]*[0-9۰-۹]/;
+    var counting=false;
+    var label=function(v){
+      if(!counting)return;
+      var sm=document.querySelector('.rank .big small');if(!sm||!sm.firstChild||sm.firstChild.nodeType!==3)return;
+      var t=sm.firstChild.nodeValue,m=RX.exec(t);if(!m)return;
+      var fa=/[۰-۹]/.test(m[0]),sep=(/[^0-9۰-۹]/.exec(m[0])||[','])[0];
+      var out=String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g,sep);
+      if(fa)out=out.replace(/\d/g,function(d){return FAD[d]});
+      sm.firstChild.nodeValue=t.replace(RX,out);
+    };
     var draw=function(){
       var w=c.clientWidth,h=c.clientHeight,d=window.devicePixelRatio||1;
       c.width=w*d;c.height=h*d;var g=c.getContext('2d');g.scale(d,d);
-      var N=4730,R=1300,cols=Math.max(60,Math.floor(w/4)),per=N/cols,bw=w/cols;
+      var cols=Math.max(60,Math.floor(w/4)),per=N/cols,bw=w/cols,rank=N+(R-N)*prog;
       for(var i=0;i<cols;i++){
-        var lo=i*per,hi=(i+1)*per,mine=R>lo&&R<=hi;
-        g.fillStyle=mine?'#FF829E':(lo<R?'rgba(255,130,158,.38)':'rgba(245,245,247,.13)');
+        var lo=i*per,hi=(i+1)*per,mine=rank>lo&&rank<=hi;
+        g.fillStyle=mine?'#FF829E':(lo<R?'rgba(255,130,158,'+(.13+.25*prog).toFixed(3)+')':'rgba(245,245,247,.13)');
         var bh=mine?h:h*(.45+.25*Math.sin(i*1.7)*Math.sin(i*.37)+.15);
         g.fillRect(i*bw+.5,(h-bh),Math.max(1,bw-1.2),bh);
       }
+      if(counting)label(rank);
     };
-    window.drawStrip=draw;draw();addEventListener('resize',draw);
+    var sweep=function(){
+      counting=true;
+      var t0=0,dur=2400;
+      requestAnimationFrame(function step(now){
+        if(!t0)t0=now;
+        var t=Math.min(1,(now-t0)/dur);
+        prog=1-Math.pow(1-t,3);draw();
+        if(t<1)requestAnimationFrame(step);else{counting=false;prog=1;draw()}
+      });
+    };
+    window.drawStrip=draw;
+    if(!calm.matches&&'IntersectionObserver' in window){
+      prog=0;
+      var sio=new IntersectionObserver(function(e){if(e[0].isIntersecting){sio.disconnect();sweep()}},{threshold:.6});
+      sio.observe(c);
+    }
+    draw();addEventListener('resize',draw);
   }
 
   // ---- apply the saved language ----
@@ -255,6 +288,62 @@
     els.forEach(function(el){io.observe(el)});
   })();
 
+  // Pictures lean about 2 degrees towards the mouse; Coup phone screenshots lift on hover (CSS, .tilt-on).
+  // Mouse / fine pointer only, and not under reduced motion. Runs on any page that has project pictures.
+  (function(){
+    var vis=[].slice.call(document.querySelectorAll('.plate .vis')).filter(function(v){return v.querySelector('img')});
+    if(!vis.length||calm.matches||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+    root.classList.add('tilt-on');
+    vis.forEach(function(v){
+      v.addEventListener('pointermove',function(e){
+        if(e.pointerType!=='mouse')return;
+        var r=v.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        v.classList.add('live');
+        v.style.transform='perspective(1200px) rotateX('+(-y*2.4).toFixed(2)+'deg) rotateY('+(x*2.4).toFixed(2)+'deg)';
+      });
+      v.addEventListener('pointerleave',function(){v.classList.remove('live');v.style.transform=''});
+    });
+  })();
+
+  // Milan time under the contact text: the hour in Europe/Rome (not the visitor's clock).
+  // The wording lives in the mtNow string (English at the top of this file, translations in i18n.js).
+  (function(){
+    var el=document.getElementById('milanNow');if(!el||!window.Intl)return;
+    var fmt;
+    try{fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Rome',hour:'2-digit',minute:'2-digit',hour12:false,weekday:'short'})}catch(x){return}
+    var FAD='۰۱۲۳۴۵۶۷۸۹';
+    function tick(){
+      var p={};fmt.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+      var h=+p.hour%24;
+      var time=p.hour+':'+p.minute;
+      if(cur==='fa')time=time.replace(/\d/g,function(d){return FAD[d]});
+      el.innerHTML='<i aria-hidden="true"></i><span class="now-t">'+tx('mtNow').replace('{t}','<b dir="ltr">'+time+'</b>')+'</span>';
+      el.classList.toggle('zz',h<8||h===23);
+      el.hidden=false;
+    }
+    tick();langHooks.push(tick);setInterval(function(){if(!document.hidden)tick()},20000);
+  })();
+
+  // Greeting above the contact heading: Hi. / سلام. / Ciao. cycling, starting with the current language.
+  (function(){
+    var box=document.querySelector('.hello');if(!box)return;
+    var all=[].slice.call(box.children),i=0,timer=0,visible=false;
+    function pos(){var k=0;all.forEach(function(s,n){if(s.lang===cur)k=n});return k}
+    function show(n){
+      all.forEach(function(s,k){s.classList.toggle('out',k===i&&k!==n);s.classList.toggle('on',k===n)});
+      i=n;
+    }
+    function run(){
+      clearInterval(timer);timer=0;
+      if(calm.matches||!visible||document.hidden)return;
+      timer=setInterval(function(){show((i+1)%all.length)},2600);
+    }
+    show(pos());
+    langHooks.push(function(){all.forEach(function(s){s.classList.remove('out')});show(pos());run()});
+    if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting;run()},{threshold:.5}).observe(box);
+    document.addEventListener('visibilitychange',run);
+  })();
+
   // Wololo: type it (or tap the footer link) and the accent colour changes sides; again to undo.
   // Not saved anywhere, so a reload brings the crimson back.
   (function(){
@@ -264,10 +353,10 @@
     toast.className='wololo-toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');
     document.body.appendChild(toast);
     var timer=0;
-    function convert(){
-      var on=root.classList.toggle('wololo');
-      recolour();
-      toast.textContent=tx(on?'wololoBlue':'wololoRed');
+    function convert(ev){
+      // the toast text is set inside flip, so it always matches the colour the page really ends up with
+      var flip=function(){var on=root.classList.toggle('wololo');recolour();toast.textContent=tx(on?'wololoBlue':'wololoRed')};
+      if(window.wololoWave)window.wololoWave(flip,ev);else flip(); // wololoWave (optional) spreads the change as a circle
       toast.classList.add('on');clearTimeout(timer);timer=setTimeout(function(){toast.classList.remove('on')},2600);
     }
     var buf='';

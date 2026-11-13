@@ -420,3 +420,33 @@ html[dir="rtl"] .mind{-webkit-mask-image:linear-gradient(260deg,rgba(0,0,0,.28),
 
 /* Phone fix: the 12-column project grid kept its 36px column gap, so cards ran past the right edge */
 @media (max-width:640px){.plates{column-gap:0}}
+
+/* ---------- three-language greeting above the contact heading ---------- */
+.hello-wrap{min-width:0}
+.hello{display:grid;justify-items:start;height:1.35em;margin-bottom:clamp(4px,1vw,12px);font-size:clamp(26px,3.4vw,42px);line-height:1.35;color:var(--accent)}
+.hello span{grid-area:1/1;opacity:0;transform:translateY(.4em);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);font-family:'Bodoni Moda','Times New Roman',serif;font-style:italic;font-weight:500;font-variation-settings:'opsz' 28;white-space:nowrap}
+html[lang] .hello span[lang="fa"]{font-family:'Markazi Text','Vazirmatn',serif;font-style:normal!important;font-weight:600}
+html[lang="fa"] .hello span{font-style:normal!important}
+.hello span.on{opacity:1;transform:none}
+.hello span.out{opacity:0;transform:translateY(-.4em)}
+html[dir="rtl"] .hello{justify-items:start}
+
+/* ---------- Milan time under the contact text ---------- */
+.now{display:flex;align-items:baseline;gap:10px;max-width:46ch;font:13px/1.55 var(--mono);color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.now b{font-weight:500;color:var(--ink)}
+.now i{flex:none;align-self:center;width:8px;height:8px;border-radius:50%;background:#2F9E63;animation:now-pulse 2.6s ease-in-out infinite}
+.now.zz i{background:var(--line);animation:none}
+@keyframes now-pulse{50%{opacity:.3}}
+html[lang="fa"] .now{font-size:14px}
+
+/* ---------- project pictures lean towards the pointer (mouse only; set up in site.js) ---------- */
+@media (hover:hover) and (pointer:fine){
+  .tilt-on .plate .vis{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .tilt-on .plate .vis.live{transition-duration:.12s}
+  .tilt-on .phones figure{transition:translate .35s cubic-bezier(.2,.7,.2,1)}
+  .tilt-on .phones figure:hover{translate:0 -8px}
+}
+@media (prefers-reduced-motion:reduce){
+  .now i{animation:none}
+  .hello span{transition:none}
+}
