@@ -1,0 +1,202 @@
+/* Homepage theme "Sketch to built", loaded after site.css and thread.css. Everything is scoped under .sk-on (set by the
+   inline script in <head>), so without it the page is the plain site. Sketch state = unit lacks .sk-built; built state =
+   the normal site.css look, reached by transitions. Delays live only on .sk-built (so x-ray is snappy).
+   About 1.8 s after a unit is built, sketch.js adds .sk-settled: the build transitions and delays are then released
+   (rules gated with :where(:not(.sk-settled)), which adds no specificity), so hovering behaves like site.css. */
+
+html:not(.sk-on) .sk-hold{display:none} /* the x-ray button only makes sense while the theme is on */
+.sk-hold{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+
+@property --bf{syntax:'<color>';inherits:true;initial-value:transparent} /* lets the button fill colour ease on hover once settled */
+.sk-on{
+  --pencil:color-mix(in srgb,var(--ink) 38%,var(--paper));
+  --sk-ease:cubic-bezier(.3,.7,.2,1);
+  --sk-cross:linear-gradient(to top right,transparent calc(50% - .5px),var(--pencil) calc(50% - .5px),var(--pencil) calc(50% + .5px),transparent calc(50% + .5px)),
+             linear-gradient(to bottom right,transparent calc(50% - .5px),var(--pencil) calc(50% - .5px),var(--pencil) calc(50% + .5px),transparent calc(50% + .5px));
+}
+/* switch off the old fade-up so it does not fight the build */
+.sk-on.js-anim .edu li,.sk-on.js-anim .plate{opacity:1;transform:none;transition:none}
+
+/* ---------- 1. big display text: outline first, ink sweeps in along the reading direction ---------- */
+.sk-on .name span,.sk-on .h2{
+  --fill:var(--ink);--ghost:transparent;
+  color:transparent;-webkit-text-fill-color:transparent;
+  background-image:linear-gradient(to right,var(--fill) 50%,var(--ghost) 50%);
+  background-size:200% 100%;background-repeat:no-repeat;background-position:0 0;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-stroke:1px transparent;
+  padding-block:.18em;margin-block:-.18em; /* paint room for ascenders/descenders, layout-neutral */
+  transition:background-position .8s var(--sk-ease),-webkit-text-stroke-color .4s;
+}
+.sk-on .name span+span{--fill:var(--accent)}
+/* Latin: flex column so the negative margins of the two lines do not collapse into each other */
+.sk-on:not([lang="fa"]) .name{display:flex;flex-direction:column;align-items:flex-start}
+.sk-on:not([lang="fa"]) .name span{padding-inline:.12em;margin-inline:-.12em} /* italic overhang */
+.sk-on:not([lang="fa"]) .name span+span{padding-inline-start:.54em}
+@media (max-width:640px){.sk-on:not([lang="fa"]) .name span+span{padding-inline-start:.4em}}
+.sk-on:not([lang="fa"]) .contact .h2{width:fit-content;max-width:100%}
+/* Persian: no outline, pencil-grey letters that ink sweeps over; name spans are inline, so padding only */
+.sk-on[lang="fa"] .name span,.sk-on[lang="fa"] .h2{--ghost:var(--pencil);-webkit-text-stroke-width:0}
+.sk-on[lang="fa"] .name span{padding-block:.24em;margin-block:0}
+/* RTL: sweep runs right to left */
+.sk-on[dir="rtl"] .name span,.sk-on[dir="rtl"] .h2{background-image:linear-gradient(to left,var(--fill) 50%,var(--ghost) 50%);background-position:100% 0}
+/* sketch state */
+.sk-on [data-sk]:not(.sk-built) .name span,.sk-on [data-sk]:not(.sk-built) .h2{background-position:100% 0;-webkit-text-stroke-color:var(--fill)}
+.sk-on[dir="rtl"] [data-sk]:not(.sk-built) .name span,.sk-on[dir="rtl"] [data-sk]:not(.sk-built) .h2{background-position:0 0}
+/* built: stroke fades near the end of the sweep; second name line a beat later */
+.sk-on .sk-built:where(:not(.sk-settled)) .name span,.sk-on .sk-built:where(:not(.sk-settled)) .h2{transition-delay:0s,.4s}
+.sk-on .sk-built:where(:not(.sk-settled)) .name span+span{transition-delay:.12s,.52s}
+
+/* ---------- 2. ordinary text: pencil grey, then ink ---------- */
+.sk-on :where([data-sk]:not(.sk-settled)) :is(.intro,.intro b,.edu .when,.edu h3,.edu p,.plate h3,.plate .cap p,.why b,.cnote,.cnote a,.now,.now b),.sk-on .me-intro:where(:not(.sk-settled)){transition:color .6s}
+.sk-on .plate:where([data-sk]:not(.sk-settled)) h3::before{transition:color .6s}
+.sk-on [data-sk]:not(.sk-built) :is(p,b,.chip,.when,h3,.go,.mail a,.cnote a){color:var(--pencil)}
+.sk-on [data-sk]:not(.sk-built) h3::before{color:var(--pencil)}
+.sk-on .me-intro:not(.sk-built){color:var(--pencil)}
+/* small stagger among siblings (built direction only) */
+.sk-on .sk-built:where(:not(.sk-settled)) .intro,.sk-on .sk-built:where(:not(.sk-settled)) .intro b{transition-delay:.08s}
+.sk-on .edu .sk-built:where(:not(.sk-settled)) h3,.sk-on .plate.sk-built:where(:not(.sk-settled)) h3,.sk-on .plate.sk-built:where(:not(.sk-settled)) h3::before{transition-delay:.07s}
+.sk-on .edu .sk-built:where(:not(.sk-settled)) p,.sk-on .plate.sk-built:where(:not(.sk-settled)) .cap p,.sk-on .sk-built:where(:not(.sk-settled)) .cnote{transition-delay:.14s}
+.sk-on .plate.sk-built:where(:not(.sk-settled)) .cap p.why,.sk-on .plate.sk-built:where(:not(.sk-settled)) .why b,.sk-on .sk-built:where(:not(.sk-settled)) .now{transition-delay:.21s}
+
+/* ---------- 3. lines and boxes: dashed pencil, then the solid rule ---------- */
+/* chips: dashed rules, outlined bullet that fills with the accent */
+.sk-on :where([data-sk]:not(.sk-settled)) .chip{transition:color .6s,border-color .6s}
+.sk-on .chip::before{outline:1px solid var(--accent);outline-offset:-1px}
+.sk-on :where([data-sk]:not(.sk-settled)) .chip::before{transition:background-color .5s,outline-color .5s}
+.sk-on [data-sk]:not(.sk-built) .chip{border-top-style:dashed;border-top-color:var(--pencil)}
+.sk-on [data-sk]:not(.sk-built) .chip:last-child{border-bottom-style:dashed;border-bottom-color:var(--pencil)}
+.sk-on [data-sk]:not(.sk-built) .chip::before{background-color:transparent;outline-color:var(--pencil)}
+.sk-on .sk-built:where(:not(.sk-settled)) .chip,.sk-on .sk-built:where(:not(.sk-settled)) .chip::before{transition-delay:.2s}
+.sk-on .sk-built:where(:not(.sk-settled)) .chip:nth-child(2),.sk-on .sk-built:where(:not(.sk-settled)) .chip:nth-child(2)::before{transition-delay:.28s}
+/* timeline entries (higher specificity than the fade-up switch-off above) */
+.sk-on .edu li[data-sk][data-sk]:where(:not(.sk-settled)){transition:border-color .6s}
+.sk-on .edu li[data-sk]:not(.sk-built){border-bottom-style:dashed;border-bottom-color:var(--pencil)}
+/* "Why I made it" side rule, link underlines, mail rules */
+.sk-on .plate:where([data-sk]:not(.sk-settled)) .cap p.why{transition:color .6s,border-color .6s}
+.sk-on [data-sk]:not(.sk-built) .why{border-inline-start-style:dashed;border-inline-start-color:var(--pencil)}
+.sk-on :where([data-sk]:not(.sk-settled)) .go{transition:color .6s,border-color .6s}
+.sk-on [data-sk]:not(.sk-built) .go{border-bottom-style:dashed;border-bottom-color:var(--pencil)}
+.sk-on .sk-built:where(:not(.sk-settled)) .go:not(:hover){transition-delay:.21s}
+.sk-on .sk-built:where(:not(.sk-settled)) .go+.go:not(:hover){transition-delay:.28s}
+.sk-on :where([data-sk]:not(.sk-settled)) .mail{transition:border-color .6s}
+.sk-on :where([data-sk]:not(.sk-settled)) .mail a{transition:background-size .3s,color .6s}
+.sk-on [data-sk]:not(.sk-built) .mail{border-top-style:dashed;border-bottom-style:dashed;border-top-color:var(--pencil);border-bottom-color:var(--pencil)}
+.sk-on .sk-built:where(:not(.sk-settled)) .mail a:not(:hover){transition-delay:0s,.14s}
+/* contact links: boxes draw one after another */
+.sk-on :where([data-sk]:not(.sk-settled)) .links a{transition:background-color .2s,color .2s,border-color .5s}
+.sk-on [data-sk]:not(.sk-built) .links a{border-style:dashed;border-color:var(--pencil)}
+.sk-on .sk-built:where(:not(.sk-settled)) .links a:nth-child(2):not(:hover){transition-delay:0s,0s,.07s}
+.sk-on .sk-built:where(:not(.sk-settled)) .links a:nth-child(3):not(:hover){transition-delay:0s,0s,.14s}
+.sk-on .sk-built:where(:not(.sk-settled)) .links a:nth-child(4):not(:hover){transition-delay:0s,0s,.21s}
+.sk-on .sk-built:where(:not(.sk-settled)) .links a:nth-child(5):not(:hover){transition-delay:0s,0s,.28s}
+/* portrait frame outline */
+.sk-on .arch .frame{position:relative}
+.sk-on :where([data-sk]:not(.sk-settled)) .arch .frame{transition:background-color .5s,outline-color .6s}
+.sk-on [data-sk]:not(.sk-built) .arch .frame{background-color:transparent;outline-style:dashed;outline-color:var(--pencil)}
+/* section rule: dashed pencil line is always there underneath; the ink rule draws over it from the inline-start.
+   The real border colour is hidden until the drawn line has covered it. */
+.sk-on .sec-head{
+  position:relative;
+  background-image:repeating-linear-gradient(to right,var(--pencil) 0 5px,transparent 5px 9px);
+  background-size:100% 1px;background-repeat:no-repeat;background-position:0 0;background-origin:border-box;
+  transition:border-top-color .05s;
+}
+.sk-on .sec-head::after{content:"";position:absolute;inset-inline:0;top:-2px;height:2px;background:var(--ink);transform:scaleX(1);transform-origin:0 50%;transition:transform .7s var(--sk-ease)}
+.sk-on[dir="rtl"] .sec-head::after{transform-origin:100% 50%}
+.sk-on .sec-head.sk-built:where(:not(.sk-settled)){transition-delay:.65s}
+.sk-on .sec-head:not(.sk-built){border-top-color:transparent}
+.sk-on .sec-head:not(.sk-built)::after{transform:scaleX(0)}
+
+/* ---------- 4. buttons: transparent dashed outline, then a fill that sweeps in from the inline-start ---------- */
+.sk-on :is(.hero-cta a.solid,.allp,.btn){
+  --bf:var(--ink);
+  background-color:transparent;background-image:linear-gradient(var(--bf),var(--bf));
+  background-repeat:no-repeat;background-position:0 0;background-size:100% 100%;
+}
+.sk-on :is(.hero-cta a.solid,.allp,.btn):hover{--bf:var(--accent)}
+.sk-on[dir="rtl"] :is(.hero-cta a.solid,.allp,.btn){background-position:100% 0}
+.sk-on :where([data-sk]:not(.sk-settled)) .hero-cta a,.sk-on :where([data-sk]:not(.sk-settled)) .allp{transition:color .6s,border-color .6s,background-size .6s var(--sk-ease)}
+.sk-on .btn{outline:1px dashed transparent;outline-offset:-1px}
+.sk-on :where([data-sk]:not(.sk-settled)) .btn{transition:color .6s,outline-color .6s,background-size .6s var(--sk-ease)}
+/* settled: the fill stays (no flash), but hover eases like site.css (.2s) through the registered --bf */
+.sk-on [data-sk].sk-settled :is(.hero-cta a.solid,.allp,.btn){transition:color .2s,border-color .2s,--bf .2s}
+.sk-on .btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sk-on [data-sk]:not(.sk-built) .hero-cta a,.sk-on [data-sk]:not(.sk-built) .allp{color:var(--pencil);border-style:dashed;border-color:var(--pencil)}
+.sk-on [data-sk]:not(.sk-built) .btn{color:var(--pencil);outline-color:var(--pencil)}
+.sk-on [data-sk]:not(.sk-built) :is(.hero-cta a.solid,.allp,.btn){background-size:0 100%}
+.sk-on .sk-built:where(:not(.sk-settled)) .hero-cta a:nth-child(1):not(:hover){transition-delay:.15s}
+.sk-on .sk-built:where(:not(.sk-settled)) .hero-cta a:nth-child(2):not(:hover){transition-delay:.22s}
+.sk-on .sk-built:where(:not(.sk-settled)) .hero-cta a:nth-child(3):not(:hover){transition-delay:.29s}
+.sk-on .sk-built:where(:not(.sk-settled)) .allp:not(:hover),.sk-on .sk-built:where(:not(.sk-settled)) .btn:not(:hover){transition-delay:.1s}
+
+/* ---------- 5. portrait: crossed box with "4 : 5", photo revealed top to bottom ---------- */
+.sk-on .arch .frame::after{
+  content:"4 : 5";position:absolute;inset:0;padding:8px 10px;direction:ltr;text-align:left;
+  font:11px/1 var(--mono);letter-spacing:.06em;color:var(--pencil);background-image:var(--sk-cross);
+  pointer-events:none;opacity:0;transition:opacity .4s;
+}
+.sk-on [data-sk]:not(.sk-built) .arch .frame::after{opacity:1}
+.sk-on .arch img{opacity:1;clip-path:inset(0 0 0 0)}
+.sk-on :where([data-sk]:not(.sk-settled)) .arch img{transition:opacity .3s,clip-path .7s var(--sk-ease)}
+.sk-on [data-sk]:not(.sk-built) .arch img{opacity:0;clip-path:inset(0 0 100% 0)}
+.sk-on .sk-built:where(:not(.sk-settled)) .arch img{transition-delay:.35s}
+
+/* ---------- 6. project pictures: wireframe, ground grows up, pictures appear ---------- */
+/* the dark ground moves from .vis to .vis::before so it can grow on its own */
+.sk-on .plate .vis{
+  isolation:isolate;background:none;outline:1px dashed transparent;outline-offset:-1px;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1),outline-color .5s; /* same transform transition as the hover tilt */
+}
+.sk-on .plate .vis::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--plate);transform-origin:50% 100%;transition:transform .5s var(--sk-ease)}
+.sk-on .p-coup .vis::before{background:radial-gradient(ellipse 70% 90% at 50% 0,#4A1124,var(--plate) 72%)}
+.sk-on [data-sk]:not(.sk-built) .vis{outline-color:var(--pencil)}
+.sk-on [data-sk]:not(.sk-built) .vis::before{transform:scaleY(0)}
+.sk-on .sk-built:where(:not(.sk-settled)) .vis{transition-delay:0s,.45s}
+/* pictures */
+.sk-on .phones img,.sk-on .p-halloween .vis img,.sk-on .qshot{opacity:1;transform:none}
+.sk-on :where([data-sk]:not(.sk-settled)) .phones img,.sk-on .p-halloween:where(:not(.sk-settled)) .vis img,.sk-on :where([data-sk]:not(.sk-settled)) .qshot{transition:opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.sk-on [data-sk]:not(.sk-built) .phones img,.sk-on .p-halloween:not(.sk-built) .vis img,.sk-on .p-qgis:not(.sk-built) .qshot{opacity:0;transform:translateY(10px)}
+.sk-on .p-halloween.sk-built:where(:not(.sk-settled)) .vis img,.sk-on .p-qgis.sk-built:where(:not(.sk-settled)) .qshot{transition-delay:.45s}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(1) img{transition-delay:.45s}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(2) img{transition-delay:.54s}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(3) img{transition-delay:.63s}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(4) img{transition-delay:.72s}
+/* Coup: phone wireframes (same box as the image) */
+.sk-on .phones figure{position:relative}
+.sk-on .phones figure::before{
+  content:"";position:absolute;left:0;right:0;top:0;aspect-ratio:520/1130;box-sizing:border-box;
+  border:1px dashed var(--pencil);border-radius:15% / 7%;background-image:var(--sk-cross);
+  pointer-events:none;opacity:0;transition:opacity .35s;
+}
+.sk-on [data-sk]:not(.sk-built) .phones figure::before{opacity:1}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(1)::before{transition-delay:.45s}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(2)::before{transition-delay:.54s}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(3)::before{transition-delay:.63s}
+.sk-on .sk-built:where(:not(.sk-settled)) .phones figure:nth-child(4)::before{transition-delay:.72s}
+/* Norme Milano: faint map grid and a pin mark; Halloween: crossed 16:9 box */
+.sk-on .p-qgis .vis::after,.sk-on .p-halloween .vis::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s}
+.sk-on .p-qgis .vis::after{
+  background-image:
+    radial-gradient(circle at 50% 50%,transparent 0 6px,var(--pencil) 6px 7px,transparent 7px),
+    linear-gradient(var(--pencil),var(--pencil)),linear-gradient(var(--pencil),var(--pencil)),
+    repeating-linear-gradient(to right,color-mix(in srgb,var(--pencil) 55%,transparent) 0 1px,transparent 1px 32px),
+    repeating-linear-gradient(to bottom,color-mix(in srgb,var(--pencil) 55%,transparent) 0 1px,transparent 1px 32px);
+  background-size:100% 100%,24px 1px,1px 24px,100% 100%,100% 100%;
+  background-position:0 0,50% 50%,50% 50%,0 0,0 0;background-repeat:no-repeat,no-repeat,no-repeat,repeat,repeat;
+}
+.sk-on .p-halloween .vis::after{
+  content:"16 : 9";padding:10px 12px;direction:ltr;text-align:left;
+  font:11px/1 var(--mono);letter-spacing:.06em;color:var(--pencil);background-image:var(--sk-cross);
+}
+.sk-on .p-qgis:not(.sk-built) .vis::after,.sk-on .p-halloween:not(.sk-built) .vis::after{opacity:1}
+.sk-on .p-qgis.sk-built:where(:not(.sk-settled)) .vis::after,.sk-on .p-halloween.sk-built:where(:not(.sk-settled)) .vis::after{transition-delay:.45s}
+
+/* ---------- 7. greeting: written in its own writing direction ---------- */
+.sk-on .hello span{
+  color:var(--accent);transform:none;clip-path:inset(-.3em 100% -.3em 0);
+  transition:opacity .3s ease,clip-path .7s var(--sk-ease),color .6s;
+}
+.sk-on .hello span[lang="fa"]{clip-path:inset(-.3em 0 -.3em 100%)}
+.sk-on .hello span.on,.sk-on .hello span.out{transform:none;clip-path:inset(-.3em -.3em -.3em -.3em)} /* .out only fades */
+.sk-on .hello-wrap:not(.sk-built) .hello span{color:var(--pencil)}

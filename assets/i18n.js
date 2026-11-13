@@ -2,6 +2,7 @@
 var I18N = {
 fa: {
   "wololoHint": "Age of Empires بازی کردید؟ «wololo» رو تایپ کنید یا اینجا بزنید.",
+  "skHold": "نگه دارید تا طرح اولیه رو ببینید",
   "wololoBlue": "Wololo! این صفحه هم رفت توی تیم آبی.",
   "wololoRed": "Wololo! برگشتیم به قرمز.",
   "homeLabel": "سعید سبزه، صفحهٔ اصلی",
@@ -151,6 +152,7 @@ fa: {
 },
 it: {
   "wololoHint": "Hai giocato ad Age of Empires? Digita «wololo» o tocca qui.",
+  "skHold": "Tieni premuto per vedere la bozza",
   "wololoBlue": "Wololo! Ora questa pagina gioca nella squadra blu.",
   "wololoRed": "Wololo! Si torna al rosso.",
   "homeLabel": "Saeed Sabzeh, pagina iniziale",
