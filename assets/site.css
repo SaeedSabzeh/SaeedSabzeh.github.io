@@ -179,34 +179,8 @@ html[dir="rtl"] .qfacts b{text-align:right}
 .qa .call em{font-style:normal;color:var(--plate-soft)}
 
 /* AI Bridge: flow diagram above a chat */
-.p-bridge .vis{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:28px 28px 24px;min-height:430px}
-.brflow{display:flex;align-items:center;font-family:var(--mono)}
-.brn{flex:none;padding:7px 14px;border-radius:999px;font-size:13px;line-height:1.2;color:var(--plate-fg);white-space:nowrap}
-.brn-c{background:#9A1736}
-.brn-g{background:var(--plate-2)}
-.brn-box{flex:0 1 auto;min-width:0;white-space:normal;text-align:center;border-radius:0;padding:6px 10px;font-size:11.5px;line-height:1.35;border:1px dashed rgba(255,130,158,.4);background:rgba(255,130,158,.06);color:#FFC4D1}
-.brarrow{position:relative;flex:1 1 14px;min-width:10px;height:1px;margin:0 4px;background:var(--plate-soft)}
-.brarrow::before,.brarrow::after{content:"";position:absolute;top:-2.5px;width:5px;height:5px;border:solid var(--plate-soft);border-width:1px 1px 0 0}
-.brarrow::before{left:0;transform:rotate(-135deg)}
-.brarrow::after{right:0;transform:rotate(45deg)}
-.brarrow i{position:absolute;top:-2px;left:0;width:5px;height:5px;border-radius:50%;background:var(--hot);opacity:0;animation:brpulse 3.2s ease-in-out infinite}
-.brarrow+.brn-box+.brarrow i{animation-delay:1.6s}
-@keyframes brpulse{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 5px);opacity:0}}
-@media (prefers-reduced-motion:reduce){.brarrow i{animation:none;display:none}}
-.p-bridge .qa .who{font:11px/1 'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;color:var(--plate-soft);margin-bottom:-4px;direction:ltr}
-.p-bridge .qa .who.c{align-self:flex-end}
-.p-bridge .qa .who.g{align-self:flex-start}
 .p-bridge-s .vis{min-height:300px}
 .p-bridge .qfacts div:nth-child(3) b{font-size:30px;line-height:1.2;margin-bottom:6px}
-.p-bridge .qa bdi{white-space:nowrap}
-.brn-box{unicode-bidi:plaintext}
-html[lang="fa"] .brn-box{line-height:1.6}
-@media (max-width:560px){
-  .p-bridge .vis{padding:22px 16px 18px}
-  .brn{padding:6px 10px;font-size:12px}
-  .brn-box{font-size:10.5px;padding:5px 7px}
-  .brarrow{min-width:8px;flex-basis:8px;margin:0 2px}
-}
 
 /* ML: leaderboard rank strip */
 .rank{position:absolute;inset:0;padding:34px;display:flex;flex-direction:column;justify-content:center;gap:16px}
@@ -409,6 +383,66 @@ html[lang="fa"] .mail a{text-align:left}
   .plate .golinks .go{margin-top:0}
   .facts{grid-column:auto;grid-row:auto}
 }
+
+/* ---------- animation ideas: each block below can be removed on its own ---------- */
+
+/* Recognition: highlight the project you arrived at (projects page, via #id) */
+@property --rc-hl{syntax:'<number>';inherits:false;initial-value:0}
+:root{--rc-rgb:174 25 60}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--rc-rgb:255 130 158}}
+:root[data-theme="dark"]{--rc-rgb:255 130 158}
+.plate.recog h3::before{width:fit-content;padding-inline:6px;margin-inline-start:-6px;background-image:linear-gradient(rgb(var(--rc-rgb) / var(--rc-hl)),rgb(var(--rc-rgb) / var(--rc-hl)));background-repeat:no-repeat;background-size:0% 100%;animation:rc-recog 3.3s linear both}
+@keyframes rc-recog{0%{background-size:0% 100%;--rc-hl:.16;animation-timing-function:ease-out}36%{background-size:100% 100%;--rc-hl:.16}82%{background-size:100% 100%;--rc-hl:.16}100%{background-size:100% 100%;--rc-hl:0}}
+@media (prefers-reduced-motion:reduce){.plate.recog h3::before{animation:none;background-size:100% 100%;--rc-hl:.16}}
+
+/* Page dissolve: fade through the paper colour between Home and Projects */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.25s;animation-timing-function:ease}
+@media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
+html.pd-out main,html.pd-out header.top,html.pd-out footer{opacity:0;transition:opacity .25s ease}
+html.pd-in main,html.pd-in header.top,html.pd-in footer{animation:pd-in .3s ease both}
+@keyframes pd-in{from{opacity:0}to{opacity:1}}
+
+/* Hero question: a pale wash behind "how minds work", then a fine underline that stays */
+.mind-q{position:relative;z-index:0;background:linear-gradient(var(--accent),var(--accent)) 0 100%/100% 1px no-repeat}
+.mind-q::before{content:"";position:absolute;inset:0 -.12em;z-index:-1;background:color-mix(in srgb,var(--accent) 14%,transparent);transform:scaleX(0);transform-origin:left center;opacity:0;pointer-events:none}
+html[dir="rtl"] .mind-q{background-position:100% 100%}
+html[dir="rtl"] .mind-q::before{transform-origin:right center}
+html.mq-wait .mind-q{background-size:0 1px}
+html.mq-play .mind-q{animation:mq-line .5s ease .9s backwards}
+html.mq-play .mind-q::before{animation:mq-wash 1.4s ease-in-out both}
+@keyframes mq-line{from{background-size:0 1px}}
+@keyframes mq-wash{0%{transform:scaleX(0);opacity:1}45%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+
+/* A year with room: more space around "A year back home", its date deepens to crimson once */
+.edu li.year-room{padding-block:38px 40px}
+.js-thread .edu li.year-room::before{top:48px}
+.edu li.year-room .when{color:var(--ink-soft)}
+.edu li.year-room.room-on .when{color:var(--accent);transition:color .9s ease}
+@media (max-width:560px){.js-thread .edu li.year-room::before{top:44px}}
+@media (prefers-reduced-motion:reduce){.edu li.year-room.room-on .when{transition:none}}
+
+/* Norme Milano evidence: the point, then three rule slips (homepage card) */
+.p-qgis .qinset{align-self:flex-start;width:160px;max-width:100%;margin-top:14px}
+.p-qgis .qinset svg{display:block;width:100%;height:auto;overflow:visible}
+html[dir="rtl"] .p-qgis .qinset svg{transform:scaleX(-1)}
+.p-qgis .qinset .wire{fill:none;stroke:var(--ink-soft);stroke-opacity:.35;stroke-width:1}
+.p-qgis .qinset .hl{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset .5s ease-out}
+.p-qgis .qinset .pin{fill:var(--accent)}
+.p-qgis .qinset .pin-ring{fill:none;stroke:var(--accent);stroke-width:1;stroke-opacity:.5}
+.p-qgis .qinset .slip rect{fill:var(--paper);stroke:var(--accent);stroke-width:1;transition:stroke .35s ease,stroke-opacity .35s ease}
+.p-qgis .qinset .slip line{stroke:var(--accent);stroke-width:1.2;stroke-linecap:round;transition:stroke .35s ease,stroke-opacity .35s ease}
+.sk-on .p-qgis:not(.sk-settled) .qinset .hl{stroke-dashoffset:1}
+.sk-on .p-qgis:not(.sk-settled) .qinset .slip rect{stroke:var(--ink-soft);stroke-opacity:.4}
+.sk-on .p-qgis:not(.sk-settled) .qinset .slip line{stroke:var(--ink-soft);stroke-opacity:.35}
+.sk-on .p-qgis.sk-settled .qinset .h0{transition:stroke-dashoffset .5s ease-out 0s}
+.sk-on .p-qgis.sk-settled .qinset .h1{transition:stroke-dashoffset .4s ease-in-out .5s}
+.sk-on .p-qgis.sk-settled .qinset .h2{transition:stroke-dashoffset .4s ease-in-out .9s}
+.sk-on .p-qgis.sk-settled .qinset .h3{transition:stroke-dashoffset .3s ease-in-out 1.3s}
+.sk-on .p-qgis.sk-settled .qinset .s1 rect,.sk-on .p-qgis.sk-settled .qinset .s1 line{transition-delay:.9s}
+.sk-on .p-qgis.sk-settled .qinset .s2 rect,.sk-on .p-qgis.sk-settled .qinset .s2 line{transition-delay:1.3s}
+.sk-on .p-qgis.sk-settled .qinset .s3 rect,.sk-on .p-qgis.sk-settled .qinset .s3 line{transition-delay:1.6s}
+@media (max-width:640px){.p-qgis .qinset{order:2}}
 
 /* ---------- homepage extras: thought network, story thread, wololo ---------- */
 /* Thought network behind the hero (decorative canvas, drawn by site.js) */

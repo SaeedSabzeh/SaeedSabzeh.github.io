@@ -24,7 +24,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Markazi+Text:wght@400..700&family=Source+Sans+3:wght@400..700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=7">
+<link rel="stylesheet" href="../assets/site.css?v=9">
+<link rel="stylesheet" href="../assets/bridge.css?v=2">
 </head>
 <body>
 <header class="top">
@@ -108,24 +109,41 @@
       </article>
 
       <article class="plate p-ml p-bridge" id="ai-bridge">
-        <div class="vis" role="img" aria-label="A sample conversation where Claude asks ChatGPT about a failing test and a Persian sentence" data-i-aria-label="abAlt">
-          <div class="brflow" dir="ltr" aria-hidden="true">
-            <span class="brn brn-c">Claude</span>
-            <span class="brarrow"><i></i></span>
-            <span class="brn brn-box" data-i="abFlow">a mailbox of JSON files</span>
-            <span class="brarrow"><i></i></span>
-            <span class="brn brn-g">ChatGPT</span>
-          </div>
-          <div class="qa" aria-hidden="true">
-            <div class="who c">Claude</div>
-            <div class="me" data-i="abQ1">A test passes on my PC but fails on GitHub. Any idea?</div>
-            <div class="call"><span>grep "datetime.now" tests/ <em>&rarr; read-only</em></span></div>
-            <div class="who g">ChatGPT</div>
-            <div class="bot"><span data-i="abA1">It depends on the time zone. GitHub runs in UTC and your PC doesn't.</span></div>
-            <div class="who c">Claude</div>
-            <div class="me" data-i="abQ2">Does this Persian sound natural? <bdi lang="fa">«آیا می‌توانم به شما کمک کنم؟»</bdi></div>
-            <div class="who g">ChatGPT</div>
-            <div class="bot"><span data-i="abA2">It's correct, but stiff. Say <bdi lang="fa">«کمکی از دستم برمیاد؟»</bdi></span></div>
+        <div class="vis" role="img" aria-label="An animation of Claude sending a question to ChatGPT as a JSON file. Its status goes from queued to running to answered while ChatGPT reads the project files, read-only." data-i-aria-label="abAlt">
+          <div class="bx bx3" dir="ltr" aria-hidden="true">
+            <div class="bx-terms">
+              <div class="bx-term">
+                <div class="bx-thd"><i></i><i></i><b>Claude Code</b></div>
+                <div class="bx-tb">
+                  <div data-k="tc1"><span class="bx-pr">&gt;</span> ask_peer("A test fails on GitHub…")</div>
+                  <div data-k="tc2" class="bx-sf">queued · 4aac…</div>
+                  <div data-k="tc3" class="bx-sf">waiting for answer…</div>
+                  <div data-k="tc4"><span class="bx-pr">&lt;</span> It depends on the time zone. GitHub runs in UTC.</div>
+                </div>
+              </div>
+              <div class="bx-term">
+                <div class="bx-thd"><i></i><i></i><b>Codex · ChatGPT</b></div>
+                <div class="bx-tb">
+                  <div data-k="tg1" class="bx-sf">reading request…</div>
+                  <div data-k="tg2"><span class="bx-pr">$</span> grep "datetime.now" tests/</div>
+                  <div data-k="tg3" class="bx-sf">read-only, no edits</div>
+                  <div data-k="tg4">answer written</div>
+                </div>
+              </div>
+            </div>
+            <div class="bx-file">
+              <div class="bx-fh"><b>data/requests/4aac….json</b><span class="bx-live" data-k="live">writing…</span></div>
+              <div class="bx-code">
+                <div class="bx-ln" data-k="f0"><span class="bx-p">{</span></div>
+                <div class="bx-ln" data-k="f1">  <span class="bx-k">"id"</span><span class="bx-p">:</span> "4aac…"<span class="bx-p">,</span></div>
+                <div class="bx-ln" data-k="f2">  <span class="bx-k">"sender"</span><span class="bx-p">:</span> "claude"<span class="bx-p">,</span></div>
+                <div class="bx-ln" data-k="f3">  <span class="bx-k">"recipient"</span><span class="bx-p">:</span> "chatgpt"<span class="bx-p">,</span></div>
+                <div class="bx-ln" data-k="f4">  <span class="bx-k">"question"</span><span class="bx-p">:</span> "A test passes on my PC but fails on GitHub…"<span class="bx-p">,</span></div>
+                <div class="bx-ln" data-k="f5">  <span class="bx-k">"status"</span><span class="bx-p">:</span> "<span class="bx-u bx-st" data-k="st" data-s="queued">queued</span>"<span class="bx-p">,</span></div>
+                <div class="bx-ln bx-ans" data-k="f6">  <span class="bx-k">"answer"</span><span class="bx-p">:</span> "It depends on the time zone. GitHub runs in UTC…"</div>
+                <div class="bx-ln" data-k="f7"><span class="bx-p">}</span></div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="cap">
@@ -272,8 +290,9 @@
 
 <footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><span data-i="ft2">Designed and built by me.</span></div></footer>
 
-<script src="../assets/i18n.js?v=9"></script>
-<script src="../assets/site.js?v=5"></script>
+<script src="../assets/i18n.js?v=11"></script>
+<script src="../assets/site.js?v=6"></script>
+<script src="../assets/bridge.js?v=2"></script>
 <script data-goatcounter="https://saeedsabzeh123.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

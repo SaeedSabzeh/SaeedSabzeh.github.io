@@ -255,8 +255,97 @@
     hero.addEventListener('pointermove',near,{passive:true});
     hero.addEventListener('pointerdown',near,{passive:true});
     if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting},{threshold:0}).observe(hero);
-    // one unprompted spark now and then, so it is alive on phones too
-    setInterval(function(){if(visible&&!document.hidden&&nodes.length)fire(nodes[Math.floor(Math.random()*nodes.length)],performance.now())},5200);
+    // unprompted sparks at random moments (sometimes two), so it is alive on phones too
+    var rnd=function(){return nodes[Math.floor(Math.random()*nodes.length)]};
+    (function idle(){
+      setTimeout(function(){
+        if(visible&&!document.hidden&&nodes.length){
+          var a=rnd();fire(a,performance.now());
+          if(Math.random()<.3)setTimeout(function(){
+            if(!(visible&&!document.hidden&&nodes.length))return;
+            var b=rnd(),k=0;while(b===a&&nodes.length>1&&k++<8)b=rnd();
+            fire(b,performance.now());
+          },250+Math.random()*350);
+        }
+        idle();
+      },900+Math.random()*1700);
+    })();
+  })();
+
+  // ---- animation ideas: each block below can be removed on its own ----
+
+  // Recognition: highlight the project you arrived at (projects page, via #id)
+  (function(){
+    if(!document.querySelector('.plate[id]'))return;
+    function mark(){
+      var id='';try{id=decodeURIComponent(location.hash.slice(1))}catch(e){}
+      [].forEach.call(document.querySelectorAll('.plate.recog'),function(p){p.classList.remove('recog')});
+      var el=id&&document.getElementById(id);
+      if(!el||!el.classList.contains('plate'))return;
+      void el.offsetWidth;
+      el.classList.add('recog');
+      el.addEventListener('animationend',function f(e){if(e.animationName==='rc-recog'){el.classList.remove('recog');el.removeEventListener('animationend',f)}});
+    }
+    addEventListener('hashchange',mark);
+    if(document.readyState==='complete')mark();else addEventListener('load',mark);
+  })();
+
+  // Page dissolve: fade through the paper colour between Home and Projects (fallback for browsers without @view-transition)
+  (function(){
+    if('CSSViewTransitionRule' in window||calm.matches)return;
+    var norm=function(p){return p.replace(/index\.html$/,'')};
+    var here=norm(location.pathname),base=here.replace(/projects\/$/,'');
+    try{if(sessionStorage.getItem('pdNav')){sessionStorage.removeItem('pdNav');root.classList.add('pd-in');setTimeout(function(){root.classList.remove('pd-in')},400)}}catch(e){}
+    addEventListener('pageshow',function(e){if(e.persisted)root.classList.remove('pd-out')});
+    document.addEventListener('click',function(e){
+      if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+      var a=e.target.closest&&e.target.closest('a[href]');
+      if(!a||(a.target&&a.target!=='_self')||a.hasAttribute('download'))return;
+      var u;try{u=new URL(a.href,location.href)}catch(x){return}
+      if(u.origin!==location.origin)return;
+      var to=norm(u.pathname);
+      if(to===here||(to!==base&&to!==base+'projects/'))return;
+      e.preventDefault();
+      try{sessionStorage.setItem('pdNav','1')}catch(x){}
+      root.classList.add('pd-out');
+      setTimeout(function(){location.href=u.href},250);
+      // if the navigation is stopped or slow and this page is still here, show it again
+      setTimeout(function(){root.classList.remove('pd-out');try{sessionStorage.removeItem('pdNav')}catch(x){}},3000);
+    });
+  })();
+
+  // Hero question: wash, then underline, on "how minds work" (the span is in the hero text in all three languages)
+  (function(){
+    var hero=document.querySelector('section.hero');
+    if(!hero||!hero.querySelector('.mind-q')||calm.matches)return;
+    var done=false;
+    function ready(){return !root.classList.contains('sk-on')||hero.classList.contains('sk-settled')}
+    function go(){
+      if(done||!ready())return;
+      done=true;
+      root.classList.remove('mq-wait');root.classList.add('mq-play');
+      setTimeout(function(){root.classList.remove('mq-play')},2400);
+    }
+    if(ready())return;
+    root.classList.add('mq-wait');
+    new MutationObserver(go).observe(hero,{attributes:true,attributeFilter:['class']});
+    new MutationObserver(go).observe(root,{attributes:true,attributeFilter:['class']});
+  })();
+
+  // A year with room: the date of "A year back home" deepens to crimson once
+  (function(){
+    var li=document.querySelector('#about .edu li.year-room');
+    if(!li)return;
+    if(calm.matches){li.classList.add('room-on');return}
+    var inView=false,done=false;
+    function check(){
+      if(done||!inView)return;
+      if(!root.classList.contains('sk-on')||li.classList.contains('sk-settled')){done=true;li.classList.add('room-on')}
+    }
+    new MutationObserver(check).observe(li,{attributes:true,attributeFilter:['class']});
+    new MutationObserver(check).observe(root,{attributes:true,attributeFilter:['class']});
+    if('IntersectionObserver' in window)new IntersectionObserver(function(es){if(es[0].isIntersecting){inView=true;check()}},{threshold:.5}).observe(li);
+    else{inView=true;check()}
   })();
 
   // Story thread (fills as you scroll) and a one-time fade-up of timeline entries and project cards
