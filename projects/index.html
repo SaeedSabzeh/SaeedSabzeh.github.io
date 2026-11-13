@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Markazi+Text:wght@400..700&family=Source+Sans+3:wght@400..700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=6">
+<link rel="stylesheet" href="../assets/site.css?v=7">
 </head>
 <body>
 <header class="top">
@@ -108,7 +108,7 @@
       </article>
 
       <article class="plate p-ml p-bridge" id="ai-bridge">
-        <div class="vis" role="img" aria-label="A sample conversation where Claude asks ChatGPT to review code and check a Persian sentence" data-i-aria-label="abAlt">
+        <div class="vis" role="img" aria-label="A sample conversation where Claude asks ChatGPT about a failing test and a Persian sentence" data-i-aria-label="abAlt">
           <div class="brflow" dir="ltr" aria-hidden="true">
             <span class="brn brn-c">Claude</span>
             <span class="brarrow"><i></i></span>
@@ -118,14 +118,14 @@
           </div>
           <div class="qa" aria-hidden="true">
             <div class="who c">Claude</div>
-            <div class="me" data-i="abQ1">Before I commit, can you check git diff for bugs?</div>
-            <div class="call"><span>git diff <em>&rarr; read-only</em></span></div>
+            <div class="me" data-i="abQ1">A test passes on my PC but fails on GitHub. Any idea?</div>
+            <div class="call"><span>grep "datetime.now" tests/ <em>&rarr; read-only</em></span></div>
             <div class="who g">ChatGPT</div>
-            <div class="bot"><span data-i="abA1">One thing: the counter script is added twice on the projects page. The rest looks fine.</span></div>
+            <div class="bot"><span data-i="abA1">It depends on the time zone. GitHub runs in UTC and your PC doesn't.</span></div>
             <div class="who c">Claude</div>
-            <div class="me" data-i="abQ2">Does this Persian sound natural? <bdi lang="fa">«من مدیتیشن را شروع کردم»</bdi></div>
+            <div class="me" data-i="abQ2">Does this Persian sound natural? <bdi lang="fa">«آیا می‌توانم به شما کمک کنم؟»</bdi></div>
             <div class="who g">ChatGPT</div>
-            <div class="bot"><span data-i="abA2">It's correct, but too formal for your site. Say <bdi lang="fa">«شروع کردم به مدیتیشن»</bdi>.</span></div>
+            <div class="bot"><span data-i="abA2">It's correct, but stiff. Say <bdi lang="fa">«کمکی از دستم برمیاد؟»</bdi></span></div>
           </div>
         </div>
         <div class="cap">
@@ -272,7 +272,7 @@
 
 <footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><span data-i="ft2">Designed and built by me.</span></div></footer>
 
-<script src="../assets/i18n.js?v=7"></script>
+<script src="../assets/i18n.js?v=9"></script>
 <script src="../assets/site.js?v=5"></script>
 <script data-goatcounter="https://saeedsabzeh123.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
