@@ -1,0 +1,34 @@
+/* Homepage only: the spark that follows the scroll down the page, and the wololo colour wave. */
+main{position:relative}
+.thread{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.thread path{fill:none;stroke-linejoin:miter;stroke-linecap:butt}
+.thread .acc{stroke:var(--accent);stroke-width:1.5}
+/* the timeline keeps its own fill and dots from site.css; the spark just runs over them */
+.thread .end{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4);transition:opacity .35s,transform .35s}
+.thread .end.on{opacity:1;transform:none}
+/* spark at the head */
+.thread .spark{transition:opacity .4s}
+.thread.done .spark,.thread.still .spark{opacity:0}
+.thread.still .spark{display:none}
+.thread .sp{transform-origin:0 0;transition:transform .25s}
+.thread .core{fill:var(--accent)}
+.thread .halo{fill:var(--accent);opacity:.25;transform-box:fill-box;transform-origin:center;animation:thread-pulse 2.4s ease-in-out infinite}
+.thread.run .sp{transform:scale(1.4)}
+.thread.run .halo{animation:none;opacity:.42}
+@keyframes thread-pulse{50%{transform:scale(1.35);opacity:.12}}
+@media (prefers-reduced-motion:reduce){
+  .thread .halo{animation:none}
+  .thread .sp,.thread .end{transition:none}
+}
+
+/* Wololo wave: the new colours are revealed as a circle growing from where it was triggered.
+   Scoped to .wololo-wave so the language-switch transition in site.css is untouched. */
+@media (prefers-reduced-motion:no-preference){
+  .wololo-wave::view-transition-old(root){animation:none;mix-blend-mode:normal}
+  .wololo-wave::view-transition-new(root){animation:wololo-wave .9s cubic-bezier(.3,.6,.2,1) both;mix-blend-mode:normal}
+  .wololo-wave::view-transition-group(langs){animation:none}
+}
+@keyframes wololo-wave{
+  from{clip-path:circle(0 at var(--wx) var(--wy))}
+  to{clip-path:circle(var(--wr) at var(--wx) var(--wy))}
+}

@@ -123,7 +123,8 @@ fa: {
   "tg3": "فرانت‌اند",
   "tg4": "یادگیری ماشین",
   "tg5": "تست و انتشار",
-  "cH": "یه سلامی بکنید.",
+  "cH": "برام بنویسید.",
+  "mtNow": "الان توی میلان ساعت {t} هست.",
   "cNote": "دربارهٔ هر چیزی می‌تونید برام بنویسید: یه پروژه، یه سؤال، یا فقط برای سلام و احوال‌پرسی. کار فریلنس هم قبول می‌کنم، مثل ساخت سایت، ربات تلگرام و چت‌بات هوش مصنوعی. می‌تونید مستقیم پیام بدید یا توی <a href=\"https://www.fiverr.com/saeedsabzeh\" target=\"_blank\" rel=\"noopener\">Fiverr</a> پیدام کنید.",
   "cCoup": "کودتا رو توی تلگرام بازی کنید",
   "ft1": "سعید سبزه، میلان",
@@ -146,7 +147,7 @@ fa: {
   "projH": "چیزایی که ساختم",
   "projP": "نسخهٔ مفصل‌تر، با جزئیات فنی.",
   "pageTitleProjects": "ساخته‌هام · سعید سبزه",
-  "projClose": "دوست دارید دربارهٔ یکی از این‌ها حرف بزنیم؟ <a href=\"../#contact\">یه سلامی بکنید.</a>"
+  "projClose": "دوست دارید دربارهٔ یکی از این‌ها حرف بزنیم؟ <a href=\"../#contact\">برام بنویسید.</a>"
 },
 it: {
   "wololoHint": "Hai giocato ad Age of Empires? Digita «wololo» o tocca qui.",
@@ -260,6 +261,7 @@ it: {
   "tg1": "Sistemi LLM",
   "tg5": "Test e rilascio",
   "cH": "Fatti sentire.",
+  "mtNow": "A Milano sono le {t}.",
   "cNote": "Scrivimi pure per un progetto, una domanda o anche solo per un saluto. Lavoro anche come freelance: realizzo siti web, bot Telegram e chatbot con IA. Puoi scrivermi direttamente oppure trovarmi su <a href=\"https://www.fiverr.com/saeedsabzeh\" target=\"_blank\" rel=\"noopener\">Fiverr</a>.",
   "cCoup": "Gioca a Coup su Telegram",
   "ft1": "Saeed Sabzeh, Milano",
