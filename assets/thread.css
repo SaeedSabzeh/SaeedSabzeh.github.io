@@ -2,7 +2,9 @@
 main{position:relative}
 .thread{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
 .thread path{fill:none;stroke-linejoin:miter;stroke-linecap:butt}
-.thread .acc{stroke:var(--accent);stroke-width:1.5}
+.thread .acc{stroke:var(--accent);stroke-width:1.5;transition:opacity .35s}
+/* beside the project plates the line and its spark fade out (thread.js sets .quiet) */
+.thread.quiet .acc,.thread.quiet .spark{opacity:0}
 /* the timeline keeps its own fill and dots from site.css; the spark just runs over them */
 .thread .end{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4);transition:opacity .35s,transform .35s}
 .thread .end.on{opacity:1;transform:none}

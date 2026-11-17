@@ -38,7 +38,7 @@ html.rm .bx *,html.rm .bx *::before,html.rm .bx *::after{transition:none!importa
 .bx-ans{color:#FFC4D1}
 
 /* ===== second voice (homepage) ===== */
-.bx4{display:flex;flex-direction:column;justify-content:center;gap:30px;min-height:300px;padding:26px 22px 22px}
+.bx4{--sz:clamp(20px,5.8vw,28px);display:flex;flex-direction:column;justify-content:center;gap:22px;min-height:360px;padding:24px 20px 18px}
 .bx-top{display:flex;align-items:flex-start;gap:8px}
 .bx-wire{position:relative;flex:1;height:0;margin-top:17px;border-top:1px dashed rgba(169,169,181,.4)}
 .bx-dot{position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--hot);box-shadow:0 0 8px var(--hot);opacity:0}
@@ -53,21 +53,61 @@ html.rm .bx *,html.rm .bx *::before,html.rm .bx *::after{transition:none!importa
 .bx-mk span{font:10px/1 var(--bxmono);color:var(--plate-soft)}
 .bx-mk.lit{opacity:1}
 .bx-mk.lit b{box-shadow:0 0 0 6px rgba(255,130,158,.14)}
-.bx-mid{display:grid;min-width:0}
-.bx-sent{grid-area:1/1;direction:rtl;text-align:center;white-space:nowrap;font-family:'Vazirmatn',var(--body);font-size:clamp(18px,5.2vw,28px);line-height:1.9;transition:opacity .5s}
+.bx-mid{display:flex;flex-direction:column;gap:2px;min-width:0}
+/* both lines are always there (the new one just waits), so nothing moves when it appears */
+.bx-sent{direction:rtl;text-align:center;white-space:nowrap;font-family:'Vazirmatn',var(--body);font-size:var(--sz);line-height:1.9;transition:opacity .5s,color .5s}
+.bx-old{font-size:calc(var(--sz)*.78)}
 .bx-run{position:relative;display:inline-block}
 .bx-run::after{content:"";position:absolute;right:0;bottom:.18em;width:100%;height:2px;background:var(--hot);transform:scaleX(0);transform-origin:right;transition:transform 1.2s ease}
 .bx-run.ul::after{transform:scaleX(1)}
 .bx-old.strike .bx-run{color:var(--plate-soft);text-decoration:line-through;text-decoration-color:var(--hot);text-decoration-thickness:2px}
-.bx-old.out{opacity:0}
+.bx-old.out{opacity:.42} /* the old line stays, dimmer, like an earlier message */
 .bx-wd{display:inline-block;margin:0 .14em}
 .bx-new .bx-wd{opacity:0;transform:translateY(5px);color:#FFC4D1;transition:opacity .45s ease,transform .45s ease}
 .bx-new .bx-wd.on{opacity:1;transform:none}
-.bx-lbls{display:flex;flex-direction:column;gap:8px;min-height:56px;font:12.5px/1.4 var(--mono);color:var(--plate-soft)}
+.bx-lbls{display:flex;flex-direction:column;gap:8px;min-height:60px;font:13.5px/1.4 var(--mono);color:var(--plate-soft)}
 .bx-lbls p{display:flex;align-items:baseline;gap:8px}
 .bx-lbls span{unicode-bidi:plaintext;text-align:start}
 html[lang="fa"] .bx-lbls span{font-family:'Vazirmatn',var(--mono)}
 .bx-lbls i{flex:none;width:8px;height:8px;border-radius:50%;background:#9A1736}
 .bx-l2{color:var(--plate-fg);justify-content:flex-end}
 .bx-l2 i{order:2;background:#8a8a96}
-@media (max-width:560px){.bx3{padding:20px 14px}.bx4{padding:22px 14px 18px}}
+.bx-fd.on.dim{opacity:.5}
+/* bottom edge: five step dots and a quiet "tap to step" label */
+.bx-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid rgba(245,245,247,.1);font:11px/1.3 var(--mono);letter-spacing:.03em;color:var(--plate-soft)}
+html[lang="fa"] .bx-tap{font-family:'Vazirmatn',var(--mono)}
+.bx-dots{display:flex;flex:none;gap:6px}
+.bx-dots i{width:14px;height:3px;background:rgba(245,245,247,.25);transition:width .3s,background .3s}
+.bx-dots i.on{background:var(--hot)}
+.bx-dots i.cur{width:26px}
+.p-bridge-s .vis{cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+:root:root .p-bridge-s .vis:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (max-width:560px){.bx3{padding:20px 14px}.bx4{padding:24px 14px 16px}}
+
+/* ===== round 2 polish ===== */
+/* JSON panel (projects): the panel stretches to the card height, so the demo fills it and grows on wide screens */
+.p-bridge .vis{align-items:stretch}
+.bx3{flex:1;justify-content:space-between}
+.bx-terms{flex:1}
+.bx-term{display:flex;flex-direction:column}
+.bx-tb{flex:1}
+@media (min-width:901px){
+  .bx3{gap:16px;padding:30px 28px}
+  .bx-terms{gap:14px}
+  .bx-thd{padding:9px 12px;font-size:13px}
+  .bx-thd i{width:8px;height:8px}
+  .bx-tb{padding:12px 14px;font-size:14.5px;line-height:1.65}
+  .bx-fh{padding:9px 14px;font-size:13px}
+  .bx-code{padding:14px 16px;font-size:14.5px;line-height:1.7}
+}
+/* homepage: ghost rows keep the two log lines' places filled before they appear */
+.bx-lbls .bx-fd{opacity:1}
+.bx-lbls p:not(.on) span{color:transparent;background:rgba(245,245,247,.08);border-radius:2px;height:.7em;align-self:center}
+.bx-lbls p:not(.on) i{opacity:.35}
+.bx-lbls span,.bx-lbls i{transition:color .4s,background-color .4s,opacity .4s}
+.bx-new .bx-wd{opacity:1;color:transparent;background:linear-gradient(rgba(245,245,247,.07),rgba(245,245,247,.07)) 0 55%/100% .5em no-repeat;transition:color .45s ease,transform .45s ease,background-size .45s ease}
+.bx-new .bx-wd.on{color:#FFC4D1;background-size:100% 0}
+/* step 2 leaves a lasting mark: the wire turns solid pink and the receiving avatar keeps a ring */
+.bx-wire{transition:border-color .4s}
+.bx-wire.sent{border-top-style:solid;border-top-color:rgba(255,130,158,.7)}
+.bx-mk.lit b{box-shadow:0 0 0 3px rgba(255,130,158,.55),0 0 14px rgba(255,130,158,.3)}

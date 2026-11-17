@@ -23,11 +23,13 @@
     root.classList.add('wololo-wave');
     var t=document.startViewTransition(flip);
     t.finished.then(done,done);
+    // skipped or aborted transitions reject these promises; nothing needs to react
+    t.ready.catch(function(){});t.updateCallbackDone.catch(function(){});
   };
 
   // ---- the thread ----
   if(!main||!window.SVGPathElement||!SVGPathElement.prototype.getPointAtLength)return;
-  var svg,acc,sp,endSq,marks=[],pts=[],cum=[],total=0,top=0,cur=0,target=0,raf=0,last=0,rt=0;
+  var svg,acc,sp,endSq,quiet=null,marks=[],pts=[],cum=[],total=0,top=0,cur=0,target=0,raf=0,last=0,rt=0;
   function el(tag,cls,at){var e=document.createElementNS(NS,tag);if(cls)e.setAttribute('class',cls);for(var k in at)e.setAttribute(k,at[k]);return e}
 
   // Measure the route in px relative to <main>. Everything is derived from rects and the page direction, so it mirrors in Persian.
@@ -52,6 +54,10 @@
     var rg=document.createRange();rg.selectNodeContents(h);
     var hb=h.getBoundingClientRect(),tr=rg.getBoundingClientRect();if(!tr.width)tr=hb;
     var ex=rtl?tr.left:tr.right,ey=hb.bottom+10;
+    // the heading already has its own short accent bar under it (.hello-wrap::after): end the thread on that bar
+    // instead of drawing a second underline just above it
+    var hw=h.parentNode,wr0=hw.getBoundingClientRect(),bw=parseFloat(getComputedStyle(hw,'::after').width)||0;
+    if(bw&&wr0.height){ex=rtl?wr0.right-bw:wr0.left+bw;ey=wr0.bottom-1.5}
     var P=[[cx,cy],[gx,cy],[gx,er.top+.5],[tx,er.top+.5],[tx,er.bottom-.5],[gx,er.bottom-.5],[gx,ey],[ex,ey]]
       .map(function(p){return [p[0]-mr.left,p[1]-mr.top]});
     var ys=[].slice.call(document.querySelectorAll('#work .plate')).map(function(p){
@@ -60,7 +66,11 @@
       var off=root.classList.contains('js-anim')&&!p.classList.contains('in')?14:0;
       return t.getBoundingClientRect().top+6-off-mr.top;
     }).filter(function(y){return y!==null});
-    return {P:P,ys:ys,gx:gx-mr.left,top:mr.top+scrollY};
+    // beside the project plates the line would float on its own in the gutter: it fades out just under the
+    // "Things I've built" heading and comes back just above "Say hi"
+    var wh=q('#work .sec-head'),wr=wh&&wh.getBoundingClientRect();
+    var quiet=wr?[wr.bottom+24-mr.top,hb.top-60-mr.top]:null;
+    return {P:P,ys:ys,gx:gx-mr.left,top:mr.top+scrollY,quiet:quiet};
   }
   // point at a length along the route (only horizontal and vertical segments)
   function at(l){
@@ -95,6 +105,7 @@
     var p=at(cur),done=cur>=total-.5;
     sp.setAttribute('transform','translate('+p.x.toFixed(1)+' '+p.y.toFixed(1)+')');
     marks.forEach(function(m){m.e.classList.toggle('on',p.y>=m.y-.5)});
+    svg.classList.toggle('quiet',!!(quiet&&quiet[1]>quiet[0]&&p.y>quiet[0]&&p.y<quiet[1]));
     endSq.classList.toggle('on',done);svg.classList.toggle('done',done);
   }
   // ease the head towards the goal; frames run only while it is travelling
@@ -119,7 +130,7 @@
     var y0=svg&&total?top+at(cur).y:null; // where the head is on the page, to keep it there after the layout changed
     pts=g.P;cum=[0];
     for(var i=1;i<pts.length;i++)cum.push(cum[i-1]+Math.abs(pts[i][0]-pts[i-1][0])+Math.abs(pts[i][1]-pts[i-1][1]));
-    total=cum[cum.length-1];top=g.top;
+    total=cum[cum.length-1];top=g.top;quiet=g.quiet;
     var d='M'+pts.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join('L');
     if(!svg){svg=el('svg','thread',{'aria-hidden':'true'});main.insertBefore(svg,main.firstChild)}
     svg.textContent='';

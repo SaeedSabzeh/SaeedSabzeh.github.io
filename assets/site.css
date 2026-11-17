@@ -12,6 +12,7 @@
   --plate-fg:#F5F5F7;
   --plate-soft:#A9A9B5;
   --hot:#FF829E;        /* accent on dark grounds */
+  --bx-frame:none;--bx-in:transparent;--bx-p0:inset 0 0 0 3px rgba(255,92,138,.8);--bx-p1:inset 0 0 0 0 rgba(255,92,138,0); /* AI Bridge frame: plain on light, pink glow on dark */
   --display:'Bodoni Moda','Times New Roman',serif;
   --body:'Source Sans 3',system-ui,-apple-system,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
@@ -21,10 +22,10 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#17171B;--paper-2:#232329;--ink:#F5F5F7;--ink-soft:#B7B7C3;--accent:#FF829E;--line:#3A3A43;
-  --plate:#0E0E11;--plate-2:#24242B;color-scheme:dark}}
+  --plate:#0E0E11;--plate-2:#24242B;--bx-frame:0 0 0 1px rgba(255,130,158,.3),0 40px 80px -40px rgba(0,0,0,.85),0 0 70px -24px rgba(224,64,122,.35);--bx-in:rgba(255,130,158,.18);--bx-p0:0 0 0 0 rgba(255,92,138,.7);--bx-p1:0 0 0 22px rgba(255,92,138,0);color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#17171B;--paper-2:#232329;--ink:#F5F5F7;--ink-soft:#B7B7C3;--accent:#FF829E;--line:#3A3A43;
-  --plate:#0E0E11;--plate-2:#24242B;color-scheme:dark}
+  --plate:#0E0E11;--plate-2:#24242B;--bx-frame:0 0 0 1px rgba(255,130,158,.3),0 40px 80px -40px rgba(0,0,0,.85),0 0 70px -24px rgba(224,64,122,.35);--bx-in:rgba(255,130,158,.18);--bx-p0:0 0 0 0 rgba(255,92,138,.7);--bx-p1:0 0 0 22px rgba(255,92,138,0);color-scheme:dark}
 
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -294,7 +295,7 @@ html[lang="fa"] .intro b{font-weight:700}
 html[lang="fa"] .tools dt{text-transform:none;font-size:14px}
 html[lang="fa"] .chip,html[lang="fa"] .facts div,html[lang="fa"] .qfacts div{font-size:14px}
 .strip-lbl,.mail a{direction:ltr}
-html[lang="fa"] .mail a{text-align:left}
+html[lang="fa"] .mail a{text-align:right}
 .chat .m,.qa .me,.qa .bot>span{unicode-bidi:plaintext}
 
 /* ---------- responsive ---------- */
@@ -313,7 +314,7 @@ html[lang="fa"] .mail a{text-align:left}
 }
 /* phones: small portrait beside the name, everything else full width below */
 @media (max-width:640px){
-  .hero{padding-block:22px 52px}
+  .hero{padding-block:22px 48px}
   .hero .wrap{grid-template-columns:minmax(0,1fr) clamp(88px,27vw,128px);gap:0 18px;align-items:start}
   .hero .wrap>div{display:contents}
   .name{grid-column:1;grid-row:1;font-size:clamp(46px,15vw,84px);align-self:center}
@@ -346,7 +347,7 @@ html[lang="fa"] .mail a{text-align:left}
 /* language switch: the page cross-fades with a slight lift, the switcher itself stays put */
 @media (prefers-reduced-motion:no-preference){
   ::view-transition-old(root){animation:lang-out .22s ease-in both}
-  ::view-transition-new(root){animation:lang-in .42s cubic-bezier(.2,.7,.2,1) .08s both}
+  ::view-transition-new(root){animation:lang-in .25s cubic-bezier(.2,.7,.2,1) both}
   ::view-transition-old(langs){display:none}
   ::view-transition-new(langs){animation:none}
   ::view-transition-group(langs){animation-duration:.45s}
@@ -354,7 +355,7 @@ html[lang="fa"] .mail a{text-align:left}
   .lang-swap main,.lang-swap footer{opacity:0;transform:translateY(6px)}
 }
 @keyframes lang-out{to{opacity:0}}
-@keyframes lang-in{from{opacity:0;transform:translateY(8px)}}
+@keyframes lang-in{from{opacity:.6;transform:translateY(8px)}}
 
 /* ---------- tap targets, readable email, phone project layout (later rules win) ---------- */
 /* bigger tap targets (all widths) */
@@ -410,8 +411,8 @@ html[lang="fa"] .mail a{text-align:left}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.25s;animation-timing-function:ease}
 @media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}}
 html.pd-out main,html.pd-out header.top,html.pd-out footer{opacity:0;transition:opacity .25s ease}
-html.pd-in main,html.pd-in header.top,html.pd-in footer{animation:pd-in .3s ease both}
-@keyframes pd-in{from{opacity:0}to{opacity:1}}
+html.pd-in main,html.pd-in header.top,html.pd-in footer{animation:pd-in .25s ease both}
+@keyframes pd-in{from{opacity:.6}to{opacity:1}}
 
 /* Hero question: a pale wash behind "how minds work", then a fine underline that stays */
 .mind-q{position:relative;z-index:0;background:linear-gradient(var(--accent),var(--accent)) 0 100%/100% 1px no-repeat}
@@ -470,6 +471,9 @@ html[dir="rtl"] .mind{-webkit-mask-image:linear-gradient(260deg,rgba(0,0,0,.28),
 .js-thread .edu li{position:relative}
 .js-thread .edu li::before{content:"";position:absolute;top:30px;inset-inline-start:118px;width:9px;height:9px;background:var(--paper);border:2px solid var(--line);z-index:1;transition:background .35s,border-color .35s}
 .js-thread .edu li.seen::before{background:var(--accent);border-color:var(--accent)}
+.js-thread .edu li.dot-lit::before{animation:dot-pop .9s cubic-bezier(.2,.7,.2,1)}
+@keyframes dot-pop{0%{transform:scale(1);box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}35%{transform:scale(1.9);box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 22%,transparent)}100%{transform:scale(1);box-shadow:0 0 0 14px transparent}}
+@media (prefers-reduced-motion:reduce){.js-thread .edu li.dot-lit::before{animation:none}}
 @media (max-width:560px){
   .js-thread .edu::before,.js-thread .edu::after{inset-inline-start:4px}
   .js-thread .edu li{padding-inline-start:26px}
@@ -484,7 +488,7 @@ html[dir="rtl"] .mind{-webkit-mask-image:linear-gradient(260deg,rgba(0,0,0,.28),
 @media (prefers-color-scheme:dark){:root.wololo:not([data-theme="light"]){--accent:#8FBEFF}}
 :root.wololo[data-theme="dark"]{--accent:#8FBEFF}
 .egg{font:inherit;color:inherit;background:none;border:0;padding:12px 0;margin:-12px 0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;text-align:inherit}
-.egg:hover{color:var(--accent)}
+@media (hover:hover){.egg:hover{color:var(--accent)}}
 .wololo-toast{position:fixed;left:50%;bottom:max(22px,env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);opacity:0;pointer-events:none;z-index:20;
   background:var(--ink);color:var(--paper);font:600 15px/1.3 var(--body);padding:11px 18px;width:max-content;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s,transform .3s}
 .wololo-toast.on{opacity:1;transform:translate(-50%,0)}
@@ -526,3 +530,410 @@ html[lang="fa"] .now{font-size:14px}
 }
 /* narrowest phones: squeeze the header so it stays on one line (must stay last) */
 @media (max-width:420px){.top .wrap{gap:8px}.toplinks{gap:2px}.toplinks > a.keep{padding:7px 4px}.toplinks a.hire{padding:7px 9px}.langs{margin-inline-start:2px}.langs button{min-width:30px;padding:5px 4px}.theme{width:34px}}
+
+/* ======== round 2: lightbox, image loading, hover states, phone cue, desktop layout ======== */
+
+/* ---- lightbox (built by site.js) ---- */
+.plate .vis img.zoomable{cursor:zoom-in}
+.lb-open{overflow:hidden}
+.lb{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:clamp(56px,8vh,80px) clamp(12px,6vw,88px);background:rgba(8,8,10,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);touch-action:pan-y;opacity:0;transition:opacity .25s ease}
+.lb[hidden]{display:none}
+.lb-img{grid-area:1/1}
+.lb-old{pointer-events:none;z-index:0}
+.lb-in{animation:lb-in .3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes lb-in{from{opacity:0;transform:translateX(var(--dx,0))}to{opacity:1;transform:none}}
+@keyframes lb-out{to{opacity:0;transform:translateX(var(--dx,0))}}
+.lb.on{opacity:1}
+.lb-img{max-width:100%;max-height:calc(100vh - 150px);width:auto;height:auto;object-fit:contain;background:#19191D;box-shadow:0 30px 80px -30px rgba(0,0,0,.9);cursor:default}
+.lb-btn{position:absolute;display:grid;place-items:center;width:48px;height:48px;padding:0;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(25,25,29,.8);color:#F5F5F7;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.lb-btn:hover{background:var(--accent);border-color:var(--accent)}
+.lb-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.lb-close{top:max(12px,env(safe-area-inset-top,0px));inset-inline-end:max(12px,env(safe-area-inset-right,0px))}
+.lb-prev,.lb-next{top:50%;margin-top:-24px}
+.lb-prev{inset-inline-start:max(10px,env(safe-area-inset-left,0px))}
+.lb-next{inset-inline-end:max(10px,env(safe-area-inset-right,0px))}
+html[dir="rtl"] .lb-prev svg,html[dir="rtl"] .lb-next svg{transform:scaleX(-1)}
+.lb-count{position:absolute;bottom:max(16px,env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font:13px/1 var(--mono);color:rgba(245,245,247,.75);letter-spacing:.08em}
+@media (max-width:640px){.lb{padding:64px 10px}.lb-img{max-height:calc(100vh - 150px)}.lb-prev,.lb-next{top:auto;bottom:12px;margin:0}.lb-prev{inset-inline-start:20%}.lb-next{inset-inline-end:20%}.lb-count{display:none}}
+@media (prefers-reduced-motion:reduce){.lb{transition:none}.lb-in,.lb-old{animation:none!important}}
+
+/* ---- images: dark shimmer while loading, then fade in (classes set by site.js) ---- */
+img.ld{color:transparent;background:linear-gradient(100deg,#222228 30%,#34343c 50%,#222228 70%) 0 0/250% 100%;animation:ld-shimmer 1.4s linear infinite}
+img.ld-in{animation:ld-in .4s ease both}
+@keyframes ld-in{from{opacity:0}to{opacity:1}}
+@keyframes ld-shimmer{from{background-position:100% 0}to{background-position:-50% 0}}
+@media (prefers-reduced-motion:reduce){img.ld{animation:none}img.ld-in{animation:none}}
+
+/* ---- hover and focus: accent underline sweep on links, soft 2px lift on buttons ---- */
+.go,.repo-all{background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 2px no-repeat;transition:color .2s,background-size .3s}
+html[dir="rtl"] .go,html[dir="rtl"] .repo-all{background-position:100% 100%}
+.go:hover,.go:focus-visible{background-size:100% 2px}
+.cnote a,.closing a{transition:color .2s,text-decoration-color .2s}
+.cnote a:hover{color:var(--accent)}
+.hero-cta a,.btn,.links a,.toplinks a.hire,.theme{transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
+@media (hover:hover){
+  .hero-cta a:hover,.btn:hover,.links a:hover,.toplinks a.hire:hover,.theme:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px color-mix(in srgb,var(--ink) 55%,transparent)}
+  .theme:hover{color:var(--accent);border-color:var(--accent)}
+  .qdots button:hover::after{background:var(--hot)}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;box-shadow:0 0 0 5px color-mix(in srgb,var(--paper) 80%,transparent)}
+.lb :focus-visible{box-shadow:none}
+@media (prefers-reduced-motion:reduce){
+  .hero-cta a:hover,.btn:hover,.links a:hover,.toplinks a.hire:hover,.theme:hover{transform:none}
+}
+
+/* ---- phones: dots under the Coup strip show there is a second screen (site.js sets --i) ---- */
+.p-coup::after{display:none}
+@media (max-width:640px){
+  .p-coup::after{display:block;content:"";order:0;align-self:center;width:64px;height:8px;margin-top:16px;direction:ltr;
+    background:radial-gradient(circle,var(--accent) 3.5px,transparent 4px) calc(var(--i,0)*16px) 0/16px 8px no-repeat,
+               radial-gradient(circle,var(--line) 3px,transparent 3.5px) 0 0/16px 8px repeat-x;transition:background-position .25s}
+  html[dir="rtl"] .p-coup::after{transform:scaleX(-1)}
+}
+
+/* ---- desktop: use the empty right half of the story, put "Say hi" at the top of its row ---- */
+@media (min-width:901px){
+  .about .edu{max-width:none}
+  .about .edu p,.edu p{max-width:80ch;font-size:17px}
+  .edu li{grid-template-columns:118px minmax(0,1fr)}
+  .contact .wrap{align-items:start}
+}
+
+/* ======== round 3: hero portrait card, Say hi balance, Persian name weight, phone thread ======== */
+/* portrait: a slightly tilted card with a soft shadow and a tinted sheet behind it (no flat outlined rectangle) */
+.arch{isolation:isolate}
+.arch::before{content:"";position:absolute;inset:-2% -5% -4% 4%;z-index:-1;border-radius:10px;background:linear-gradient(150deg,var(--accent),transparent 80%);opacity:.22;transform:rotate(-4deg)}
+.arch .frame{position:relative;outline:0;border-radius:8px;transform:rotate(2deg);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 26px 50px -24px rgba(0,0,0,.5),0 6px 16px -8px rgba(0,0,0,.28);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.arch .frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,var(--accent),#1b1b2f 90%);mix-blend-mode:soft-light;opacity:0;transition:opacity .5s}
+.arch img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){
+  .arch:hover .frame{transform:rotate(.6deg) translateY(-4px);box-shadow:0 34px 60px -26px rgba(0,0,0,.55),0 8px 20px -8px rgba(0,0,0,.3)}
+  .arch:hover .frame::after{opacity:.55}
+  .arch:hover img{transform:scale(1.03)}
+}
+html[dir="rtl"] .arch::before{inset:-2% 4% -4% -5%;transform:rotate(4deg)}
+html[dir="rtl"] .arch .frame{transform:rotate(-2deg)}
+@media (hover:hover){html[dir="rtl"] .arch:hover .frame{transform:rotate(-.6deg) translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.arch .frame,.arch img,.arch .frame::after{transition:none}}
+@media (max-width:640px){.arch .frame{outline:0}.arch::before{inset:-3% -6% -5% 6%}}
+/* wide screens: the portrait sits at the top of the hero and shrinks on short windows, so the first screen never cuts it in half */
+@media (min-width:641px){.arch{align-self:start;margin-top:clamp(6px,1.6vw,24px);max-width:min(330px,max(200px,calc((100svh - 215px)*.8)))}}
+
+/* Say hi: columns top-aligned, tighter gap above, a bigger word with a rule under it so the left side carries its weight */
+.contact{padding-top:clamp(12px,2vw,32px)}
+#work{padding-bottom:clamp(14px,2.5vw,36px)}
+.contact .wrap{align-items:start}
+.hello-wrap{max-width:640px}
+.contact .h2{font-size:clamp(64px,11.5vw,172px);line-height:.92}
+html[lang="fa"] .contact .h2{line-height:1.15}
+.hello-wrap::after{content:"";display:block;width:clamp(56px,9vw,112px);height:3px;margin-top:clamp(14px,2vw,26px);background:var(--accent)}
+@media (max-width:900px){.contact .h2{font-size:clamp(60px,18vw,120px)}}
+
+/* Persian name: the same accent as the English surname, heavier display weight */
+html[lang="fa"] .name{font-family:'Markazi Text','Vazirmatn',serif;font-weight:700;-webkit-text-stroke:.018em currentColor;paint-order:stroke fill}
+html[lang="fa"] .name span+span{color:var(--accent)}
+
+/* phones: keep the decorative thread out of the content (it runs in the gutter, so hide it behind the pictures and text) */
+@media (max-width:640px){
+  .thread .acc{opacity:.5}
+  .p-coup,.p-coup .phones,.plates{position:relative;z-index:1}
+}
+
+/* ======== round 4: phone hero legibility, lightbox caption, hint, image hover, toast ======== */
+/* phones in light mode: the network goes quieter and a soft paper glow sits behind the text (site.js sets .mind-soft) */
+@media (max-width:700px){
+  .mind-soft .mind{opacity:.5}
+  .mind-soft .hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 85% 60% at 42% 58%,color-mix(in srgb,var(--paper) 78%,transparent),transparent 80%)}
+}
+
+/* lightbox: near-solid backdrop, caption from the image alt, bigger counter */
+.lb{background:rgba(8,8,10,.97)}
+.lb-cap{grid-area:2/1;justify-self:center;max-width:min(70ch,100%);margin-top:14px;text-align:center;font:14px/1.45 var(--body);color:rgba(245,245,247,.82);text-wrap:balance}
+.lb{grid-template-rows:minmax(0,1fr) auto}
+.lb-img{max-height:calc(100vh - 190px)}
+.lb-count{font:600 17px/1 var(--mono);color:#F5F5F7;letter-spacing:.1em}
+@media (max-width:640px){.lb-img{max-height:calc(100vh - 210px)}.lb-count{display:block;bottom:auto;top:max(22px,env(safe-area-inset-top,0px));left:16px;right:auto;text-align:start;font-size:16px}html[dir="rtl"] .lb-count{left:auto;right:16px}.lb-count[hidden]{display:none}.lb-cap{font-size:13px;margin-bottom:56px}}
+
+/* hint under the chips (all languages; fades after the first hero click without moving the layout) */
+.hint{display:inline-block;margin-top:14px;font:12px/1.4 var(--mono);letter-spacing:.06em;color:var(--ink-soft);opacity:.75;animation:hint-pulse 2.8s ease-in-out infinite}
+.hint::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-inline-end:9px;vertical-align:1px}
+.hint{transition:opacity .5s,visibility .5s}
+html[lang="fa"] .hint{font-family:'Vazirmatn',var(--mono);letter-spacing:0}
+.hint.gone{opacity:0;visibility:hidden;animation:none}
+.hero{cursor:pointer}.hero .wrap>div>*{cursor:auto}.hero a,.hero button{cursor:pointer}.hero .intro,.hero .name,.hero .chip{cursor:text}
+@keyframes hint-pulse{50%{opacity:.35}}
+@media (max-width:640px){.hint{grid-column:1/-1;justify-self:start;margin-top:12px}}
+@media (prefers-reduced-motion:reduce){.hint{animation:none}}
+
+/* project images: lift and an "open" cue on hover; the cue shows quietly on touch screens */
+.plate .vis:has(img.zoomable)::after{content:"";position:absolute;inset-block-end:12px;inset-inline-end:12px;width:32px;height:32px;border-radius:50%;pointer-events:none;z-index:3;background:#141418 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='5.5'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center/18px no-repeat;opacity:0}
+@media (hover:none){.plate .vis:has(img.zoomable)::after{opacity:.8}}
+@media (hover:hover){
+  :root:root .plate .vis{transition:translate .35s cubic-bezier(.2,.7,.2,1),scale .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,transform .6s cubic-bezier(.2,.7,.2,1),outline-color .5s}
+  :root:root.tilt-on .plate .vis.live{transition-duration:.35s,.35s,.35s,.12s,.5s}
+  .plate .vis:hover{translate:0 -5px;scale:1.02;box-shadow:0 30px 54px -22px rgba(0,0,0,.7)}
+  .plate .vis:has(img.zoomable)::after{transition:opacity .25s}
+  .plate .vis:hover::after{opacity:1}
+}
+@media (prefers-reduced-motion:reduce){.plate .vis,.plate .vis:hover{translate:none;scale:none;transition:none}.plate .vis:has(img.zoomable)::after{display:none}}
+
+
+/* Persian hero: less empty band under the chips (English unchanged) */
+html[lang="fa"] .hero{padding-block-end:clamp(28px,4vw,56px)}
+
+/* Say hi heading: soft glow and a small tilt follow the pointer (class set by site.js on hover devices only) */
+.say-glow .h2{position:relative;transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.say-glow .h2::after{content:"";position:absolute;inset:-14% -10%;z-index:-1;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),color-mix(in srgb,var(--accent) 26%,transparent),transparent 70%)}
+.say-glow.say-on .h2::after{opacity:1}
+@media (prefers-reduced-motion:reduce){.say-glow .h2{transform:none;transition:none}.say-glow .h2::after{display:none}}
+
+/* ======== round 5: Coup swipe strip, reward toast, image hover, Say hi tilt, plate rhythm ======== */
+
+/* ---- Coup: on phones a scroll-snap row, one phone fully visible at a time, a fade and a swipe cue on the edge ---- */
+.coup-strip{position:relative;min-width:0}
+.swipe-cue{display:none}
+@media (max-width:640px){
+  .plate.p-coup .phones{gap:14px;padding:22px 18px 4px;scroll-padding-inline:18px;overscroll-behavior-x:contain}
+  .plate.p-coup .phones figure{flex:0 0 min(60%,240px);scroll-snap-align:start}
+  .plate.p-coup .phones figure:last-child{scroll-snap-align:end}
+  .coup-strip::after{content:"";position:absolute;top:0;bottom:0;inset-inline-end:0;width:72px;z-index:4;pointer-events:none;
+    background:linear-gradient(to right,transparent,var(--plate) 88%);transition:opacity .3s}
+  html[dir="rtl"] .coup-strip::after{background:linear-gradient(to left,transparent,var(--plate) 88%)}
+  .coup-strip.at-end::after{opacity:0}
+  .swipe-cue{display:inline-flex;align-items:center;gap:6px;position:absolute;z-index:5;top:50%;inset-inline-end:10px;translate:0 -50%;pointer-events:none;
+    padding:8px 10px 8px 12px;border-radius:999px;background:#E0407A;color:#fff;font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+    box-shadow:0 8px 22px -8px rgba(224,64,122,.8);transition:opacity .35s,scale .35s}
+  html:not([lang="en"]) .swipe-t{display:none}
+  html:not([lang="en"]) .swipe-cue{padding:8px}
+  html[dir="rtl"] .swipe-cue svg{transform:scaleX(-1)}
+  .coup-strip.swiped .swipe-cue{opacity:0;scale:.6}
+  .p-coup::after{margin-top:18px}
+}
+@media (max-width:640px) and (prefers-reduced-motion:no-preference){
+  .swipe-cue svg{animation:swipe-nudge 1.4s ease-in-out infinite}
+  html[dir="rtl"] .swipe-cue svg{animation-name:swipe-nudge-rtl}
+}
+@keyframes swipe-nudge{0%,100%{transform:translateX(-2px)}50%{transform:translateX(4px)}}
+@keyframes swipe-nudge-rtl{0%,100%{transform:scaleX(-1) translateX(-2px)}50%{transform:scaleX(-1) translateX(4px)}}
+
+
+/* ---- project images: magnifier cue visible at rest, full on hover, with a pink lift (every plate image) ---- */
+:root:not(.sk-on) .plate .vis:has(img.zoomable)::after,:root .plate.sk-settled .vis:has(img.zoomable)::after{
+  inset:auto;bottom:12px;inset-inline-end:12px;padding:0;width:38px;height:38px;opacity:.6;
+  background:#141418 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='5.5'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center/19px no-repeat;
+  box-shadow:0 0 0 1px rgba(255,255,255,.22);transition:opacity .25s,background-color .25s,transform .25s cubic-bezier(.2,1.4,.4,1)}
+@media (hover:none){:root:not(.sk-on) .plate .vis:has(img.zoomable)::after,:root .plate.sk-settled .vis:has(img.zoomable)::after{opacity:.85}}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  :root:not(.sk-on) .plate .vis:has(img.zoomable):hover::after,:root .plate.sk-settled .vis:has(img.zoomable):hover::after{opacity:1;background-color:#E0407A;transform:scale(1.12)}
+  :root:root .plate .vis:has(img.zoomable):hover{translate:0 -6px;box-shadow:0 34px 60px -24px rgba(224,64,122,.6),0 0 0 1px rgba(255,130,158,.45)}
+}
+
+/* ---- Say hi: a real tilt (up to about 6 degrees) and a pink glow in the letters that follows the pointer ---- */
+.say-glow .h2::after{inset:-40% -24%;-webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent);mask-image:radial-gradient(closest-side,#000 55%,transparent)}
+.say-glow .h2{transform-origin:50% 60%;transition:text-shadow .3s;will-change:transform} /* the tilt is eased in site.js, frame by frame */
+.say-glow.say-on .h2{text-shadow:var(--sx,0px) var(--sy,0px) 26px rgba(255,64,122,.55),calc(var(--sx,0px)*.4) calc(var(--sy,0px)*.4) 6px rgba(255,130,158,.45)}
+@media (prefers-reduced-motion:reduce){.say-glow.say-on .h2{text-shadow:none}}
+
+/* ---- plate rhythm: alternate a faint tint band between project plates, bigger plate numbers ---- */
+.plates>.plate{isolation:isolate}
+#work .plates>.plate:nth-child(even)::before,#projects .plates>.plate:nth-child(even):not(.p-bots,.p-book)::before{
+  content:"";position:absolute;z-index:-1;inset:calc(-1*clamp(28px,3.5vw,48px)) 0;pointer-events:none;
+  --tint:color-mix(in srgb,var(--accent) 5%,var(--paper));background:var(--tint);box-shadow:0 0 0 100vmax var(--tint);clip-path:inset(0 -100vmax)}
+.plate h3::before{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(40px,4.4vw,64px);line-height:.95;letter-spacing:-.02em;margin-bottom:14px;padding-bottom:10px;
+  border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent);width:fit-content;font-variation-settings:'opsz' 28}
+html[lang="fa"] .plate h3::before{line-height:1.2}
+
+/* ---- AI Bridge: a soft pink pulse around the panel when it starts playing on scroll ---- */
+.p-bridge-s .vis.bx-discover{animation:bx-discover 1.6s ease-out}
+@keyframes bx-discover{0%{box-shadow:var(--bx-p0)}100%{box-shadow:var(--bx-p1)}}
+@media (prefers-reduced-motion:reduce){.p-bridge-s .vis.bx-discover{animation:none}}
+
+/* ======== round 6: bigger reward toast, tighter gap above the projects, phone bands, image hover depth,
+   phone magnifier, lazy image fade, AI Bridge frame, Coup card flip ======== */
+
+
+/* ---- about half the empty space between the end of the story and "Things I've built" ---- */
+#about{padding-bottom:clamp(10px,2vw,30px)}
+#work{padding-top:clamp(18px,3.8vw,56px)}
+
+/* ---- phones: a little more room in each tint band so the number, title and picture sit well inside it ---- */
+@media (max-width:640px){
+  .plates{row-gap:80px}
+  #work .plates>.plate:nth-child(even)::before,#projects .plates>.plate:nth-child(even):not(.p-bots,.p-book)::before{inset:-40px 0}
+}
+
+/* ---- desktop: hovering a project picture lifts it a little larger, with a soft shadow and a thin accent outline ---- */
+.plate .vis:has(img.zoomable){outline:1.5px solid transparent;outline-offset:5px}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  :root:root .plate .vis:has(img.zoomable):hover{scale:1.02;translate:0 -6px;outline-color:color-mix(in srgb,var(--accent) 80%,transparent);
+    box-shadow:0 34px 64px -26px rgba(0,0,0,.6),0 16px 44px -22px rgba(224,64,122,.55)}
+}
+@media (prefers-reduced-motion:reduce){.plate .vis:has(img.zoomable){outline:0}}
+
+/* ---- phones: the Coup magnifier sits at the bottom-right of the strip, clear of the phone's camera island ---- */
+@media (max-width:640px){
+  :root:root .plate.p-coup .vis.phones::after{display:none}
+  :root:not(.sk-on) .p-coup .coup-strip::before,:root .p-coup.sk-settled .coup-strip::before{content:"";position:absolute;z-index:5;bottom:14px;inset-inline-end:12px;width:38px;height:38px;border-radius:50%;pointer-events:none;opacity:.85;
+    background:#141418 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='5.5'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center/19px no-repeat;
+    box-shadow:0 0 0 1px rgba(255,255,255,.22)}
+}
+
+/* ---- lazy images: the shimmer sits on the holder, the picture fades in over it once loaded and decoded (site.js) ---- */
+/* (:root:root raises these above the sketch theme, which clears the .vis background and forces its pictures visible) */
+:root:root .ld-host.ld-host{background-color:#25252c;background-image:linear-gradient(100deg,#25252c 25%,#3f3c48 44%,#4e3a4a 50%,#3f3c48 56%,#25252c 75%);background-size:250% 100%;animation:ld-shimmer 1.4s linear infinite}
+.phones figure.ld-host{border-radius:15% / 7%}
+/* with the sketch theme the dark ground is the .vis::before layer, so the shimmer goes there too */
+:root:root .vis.ld-host::before{background-color:#25252c;background-image:linear-gradient(100deg,#25252c 25%,#3f3c48 44%,#4e3a4a 50%,#3f3c48 56%,#25252c 75%);background-size:250% 100%;animation:ld-shimmer 1.4s linear infinite}
+@media (prefers-reduced-motion:reduce){:root:root .vis.ld-host::before{animation:none}}
+img.lz{transition:opacity .55s ease}
+:root:root img.lz.lz:not(.loaded){opacity:0}
+@media (prefers-reduced-motion:reduce){:root:root .ld-host.ld-host{animation:none}img.lz{transition:none}}
+
+/* ---- AI Bridge (homepage): a larger panel with a thin pink frame on wide screens; the animation itself is unchanged ---- */
+@media (min-width:1200px){
+  .p-bridge-s .vis{flex:1.5;min-height:460px;box-shadow:var(--bx-frame)}
+  .p-bridge-s .vis::after{content:"";position:absolute;inset:12px;border:1px solid var(--bx-in);pointer-events:none}
+  .p-bridge-s .bx4{--sz:34px;gap:30px;min-height:460px;padding:44px 50px 28px}
+  .p-bridge-s .bx-mk b{width:44px;height:44px;font-size:15px}
+  .p-bridge-s .bx-mk span{font-size:11.5px}
+  .p-bridge-s .bx-wire{margin-top:22px}
+  .p-bridge-s .bx-lbls{font-size:15px;gap:10px;min-height:68px}
+  .p-bridge-s .bx-foot{font-size:12px}
+}
+
+/* ---- Coup: double-click or long-press a phone screenshot and it flips like a card (site.js), not under reduced motion ---- */
+.p-coup .phones img{-webkit-touch-callout:none}
+.p-coup .phones img.flip{animation:coup-flip .5s cubic-bezier(.4,0,.2,1)}
+@keyframes coup-flip{
+  0%{transform:perspective(900px) rotateY(0)}
+  49.9%{transform:perspective(900px) rotateY(90deg) scale(.94);filter:brightness(1.5)}
+  50%{transform:perspective(900px) rotateY(-90deg) scale(.94);filter:brightness(1.5)}
+  100%{transform:perspective(900px) rotateY(0)}}
+@media (prefers-reduced-motion:reduce){.p-coup .phones img.flip{animation:none}}
+
+/* ======== round 7: Coup hint, flip and tilt, clearer wololo, phone crop of the QGIS shots ======== */
+
+/* ---- Coup: a quiet hint under the strip (and under the dots on phones) that the screenshots can be flipped ---- */
+.flip-hint{order:1;align-self:center;margin:14px 0 0;font:12px/1.4 var(--mono);letter-spacing:.06em;text-align:center;color:var(--ink-soft);opacity:.85}
+.flip-hint .fh-t{display:none}
+html[lang="fa"] .flip-hint,html[lang="fa"] .flip-hint span{font-family:'Vazirmatn',var(--mono);letter-spacing:0}
+@media (hover:none){.flip-hint .fh-m{display:none}.flip-hint .fh-t{display:inline}}
+@media (max-width:640px){.flip-hint{margin-top:10px}}
+@media (prefers-reduced-motion:reduce){.flip-hint{display:none}}
+
+/* ---- Coup: the flip is a full turn (about 0.75 s) with a small lift and a pink shadow ---- */
+.p-coup .phones img.flip{animation:coup-flip .75s cubic-bezier(.45,.05,.25,1)}
+@keyframes coup-flip{
+  0%{transform:perspective(900px) rotateY(0) translateY(0) scale(1)}
+  50%{transform:perspective(900px) rotateY(180deg) translateY(-10px) scale(1.07);filter:brightness(1.12);box-shadow:0 44px 70px -20px rgba(224,64,122,.6)}
+  100%{transform:perspective(900px) rotateY(360deg) translateY(0) scale(1)}}
+
+/* ---- Coup: on mouse devices the screenshots lean up to 7 degrees towards the pointer (site.js sets --trx / --try) ---- */
+:root:root .p-coup .phones img.tl{transform:perspective(900px) rotateX(var(--trx,0deg)) rotateY(var(--try,0deg));transition:transform .14s ease-out}
+:root:root .p-coup .phones img.tl.tl-x{transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+@media (prefers-reduced-motion:reduce){:root:root .p-coup .phones img.tl{transform:none}}
+
+/* ---- phones: the Norme Milano pictures use a tighter crop (<picture> in the HTML), so give them more width ---- */
+@media (max-width:640px){
+  .qslider,.qshot{margin-inline:12px}
+}
+
+/* ---- wololo: the toast sits above everything, is large, and the footer itself changes colour so a tap at the bottom of the page is visible ---- */
+.wololo-toast{z-index:2147483000;bottom:max(24px,calc(env(safe-area-inset-bottom,0px) + 16px));font:700 18px/1.35 var(--body);padding:16px 22px;border:2px solid var(--accent);box-shadow:0 18px 50px -12px rgba(0,0,0,.6);view-transition-name:wololo-toast}
+::view-transition-old(wololo-toast){display:none}
+::view-transition-new(wololo-toast),::view-transition-group(wololo-toast){animation:none}
+footer{transition:opacity .2s ease,transform .2s ease,color .4s ease}
+footer .wrap{transition:border-color .4s ease}
+:root.wololo footer{color:var(--accent)}
+:root.wololo footer .wrap{border-top-color:var(--accent)}
+:root.wololo .egg{text-decoration-style:solid}
+.wololo-flash{position:fixed;inset:0;z-index:2147482999;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--wx,50%) var(--wy,100%),var(--accent),transparent 65%)}
+.wololo-flash.go{animation:wololo-flash .9s ease-out}
+@keyframes wololo-flash{0%{opacity:.4}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.wololo-flash{display:none}}
+@media (prefers-reduced-motion:reduce){.p-coup .phones img.flip{animation:none}}
+
+/* ======== round 8: one picture width, reveal badge, Coup hint and card back, lightbox zoom, email, nits ======== */
+
+/* ---- every picture/text card on a page uses the same picture column (3 : 2) ---- */
+@media (min-width:901px){
+  :root:root .plates .p-ml .vis{flex:1.5 1 0;min-width:0}
+  :root:root .plates .p-ml .cap{flex:1 1 0;min-width:0}
+}
+
+/* ---- reveal: the magnifier badge waits for the settled card and a loaded picture, then fades in at its final place ---- */
+/* while the sketch is showing, the wireframe keeps the full box (the badge rules above had shrunk it to 32px in the top corner) */
+:root:root.sk-on .p-qgis:not(.sk-settled) .vis::after,:root:root.sk-on .p-halloween:not(.sk-settled) .vis::after{inset:0;width:auto;height:auto;border-radius:0;box-shadow:none;transform:none;background-color:transparent;background-position:0 0;background-repeat:no-repeat;background-size:auto}
+:root:root.sk-on .p-qgis:not(.sk-settled) .vis::after{
+  background-image:radial-gradient(circle at 50% 50%,transparent 0 6px,var(--pencil) 6px 7px,transparent 7px),linear-gradient(var(--pencil),var(--pencil)),linear-gradient(var(--pencil),var(--pencil)),
+    repeating-linear-gradient(to right,color-mix(in srgb,var(--pencil) 55%,transparent) 0 1px,transparent 1px 32px),repeating-linear-gradient(to bottom,color-mix(in srgb,var(--pencil) 55%,transparent) 0 1px,transparent 1px 32px);
+  background-size:100% 100%,24px 1px,1px 24px,100% 100%,100% 100%;background-position:0 0,50% 50%,50% 50%,0 0,0 0;background-repeat:no-repeat,no-repeat,no-repeat,repeat,repeat}
+:root:root.sk-on .p-halloween:not(.sk-settled) .vis::after{content:"16 : 9";padding:10px 12px;background-image:var(--sk-cross);background-size:100% 100%}
+/* not before the picture has loaded */
+:root:root:root:root .plate .vis.ld-host::after,:root:root:root:root .plate .vis:has(.ld-host)::after,:root:root:root:root .plate .vis:has(img.ld)::after{opacity:0}
+/* a tinted ground so the picture box is never a blank frame */
+.qshot{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 16%,#0E0E11),#0E0E11 70%)}
+.p-halloween .vis,.plate.p-qgis .vis{background-color:color-mix(in srgb,var(--accent) 10%,var(--plate))}
+
+/* ---- Coup hint: right under the phones, inside the strip's bottom edge, readable on the dark ground ---- */
+.flip-hint{font-size:13px;color:var(--ink-soft);opacity:1}
+.flip-hint::before{content:"\21BB";margin-inline-end:8px;color:var(--accent)}
+@media (min-width:641px){
+  /* the strip gets a quiet bottom zone, so even the lowered phones show whole; the hint sits in it */
+  .p-coup .vis.phones{padding-bottom:calc(clamp(14px,3vw,40px) + 56px)}
+  :root:root:root .p-coup p.flip-hint{order:0;align-self:stretch;position:relative;z-index:6;margin:-42px 0 0;height:28px;padding:0;pointer-events:none;
+    color:rgba(245,245,247,.82);font-size:13.5px;line-height:28px;transition:opacity .5s}
+  :root:root:root .p-coup p.flip-hint::before{color:#FF829E}
+  :root:root.sk-on .p-coup:not(.sk-built) p.flip-hint{opacity:0}
+}
+@media (max-width:640px){.flip-hint{font-size:13px}}
+
+/* ---- Coup flip: a real card, with a designed back showing between 90 and 270 degrees ---- */
+.p-coup .phones figure{position:relative}
+.p-coup .phones img.flip{backface-visibility:hidden;-webkit-backface-visibility:hidden;animation:coup-flip .75s cubic-bezier(.45,.05,.25,1)}
+@keyframes coup-flip{
+  0%{transform:perspective(900px) rotateY(0) translateY(0) scale(1)}
+  50%{transform:perspective(900px) rotateY(180deg) translateY(-10px) scale(1.07);box-shadow:0 44px 70px -20px rgba(224,64,122,.6)}
+  100%{transform:perspective(900px) rotateY(360deg) translateY(0) scale(1)}}
+.p-coup .phones figure::after{content:"\00A7";display:none;position:absolute;inset:0;z-index:2;pointer-events:none;place-items:center;
+  border-radius:15% / 7%;border:clamp(4px,.6vw,7px) solid #E0407A;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:repeating-linear-gradient(45deg,rgba(255,130,158,.08) 0 2px,transparent 2px 14px),radial-gradient(ellipse 85% 55% at 50% 50%,#4A1124,#0E0E11 78%);
+  color:#FF829E;font:600 96px/1 'Bodoni Moda','Times New Roman',serif;font-variation-settings:'opsz' 28;text-shadow:0 0 24px rgba(255,92,138,.5);box-shadow:inset 0 0 0 6px #0E0E11,inset 0 0 0 7px rgba(255,130,158,.35)}
+.p-coup .phones figure:has(img.flip)::after{display:grid;animation:coup-flip-back .75s cubic-bezier(.45,.05,.25,1) both}
+@keyframes coup-flip-back{
+  0%{transform:perspective(900px) rotateY(180deg) translateY(0) scale(1)}
+  50%{transform:perspective(900px) rotateY(360deg) translateY(-10px) scale(1.07);box-shadow:0 44px 70px -20px rgba(224,64,122,.6)}
+  100%{transform:perspective(900px) rotateY(540deg) translateY(0) scale(1)}}
+@media (prefers-reduced-motion:reduce){.p-coup .phones figure::after,.p-coup .phones figure:has(img.flip)::after{display:none;animation:none}}
+
+/* ---- lightbox: scrollable pane, tap to zoom to natural size ---- */
+.lb-pan{grid-area:2/1;position:relative;display:flex;min-width:0;min-height:0;max-width:100%;max-height:100%}
+.lb-pan .lb-img{margin:auto;flex:none}
+.lb-pan .lb-old{position:absolute;inset:0;margin:auto}
+.lb-img{touch-action:manipulation}
+.lb.canz .lb-img{cursor:zoom-in}
+.lb-zoom{top:max(12px,env(safe-area-inset-top,0px));inset-inline-end:calc(max(12px,env(safe-area-inset-right,0px)) + 58px)}
+.lb-zoom .lb-plus{display:inline}
+.lb.zoomed .lb-zoom .lb-plus{display:none}
+.lb.zoomed{touch-action:auto}
+.lb.zoomed .lb-pan{position:absolute;inset:0;max-width:none;max-height:none;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;background:#0b0b0e}
+.lb.zoomed .lb-pan .lb-img{max-width:none;max-height:none;width:auto;height:auto;cursor:zoom-out;box-shadow:none}
+.lb.zoomed .lb-cap{display:none}
+/* picture and caption stay together, centred as a pair */
+.lb{grid-template-rows:minmax(0,1fr) auto auto minmax(0,1fr)}
+.lb-cap{grid-area:3/1;margin-top:14px}
+@media (max-width:640px){.lb-zoom{inset-inline-end:calc(max(12px,env(safe-area-inset-right,0px)) + 58px)}}
+
+/* ---- contact email: one line, fluid size, the button drops below when there is no room ---- */
+.mail a{white-space:nowrap;overflow-wrap:normal;flex:1 1 auto;font-size:clamp(15px,4.9vw,20px)}
+@media (max-width:640px){.mail a{flex-basis:100%}}
+
+/* ---- nits ---- */
+@media (max-width:640px){.allp-wrap{margin-top:84px}}
+/* projects header on phones: the logo already links home, so the text Home link goes and the row stays single */
+@media (max-width:560px){.toplinks>a.keep{display:none}}
+/* the thread now ends on the heading's own bar; keep that bar's spacing */
+.hello-wrap::after{margin-top:clamp(12px,1.8vw,22px)}
+
+/* ---- round 9: the QGIS picture box hugs its screenshot (no dead band above and below) ---- */
+@media (min-width:901px){:root:root .plates .p-qgis .vis{align-self:center}}
