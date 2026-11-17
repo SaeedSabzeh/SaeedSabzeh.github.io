@@ -937,3 +937,5 @@ footer .wrap{transition:border-color .4s ease}
 
 /* ---- round 9: the QGIS picture box hugs its screenshot (no dead band above and below) ---- */
 @media (min-width:901px){:root:root .plates .p-qgis .vis{align-self:center}}
+/* selecting the big headings (transparent fill + clipped background): a soft tint with ink-coloured letters instead of a solid block */
+.sk-on .name span::selection,.sk-on .h2::selection{background:color-mix(in srgb,var(--accent) 32%,transparent);color:var(--ink);-webkit-text-fill-color:var(--ink)}
