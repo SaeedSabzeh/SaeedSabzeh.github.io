@@ -1127,3 +1127,5 @@ html[dir="rtl"] .pidx{-webkit-mask-image:linear-gradient(270deg,#000 85%,transpa
 @media (min-width:641px){html[dir="rtl"] .pidx{-webkit-mask-image:none;mask-image:none}}
 /* keyboard focus on a screenshot that opens full size */
 .plate .vis img.zoomable:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
+/* Toolbox on phones: no separator dots (they were left dangling at line ends), just space between the names */
+@media (max-width:640px){.tools dd{gap:4px 16px}.tools dd span:not(:last-child)::after{content:none}}

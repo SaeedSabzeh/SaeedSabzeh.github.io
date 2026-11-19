@@ -9,7 +9,7 @@ var SITE_NOZOOM='.p-watch';
   var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',wololoBlue:'Wololo! This page now plays for the blue team.',wololoRed:'Wololo! Back to red.',
     // Milan time line under the contact text ({t} becomes the Milan time). Edit the wording here.
     mtNow:'It’s {t} in Milan.',mtZz:'I’m probably asleep.',mtDay:'I’m probably in class or coding.',mtEve:'I’m probably coding something.',
-    mindHintTap:'psst, tap the network a few times',
+    mindHintTap:'psst, tap the network a few times',abTapClick:'click to step · replay',pidxLbl:'Projects on this page',
     viceOn:'Welcome to Vice City. To leave, click the network 5 more times or use the link at the bottom.',viceOnTap:'Welcome to Vice City. To leave, tap the network 5 more times or use the link at the bottom.',viceOff:'Back to Milan.',viceLeave:'Leave Vice City',
     wfRow:'Watch faces',wfPlay:'Play the slideshow',wfPause:'Pause the slideshow',wfMore:'More faces',wfBack:'Earlier faces',flipFront:'Photo of Saeed in front of the Milan Duomo. Turn it over',flipBack:'Saeed in sunglasses on a train. Turn it back',wfNext:'Next watch face',wfOf:'of',wfFace:'watch face',
     themeToDark:'Switch to dark mode',themeToLight:'Switch to light mode',
@@ -29,7 +29,8 @@ var SITE_NOZOOM='.p-watch';
     toastEl.textContent=text;
     var f=document.querySelector('footer'),fr=f&&f.getBoundingClientRect(),h=toastEl.offsetHeight;
     toastEl.style.top='';toastEl.style.bottom='';
-    if(fr&&fr.top<innerHeight&&fr.bottom>0){
+    if(vice&&scrollY<innerHeight*.6){toastEl.style.bottom='auto';toastEl.style.top='max(76px,calc(env(safe-area-inset-top,0px) + 64px))'}
+    else if(fr&&fr.top<innerHeight&&fr.bottom>0){
       if(fr.top>=h+34)toastEl.style.bottom=(innerHeight-fr.top+14)+'px';
       else{toastEl.style.bottom='auto';toastEl.style.top='max(16px,env(safe-area-inset-top,0px))'}
     }
@@ -40,6 +41,7 @@ var SITE_NOZOOM='.p-watch';
   // ---- language ----
   var hintEl=document.getElementById('mindHint');
   if(hintEl&&matchMedia('(pointer:coarse)').matches){hintEl.dataset.i='mindHintTap';hintEl.textContent=EN.mindHintTap}
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches)[].forEach.call(document.querySelectorAll('.bx-tap[data-i="abTap"]'),function(t){t.dataset.i='abTapClick';t.textContent=EN.abTapClick});
   var nodes=[].slice.call(document.querySelectorAll('[data-i]'));
   nodes.forEach(function(n){n.dataset.en=n.innerHTML});
   var labels=[];
@@ -949,7 +951,9 @@ var SITE_NOZOOM='.p-watch';
   document.addEventListener('contextmenu',function(e){if(Date.now()-ateClick<1500&&e.target.closest&&e.target.closest('.p-coup .phones'))e.preventDefault()});
   document.addEventListener('click',function(e){
     if(e.defaultPrevented||e.button||e.ctrlKey||e.metaKey||e.shiftKey)return;
-    var t=e.target;if(!t||t.tagName!=='IMG'||!t.closest('.plate .vis')||t.closest(SITE_NOZOOM))return;
+    var t=e.target;
+    if(t&&t.tagName==='A'&&t.closest('.plate .vis')){var li=t.querySelector('img.zoomable');if(li)t=li}
+    if(!t||t.tagName!=='IMG'||!t.closest('.plate .vis')||t.closest(SITE_NOZOOM))return;
     e.preventDefault();
     if(flipOK(t)){
       if(Date.now()-ateClick<1500){ateClick=0;return} // the click that ends a long press
@@ -1080,11 +1084,12 @@ var SITE_NOZOOM='.p-watch';
 (function(){
   var head=document.querySelector('#projects .sec-head'),plates=[].slice.call(document.querySelectorAll('#projects .plate[id]'));
   if(!head||!plates.length)return;
-  var nav=document.createElement('nav');nav.className='pidx';nav.setAttribute('aria-label','Projects on this page');
+  var nav=document.createElement('nav');nav.className='pidx';
   head.insertAdjacentElement('afterend',nav);
   var FA='۰۱۲۳۴۵۶۷۸۹';
   function build(){
     var fa=document.documentElement.lang==='fa';
+    nav.setAttribute('aria-label',(window.siteTx&&window.siteTx('pidxLbl'))||'Projects on this page');
     nav.innerHTML='';
     plates.forEach(function(p,k){
       var h=p.querySelector('h3');if(!h)return;
