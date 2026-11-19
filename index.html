@@ -21,7 +21,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" data-c="#FFFFFF">
 <meta name="theme-color" content="#17171B" media="(prefers-color-scheme: dark)" data-c="#17171B">
-<link rel="preload" as="image" href="img/portrait.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/portrait.webp?v=3" fetchpriority="high">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Saeed Sabzeh","url":"https://saeedsabzeh.com/","image":"https://saeedsabzeh.com/img/portrait.webp","email":"mailto:saeed.sabzeh.80@gmail.com","jobTitle":"AI master's student","description":"Builds AI systems, apps and websites and is fascinated by how minds work. AI master's student in Milan.","address":{"@type":"PostalAddress","addressLocality":"Milan","addressCountry":"IT"},"knowsLanguage":["en","fa","it"],"affiliation":{"@type":"CollegeOrUniversity","name":"University of Milano-Bicocca"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Iran University of Science and Technology"},"sameAs":["https://www.linkedin.com/in/saeedsabzeh/","https://t.me/saeedsabzeh","https://www.kaggle.com/saeedsabzeh","https://github.com/SaeedSabzeh"]}
 </script>
@@ -32,10 +32,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Markazi+Text:wght@400..700&family=Source+Sans+3:wght@400..700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="assets/site.css?v=29">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;if(localStorage.getItem("vice")==="1"){var d=document;d.documentElement.setAttribute("data-vice","1");d.querySelectorAll('meta[name=theme-color]').forEach(function(m){m.content="#b98dba"});var l=d.createElement("link");l.rel="preload";l.as="image";l.href="img/vice-bg.webp";d.head.appendChild(l)}}catch(e){}</script>
+<link rel="stylesheet" href="assets/site.css?v=44">
 <link rel="stylesheet" href="assets/thread.css?v=2">
-<link rel="stylesheet" href="assets/sketch.css?v=2">
+<link rel="stylesheet" href="assets/sketch.css?v=3">
 <link rel="stylesheet" href="assets/bridge.css?v=4">
 </head>
 <body>
@@ -64,11 +64,17 @@
       <p class="intro" data-i="intro">I build <b>AI systems</b>, <b>apps</b> and <b>websites</b>, but what really fascinates me is <span class="mind-q">how minds work</span>.</p>
       <div class="hero-cta"><a class="solid" href="#about" data-i="ctaStory">My story</a><a href="#work" data-i="ctaWork">What I built lately</a><a href="#contact" data-i="ctaContact">How to reach me</a></div>
       <div class="where"><span class="chip" data-i="chip1">Master’s student in AI, University of Milano-Bicocca</span><span class="chip" data-i="chip2">From Iran. In Milan since October 2025.</span></div>
-      <span class="hint" id="mindHint" data-i="mindHint">psst, click the network</span>
+      <span class="hint" id="mindHint" data-i="mindHint">psst, click the network a few times</span>
     </div>
     <figure class="arch">
-      <div class="frame"><img src="img/portrait.webp" alt="Portrait of Saeed Sabzeh" data-i-alt="portraitAlt" width="640" height="913" fetchpriority="high" decoding="async"></div>
-      
+      <!-- the portrait is a card: click (or the Vice theme) turns it over to the second photo -->
+      <button type="button" class="flip" aria-label="Photo of Saeed in front of the Milan Duomo. Turn it over">
+        <span class="card">
+          <span class="frame"><img src="img/portrait.webp?v=3" alt="" width="800" height="1000" fetchpriority="high" decoding="async"></span>
+          <span class="frame back"><img src="img/portrait-shades.webp" alt="" width="800" height="1000" fetchpriority="low" decoding="async"></span>
+        </span>
+        <span class="flip-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/></svg></span>
+      </button>
     </figure>
   </div>
 </section>
@@ -147,6 +153,32 @@
         </div>
       </article>
 
+      <article class="plate p-ml p-watch" data-sk>
+        <div class="vis">
+          <i class="wf-grid" aria-hidden="true"></i>
+          <div class="wf" dir="ltr">
+            <div class="wf-watch" role="button" tabindex="0" aria-label="Next watch face" data-i-aria-label="wfNext" aria-describedby="wfNow">
+              <i class="wf-strap wf-st-t" aria-hidden="true"></i><i class="wf-strap wf-st-b" aria-hidden="true"></i><i class="wf-crown" aria-hidden="true"></i>
+              <div class="wf-bezel"><div class="wf-face"><i class="wf-glass" aria-hidden="true"></i>
+                <img class="wf-img on" src="img/watch/sunset86.webp" srcset="img/watch/sunset86.webp 440w, img/watch/660/sunset86.webp 660w, img/watch/2x/sunset86.webp 880w" sizes="(min-width:901px) 280px, min(260px, 58vw)" alt="Sunset 86 watch face" width="440" height="440" loading="lazy" decoding="async">
+                <img class="wf-img" alt="" aria-hidden="true" width="440" height="440" decoding="async">
+              </div></div>
+            </div>
+            <div class="wf-meta">
+              <p class="wf-name" aria-hidden="true">Sunset 86 &middot; 01 / 21</p>
+              <button type="button" class="wf-pp" aria-label="Pause the slideshow"><i><svg class="i-pause" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg><svg class="i-play" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></i></button>
+            </div>
+            <div class="wf-rowbox"><button type="button" class="wf-arr wf-prev" aria-label="Earlier faces" data-i-aria-label="wfBack"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="wf-row" role="group" aria-label="Watch faces" data-i-aria-label="wfRow"></div><button type="button" class="wf-arr wf-next" aria-label="More faces" data-i-aria-label="wfMore"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+            <span class="wf-sr wf-say" aria-live="polite"></span><span class="wf-sr wf-now" id="wfNow">Sunset 86, 1 of 21</span>
+          </div>
+        </div>
+        <div class="cap">
+          <h3 data-i="wfH">Neon Faces, watch faces for Wear OS</h3>
+          <p data-i="wfP">I made twenty-one of them, all in 80s Miami neon: sunsets, palm trees, pink skies and arcade fonts. Every picture, icon and even the lettering is drawn with Python code, and they're in testing on Google Play now.</p>
+          <div class="golinks"><a class="go int" href="projects/#neon-faces" data-i="moreAbout">More about this</a></div>
+        </div>
+      </article>
+
       <article class="plate p-ml p-halloween" data-sk>
         <div class="vis">
           <img src="img/aoe2-halloween.webp" alt="Age of Empires II with the Halloween mod: cobweb-covered pine trees, ghost deer, spider sheep, a skeleton boar, pumpkins and a decorated Town Center" data-i-alt="halloweenAlt" width="1280" height="720" loading="lazy" decoding="async">
@@ -186,6 +218,15 @@
         </div>
       </article>
     </div>
+    <!-- What I'm working on now. To update: add, change or remove one <li> (and its wip* keys in assets/i18n.js). -->
+    <section class="wip" aria-labelledby="wipH" data-sk>
+      <h3 class="wip-h" id="wipH" data-i="wipH">On the bench right now</h3>
+      <ul class="wip-list">
+        <li><span class="wip-spin" aria-hidden="true"></span><div><a href="https://www.kaggle.com/competitions/name-that-llm" target="_blank" rel="noopener"><b>Name That LLM</b></a><span data-i="wip1">A Kaggle contest: guess which of 18 AI models wrote a short piece of text.</span></div></li>
+        <li><span class="wip-spin" aria-hidden="true"></span><div><a href="https://www.kaggle.com/competitions/squares-in-squares" target="_blank" rel="noopener"><b>Squares in Squares</b></a><span data-i="wip2">Another Kaggle contest: fit 1 to 1000 squares into the smallest box I can.</span></div></li>
+        <li><span class="wip-spin" aria-hidden="true"></span><div><a href="https://github.com/SaeedSabzeh/planrecht-berlin" target="_blank" rel="noopener"><b>Planrecht Berlin</b></a><span data-i="wip3">A QGIS plugin, the Berlin cousin of Norme Milano: click the map and see the local building plan.</span></div></li>
+      </ul>
+    </section>
     <div class="allp-wrap" data-sk><a class="allp" href="projects/" data-i="allProjects">Everything else I've built, with the technical details</a></div>
   </div>
 </section>
@@ -212,12 +253,12 @@
 </section>
 </main>
 
-<footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><button type="button" class="egg" data-i="wololoHint">Played Age of Empires? Type &ldquo;wololo&rdquo;, or tap here.</button><button type="button" class="egg sk-hold" data-i="skHold">Hold to see the sketch</button><span data-i="ft2">Designed and built by me.</span></div></footer>
+<footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><button type="button" class="egg" data-i="wololoHint">Played Age of Empires? Type &ldquo;wololo&rdquo;, or tap here.</button><button type="button" class="egg sk-hold" data-i="skHold">Hold to see the sketch</button><span data-i="ft2">Designed and built by me.</span><button type="button" class="vice-leave" data-i="viceLeave">Leave Vice City</button></div></footer>
 
-<script src="assets/i18n.js?v=15"></script>
-<script src="assets/site.js?v=22"></script>
+<script src="assets/i18n.js?v=25"></script>
+<script src="assets/site.js?v=35"></script>
 <script src="assets/thread.js?v=3"></script>
-<script src="assets/sketch.js?v=1"></script>
+<script src="assets/sketch.js?v=2"></script>
 <script src="assets/bridge.js?v=5"></script>
 <script data-goatcounter="https://saeedsabzeh123.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

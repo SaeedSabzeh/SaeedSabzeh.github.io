@@ -1,12 +1,17 @@
 // Shared by the homepage and the projects page: language switcher, copy-email,
 // rank strip, the QGIS screenshot slider and the homepage extras (thought network,
 // story thread, wololo). Every part checks that its elements exist.
+// Project pictures that are not zoomable, tilted or shimmered: the watch face picker is a control, not a screenshot.
+var SITE_NOZOOM='.p-watch';
 (function(){
   var root=document.documentElement;
   var titleKey=root.getAttribute('data-title')||'pageTitle';
   var EN={copy:'Copy email',copied:'Copied',selected:'Selected, press Ctrl+C',wololoBlue:'Wololo! This page now plays for the blue team.',wololoRed:'Wololo! Back to red.',
     // Milan time line under the contact text ({t} becomes the Milan time). Edit the wording here.
-    mtNow:'It’s {t} in Milan.',
+    mtNow:'It’s {t} in Milan.',mtZz:'I’m probably asleep.',mtDay:'I’m probably in class or coding.',mtEve:'I’m probably coding something.',
+    mindHintTap:'psst, tap the network a few times',
+    viceOn:'Welcome to Vice City. To leave, click the network 5 more times or use the link at the bottom.',viceOnTap:'Welcome to Vice City. To leave, tap the network 5 more times or use the link at the bottom.',viceOff:'Back to Milan.',viceLeave:'Leave Vice City',
+    wfRow:'Watch faces',wfPlay:'Play the slideshow',wfPause:'Pause the slideshow',wfMore:'More faces',wfBack:'Earlier faces',flipFront:'Photo of Saeed in front of the Milan Duomo. Turn it over',flipBack:'Saeed in sunglasses on a train. Turn it back',wfNext:'Next watch face',wfOf:'of',wfFace:'watch face',
     themeToDark:'Switch to dark mode',themeToLight:'Switch to light mode',
     lbClose:'Close',lbPrev:'Previous',lbNext:'Next',lbZoomIn:'Zoom in',lbZoomOut:'Zoom out'};
   EN[titleKey]=document.title;
@@ -16,7 +21,25 @@
   window.siteTx=tx;window.siteOnLang=function(fn){langHooks.push(fn)};
   function quiet(t){if(t){['ready','finished','updateCallbackDone'].forEach(function(k){if(t[k]&&t[k].catch)t[k].catch(function(){})})}return t}
 
+  // one toast for wololo and Vice: just above the footer when that is on screen (so it never covers the footer line that can trigger it), at the top if there is no room
+  var toastEl=null,toastTimer=0;
+  function toast(text,vice,ms){
+    if(!toastEl){toastEl=document.createElement('div');toastEl.setAttribute('role','status');toastEl.setAttribute('aria-live','polite');document.body.appendChild(toastEl)}
+    toastEl.className='wololo-toast'+(vice?' vice-toast':'');
+    toastEl.textContent=text;
+    var f=document.querySelector('footer'),fr=f&&f.getBoundingClientRect(),h=toastEl.offsetHeight;
+    toastEl.style.top='';toastEl.style.bottom='';
+    if(fr&&fr.top<innerHeight&&fr.bottom>0){
+      if(fr.top>=h+34)toastEl.style.bottom=(innerHeight-fr.top+14)+'px';
+      else{toastEl.style.bottom='auto';toastEl.style.top='max(16px,env(safe-area-inset-top,0px))'}
+    }
+    void toastEl.offsetWidth;toastEl.classList.add('on');
+    clearTimeout(toastTimer);toastTimer=setTimeout(function(){toastEl.classList.remove('on')},ms||3000);
+  }
+
   // ---- language ----
+  var hintEl=document.getElementById('mindHint');
+  if(hintEl&&matchMedia('(pointer:coarse)').matches){hintEl.dataset.i='mindHintTap';hintEl.textContent=EN.mindHintTap}
   var nodes=[].slice.call(document.querySelectorAll('[data-i]'));
   nodes.forEach(function(n){n.dataset.en=n.innerHTML});
   var labels=[];
@@ -56,7 +79,7 @@
     var a=[].slice.call(document.querySelectorAll('main h1,main h2,main h3,main p,main figure,main li,footer')).filter(function(e){return e.getBoundingClientRect().top>=0})[0];
     var y=a&&a.getBoundingClientRect().top;
     fn();
-    if(a&&scrollY>0)scrollBy(0,a.getBoundingClientRect().top-y);
+    if(a&&scrollY>0)scrollBy({top:a.getBoundingClientRect().top-y,behavior:'instant'}); // never animated, even with smooth scrolling on
   }
   function switchLang(l){
     if(l===cur)return;
@@ -71,11 +94,12 @@
   // ---- light / dark switch ----
   // With nothing saved the page follows the OS; the button flips whatever is shown now and saves the choice.
   var themeBtn=document.querySelector('.toplinks .theme'),darkMq=matchMedia('(prefers-color-scheme: dark)');
-  function isDark(){return root.dataset.theme?root.dataset.theme==='dark':darkMq.matches}
+  function isVice(){return root.hasAttribute('data-vice')}
+  function isDark(){if(isVice())return false;return root.dataset.theme?root.dataset.theme==='dark':darkMq.matches}
   function syncTheme(){
     var forced=root.dataset.theme;
     [].forEach.call(document.querySelectorAll('meta[name="theme-color"][data-c]'),function(m){
-      m.setAttribute('content',forced?(forced==='dark'?'#17171B':'#FFFFFF'):m.getAttribute('data-c'));
+      m.setAttribute('content',isVice()?'#b98dba':forced?(forced==='dark'?'#17171B':'#FFFFFF'):m.getAttribute('data-c'));
     });
     if(themeBtn){var t=tx(isDark()?'themeToLight':'themeToDark');themeBtn.setAttribute('aria-label',t);themeBtn.title=t}
   }
@@ -119,7 +143,8 @@
       var cols=Math.max(60,Math.floor(w/4)),per=N/cols,bw=w/cols,rank=N+(R-N)*prog;
       for(var i=0;i<cols;i++){
         var lo=i*per,hi=(i+1)*per,mine=rank>lo&&rank<=hi;
-        g.fillStyle=mine?'#FF829E':(lo<R?'rgba(255,130,158,'+(.13+.25*prog).toFixed(3)+')':'rgba(245,245,247,.13)');
+        var vc=root.hasAttribute('data-vice'); // Vice: peach on palm purple
+        g.fillStyle=mine?(vc?'#feb484':'#FF829E'):(lo<R?(vc?'rgba(254,180,132,':'rgba(255,130,158,')+(.13+.25*prog).toFixed(3)+')':'rgba(245,245,247,.13)');
         var bh=mine?h:h*(.45+.25*Math.sin(i*1.7)*Math.sin(i*.37)+.15);
         g.fillRect(i*bw+.5,(h-bh),Math.max(1,bw-1.2),bh);
       }
@@ -152,7 +177,7 @@
   function toHash(){
     if(!location.hash||moved)return;
     var el;try{el=document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch(x){return}
-    if(el)el.scrollIntoView();
+    if(el)el.scrollIntoView({behavior:'instant'});
   }
   if(saved!=='en'){setLang(saved);toHash();addEventListener('load',toHash);if(document.fonts)document.fonts.ready.then(toHash)}
   else movePill();
@@ -198,13 +223,16 @@
     var g=cv.getContext('2d');
     if(!g)return;
     var W=0,H=0,nodes=[],pulses=[],ripples=[],mx=-1e4,my=-1e4,PULL=165,casc=[],nearest=[],raf=0,last=0,visible=true,warm=false,wave=null,col={a:'#AE193C',s:'#555560',h:'#FF5C8A'};
+    var hitK=0,hits=[];
+    function mixHex(a,b,u){var p=function(h){h=h.replace('#','');if(h.length===3)h=h.replace(/./g,'$&$&');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]},x=p(a),y=p(b);return 'rgb('+x.map(function(v,i){return Math.round(v+(y[i]-v)*u)}).join(',')+')'}
     function colours(){
       var s=getComputedStyle(root);
       // the lit-up (warm) network is pink, or blue once wololo has changed sides
-      col.a=warm?(root.classList.contains('wololo')?'#3F7FE0':'#E0407A'):(s.getPropertyValue('--accent').trim()||col.a);
+      var vice=isVice();
+      col.a=warm?(vice?'#45032f':root.classList.contains('wololo')?'#3F7FE0':'#E0407A'):(s.getPropertyValue('--accent').trim()||col.a);
       col.s=s.getPropertyValue('--ink-soft').trim()||col.s;
       // lighter tint for the wave front (kept saturated enough to read on the light theme)
-      var bl=root.classList.contains('wololo');col.h=warm?(isDark()?(bl?'#BFD8FF':'#FFC4D1'):(bl?'#6FA3FF':'#FF5C8A')):col.a;
+      var bl=root.classList.contains('wololo');col.h=warm?(vice?'#22144f':isDark()?(bl?'#BFD8FF':'#FFC4D1'):(bl?'#6FA3FF':'#FF5C8A')):col.a;
       root.classList.toggle('mind-soft',!isDark());
     }
     function build(){
@@ -244,7 +272,8 @@
         nearest.forEach(function(e){var f=1-Math.min(1,e.d/PULL);g.globalAlpha=.35+.55*f;g.beginPath();g.moveTo(mx,my);g.lineTo(e.a.x,e.a.y);g.stroke()});
         g.fillStyle=col.a;g.globalAlpha=.9;g.beginPath();g.arc(mx,my,2.6,0,6.283);g.fill();
       }
-      ripples.forEach(function(r){var e=1-Math.pow(1-r.t,2);g.strokeStyle=col.a;g.globalAlpha=.7*(1-r.t);g.lineWidth=2.2-r.t*1.2;g.beginPath();g.arc(r.x,r.y,Math.max(0,e*300),0,6.283);g.stroke()});
+      // clicks 2 to 5 inside the Vice window tint and grow the ripple a little more each time
+      ripples.forEach(function(r){var e=1-Math.pow(1-r.t,2),u=Math.max(0,(r.k||1)-1)/4;g.strokeStyle=u?mixHex(col.a,'#8E3BD6',u):col.a;g.globalAlpha=.7*(1-r.t);g.lineWidth=(2.2-r.t*1.2)*(1+u*.8);g.beginPath();g.arc(r.x,r.y,Math.max(0,e*300*(1+u*.25)),0,6.283);g.stroke()});
       g.strokeStyle=col.a;g.fillStyle=col.a;g.lineWidth=1.4;
       pulses.forEach(function(p){
         var x=p.a.x+(p.b.x-p.a.x)*p.t,y=p.a.y+(p.b.y-p.a.y)*p.t;
@@ -316,7 +345,7 @@
     function ripple(e){
       var r=cv.getBoundingClientRect();
       var x=e.clientX-r.left,y=e.clientY-r.top,now=performance.now();
-      ripples.push({x:x,y:y,t:0});if(ripples.length>6)ripples.shift();
+      ripples.push({x:x,y:y,t:0,k:hitK});if(ripples.length>6)ripples.shift();
       // short cascade: nodes light up ring by ring (about 4 hops, 110ms apart)
       nodes.forEach(function(a){
         var d=Math.sqrt((a.hx-x)*(a.hx-x)+(a.hy-y)*(a.hy-y));
@@ -385,10 +414,15 @@
       g.lineCap='butt';
     }
     hero.addEventListener('pointerdown',function(e){
-      if(e.target.closest&&e.target.closest('a,button'))return;
+      if(e.target.closest&&e.target.closest('a,button')){hitK=0;return}
+      if(!e.isPrimary||e.button!==0)return; // only a main-button click or the first finger counts (no right-clicks, no multi-touch)
       clicks++;
       if(hint)hint.classList.add('gone');
+      // the same counter serves the Vice egg: five clicks within 4 seconds
+      var n=Date.now();hits.push(n);hits=hits.filter(function(t){return n-t<=4000});hitK=hits.length;
+      if(hits.length===3&&!isVice())(new Image()).src=(location.pathname.indexOf('/projects')>-1?'../':'')+'img/vice-bg.webp'; // warm the picture before the switch
       if(clicks===5)reward(e);
+      if(hits.length>=5){hits=[];toggleVice(e);if(clicks!==5)reward(e)}
     },{passive:true});
     if(calm.matches)return; // reduced motion: the still dots stay, no sparks
     hero.addEventListener('pointermove',near,{passive:true});
@@ -532,7 +566,7 @@
       var dio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('dot-lit');dio.unobserve(e.target)}})},{rootMargin:'0px 0px -30% 0px'});
       [].slice.call(edu.children).forEach(function(li){dio.observe(li)});
     }
-    var els=[].slice.call(document.querySelectorAll('#about .edu li,#work .plate'));
+    var els=[].slice.call(document.querySelectorAll('#about .edu li,#work .plate,#projects .plate,#projects .wip,#github .repo'));
     if(!els.length)return;
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting||e.boundingClientRect.top<0){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
     root.classList.add('js-anim');
@@ -542,7 +576,7 @@
   // Pictures lean about 2 degrees towards the mouse; Coup phone screenshots lift on hover (CSS, .tilt-on).
   // Mouse / fine pointer only, and not under reduced motion. Runs on any page that has project pictures.
   (function(){
-    var vis=[].slice.call(document.querySelectorAll('.plate .vis')).filter(function(v){return v.querySelector('img')});
+    var vis=[].slice.call(document.querySelectorAll('.plate .vis')).filter(function(v){return v.querySelector('img')&&!v.closest(SITE_NOZOOM)});
     if(!vis.length||calm.matches||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
     root.classList.add('tilt-on');
     vis.forEach(function(v){
@@ -594,7 +628,8 @@
       var h=+p.hour%24;
       var time=p.hour+':'+p.minute;
       if(cur==='fa')time=time.replace(/\d/g,function(d){return FAD[d]});
-      el.innerHTML='<i aria-hidden="true"></i><span class="now-t">'+tx('mtNow').replace('{t}','<b dir="ltr">'+time+'</b>')+'</span>';
+      var wk=!/Sat|Sun/.test(p.weekday),st=h<8?'mtZz':(wk&&h<18?'mtDay':'mtEve'),say=cur==='it'?'':' '+tx(st);
+      el.innerHTML='<i aria-hidden="true"></i><span class="now-t">'+tx('mtNow').replace('{t}','<b dir="ltr">'+time+'</b>')+say+'</span>';
       el.classList.toggle('zz',h<8||h===23);
       el.hidden=false;
     }
@@ -626,26 +661,12 @@
   (function(){
     var egg=document.querySelector('.egg');
     if(!egg)return;
-    var toast=document.createElement('div');
-    toast.className='wololo-toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');
-    document.body.appendChild(toast);
-    var timer=0,flash=document.createElement('div');
+    var flash=document.createElement('div');
     flash.className='wololo-flash';flash.setAttribute('aria-hidden','true');document.body.appendChild(flash);
-    // keep the toast off the footer line that can trigger it: just above the footer when it is on screen, or at the top if there is no room
-    function place(){
-      var f=document.querySelector('footer'),fr=f&&f.getBoundingClientRect(),h=toast.offsetHeight;
-      toast.style.top='';toast.style.bottom='';
-      if(fr&&fr.top<innerHeight&&fr.bottom>0){
-        if(fr.top>=h+34)toast.style.bottom=(innerHeight-fr.top+14)+'px';
-        else{toast.style.bottom='auto';toast.style.top='max(16px,env(safe-area-inset-top,0px))'}
-      }
-    }
     function convert(ev){
       // everything visible (toast text, toast, flash) is switched on inside flip, in the same frame as the colour change
       var flip=function(){
-        var on=root.classList.toggle('wololo');recolour();toast.textContent=tx(on?'wololoBlue':'wololoRed');
-        place();
-        toast.classList.add('on');clearTimeout(timer);timer=setTimeout(function(){toast.classList.remove('on')},3400);
+        var on=root.classList.toggle('wololo');recolour();toast(tx(on?'wololoBlue':'wololoRed'),false,3400);
         flash.classList.remove('go');void flash.offsetWidth;flash.classList.add('go');
       };
       if(window.wololoWave)window.wololoWave(flip,ev);else flip(); // wololoWave (optional) spreads the change as a circle
@@ -656,16 +677,143 @@
       if(e.ctrlKey||e.metaKey||e.altKey||!e.key||e.key.length!==1||(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))))return;
       buf=(buf+e.key.toLowerCase()).slice(-6);
       if(buf==='wololo'){buf='';convert()}
+      else if(buf.slice(-4)==='vice'&&window.siteToggleVice){buf='';window.siteToggleVice()}
     });
     egg.addEventListener('click',convert);
   })();
+
+  // Hidden "Vice" theme: five quick clicks on the hero network (see the pointerdown handler above), or the footer button to leave.
+  // html[data-vice], saved as localStorage "vice"; the head scripts restore it before first paint. Lives outside the network code so it works on /projects/ too.
+  var viceTimer=0,heroEl=document.querySelector('.hero');
+  function applyVice(on){
+    if(on)root.setAttribute('data-vice','1');else root.removeAttribute('data-vice');
+    syncTheme();recolour();sky(on);
+    if(typeof draw==='function')draw(); // the rank strip has Vice colours
+  }
+  function toggleVice(e){
+    var on=!isVice();
+    // leaving from the footer button: it hides, so park focus on the home link instead of dropping it to <body>
+    if(!on&&e&&e.currentTarget&&e.currentTarget.classList&&e.currentTarget.classList.contains('vice-leave')){
+      var home=document.querySelector('a.mono');if(home)home.focus({preventScroll:true});
+    }
+    var run=function(){
+      applyVice(on);
+      try{if(on)localStorage.setItem('vice','1');else localStorage.removeItem('vice')}catch(x){}
+      var tap=e&&e.pointerType&&e.pointerType!=='mouse';
+      toast(tx(on?(tap?'viceOnTap':'viceOn'):'viceOff'),true,on?7000:2400);
+    };
+    if(!calm.matches){
+      if(heroEl){heroEl.classList.add('vice-flash');clearTimeout(viceTimer);viceTimer=setTimeout(function(){heroEl.classList.remove('vice-flash')},1000)}
+      if(document.startViewTransition){
+        root.classList.add('vice-vt');
+        var done=function(){root.classList.remove('vice-vt')};
+        var t=quiet(document.startViewTransition(run));
+        if(t&&t.finished)t.finished.then(done,done);else done();
+        return;
+      }
+    }
+    run();
+  }
+  [].forEach.call(document.querySelectorAll('.vice-leave'),function(b){b.addEventListener('click',toggleVice)});
+  window.siteToggleVice=function(){toggleVice(null)};
+  // a page restored from the back/forward cache may be out of date
+  addEventListener('pageshow',function(e){if(!e.persisted)return;var on=false;try{on=localStorage.getItem('vice')==='1'}catch(x){}if(on!==isVice())applyVice(on)});
+  // other tabs follow
+  addEventListener('storage',function(e){
+    if(e.key!=='vice'&&e.key!==null)return;
+    var on=false;try{on=localStorage.getItem('vice')==='1'}catch(x){}
+    if(on!==isVice())applyVice(on);
+  });
+
+  // The living sky (Vice only, never under reduced motion): the picture drifts a little with the pointer and the scroll
+  // (on touch screens it drifts slowly by itself), the light warms further down the page, birds glide past now and then
+  // (a click on empty sky sends a few up), and soft glints move over the water.
+  // The picture and the warm light live on their own fixed layer (.vice-pic) that is moved with a transform, so nothing else
+  // on the page restyles; the canvas runs at ~30 fps and the loop sleeps while the tab is hidden.
+  var pic=null,warmEl=null,cv=null,cx=null,raf=0,birds=[],glints=[],W=0,H=0,DPR=1,last=0,lastDraw=0,nextBird=0,
+      px=0,py=0,mx=0,my=0,mouse=false,live=false,lastW=0,rsz=0,IMG_W=1672,IMG_H=941,M=48,moving=true,lastTf='',lastWarm='',maxScroll=1,lastMeasure=0;
+  function size(){
+    DPR=Math.min(devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;lastW=W;maxScroll=Math.max(1,document.documentElement.scrollHeight-H);
+    cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);cx.setTransform(DPR,0,0,DPR,0,0);
+    glints=[];
+    var lw=W+2*M,lh=H+2*M,sc=Math.max(lw/IMG_W,lh/IMG_H),iw=IMG_W*sc,ih=IMG_H*sc,left=(lw-iw)*(W<=600?.14:.5)-M,top=lh-ih-M;
+    for(var i=0,n=Math.round(W/34),k=0;i<n&&k<n*8;k++){
+      var v=.735+Math.random()*.165,u=.02+(v-.735)/.165*.43+Math.random()*(1-.02-(v-.735)/.165*.43); // right of the shoreline
+      var gx=left+u*iw,gy=top+v*ih;if(gx<-20||gx>W||gy<0||gy>H)continue;
+      glints.push({x:gx,y:gy,l:14+Math.random()*40,p:Math.random()*6.28,s:.6+Math.random()*1.2,a:Math.random()*6.28});i++;
+    }
+  }
+  // phones fire resize when the address bar slides; only a width change rebuilds the canvas
+  function onResize(){clearTimeout(rsz);rsz=setTimeout(function(){if(innerWidth!==lastW||Math.abs(innerHeight-H)>120)size()},150)}
+  function bird(x,y,vx,vy,sz){birds.push({x:x,y:y,vx:vx,vy:vy,s:sz*Math.max(.6,Math.min(1,W/900)),f:Math.random()*6.28,fs:7+Math.random()*3})}
+  function ambient(){
+    var left=Math.random()<.5,y=H*(.08+Math.random()*.3),n=Math.random()<.4?2:1,sp=(38+Math.random()*30)*(left?1:-1);
+    for(var i=0;i<n;i++)bird(left?-30-i*30:W+30+i*30,y+i*16,sp,(Math.random()-.5)*6,11+Math.random()*7);
+  }
+  function frame(t){
+    raf=0;if(!live||document.hidden)return;
+    raf=requestAnimationFrame(frame);
+    // ~30 fps while the picture moves or birds fly; ~15 fps when only the glints shimmer
+    if(t-lastDraw<(birds.length||(mouse&&moving)?32:64))return;
+    var dt=Math.min((t-(last||t))/1000,.08);last=t;lastDraw=t;
+    // the picture: towards the pointer (mouse) or a slow figure-eight drift (touch), plus scroll parallax; clamped inside the M px margin
+    if(t-lastMeasure>2000){lastMeasure=t;maxScroll=Math.max(1,document.documentElement.scrollHeight-H)} // the page grows as pictures load
+    var sc=Math.min(1,scrollY/maxScroll);
+    var gx=mouse?mx:Math.sin(t/7000)*12,gy=(mouse?my:Math.sin(t/9000)*8)+20-sc*56;
+    var nx=Math.max(4-M,Math.min(M-4,px+(gx-px)*.08)),ny=Math.max(4-M,Math.min(M-4,py+(gy-py)*.08));
+    moving=Math.abs(nx-px)+Math.abs(ny-py)>.05;px=nx;py=ny;
+    var tf='translate3d('+px.toFixed(1)+'px,'+py.toFixed(1)+'px,0)',wo=Math.min(1,sc*1.15).toFixed(2);
+    if(tf!==lastTf){pic.style.transform=tf;lastTf=tf} // no style writes when nothing changed
+    if(wo!==lastWarm){warmEl.style.opacity=wo;lastWarm=wo}
+    cx.clearRect(0,0,W,H);
+    // glints on the water, moving with the picture
+    for(var i=0;i<glints.length;i++){var g=glints[i],gx=g.x+Math.sin(t/2600+g.a)*6;
+      var a=Math.max(0,Math.sin(t/1000*g.s+g.p))*.55;if(!a)continue;
+      cx.strokeStyle='rgba(255,240,228,'+a.toFixed(2)+')';cx.lineWidth=1.6;cx.beginPath();cx.moveTo(gx+px,g.y+py);cx.lineTo(gx+px+g.l,g.y+py);cx.stroke()}
+    // birds: two curved wings that flap, a little bob
+    if(t>nextBird){ambient();nextBird=t+7000+Math.random()*7000}
+    cx.fillStyle='rgba(110,86,160,.78)';
+    for(var j=birds.length-1;j>=0;j--){var b=birds[j];b.x+=b.vx*dt;b.y+=b.vy*dt+Math.sin(t/600+b.f)*.3;b.f+=b.fs*dt;
+      if(b.x<-80||b.x>W+80||b.y<-80){birds.splice(j,1);continue}
+      var k=Math.sin(b.f)*b.s*.55,s=b.s,d=b.vx<0?-1:1;
+      cx.beginPath();cx.moveTo(b.x-s,b.y-k);cx.quadraticCurveTo(b.x-s*.45,b.y-k*.2-s*.18,b.x,b.y+s*.12);
+      cx.quadraticCurveTo(b.x+s*.45,b.y-k*.2-s*.18,b.x+s,b.y-k);cx.quadraticCurveTo(b.x+s*.4,b.y-k*.1+s*.02,b.x+d*s*.08,b.y+s*.3);
+      cx.quadraticCurveTo(b.x-s*.4,b.y-k*.1+s*.02,b.x-s,b.y-k);cx.fill()}
+  }
+  function wake(){if(live&&!raf&&!document.hidden){last=0;raf=requestAnimationFrame(frame)}}
+  function onMove(e){if(e.pointerType==='mouse'){mouse=true;mx=(e.clientX/W-.5)*-44;my=(e.clientY/H-.5)*-28}}
+  function onSkyClick(e){ // on sky, gutters and headings; not on controls, pictures, body text or the hero network
+    if(e.target.closest('a,button,input,textarea,label,p,li,figure,img,.vis,.hero,footer,[role=button]'))return;
+    if(String(getSelection()).length)return;
+    for(var i=0;i<3;i++)bird(e.clientX+(i-1)*10,e.clientY+i*6,(Math.random()<.5?-1:1)*(70+Math.random()*50),-(60+Math.random()*50),14+Math.random()*6);
+    wake();
+  }
+  function sky(on){
+    if(on&&!calm.matches){
+      if(live)return;live=true;
+      if(!pic){
+        pic=document.createElement('div');pic.className='vice-pic';pic.setAttribute('aria-hidden','true');
+        warmEl=document.createElement('div');warmEl.className='vice-warm';warmEl.setAttribute('aria-hidden','true');
+        cv=document.createElement('canvas');cv.className='vice-sky';cv.setAttribute('aria-hidden','true');cx=cv.getContext('2d');
+      }
+      document.body.prepend(pic,warmEl,cv);root.classList.add('vice-live');size();nextBird=performance.now()+1500;
+      addEventListener('resize',onResize);addEventListener('pointermove',onMove,{passive:true});document.addEventListener('click',onSkyClick);document.addEventListener('visibilitychange',wake);
+      wake();
+    }else if(live){
+      live=false;cancelAnimationFrame(raf);raf=0;birds=[];root.classList.remove('vice-live');
+      [pic,warmEl,cv].forEach(function(n){if(n&&n.parentNode)n.remove()});
+      removeEventListener('resize',onResize);removeEventListener('pointermove',onMove);document.removeEventListener('click',onSkyClick);document.removeEventListener('visibilitychange',wake);
+    }
+  }
+  if(calm.addEventListener)calm.addEventListener('change',function(){sky(false);if(isVice())sky(true)});
+  if(isVice()){syncTheme();recolour();sky(true)}
 })();
 
 // Lightbox: click an image in a project plate to see it full size (Esc, backdrop or the close button to leave;
 // the Coup phone screenshots get previous/next buttons and arrow keys). Self-contained.
 // Button labels are plain neutral aria-label attributes ("Close", "Previous", "Next"), not in i18n.js.
 (function(){
-  var imgs=document.querySelectorAll('.plate .vis img');
+  var imgs=document.querySelectorAll('.plate:not('+SITE_NOZOOM+') .vis img');
   if(!imgs.length)return;
   var box,pan,pic,bClose,bPrev,bNext,bZoom,count,cap,set=[],idx=0,opener=null,zoomed=false,root=document.documentElement;
   var calm=matchMedia('(prefers-reduced-motion: reduce)');
@@ -801,7 +949,7 @@
   document.addEventListener('contextmenu',function(e){if(Date.now()-ateClick<1500&&e.target.closest&&e.target.closest('.p-coup .phones'))e.preventDefault()});
   document.addEventListener('click',function(e){
     if(e.defaultPrevented||e.button||e.ctrlKey||e.metaKey||e.shiftKey)return;
-    var t=e.target;if(!t||t.tagName!=='IMG'||!t.closest('.plate .vis'))return;
+    var t=e.target;if(!t||t.tagName!=='IMG'||!t.closest('.plate .vis')||t.closest(SITE_NOZOOM))return;
     e.preventDefault();
     if(flipOK(t)){
       if(Date.now()-ateClick<1500){ateClick=0;return} // the click that ends a long press
@@ -827,7 +975,12 @@
       f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();
     }
   });
-  [].forEach.call(imgs,function(i){i.classList.add('zoomable')});
+  [].forEach.call(imgs,function(i){
+    i.classList.add('zoomable');
+    if(i.closest('a'))return; // already a link
+    i.tabIndex=0; // Enter or Space opens the full-size picture
+    i.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}});
+  });
 })();
 
 // Images: shimmer while loading, fade in once loaded (classes ld / ld-in, styled in site.css). Lazy loading is untouched.
@@ -837,7 +990,7 @@
   [].forEach.call(document.querySelectorAll('img'),function(im){
     if(im.complete&&im.naturalWidth)return;
     // (a hidden lazy image, e.g. the desktop or phone half of a pair, never loads, so it would leave the shimmer running)
-    if(im.loading!=='lazy'||im.complete||!im.getClientRects().length)return;
+    if(im.loading!=='lazy'||im.complete||!im.getClientRects().length||im.closest(SITE_NOZOOM))return;
     var host=im.closest('figure,.vis')||im.parentNode;
     host.classList.add('ld-host');im.classList.add('lz');
     var shown=false,show=function(){
@@ -855,7 +1008,7 @@
 (function(){
   [].forEach.call(document.querySelectorAll('img'),function(im){
     if(im.complete&&im.naturalWidth)return;
-    if(im.loading==='lazy')return;
+    if(im.loading==='lazy'||im.closest(SITE_NOZOOM))return;
     im.classList.add('ld');
     var done=function(ok){im.classList.remove('ld');if(ok){im.classList.add('ld-in');setTimeout(function(){im.classList.remove('ld-in')},450)}};
     im.addEventListener('load',function(){done(true)},{once:true});
@@ -881,4 +1034,200 @@
     if(hasWrap){wrap.classList.toggle('at-end',pos>=m-2);if(pos>8)wrap.classList.add('swiped')}
   }
   strip.addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(upd)},{passive:true});
+})();
+
+// The hero portrait is a card: a click turns it over to the second photo and back; the Vice theme puts the sunglasses on.
+(function(){
+  var f=document.querySelector('.arch .flip');
+  if(!f)return;
+  var root=document.documentElement;
+  function T(k,d){return (window.siteTx&&window.siteTx(k))||d}
+  function set(on){
+    f.classList.toggle('on',on);
+    f.setAttribute('aria-label',on?T('flipBack','Saeed in sunglasses on a train. Turn it back'):T('flipFront','Photo of Saeed in front of the Milan Duomo. Turn it over'));
+  }
+  f.addEventListener('click',function(){set(!f.classList.contains('on'))});
+  if('MutationObserver' in window)new MutationObserver(function(){set(root.hasAttribute('data-vice'))}).observe(root,{attributes:true,attributeFilter:['data-vice']});
+  if(window.siteOnLang)window.siteOnLang(function(){set(f.classList.contains('on'))});
+  set(root.hasAttribute('data-vice'));
+})();
+
+// Numbers in the fact rows count up once when they scroll into view ("21", "11,000×", "99.08%"); ranges and words stay as they are.
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  var FA='۰۱۲۳۴۵۶۷۸۹';
+  function latin(t){return t.replace(/[۰-۹]/g,function(d){return FA.indexOf(d)})}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;io.unobserve(e.target);
+    var b=e.target,final=b.textContent,fa=/[۰-۹]/.test(final),m=/^([0-9][0-9,٬]*(?:[.٫][0-9]+)?)(\D*)$/.exec(latin(final).trim());
+    if(!m)return;
+    var raw=m[1],sep=(/[,٬]/.exec(raw)||[''])[0],dec=(raw.split(/[.٫]/)[1]||'').length,to=parseFloat(raw.replace(/[,٬]/g,'').replace('٫','.'));
+    if(!(to>0))return;
+    var t0=0,last=null;
+    function fmt(v){var x=v.toFixed(dec),p=x.split('.');if(sep)p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,sep);x=p.join(dec?(fa?'٫':'.'):'');if(fa)x=x.replace(/\d/g,function(d){return FA[d]});return x+m[2]}
+    function step(t){
+      if(last!==null&&b.textContent!==last)return; // the language changed mid-way: leave the new text alone
+      if(!t0)t0=t;var k=Math.min(1,(t-t0)/800),v=to*(1-Math.pow(1-k,3));
+      last=k<1?fmt(v):final;b.textContent=last;
+      if(k<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  })},{rootMargin:'0px 0px -6% 0px'}); // starts as the number enters the screen, so the final value never flashes first
+  [].forEach.call(document.querySelectorAll('.facts b,.qfacts b'),function(b){io.observe(b)});
+})();
+
+// Projects page: a quiet index under the heading, built from the plate titles (so it follows the language).
+(function(){
+  var head=document.querySelector('#projects .sec-head'),plates=[].slice.call(document.querySelectorAll('#projects .plate[id]'));
+  if(!head||!plates.length)return;
+  var nav=document.createElement('nav');nav.className='pidx';nav.setAttribute('aria-label','Projects on this page');
+  head.insertAdjacentElement('afterend',nav);
+  var FA='۰۱۲۳۴۵۶۷۸۹';
+  function build(){
+    var fa=document.documentElement.lang==='fa';
+    nav.innerHTML='';
+    plates.forEach(function(p,k){
+      var h=p.querySelector('h3');if(!h)return;
+      var name=h.textContent.split(/[,،:]| – /)[0].trim(),n=(k<9?'0':'')+(k+1);
+      if(fa)n=n.replace(/\d/g,function(d){return FA[d]});
+      var a=document.createElement('a');a.href='#'+p.id;a.innerHTML='<b>'+n+'</b>';a.appendChild(document.createTextNode(name));
+      nav.appendChild(a);
+    });
+  }
+  build();if(window.siteOnLang)window.siteOnLang(build);
+})();
+
+// Neon Faces: the watch face picker. Autoplays while in view (not under reduced motion, paused while a mouse is over it);
+// a tap on the big watch, a swipe, a thumbnail, the row arrows or the arrow keys take over (autoplay pauses), and the play button hands it back.
+(function(){
+  var plate=document.querySelector('.p-watch');
+  if(!plate)return;
+  var row=plate.querySelector('.wf-row'),nameEl=plate.querySelector('.wf-name'),sr=plate.querySelector('.wf-say'),now=plate.querySelector('.wf-now'),layers=[].slice.call(plate.querySelectorAll('.wf-img')),
+      watch=plate.querySelector('.wf-watch'),pp=plate.querySelector('.wf-pp'),vis=plate.querySelector('.vis');
+  var calm=matchMedia('(prefers-reduced-motion: reduce)');
+  var F=[['sunset86','Sunset 86'],['nightdrive','Night Drive'],['neonbay','Neon Bay HUD'],['oceandrive','Ocean Drive'],['streethud','Street Level HUD'],['pastelbay','Pastel Bay'],
+    ['coastplate','Coast Plate'],['flamingodeco','Flamingo Deco'],['freshmint','Fresh Mint'],['glades','Glades'],['headline','Breaking Headline'],['heatwave','Heatwave'],['inksunset','Ink & Sunset'],
+    ['keysbridge','Keys Bridge'],['pixelarcade','Pixel Arcade'],['poolday','Pool Day'],['popflash','Pop Flash'],['rideordie','Ride or Die'],['sunsetgems','Sunset Gems'],['tapecam','Tape Cam'],['tropicpop','Tropic Pop']];
+  var SIZES=layers[0].getAttribute('sizes')||'260px';
+  var saveData=!!(navigator.connection&&navigator.connection.saveData),holdUntil=0,holdT=0;
+  var cur=0,front=0,tok=0,tm=0,busy=false,inView=false,hover=false,kb=false,userPaused=false,seen=false,btns=[];
+  var D=(layers[0].getAttribute('src')||'img/watch/x').replace(/[^\/]*$/,''); // 'img/watch/' or '../img/watch/'
+  function set(img,i){var n=F[i][0];img.sizes=SIZES;img.srcset=D+n+'.webp 440w, '+D+'660/'+n+'.webp 660w, '+D+'2x/'+n+'.webp 880w';img.src=D+n+'.webp'}
+  function pad(n){return (n<10?'0':'')+n}
+  function T(k,d){return (window.siteTx&&window.siteTx(k))||d}
+  function fa(){return document.documentElement.lang==='fa'}
+  function num(n){return fa()?String(n).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]}):String(n)}
+  function wrap(i){return (i+F.length)%F.length}
+  function pos(i){return F[i][1]+(fa()?'، ':', ')+num(i+1)+' '+T('wfOf','of')+' '+num(F.length)}
+  function alt(i){return fa()?T('wfFace','watch face')+' '+F[i][1]:F[i][1]+' '+T('wfFace','watch face')}
+  // everything that says which face is showing, written only once its picture is on screen
+  function paint(i,say){
+    nameEl.textContent=F[i][1].toUpperCase()+' · '+pad(i+1)+' / '+F.length;
+    btns.forEach(function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false');b.tabIndex=k===i?0:-1});
+    layers[front].alt=alt(i);if(now)now.textContent=pos(i);
+    // a quiet live region, written only when a person changes the face (and not when the focused thumbnail already says it)
+    if(say&&sr&&document.activeElement!==btns[i])sr.textContent=pos(i);
+    var b=btns[i],vl=row.scrollLeft+24,vr=row.scrollLeft+row.clientWidth-24; // scroll the row itself, only when needed
+    if(b.offsetLeft<vl||b.offsetLeft+b.offsetWidth>vr)row.scrollTo({left:b.offsetLeft-(row.clientWidth-b.offsetWidth)/2,behavior:calm.matches?'auto':'smooth'});
+  }
+  function labels(){btns.forEach(function(b,k){b.setAttribute('aria-label',pos(k))});paint(cur,false);if(watch)watch.setAttribute('aria-label',T('wfNext','Next watch face'));paintPP()}
+  F.forEach(function(f,i){
+    var b=document.createElement('button'),im=new Image();
+    b.type='button';b.setAttribute('aria-pressed',i?'false':'true');b.tabIndex=i?-1:0;
+    // small 112px pictures; their src is set when the plate first comes near the screen (all 21 are ~115 KB together)
+    im.alt='';im.width=112;im.height=112;im.decoding='async';im.dataset.src=D+'thumb/'+f[0]+'.webp';
+    b.appendChild(im);b.addEventListener('click',function(){take();show(i,true)});
+    row.appendChild(b);btns.push(b);
+  });
+  function show(i,say,tries,dir){
+    i=wrap(i);
+    if(i===cur){++tok;busy=false;return} // also cancels a swap that is still loading
+    var t=++tok,old=layers[front],nw=layers[1-front],done=false;dir=dir||(i===wrap(cur-1)?-1:1);busy=true;
+    function swap(){
+      if(done||t!==tok)return;done=true;busy=false;
+      nw.classList.add('on');nw.removeAttribute('aria-hidden');old.classList.remove('on');old.setAttribute('aria-hidden','true');old.alt='';
+      front=1-front;cur=i;paint(i,say);
+    }
+    set(nw,i);
+    // a picture that fails to load keeps the old face (and the old name) instead of showing a broken image
+    function fail(){if(nw.complete&&nw.naturalWidth)swap();else if(t===tok&&!done){done=true;busy=false;if((tries||0)<F.length)show(i+dir,say,(tries||0)+1,dir)}} // a broken face is skipped
+    (nw.decode?nw.decode():Promise.resolve()).then(swap,fail);
+    // some browsers leave decode() pending (e.g. in a background pane): fall back to the load state after a moment
+    setTimeout(function(){if(!done&&t===tok){if(nw.complete&&nw.naturalWidth)swap();else nw.addEventListener('load',swap,{once:true}),nw.addEventListener('error',fail,{once:true})}},700);
+    if(!saveData)set(new Image(),wrap(i+1)); // the next big face only (the browser picks the size); not with Data Saver on
+  }
+  function sync(){
+    var want=inView&&!hover&&!kb&&Date.now()>=holdUntil&&!userPaused&&!calm.matches&&!document.hidden;
+    if(want&&!tm)tm=setInterval(function(){if(!busy)show(cur+1,false)},2800);
+    else if(!want&&tm){clearInterval(tm);tm=0}
+  }
+  function paintPP(){
+    if(!pp)return;
+    pp.classList.toggle('is-paused',userPaused); // icon and label follow the same state
+    pp.setAttribute('aria-label',T(userPaused?'wfPlay':'wfPause',userPaused?'Play the slideshow':'Pause the slideshow'));
+  }
+  function take(){userPaused=true;paintPP();sync()} // the visitor took over
+  function hold(){holdUntil=Date.now()+8000;sync();clearTimeout(holdT);holdT=setTimeout(sync,8100)} // browsing the row: a short hold
+  if(pp){
+    if(calm.matches)pp.hidden=true;
+    pp.addEventListener('click',function(){userPaused=!userPaused;paintPP();if(!userPaused){if(sr)sr.textContent='';kb=false;show(cur+1,false)}sync()});
+  }
+  if(window.siteOnLang)window.siteOnLang(labels);
+  labels();
+  // row arrows (mostly for mice without a sideways wheel): scroll the row by most of its width
+  [].forEach.call(plate.querySelectorAll('.wf-arr'),function(a){
+    a.addEventListener('click',function(){if(a.getAttribute('aria-disabled')==='true')return;hold();row.scrollBy({left:(a.classList.contains('wf-next')?1:-1)*row.clientWidth*.8,behavior:calm.matches?'auto':'smooth'})});
+  });
+  function arrows(){
+    var max=row.scrollWidth-row.clientWidth-2;
+    plate.querySelectorAll('.wf-arr').forEach(function(a){a.setAttribute('aria-disabled',String(a.classList.contains('wf-next')?row.scrollLeft>=max:row.scrollLeft<=2))});
+  }
+  // browsing the row by touch or a sideways wheel hands control to the visitor
+  row.addEventListener('touchstart',hold,{passive:true});row.addEventListener('wheel',function(e){if(Math.abs(e.deltaX)>Math.abs(e.deltaY))hold()},{passive:true});
+  row.addEventListener('scroll',arrows,{passive:true});addEventListener('resize',arrows);arrows();
+  row.addEventListener('keydown',function(e){
+    var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0,k=e.key==='Home'?0:e.key==='End'?F.length-1:-1;
+    if(!d&&k<0)return;
+    e.preventDefault();take();
+    var i=k>=0?k:wrap(cur+d); // wraps, like the big watch
+    btns[i].focus({preventScroll:true});show(i,true);
+  });
+  // the big watch: a click (or tap, or a screen reader's default action) = next face; a horizontal swipe = previous / next
+  // and swallows the click that follows it (vertical scrolling stays with the page, touch-action:pan-y)
+  if(watch){
+    var sx=0,sy=0,sid=null,swiped=false,sw=0;
+    var step=function(d){take();show(cur+d,true)};
+    watch.addEventListener('pointerdown',function(e){if(e.button)return;sid=e.pointerId;sx=e.clientX;sy=e.clientY;swiped=false;clearTimeout(sw);try{watch.setPointerCapture(e.pointerId)}catch(x){}});
+    watch.addEventListener('pointerup',function(e){
+      if(sid!==e.pointerId)return;sid=null;
+      var dx=e.clientX-sx,dy=e.clientY-sy;
+      if(Math.abs(dx)>=30&&Math.abs(dx)>Math.abs(dy)){swiped=true;step(dx<0?1:-1)}
+      else if(Math.abs(dx)>=10||Math.abs(dy)>=10)swiped=true; // a drag that was not a swipe: no click either
+      if(swiped)sw=setTimeout(function(){swiped=false},400);
+    });
+    watch.addEventListener('pointercancel',function(){sid=null});
+    watch.addEventListener('click',function(){if(swiped){swiped=false;return}step(1)});
+    watch.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();step(1)}
+      else if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();step(e.key==='ArrowRight'?1:-1)}
+    });
+  }
+  // a mouse resting on the plate holds the current face (a short pause, not a state: the button does not change)
+  vis.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){hover=true;sync()}});
+  vis.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'){hover=false;sync()}});
+  // keyboard focus inside the picture holds the face too (not on the play button itself)
+  vis.addEventListener('focusin',function(e){kb=e.target!==pp&&!!(e.target.matches&&e.target.matches(':focus-visible'));sync()});
+  vis.addEventListener('focusout',function(e){if(!(e.relatedTarget&&vis.contains(e.relatedTarget)))kb=false;sync()});
+  document.addEventListener('visibilitychange',sync);
+  if(calm.addEventListener)calm.addEventListener('change',function(){if(pp)pp.hidden=calm.matches;sync()});
+  plate.classList.add('wf-js'); // the controls only show once they work
+  function first(){
+    if(seen)return;seen=true;
+    btns.forEach(function(b){var im=b.firstChild;im.src=im.dataset.src});
+    if(!saveData)set(new Image(),1);arrows();
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){if(e[0].isIntersecting)first()},{rootMargin:'400px 0px'}).observe(vis);
+    new IntersectionObserver(function(e){inView=e[0].isIntersecting;sync()},{threshold:.35}).observe(vis);
+  }else{first();inView=true;sync()}
 })();

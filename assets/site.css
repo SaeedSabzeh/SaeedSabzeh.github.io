@@ -137,6 +137,56 @@ html[dir="rtl"] .qfacts b{text-align:right}
 .p-halloween .vis{flex:1.6}
 .p-halloween .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 @media (max-width:900px){.plate.p-halloween .vis{flex:none;min-height:0;aspect-ratio:16/9}}
+/* Neon Faces watch picker: a night scene that stays dark in both themes */
+.plate.p-watch .vis{flex:1.5;min-height:0;display:flex;align-items:center;justify-content:center;container-type:inline-size;background:linear-gradient(180deg,rgba(96,36,150,.6),rgba(196,44,142,.38) 58%,rgba(255,128,48,.3)),#120a1f;color:#F5F5F7}
+.wf{--w:min(260px,64cqw);position:relative;width:100%;display:flex;flex-direction:column;align-items:center;padding:calc(var(--w)*.15 + 12px) 16px 14px}
+.wf-grid{position:absolute;inset-inline:-50%;bottom:0;height:72%;background:repeating-linear-gradient(90deg,rgba(255,90,200,.55) 0 1px,transparent 1px 46px),repeating-linear-gradient(0deg,rgba(255,90,200,.55) 0 1px,transparent 1px 26px);transform:perspective(260px) rotateX(55deg);transform-origin:50% 100%;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);opacity:.75;pointer-events:none}
+.wf-watch{position:relative;width:var(--w);aspect-ratio:1;flex:none;z-index:1;cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;border-radius:50%}
+.wf-watch:focus-visible{outline:2px solid #5CE1FF;outline-offset:10px}
+.wf-strap{position:absolute;inset-inline:25%;height:22%;background:linear-gradient(90deg,#1c1230,#3b2a5e 50%,#1c1230);box-shadow:inset 0 0 0 1px rgba(255,190,230,.4),inset 0 1px 0 rgba(255,255,255,.3),0 0 0 1px rgba(0,0,0,.35)}
+.wf-strap::after{content:"";position:absolute;inset-inline:18%;top:30%;height:1px;background:rgba(255,255,255,.14);box-shadow:0 10px 0 rgba(255,255,255,.1)}
+.wf-st-t{top:-15%;border-radius:14px 14px 3px 3px;clip-path:polygon(6% 0,94% 0,100% 100%,0 100%)}
+.wf-st-b{bottom:-15%;border-radius:3px 3px 14px 14px;clip-path:polygon(0 0,100% 0,94% 100%,6% 100%)}
+.wf-crown{position:absolute;right:-4.6%;top:41%;width:6.4%;height:12%;border-radius:4px 40% 40% 4px;background:repeating-linear-gradient(180deg,#b9a8d8 0 2px,#7a6898 2px 4px);box-shadow:0 0 0 1px rgba(255,255,255,.18),0 0 12px rgba(255,64,160,.35)}
+.wf-bezel{position:relative;width:100%;height:100%;padding:3.2%;border-radius:50%;background:#07050c;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 0 26px rgba(255,64,160,.4),0 0 64px rgba(0,220,255,.16),inset 0 0 0 2px rgba(255,255,255,.05)}
+.wf-face{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#000}
+.wf-glass{position:absolute;inset:0;z-index:2;border-radius:50%;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.16) 0,rgba(255,255,255,.04) 28%,transparent 42%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.wf-img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;opacity:0;transform:scale(.94);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
+.wf-img.on{opacity:1;transform:none}
+.wf-meta{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:calc(var(--w)*.15 + 8px)}
+.wf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.wf-name{margin:0;white-space:nowrap;font-family:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#FFD3EC;text-shadow:0 0 10px rgba(255,64,160,.7)}
+html[lang="fa"] .wf-name{letter-spacing:.14em!important}
+.wf-meta::before{content:"";flex:none;width:44px} /* balances the play button so the name sits on the watch axis */
+.wf-meta:has(.wf-pp[hidden])::before,.p-watch:not(.wf-js) .wf-meta::before{display:none}
+@media (max-width:380px){.wf-name{font-size:11px;letter-spacing:.07em}.wf-meta{gap:4px}}
+.wf-pp{flex:none;display:grid;place-items:center;width:44px;height:44px;margin-block:-10px;padding:0;border:0;border-radius:50%;background:none;color:#FFD3EC;cursor:pointer}
+.wf-pp i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(255,211,236,.75);background:rgba(255,64,160,.14);transition:background .2s,border-color .2s}
+.wf-pp svg{display:block}
+.wf-pp .i-play{display:none}
+.wf-pp.is-paused .i-play{display:inline}
+.wf-pp.is-paused .i-pause{display:none}
+.wf-pp:hover i{background:rgba(255,64,160,.3);border-color:#FF829E}
+.wf-pp:focus-visible{outline:2px solid #5CE1FF;outline-offset:0}
+.wf-rowbox{position:relative;z-index:1;display:flex;align-items:center;width:100%;margin-top:6px}
+.wf-arr{flex:none;display:none;place-items:center;width:32px;height:44px;padding:0;border:0;background:none;color:#FFD3EC;cursor:pointer;border-radius:8px}
+.wf-arr:hover:not([aria-disabled="true"]){color:#fff;background:rgba(255,64,160,.18)}
+.wf-arr[aria-disabled="true"]{opacity:.45;cursor:default}
+.wf-arr:focus-visible{outline:2px solid #5CE1FF;outline-offset:0}
+@media (hover:hover) and (pointer:fine){.wf-js .wf-arr{display:grid}}
+.p-watch:not(.wf-js) .wf-pp,.p-watch:not(.wf-js) .wf-rowbox{display:none}
+.wf-row{position:relative;z-index:1;display:flex;gap:10px;flex:1;min-width:0;padding:8px 22px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 22px),transparent);mask-image:linear-gradient(90deg,transparent,#000 22px,#000 calc(100% - 22px),transparent)}
+.wf-row::-webkit-scrollbar{display:none}
+.wf-row button{flex:none;width:44px;height:44px;padding:0;border:2px solid transparent;border-radius:50%;background:#07050c;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.wf-row button img{display:block;width:100%;height:100%;border-radius:50%}
+.wf-row button:hover{transform:scale(1.08)}
+.wf-row button[aria-pressed="true"]{border-color:#FF9EC0;box-shadow:0 0 0 2px rgba(255,64,160,.55),0 0 16px rgba(255,64,160,.8);transform:scale(1.08)}
+.wf-row button:focus-visible{outline:2px solid #5CE1FF;outline-offset:2px}
+@media (min-width:901px){.wf-row button{width:56px;height:56px}.wf{--w:min(280px,64cqw)}}
+@media (max-width:900px){.plate.p-watch .vis{flex:none}}
+/* the picture box does not lift or tilt under the pointer: the big watch itself is the control */
+@media (hover:hover){:root:root .plate.p-watch .vis:hover{translate:none;scale:none;box-shadow:none}}
+@media (prefers-reduced-motion:reduce){.wf-img,.wf-row button,.wf-pp i{transition:none}.wf-row button:hover{transform:none}}
 
 /* Sorkh: desktop page with the phone view in front */
 .sk-shots{position:relative;max-width:1080px;margin:0 auto;padding-inline-end:9%}
@@ -192,6 +242,21 @@ html[dir="rtl"] .qfacts b{text-align:right}
 .strip-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--plate-soft);font-variant-numeric:tabular-nums}
 
 /* homepage: pointer to the projects page; projects page: closing line */
+/* "On the bench right now": what I am working on, each with a slowly turning ring (still under reduced motion) */
+.wip{margin-top:clamp(48px,6vw,80px);padding:clamp(20px,3vw,32px);border:1px dashed var(--line);max-width:760px}
+.wip-h{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.wip-h::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);animation:wip-pulse 1.8s ease-in-out infinite}
+.wip-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:16px}
+.wip-list li{display:flex;align-items:flex-start;gap:14px}
+.wip-list div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.wip-list a{color:var(--ink);text-decoration:none;font-size:17px;align-self:flex-start;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1.5px no-repeat;transition:background-size .25s}
+.wip-list a:hover,.wip-list a:focus-visible{background-size:100% 1.5px}
+.wip-list span[data-i]{color:var(--ink-soft);font-size:15.5px}
+.wip-spin{flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--accent);animation:wip-spin 1.4s linear infinite}
+.wip-list li:nth-child(2) .wip-spin{animation-delay:-.45s}.wip-list li:nth-child(3) .wip-spin{animation-delay:-.9s}
+@keyframes wip-spin{to{transform:rotate(360deg)}}
+@keyframes wip-pulse{50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){.wip-spin,.wip-h::before{animation:none}.wip-spin{border-style:dotted}}
 .allp-wrap{margin-top:clamp(40px,5vw,64px)}
 .allp{display:inline-flex;align-items:center;gap:12px;font-weight:600;font-size:17px;line-height:1.3;text-decoration:none;padding:16px 26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);transition:background .2s,border-color .2s}
 .allp::after{content:"\2192";transition:transform .25s}
@@ -457,7 +522,7 @@ html[dir="rtl"] .p-qgis .qinset svg{transform:scaleX(-1)}
 
 /* ---------- homepage extras: thought network, story thread, wololo ---------- */
 /* Thought network behind the hero (decorative canvas, drawn by site.js) */
-.hero{position:relative}
+.hero{position:relative;overflow-x:clip}
 .hero .wrap{position:relative;z-index:1}
 .mind{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
   -webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,.28),#000 72%);mask-image:linear-gradient(100deg,rgba(0,0,0,.28),#000 72%)}
@@ -615,6 +680,40 @@ html[dir="rtl"] .arch::before{inset:-2% 4% -4% -5%;transform:rotate(4deg)}
 html[dir="rtl"] .arch .frame{transform:rotate(-2deg)}
 @media (hover:hover){html[dir="rtl"] .arch:hover .frame{transform:rotate(-.6deg) translateY(-4px)}}
 @media (prefers-reduced-motion:reduce){.arch .frame,.arch img,.arch .frame::after{transition:none}}
+/* ---- the portrait card: front = Duomo, back = sunglasses; click turns it over (site.js), the Vice theme turns it too ---- */
+.arch .flip{position:relative;display:block;width:100%;aspect-ratio:4/5;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer;perspective:1100px;-webkit-tap-highlight-color:transparent}
+.arch .card{position:absolute;inset:0;display:block;transform-style:preserve-3d;transform:rotate(2deg);transition:transform .8s cubic-bezier(.3,1.35,.45,1)}
+.arch .flip.on .card{transform:rotate(2deg) rotateY(180deg)}
+.arch .card .frame.frame,.arch:hover .card .frame{position:absolute;inset:0;display:block;aspect-ratio:auto;transform:none;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.arch .card .frame.back,.arch:hover .card .frame.back{transform:rotateY(180deg)}
+.arch .card img{object-position:50% 30%}
+.flip-badge{position:absolute;right:-13px;bottom:-13px;z-index:2;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--paper);box-shadow:0 8px 18px -8px rgba(0,0,0,.5);transition:transform .6s cubic-bezier(.3,1.35,.45,1)}
+.flip.on .flip-badge{transform:rotate(180deg)}
+@media (max-width:640px){.flip-badge{width:26px;height:26px;right:-9px;bottom:-9px}.flip-badge svg{width:12px;height:12px}html[dir="rtl"] .flip-badge{left:-9px}}
+.arch .flip:focus-visible{outline:2px solid var(--accent);outline-offset:14px;border-radius:10px}
+@media (hover:hover){
+  .arch:hover .card{transform:rotate(.6deg) translateY(-4px) rotateY(-9deg)}
+  .arch:hover .flip.on .card{transform:rotate(.6deg) translateY(-4px) rotateY(171deg)}
+  .arch:hover .flip-badge{transform:scale(1.1)}
+  .arch:hover .flip.on .flip-badge{transform:rotate(180deg) scale(1.1)}
+}
+html[dir="rtl"] .arch .card{transform:rotate(-2deg)}
+html[dir="rtl"] .arch .flip.on .card{transform:rotate(-2deg) rotateY(-180deg)}
+html[dir="rtl"] .arch .card .frame,html[dir="rtl"] .arch:hover .card .frame{transform:none}
+html[dir="rtl"] .arch .card .frame.back,html[dir="rtl"] .arch:hover .card .frame.back{transform:rotateY(180deg)}
+html[dir="rtl"] .flip-badge{right:auto;left:-13px}
+@media (hover:hover){
+  html[dir="rtl"] .arch:hover .card{transform:rotate(-.6deg) translateY(-4px) rotateY(9deg)}
+  html[dir="rtl"] .arch:hover .flip.on .card{transform:rotate(-.6deg) translateY(-4px) rotateY(-171deg)}
+}
+/* reduced motion: no spin, the photos simply cross-fade */
+@media (prefers-reduced-motion:reduce){
+  .arch .card,.arch .flip.on .card,.arch:hover .card,.arch:hover .flip.on .card{transition:none;transform:rotate(2deg)}
+  html[dir="rtl"] .arch .card,html[dir="rtl"] .arch .flip.on .card{transform:rotate(-2deg)}
+  .arch .card .frame.back,.arch:hover .card .frame.back{transform:none;opacity:0;transition:opacity .25s}
+  .arch .flip.on .card .frame.back{opacity:1}
+  .flip-badge{transition:none}
+}
 @media (max-width:640px){.arch .frame{outline:0}.arch::before{inset:-3% -6% -5% 6%}}
 /* wide screens: the portrait sits at the top of the hero and shrinks on short windows, so the first screen never cuts it in half */
 @media (min-width:641px){.arch{align-self:start;margin-top:clamp(6px,1.6vw,24px);max-width:min(330px,max(200px,calc((100svh - 215px)*.8)))}}
@@ -939,3 +1038,92 @@ footer .wrap{transition:border-color .4s ease}
 @media (min-width:901px){:root:root .plates .p-qgis .vis{align-self:center}}
 /* selecting the big headings (transparent fill + clipped background): a soft tint with ink-coloured letters instead of a solid block */
 .sk-on .name span::selection,.sk-on .h2::selection{background:color-mix(in srgb,var(--accent) 32%,transparent);color:var(--ink);-webkit-text-fill-color:var(--ink)}
+
+/* ======== hidden "Vice" theme (five quick clicks on the hero network, or "Leave Vice City" in the footer; html[data-vice], saved as "vice"):
+   a light pastel Miami golden hour (lavender sky, coral middle, peach horizon, purple palms). Same look over the light and dark base themes. ======== */
+html[data-vice]:root:root{--paper:#f4a1a8;--paper-2:#e1a8b6;--ink:#1c0a30;--ink-soft:#26103e;--accent:#45032f;--vice-2:#22144f;--line:rgba(61,31,87,.32);
+  --plate:#2f1c47;--plate-2:#4a2f6b;--plate-fg:#fff3f8;--plate-soft:#d9c3ee;--hot:#feb484;
+  --bx-frame:0 20px 50px -24px rgba(47,28,71,.5);--bx-in:transparent;--bx-p0:0 0 0 0 rgba(63,42,122,.6);--bx-p1:0 0 0 22px rgba(63,42,122,0);--rc-rgb:69 3 47;color-scheme:light}
+html[data-vice] body{background:var(--paper)}
+/* the picture is a fixed layer (not background-attachment:fixed, which breaks on iOS) under a sky veil with a golden band at the horizon.
+   Before site.js runs it is body::before; with motion allowed site.js swaps in .vice-pic (oversized by 48px, moved with a transform),
+   .vice-warm (the light warms further down the page) and the .vice-sky canvas (birds, glints). Text gets a soft sky-coloured halo. */
+html[data-vice]{--vice-veil:linear-gradient(180deg,rgba(185,141,186,.72) 0,rgba(236,158,176,.64) 40%,rgba(244,161,168,.62) 62%,rgba(255,196,140,.52) 80%,rgba(255,214,190,.40) 100%)}
+html[data-vice] body::before,.vice-pic{content:"";position:fixed;inset:-48px;z-index:-1;pointer-events:none;background:var(--vice-veil),url(../img/vice-bg.webp) 50% 100%/cover no-repeat}
+.vice-pic{will-change:transform}
+@media (max-width:600px){html[data-vice] body::before,.vice-pic{background-position:0 0,14% 100%}}
+html.vice-live body::before{content:none}
+.vice-warm{position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(255,150,110,.06),rgba(255,176,110,.48));opacity:0}
+html[data-vice] main{text-shadow:0 0 14px rgba(246,170,176,.85),0 0 4px rgba(246,170,176,.6)}
+html[data-vice] main .vis,html[data-vice] main .mark,html[data-vice] main button,html[data-vice] main .repo,html[data-vice] main a.solid,html[data-vice] .hero-cta a,html[data-vice] .allp{text-shadow:none}
+.vice-sky{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+/* sections stay transparent so the sky runs unbroken: no tint bands (:nth-child(n) and :not() keep up with the band rules' specificity) */
+html[data-vice] #work .plates>.plate:nth-child(n)::before,html[data-vice] #projects .plates>.plate:nth-child(n):not(.x)::before{content:none}
+html[data-vice] .theme{display:none}
+html[data-vice] .mark{background:var(--plate);color:var(--hot)}
+html[data-vice] .name span+span{color:var(--accent)}
+html[data-vice]:not(.sk-on) .name span+span{background:linear-gradient(100deg,#45032f,#22144f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+html[data-vice] .sec-head::before{color:var(--vice-2)}
+html[data-vice] .go,html[data-vice] .repo-all{border-bottom-color:var(--vice-2);background-image:linear-gradient(var(--vice-2),var(--vice-2))}
+html[data-vice] .go:hover,html[data-vice] .go:focus-visible,html[data-vice] .repo-all:hover,html[data-vice] .toplinks a:hover{color:var(--vice-2)}
+html[data-vice] .cnote a{text-decoration-color:var(--vice-2)}
+html[data-vice] .plate :focus-visible{outline-color:var(--hot);box-shadow:none}
+/* plates stay deep palm purple, with a soft shadow instead of pink glows */
+html[data-vice] .plate .vis{box-shadow:0 20px 50px -24px rgba(47,28,71,.5)}
+html[data-vice]:root:root .plate .vis:hover,html[data-vice]:root:root .plate .vis:has(img.zoomable):hover{box-shadow:0 26px 56px -24px rgba(47,28,71,.6);outline-color:color-mix(in srgb,var(--vice-2) 80%,transparent)}
+html[data-vice]:root:root:root:root .plate .vis:has(img.zoomable):hover::after{background-color:var(--plate-2)}
+html[data-vice] .p-coup .vis{background:radial-gradient(ellipse 70% 90% at 50% 0,#563a7c,var(--plate) 72%)}
+html[data-vice] .plate.p-sorkh .vis{background:radial-gradient(ellipse 70% 90% at 50% 0,#5a3a78,var(--plate) 72%)}
+html[data-vice] .chat .me,html[data-vice] .qa .me{background:#6a3f94}
+html[data-vice] .qa .call{border-color:rgba(254,180,132,.45);background:rgba(254,180,132,.07);color:#ffd9b8}
+html[data-vice] .qa .call span::before{color:var(--hot)}
+html[data-vice] .say-glow.say-on .h2{text-shadow:var(--sx,0px) var(--sy,0px) 26px rgba(63,42,122,.3),calc(var(--sx,0px)*.4) calc(var(--sy,0px)*.4) 6px rgba(63,42,122,.25)}
+html[data-vice] .swipe-cue{background:var(--plate-2);color:#fff3f8;box-shadow:0 8px 22px -8px rgba(47,28,71,.6)}
+html[data-vice] .p-coup .phones figure::after{border-color:var(--plate-2);background:repeating-linear-gradient(45deg,rgba(217,195,238,.08) 0 2px,transparent 2px 14px),radial-gradient(ellipse 85% 55% at 50% 50%,#563a7c,#1f1230 78%);color:#d9c3ee;text-shadow:none;box-shadow:inset 0 0 0 6px #1f1230,inset 0 0 0 7px rgba(217,195,238,.3)}
+@keyframes coup-flip-v{0%{transform:perspective(900px) rotateY(0) translateY(0) scale(1)}50%{transform:perspective(900px) rotateY(180deg) translateY(-10px) scale(1.07);box-shadow:0 44px 70px -20px rgba(47,28,71,.55)}100%{transform:perspective(900px) rotateY(360deg) translateY(0) scale(1)}}
+@keyframes coup-flip-back-v{0%{transform:perspective(900px) rotateY(180deg) translateY(0) scale(1)}50%{transform:perspective(900px) rotateY(360deg) translateY(-10px) scale(1.07);box-shadow:0 44px 70px -20px rgba(47,28,71,.55)}100%{transform:perspective(900px) rotateY(540deg) translateY(0) scale(1)}}
+html[data-vice] .p-coup .phones img.flip{animation-name:coup-flip-v}
+html[data-vice] .p-coup .phones figure:has(img.flip)::after{animation-name:coup-flip-back-v}
+/* toast: shared with wololo; the vice flavour is purple and peach, no glow */
+.wololo-toast.vice-toast{background:#2f1c47;color:#feb484;border-color:#4a2f6b;box-shadow:0 14px 30px -14px rgba(47,28,71,.55)}
+@media (max-width:600px){.wololo-toast{font-size:15px;padding:12px 16px;max-width:calc(100vw - 32px)}}
+/* the way back: a small footer button, only shown while Vice is on */
+.vice-leave{display:none;font:inherit;color:inherit;background:none;border:0;padding:12px 0;margin:-12px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-align:inherit}
+html[data-vice] .vice-leave{display:inline-block}
+@media (hover:hover){.vice-leave:hover{color:var(--vice-2)}}
+/* switching on or off: a ~400 ms cross-fade of the whole page */
+@media (prefers-reduced-motion:no-preference){
+  html.vice-vt::view-transition-old(root){animation:vice-out .4s ease both}
+  html.vice-vt::view-transition-new(root){animation:vice-in .4s ease both}
+}
+@keyframes vice-out{to{opacity:0}}
+@keyframes vice-in{from{opacity:0}}
+@keyframes vice-flash{0%{filter:none}28%{filter:brightness(1.7) saturate(1.8) drop-shadow(0 0 14px #8e3bd6)}100%{filter:none}}
+.hero.vice-flash .mind{animation:vice-flash .9s ease-out}
+@media (prefers-reduced-motion:reduce){.hero.vice-flash .mind{animation:none}}
+html[data-vice] .toplinks a:not(.hire),html[data-vice] footer{color:var(--ink)}
+html[data-vice] .hint{opacity:.9}
+/* Vice: the last base-palette leftovers (AI Bridge avatars, lazy-image shimmer) */
+html[data-vice] .bx-mk-c b{background:#8a3c86}
+html[data-vice] .bx-mk-g b{background:#4a2f6b}
+html[data-vice]:root:root .ld-host.ld-host,html[data-vice]:root:root .vis.ld-host::before{background-color:#2f1c47;background-image:linear-gradient(100deg,#2f1c47 25%,#4a2f6b 44%,#5a3a78 50%,#4a2f6b 56%,#2f1c47 75%)}
+
+/* ======== round 7: calmer jumps, hero legibility, alternating plates, projects index ======== */
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+/* the network's lines pass behind the hero buttons and the two chips instead of through their words */
+.hero-cta a:not(.solid){background:var(--paper)}
+.hero .chip{background:linear-gradient(90deg,var(--paper) 80%,transparent);padding-inline-end:12px}
+html[data-vice] .hero-cta a:not(.solid),html[data-vice] .hero .chip{background:transparent}
+/* plates take turns: picture left, then picture right (desktop only; RTL follows automatically) */
+@media (min-width:901px){.plates>.p-ml:nth-child(odd){flex-direction:row-reverse}}
+/* projects page: a quiet index under the heading */
+.pidx{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;margin-bottom:20px;font:13px/1.5 var(--mono);letter-spacing:.02em}
+.pidx a{color:var(--ink-soft);text-decoration:none;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1px no-repeat;transition:color .2s,background-size .25s}
+.pidx a:hover,.pidx a:focus-visible{color:var(--ink);background-size:100% 1px}
+.pidx b{font-weight:400;color:var(--accent);margin-inline-end:7px}
+html[lang="fa"] .pidx{font-family:var(--body);font-size:14px}
+@media (max-width:640px){.pidx{flex-wrap:nowrap;overflow-x:auto;gap:18px;padding-bottom:6px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}.pidx::-webkit-scrollbar{display:none}.pidx a{white-space:nowrap}}
+html[dir="rtl"] .pidx{-webkit-mask-image:linear-gradient(270deg,#000 85%,transparent);mask-image:linear-gradient(270deg,#000 85%,transparent)}
+@media (min-width:641px){html[dir="rtl"] .pidx{-webkit-mask-image:none;mask-image:none}}
+/* keyboard focus on a screenshot that opens full size */
+.plate .vis img.zoomable:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}

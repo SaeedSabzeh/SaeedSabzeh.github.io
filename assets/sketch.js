@@ -54,6 +54,15 @@
   }, { rootMargin: '0px 0px -12% 0px' });
   units.forEach(function (u) { if (u !== hero) io.observe(u); });
 
+  // after a jump, units the page skipped over are above the viewport: build them too
+  function catchUp() {
+    setTimeout(function () {
+      units.forEach(function (u) { if (!u.classList.contains('sk-built') && u.getBoundingClientRect().top < innerHeight) { build(u); io.unobserve(u); } });
+    }, 700);
+  }
+  addEventListener('hashchange', catchUp);
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href*="#"]'); if (a) catchUp(); });
+
   // key B
   function typing(t) {
     return t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));

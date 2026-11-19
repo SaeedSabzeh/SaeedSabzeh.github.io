@@ -150,6 +150,10 @@ html:not(.sk-on) .sk-hold{display:none} /* the x-ray button only makes sense whi
 }
 .sk-on .plate .vis::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--plate);transform-origin:50% 100%;transition:transform .5s var(--sk-ease)}
 .sk-on .p-coup .vis::before{background:radial-gradient(ellipse 70% 90% at 50% 0,#4A1124,var(--plate) 72%)}
+.sk-on .p-watch .vis::before{background:linear-gradient(180deg,rgba(96,36,150,.6),rgba(196,44,142,.38) 58%,rgba(255,128,48,.3)),#120a1f}
+/* vice theme: the Coup ground in palm purple instead of crimson */
+html[data-vice] .sk-on .p-coup .vis::before,html[data-vice].sk-on .p-coup .vis::before{background:radial-gradient(ellipse 70% 90% at 50% 0,#563a7c,var(--plate) 72%)}
+html[data-vice].sk-on .p-coup.sk-settled .vis{background:radial-gradient(ellipse 70% 90% at 50% 0,#563a7c,var(--plate) 72%)}
 /* on phones the Coup screenshots scroll sideways, and an absolute ::before would scroll away with them:
    once the card has settled, the ground goes back onto the .vis itself */
 .sk-on .p-coup.sk-settled .vis{background:radial-gradient(ellipse 70% 90% at 50% 0,#4A1124,var(--plate) 72%)}

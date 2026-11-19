@@ -26,8 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Markazi+Text:wght@400..700&family=Source+Sans+3:wght@400..700&family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
-<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="../assets/site.css?v=29">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;if(localStorage.getItem("vice")==="1"){var d=document;d.documentElement.setAttribute("data-vice","1");d.querySelectorAll('meta[name=theme-color]').forEach(function(m){m.content="#b98dba"});var l=d.createElement("link");l.rel="preload";l.as="image";l.href="../img/vice-bg.webp";d.head.appendChild(l)}}catch(e){}</script>
+<link rel="stylesheet" href="../assets/site.css?v=44">
 <link rel="stylesheet" href="../assets/bridge.css?v=4">
 </head>
 <body>
@@ -166,6 +166,37 @@
         </div>
       </article>
 
+      <article class="plate p-ml p-watch" id="neon-faces">
+        <div class="vis">
+          <i class="wf-grid" aria-hidden="true"></i>
+          <div class="wf" dir="ltr">
+            <div class="wf-watch" role="button" tabindex="0" aria-label="Next watch face" data-i-aria-label="wfNext" aria-describedby="wfNow">
+              <i class="wf-strap wf-st-t" aria-hidden="true"></i><i class="wf-strap wf-st-b" aria-hidden="true"></i><i class="wf-crown" aria-hidden="true"></i>
+              <div class="wf-bezel"><div class="wf-face"><i class="wf-glass" aria-hidden="true"></i>
+                <img class="wf-img on" src="../img/watch/sunset86.webp" srcset="../img/watch/sunset86.webp 440w, ../img/watch/660/sunset86.webp 660w, ../img/watch/2x/sunset86.webp 880w" sizes="(min-width:901px) 280px, min(260px, 58vw)" alt="Sunset 86 watch face" width="440" height="440" loading="lazy" decoding="async">
+                <img class="wf-img" alt="" aria-hidden="true" width="440" height="440" decoding="async">
+              </div></div>
+            </div>
+            <div class="wf-meta">
+              <p class="wf-name" aria-hidden="true">Sunset 86 &middot; 01 / 21</p>
+              <button type="button" class="wf-pp" aria-label="Pause the slideshow"><i><svg class="i-pause" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg><svg class="i-play" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></i></button>
+            </div>
+            <div class="wf-rowbox"><button type="button" class="wf-arr wf-prev" aria-label="Earlier faces" data-i-aria-label="wfBack"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="wf-row" role="group" aria-label="Watch faces" data-i-aria-label="wfRow"></div><button type="button" class="wf-arr wf-next" aria-label="More faces" data-i-aria-label="wfMore"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+            <span class="wf-sr wf-say" aria-live="polite"></span><span class="wf-sr wf-now" id="wfNow">Sunset 86, 1 of 21</span>
+          </div>
+        </div>
+        <div class="cap">
+          <h3 data-i="wfH">Neon Faces, watch faces for Wear OS</h3>
+          <p data-i="wfFull">Twenty-one watch faces for Wear OS smartwatches, all in 80s Miami neon: sunsets, palm trees, pink skies and arcade fonts. There's no Photoshop in them: every picture, icon and even the lettering is drawn by Python code, packed into Google's Watch Face Format and checked with Google's own validator. Drawing a palm tree that didn't look like a broom took me six tries. They're in a closed test on Google Play right now.</p>
+          <div class="qfacts">
+            <div data-i="wf1"><b>21</b>faces, all drawn with code</div>
+            <div data-i="wf2"><b>0</b>pictures or fonts from anywhere else</div>
+            <div data-i="wf3"><b>Soon</b>on Google Play, in a closed test now</div>
+          </div>
+          <div class="tags"><span>Python</span><span>Pillow</span><span>Watch Face Format</span><span>Wear OS</span></div>
+        </div>
+      </article>
+
       <article class="plate p-ml p-halloween" id="halloween">
         <div class="vis">
           <img src="../img/aoe2-halloween.webp" alt="Age of Empires II with the Halloween mod: cobweb-covered pine trees, ghost deer, spider sheep, a skeleton boar, pumpkins and a decorated Town Center" data-i-alt="halloweenAlt" width="1280" height="720" loading="lazy" decoding="async">
@@ -257,6 +288,15 @@
         </div>
       </article>
     </div>
+    <!-- What I'm working on now. To update: add, change or remove one <li> (and its wip* keys in assets/i18n.js). -->
+    <section class="wip" aria-labelledby="wipH">
+      <h3 class="wip-h" id="wipH" data-i="wipH">On the bench right now</h3>
+      <ul class="wip-list">
+        <li><span class="wip-spin" aria-hidden="true"></span><div><a href="https://www.kaggle.com/competitions/name-that-llm" target="_blank" rel="noopener"><b>Name That LLM</b></a><span data-i="wip1">A Kaggle contest: guess which of 18 AI models wrote a short piece of text.</span></div></li>
+        <li><span class="wip-spin" aria-hidden="true"></span><div><a href="https://www.kaggle.com/competitions/squares-in-squares" target="_blank" rel="noopener"><b>Squares in Squares</b></a><span data-i="wip2">Another Kaggle contest: fit 1 to 1000 squares into the smallest box I can.</span></div></li>
+        <li><span class="wip-spin" aria-hidden="true"></span><div><a href="https://github.com/SaeedSabzeh/planrecht-berlin" target="_blank" rel="noopener"><b>Planrecht Berlin</b></a><span data-i="wip3">A QGIS plugin, the Berlin cousin of Norme Milano: click the map and see the local building plan.</span></div></li>
+      </ul>
+    </section>
   </div>
 </section>
 
@@ -296,10 +336,10 @@
 </section>
 </main>
 
-<footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><span data-i="ft2">Designed and built by me.</span></div></footer>
+<footer><div class="wrap"><span data-i="ft1">Saeed Sabzeh, Milan</span><span data-i="ft2">Designed and built by me.</span><button type="button" class="vice-leave" data-i="viceLeave">Leave Vice City</button></div></footer>
 
-<script src="../assets/i18n.js?v=15"></script>
-<script src="../assets/site.js?v=22"></script>
+<script src="../assets/i18n.js?v=25"></script>
+<script src="../assets/site.js?v=35"></script>
 <script src="../assets/bridge.js?v=5"></script>
 <script data-goatcounter="https://saeedsabzeh123.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
