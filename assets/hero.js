@@ -58,7 +58,8 @@
       (inc.decode ? inc.decode() : Promise.reject()).then(finish, finish);
     };
     new MutationObserver(swap).observe(root, { attributes: true, attributeFilter: ['data-theme', 'data-vice'] });
-    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', swap);
+    var dark = matchMedia('(prefers-color-scheme: dark)');
+    if (dark.addEventListener) dark.addEventListener('change', swap); else if (dark.addListener) dark.addListener(swap);   /* Safari before 14 has only addListener */
 
     /* the other theme's photo is fetched when someone heads for the theme button (most visitors never switch); the Vice drawing
        loads when Vice turns on, or earlier (see warmVice). A switch still waits for the picture to decode, so nothing pops. */
