@@ -52,7 +52,7 @@ html[data-vice]{
   --hp-day:0;--hp-night:0;--hp-vice:1;--hp-wash:0;--hp-dim:0;
   /* the drawing has almost no headroom, so it starts below the header and dissolves into the sky layer above it */
   /* the fade starts exactly at the drawing's top edge (--vice-top), so the edge itself is never seen, on desktop and on phones */
-  --hp-top:linear-gradient(to bottom,transparent 0,transparent var(--vice-top),rgba(0,0,0,.2) calc(var(--vice-top) + 26px),rgba(0,0,0,.6) calc(var(--vice-top) + 60px),#000 calc(var(--vice-top) + 104px));
+  --hp-top:linear-gradient(to bottom,transparent 0,transparent var(--vice-top),rgba(0,0,0,.5) calc(var(--vice-top) + 18px),#000 calc(var(--vice-top) + 52px));
   --hp-x:linear-gradient(to right,transparent 0,rgba(0,0,0,.14) 4%,rgba(0,0,0,.55) 9%,rgba(0,0,0,.88) 14%,#000 19%);
   --hp-b:linear-gradient(to top,transparent 0,transparent 3px,rgba(0,0,0,.15) 6%,rgba(0,0,0,.45) 12%,rgba(0,0,0,.8) 19%,#000 25%);
   --hp-p:linear-gradient(to top,transparent 0,transparent 3px,rgba(0,0,0,.08) 8%,rgba(0,0,0,.3) 20%,rgba(0,0,0,.6) 38%,#000 55%);
@@ -214,7 +214,7 @@ html.vice-vt .hp,html.vice-vt .hp img,html.vice-vt .hp::before,html.vice-vt .hp:
 /* ---------- phones and small tablets up to 820px (portrait, or tall enough): photo across the top, behind the header, and the
    name over its faded lower part ---------- */
 @media (max-width:820px) and (orientation:portrait),(max-width:820px) and (min-height:541px){
-  .hero{--face-x:.5;--sky-bg:linear-gradient(180deg,#c79fca 0,#d4a0c3 calc(var(--hdr) + 80px),#e6a2b9 calc(var(--net-quiet) + var(--hdr)),#f2b1b0 80%,#fbc9ab 100%);
+  .hero{--face-x:.5;--sky-bg:linear-gradient(180deg,transparent 0,#e6a2b9 var(--net-quiet),#f2b1b0 80%,#fbc9ab 100%);
     --sky-mask:linear-gradient(to bottom,#000 0,#000 calc(100% - 140px),transparent 100%);
     padding-block:0 48px;min-height:0;display:block}
   .hero .wrap{display:block;padding-top:calc(var(--hp-h) - var(--name-lap))}
@@ -227,7 +227,6 @@ html.vice-vt .hp,html.vice-vt .hp img,html.vice-vt .hp::before,html.vice-vt .hp:
     -webkit-mask-composite:source-in;mask-composite:intersect}
   /* the day wash and the night lamp dimmer only make sense beside the text on wide screens; here the photo spans the full width */
   .hp::before,.hp::after{background:none}
-  .hero::before{top:calc(-1*var(--hdr))}                   /* the Vice sky reaches up behind the header, as on wider screens */
   :root:root .mind{
     -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px));
     mask-image:linear-gradient(to bottom,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px))}
