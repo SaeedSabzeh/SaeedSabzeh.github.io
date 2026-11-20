@@ -148,6 +148,8 @@
       [hero, cta, hint, hero.querySelector('.name'), document.querySelector('.top')].forEach(function (el) { if (el) ro.observe(el); });
     }
     addEventListener('resize', measure);
+    /* after a rotation some phones report the new size before the layout has settled: measure again once it has */
+    addEventListener('orientationchange', function () { setTimeout(measure, 250); setTimeout(measure, 700); });
     new MutationObserver(measure).observe(root, { attributes: true, attributeFilter: ['lang', 'dir'] });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
     measure();
