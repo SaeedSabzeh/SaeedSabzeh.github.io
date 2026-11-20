@@ -347,7 +347,7 @@ var SITE_NOZOOM='.p-watch';
     function ripple(e){
       var r=cv.getBoundingClientRect();
       var x=e.clientX-r.left,y=e.clientY-r.top,now=performance.now();
-      ripples.push({x:x,y:y,t:0,k:hitK});if(ripples.length>6)ripples.shift();
+      ripples.push({x:x,y:y,t:0,k:e&&e.pointerType==='touch'?Math.min(5,hitK+1):hitK});if(ripples.length>6)ripples.shift();
       // short cascade: nodes light up ring by ring (about 4 hops, 110ms apart)
       nodes.forEach(function(a){
         var d=Math.sqrt((a.hx-x)*(a.hx-x)+(a.hy-y)*(a.hy-y));
@@ -701,7 +701,7 @@ var SITE_NOZOOM='.p-watch';
 
   // Hidden "Vice" theme: five quick clicks on the hero network (see the pointerdown handler above), or the footer button to leave.
   // html[data-vice], saved as localStorage "vice"; the head scripts restore it before first paint. Lives outside the network code so it works on /projects/ too.
-  var viceTimer=0,vicePrep=false,heroEl=document.querySelector('.hero');
+  var viceTimer=0,vicePrep=false,viceVt=0,heroEl=document.querySelector('.hero');
   function applyVice(on){
     if(on)root.setAttribute('data-vice','1');else root.removeAttribute('data-vice');
     syncTheme();recolour();sky(on);
@@ -725,7 +725,8 @@ var SITE_NOZOOM='.p-watch';
         if(heroEl){heroEl.classList.add('vice-flash');clearTimeout(viceTimer);viceTimer=setTimeout(function(){heroEl.classList.remove('vice-flash')},1000)}
         if(document.startViewTransition){
           root.classList.add('vice-vt');
-          var done=function(){root.classList.remove('vice-vt')};
+          // a toggle during this transition skips it; only the latest one may take the class off again
+          var id=++viceVt,done=function(){if(id===viceVt)root.classList.remove('vice-vt')};
           var t=quiet(document.startViewTransition(run));
           if(t&&t.finished)t.finished.then(done,done);else done();
           return;

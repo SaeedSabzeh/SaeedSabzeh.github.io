@@ -17,7 +17,6 @@ html{
   --t-swap:1s;                     /* theme and Vice crossfades */
   --t-sketch:1.2s;
   /* measured by hero.js */
-  --hero-b:0px;                    /* hero bottom, from the top of <main> */
   --hp-l:100vw;                    /* left edge of the photo box */
   --rf0:0px;--rf1:0px;             /* header rule: solid up to --rf0, gone at --rf1 (from the left edge of the header box) */
   /* page-level tokens */
@@ -52,7 +51,8 @@ html[data-vice]{
 .hp[data-hp="vice"]{
   --hp-day:0;--hp-night:0;--hp-vice:1;--hp-wash:0;--hp-dim:0;
   /* the drawing has almost no headroom, so it starts below the header and dissolves into the sky layer above it */
-  --hp-top:linear-gradient(to bottom,transparent 0,transparent calc(var(--hdr)*.42),rgba(0,0,0,.45) calc(var(--hdr)*.75),#000 calc(var(--hdr)*1.35));
+  /* the fade starts exactly at the drawing's top edge (--vice-top), so the edge itself is never seen, on desktop and on phones */
+  --hp-top:linear-gradient(to bottom,transparent 0,transparent var(--vice-top),rgba(0,0,0,.5) calc(var(--vice-top) + 18px),#000 calc(var(--vice-top) + 52px));
   --hp-x:linear-gradient(to right,transparent 0,rgba(0,0,0,.14) 4%,rgba(0,0,0,.55) 9%,rgba(0,0,0,.88) 14%,#000 19%);
   --hp-b:linear-gradient(to top,transparent 0,transparent 3px,rgba(0,0,0,.15) 6%,rgba(0,0,0,.45) 12%,rgba(0,0,0,.8) 19%,#000 25%);
   --hp-p:linear-gradient(to top,transparent 0,transparent 3px,rgba(0,0,0,.08) 8%,rgba(0,0,0,.3) 20%,rgba(0,0,0,.6) 38%,#000 55%);
@@ -137,7 +137,8 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
 .hp-day{--ar:1;--fx:.54;--py:1;opacity:var(--hp-day)}
 .hp-night{--ar:1;--fx:.51;--py:1;opacity:var(--hp-night)}
 .hp-vice{--ar:.8;--fx:.35;--py:.25;opacity:var(--hp-vice)}
-.hp .hp-vice{top:calc(var(--hdr)*.8)}
+.hp{--vice-top:calc(var(--hdr)*.8)}                  /* where the drawing starts inside the box */
+.hp .hp-vice{top:var(--vice-top)}
 /* day: wash the left toward the page colour; night: dim the street lamp */
 .hp::before,.hp::after{content:"";position:absolute;inset:0;z-index:1;transition:opacity var(--t-swap) var(--ease-soft)}
 .hp::before{opacity:var(--hp-wash);background:linear-gradient(to right,color-mix(in srgb,var(--paper) 45%,transparent) 0,color-mix(in srgb,var(--paper) 14%,transparent) 28%,transparent 46%)}
@@ -195,6 +196,8 @@ html.vice-vt .hp,html.vice-vt .hp img,html.vice-vt .hp::before,html.vice-vt .hp:
 @media (max-width:820px) and (orientation:landscape) and (max-height:540px){
   html{--hp-h:78svh}
   .hp-day,.hp-night{--py:.3}
+  /* the drawing is placed by its top edge elsewhere; here the band is so short that only the hair would show, so place it by the face too */
+  .hp .hp-vice{top:calc((100cqh - var(--ih))*.25)}
 }
 
 /* ---------- phones and small tablets, up to 820px: photo across the top (behind the header), the name over its faded lower part ---------- */

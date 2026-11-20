@@ -8,7 +8,7 @@
 
   /* ---------- the hero pictures ---------- */
   var fig = document.querySelector('.hp');
-  var warmVice = function () {};
+  var warmVice = function () {}, preparing = false;
   if (fig) {
     var imgs = { day: fig.querySelector('.hp-day'), night: fig.querySelector('.hp-night'), vice: fig.querySelector('.hp-vice') };
 
@@ -60,23 +60,22 @@
     new MutationObserver(swap).observe(root, { attributes: true, attributeFilter: ['data-theme', 'data-vice'] });
     matchMedia('(prefers-color-scheme: dark)').addEventListener('change', swap);
 
-    /* after load, fetch only the other theme's photo; the Vice drawing loads when Vice turns on (or earlier, see warmVice) */
-    var prefetch = function () {
-      var c = navigator.connection;
-      if (c && c.saveData) return;                         /* data saver: the other photo loads only when it is needed */
-      load(imgs[shown === 'vice' ? themePhoto() : (shown === 'day' ? 'night' : 'day')]);
-    };
-    if (document.readyState === 'complete') setTimeout(prefetch, 200);
-    else addEventListener('load', function () { setTimeout(prefetch, 200); });
+    /* the other theme's photo is fetched when someone heads for the theme button (most visitors never switch); the Vice drawing
+       loads when Vice turns on, or earlier (see warmVice). A switch still waits for the picture to decode, so nothing pops. */
+    var themeBtn = document.querySelector('.top .theme');
+    var prefetch = function () { load(imgs[themePhoto() === 'day' ? 'night' : 'day']); };
+    if (themeBtn) ['pointerenter', 'focus', 'touchstart'].forEach(function (ev) { themeBtn.addEventListener(ev, prefetch, { passive: true, once: true }); });
 
     /* site.js asks for the picture of the mode it is about to show before it starts the Vice City page cross-fade (a view
        transition), so the new view is captured complete and the switch is one smooth fade; it waits 1.2s at most */
     window.heroPrepare = function (vice) {
       var img = imgs[vice ? 'vice' : themePhoto()];
       load(img);
-      if (img.complete && img.naturalWidth) return Promise.resolve();
+      preparing = true;                                    /* the bubble stays quiet until the switch has happened */
       return new Promise(function (res) {
-        var t = setTimeout(res, 1200), end = function () { clearTimeout(t); res(); };
+        var t = setTimeout(end, 1200);
+        function end() { clearTimeout(t); preparing = false; res(); }
+        /* a downloaded picture is not always decoded: decode() settles at once when it is, and makes sure it is otherwise */
         (img.decode ? img.decode() : Promise.reject()).then(end, end);
       });
     };
@@ -114,7 +113,7 @@
     /* mouse devices only: on phones the scroll drift would repaint the masked photo on every frame */
     addEventListener('scroll', function () { if (hover.matches && scrollY < heroH + 200) { retarget(); ask(); } }, { passive: true });
     document.addEventListener('pointermove', function (e) {
-      if (e.pointerType !== 'mouse' || !hover.matches) return;
+      if (e.pointerType !== 'mouse' || !hover.matches || scrollY > heroH + 200) return;   /* the hero is off screen */
       mx = (e.clientX / W - .5) * -16; my = (e.clientY / H - .5) * -7;   /* opposite to the pointer, like the sky */
       retarget(); ask();
     }, { passive: true });
@@ -123,9 +122,9 @@
     retarget();
   }
 
-  /* ---------- measurements the CSS needs: header height, photo box, hero bottom, CTA row and hint row ---------- */
+  /* ---------- measurements the CSS needs: header height, photo box, CTA row and hint row ---------- */
   var hero = document.querySelector('.hero'), cta = hero && hero.querySelector('.hero-cta'), hint = document.getElementById('mindHint');
-  var main = document.querySelector('main'), topWrap = document.querySelector('.top .wrap'), phone = matchMedia('(max-width: 820px)');
+  var topWrap = document.querySelector('.top .wrap'), phone = matchMedia('(max-width: 820px)');
   if (hero) {
     var measure = function () {
       var h = hero.getBoundingClientRect(), s = root.style;
@@ -133,7 +132,6 @@
       heroH = h.height;
       if (cta) { var c = cta.getBoundingClientRect(); hero.style.setProperty('--ct', (c.top - h.top) + 'px'); hero.style.setProperty('--cb', (c.bottom - h.top) + 'px'); }
       if (hint) { var t = hint.getBoundingClientRect(); hero.style.setProperty('--ht', (t.top - h.top) + 'px'); hero.style.setProperty('--hb', (t.bottom - h.top) + 'px'); }
-      if (main) s.setProperty('--hero-b', Math.round(h.bottom - main.getBoundingClientRect().top) + 'px');
       /* header: the rule fades out over the photo, the scrim sits behind the links only over the photo */
       if (fig && topWrap) {
         var p = fig.getBoundingClientRect(), w = topWrap.getBoundingClientRect();
@@ -191,7 +189,7 @@
 
   if (hero) hero.addEventListener('mind-hit', function (e) {
     var d = e.detail || {};
-    if (!d.count || d.count >= 5 || root.hasAttribute('data-vice')) return;   /* the fifth click switches Vice City and shows its own toast */
+    if (preparing || !d.count || d.count >= 5 || root.hasAttribute('data-vice')) return;   /* the fifth click switches Vice City and shows its own toast */
     var m = MSG[(root.lang || 'en').slice(0, 2)] || MSG.en;
     var text = d.prev > 0 && d.count <= d.prev
       ? m.faster                                                              /* the 4s window slid: the count did not rise */
