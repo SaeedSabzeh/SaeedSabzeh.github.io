@@ -69,6 +69,18 @@
     if (document.readyState === 'complete') setTimeout(prefetch, 200);
     else addEventListener('load', function () { setTimeout(prefetch, 200); });
 
+    /* site.js asks for the picture of the mode it is about to show before it starts the Vice City page cross-fade (a view
+       transition), so the new view is captured complete and the switch is one smooth fade; it waits 1.2s at most */
+    window.heroPrepare = function (vice) {
+      var img = imgs[vice ? 'vice' : themePhoto()];
+      load(img);
+      if (img.complete && img.naturalWidth) return Promise.resolve();
+      return new Promise(function (res) {
+        var t = setTimeout(res, 1200), end = function () { clearTimeout(t); res(); };
+        (img.decode ? img.decode() : Promise.reject()).then(end, end);
+      });
+    };
+
     /* the footer button and the typed "vic" warm the drawing, so it is decoded when Vice turns on */
     var warmed = false;
     warmVice = function () {

@@ -9,7 +9,7 @@ html{
   --hdr:81px;                      /* height of the site header; hero.js measures the real value */
   --hp-h:62svh;                    /* photo height below the header on phones and small tablets */
   --name-lap:100px;                /* how far the name climbs into the photo on phones */
-  --net-quiet:60svh;               /* phones: the network stays faint above this line */
+  --net-quiet:calc(var(--hp-h) + 16px);   /* phones: the network stays almost invisible above this line (the photo and its fade) */
   --face-x:.56;                    /* where the face centre sits across the photo box (0 to 1) */
   /* motion: one easing for everything the hero animates */
   --ease-soft:cubic-bezier(.22,.61,.36,1);
@@ -83,11 +83,9 @@ html[data-vice]{
 .hero .wrap>div{position:relative;z-index:2;max-width:min(60%,780px)}
 html[dir="rtl"] .hero .wrap>div{margin-right:auto;margin-left:0;max-width:min(36vw,500px)}
 
-/* night: the network reads like constellations over the sky, but stays off the face (--net-face is a hole in its mask) */
-.hero{--net-face:linear-gradient(#000,#000)}
-html[data-theme="dark"] .hero{--net-face:radial-gradient(ellipse calc(var(--hp-w)*.25) calc(var(--hh)*.3) at calc(100% - var(--hp-r) - var(--hp-w)*(1 - var(--face-x))) calc(var(--hh)*.444 - var(--hdr)*.733),rgba(0,0,0,.34) 0,rgba(0,0,0,.34) 55%,#000 100%)}
-@media (prefers-color-scheme:dark){html:not([data-theme]) .hero{--net-face:radial-gradient(ellipse calc(var(--hp-w)*.25) calc(var(--hh)*.3) at calc(100% - var(--hp-r) - var(--hp-w)*(1 - var(--face-x))) calc(var(--hh)*.444 - var(--hdr)*.733),rgba(0,0,0,.34) 0,rgba(0,0,0,.34) 55%,#000 100%)}}
-html[data-vice] .hero{--net-face:linear-gradient(#000,#000)}
+/* the network never runs across him: --net-face is a hole in its mask over the head and the body, in every theme; in dark it still
+   reads like constellations over the night sky around him (--net-lo) */
+.hero{--net-face:radial-gradient(ellipse calc(var(--hp-w)*.36) calc(var(--hh)*.62) at calc(100% - var(--hp-r) - var(--hp-w)*(1 - var(--face-x))) calc(var(--hh)*.62),transparent 0,transparent 62%,#000 100%)}
 
 /* sizes follow the viewport height too, so the chips and the hint stay above the fold on short laptop screens */
 @media (min-width:821px){
@@ -178,6 +176,9 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
 .sk-on [data-sk]:not(.sk-built) .hp{--sk-o:.5;filter:grayscale(1) contrast(1.35) brightness(1.08)}
 
 @media (hover:hover) and (pointer:fine){.hp img{will-change:translate}}
+/* switching Vice City on or off is one page cross-fade (site.js, a view transition): the hero's own fades are off meanwhile, so the
+   new view is captured in its final state instead of half-way through a second fade that then jumps */
+html.vice-vt .hp,html.vice-vt .hp img,html.vice-vt .hp::before,html.vice-vt .hp::after,html.vice-vt .hero::before,html.vice-vt .hero::after{transition:none!important}
 @media (prefers-reduced-motion:reduce){
   .hp,.hp img,.hp::before,.hp::after,.hero::before,.hero::after{transition:none}
   .hp.hp-wait{--hp-o:1}.hp.hp-wait img{scale:1.025}
@@ -209,10 +210,11 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
     --hp-top:linear-gradient(to bottom,rgba(0,0,0,.55) 0,#000 var(--hdr));
     -webkit-mask-image:var(--hp-top),var(--hp-p);mask-image:var(--hp-top),var(--hp-p);
     -webkit-mask-composite:source-in;mask-composite:intersect}
-  .hp::before{background:none}
+  /* the day wash and the night lamp dimmer only make sense beside the text on wide screens; here the photo spans the full width */
+  .hp::before,.hp::after{background:none}
   :root:root .mind{
-    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.1) 0,rgba(0,0,0,.1) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px));
-    mask-image:linear-gradient(to bottom,rgba(0,0,0,.1) 0,rgba(0,0,0,.1) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px))}
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px));
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px))}
   html:not([data-vice]) .name{filter:drop-shadow(0 0 10px var(--paper)) drop-shadow(0 0 4px var(--paper))}
   html[data-vice] .name span{--fill:var(--vice-name-1)}
   html[data-vice] .name span+span{--fill:var(--vice-name-2)}

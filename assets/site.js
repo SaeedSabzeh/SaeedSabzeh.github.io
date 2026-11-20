@@ -701,7 +701,7 @@ var SITE_NOZOOM='.p-watch';
 
   // Hidden "Vice" theme: five quick clicks on the hero network (see the pointerdown handler above), or the footer button to leave.
   // html[data-vice], saved as localStorage "vice"; the head scripts restore it before first paint. Lives outside the network code so it works on /projects/ too.
-  var viceTimer=0,heroEl=document.querySelector('.hero');
+  var viceTimer=0,vicePrep=false,heroEl=document.querySelector('.hero');
   function applyVice(on){
     if(on)root.setAttribute('data-vice','1');else root.removeAttribute('data-vice');
     syncTheme();recolour();sky(on);
@@ -719,17 +719,25 @@ var SITE_NOZOOM='.p-watch';
       var tap=e&&e.pointerType&&e.pointerType!=='mouse';
       toast(tx(on?(tap?'viceOnTap':'viceOn'):'viceOff'),true,on?7000:2400);
     };
-    if(!calm.matches){
-      if(heroEl){heroEl.classList.add('vice-flash');clearTimeout(viceTimer);viceTimer=setTimeout(function(){heroEl.classList.remove('vice-flash')},1000)}
-      if(document.startViewTransition){
-        root.classList.add('vice-vt');
-        var done=function(){root.classList.remove('vice-vt')};
-        var t=quiet(document.startViewTransition(run));
-        if(t&&t.finished)t.finished.then(done,done);else done();
-        return;
+    var go=function(){
+      vicePrep=false;
+      if(!calm.matches){
+        if(heroEl){heroEl.classList.add('vice-flash');clearTimeout(viceTimer);viceTimer=setTimeout(function(){heroEl.classList.remove('vice-flash')},1000)}
+        if(document.startViewTransition){
+          root.classList.add('vice-vt');
+          var done=function(){root.classList.remove('vice-vt')};
+          var t=quiet(document.startViewTransition(run));
+          if(t&&t.finished)t.finished.then(done,done);else done();
+          return;
+        }
       }
-    }
-    run();
+      run();
+    };
+    // the home page's hero picture for the new mode is decoded first (hero.js, at most about a second), so the page
+    // cross-fades in one pass instead of fading, then swapping the picture half-way through
+    if(vicePrep)return;
+    var prep=window.heroPrepare&&window.heroPrepare(on);
+    if(prep&&prep.then){vicePrep=true;prep.then(go,go)}else go();
   }
   [].forEach.call(document.querySelectorAll('.vice-leave'),function(b){b.addEventListener('click',toggleVice)});
   window.siteToggleVice=function(){toggleVice(null)};

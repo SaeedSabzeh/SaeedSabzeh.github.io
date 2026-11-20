@@ -1031,10 +1031,10 @@ html[data-vice] .p-coup .phones figure:has(img.flip)::after{animation-name:coup-
 .vice-leave{display:none;font:inherit;color:inherit;background:none;border:0;padding:12px 0;margin:-12px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-align:inherit}
 html[data-vice] .vice-leave{display:inline-block}
 @media (hover:hover){.vice-leave:hover{color:var(--vice-2)}}
-/* switching on or off: a ~400 ms cross-fade of the whole page */
+/* switching on or off: one soft ~700 ms cross-fade of the whole page */
 @media (prefers-reduced-motion:no-preference){
-  html.vice-vt::view-transition-old(root){animation:vice-out .4s ease both}
-  html.vice-vt::view-transition-new(root){animation:vice-in .4s ease both}
+  html.vice-vt::view-transition-old(root){animation:vice-out .7s cubic-bezier(.4,0,.2,1) both}
+  html.vice-vt::view-transition-new(root){animation:vice-in .7s cubic-bezier(.4,0,.2,1) both}
 }
 @keyframes vice-out{to{opacity:0}}
 @keyframes vice-in{from{opacity:0}}
