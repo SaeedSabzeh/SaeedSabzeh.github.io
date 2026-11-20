@@ -11,7 +11,7 @@ var SITE_NOZOOM='.p-watch';
     mtNow:'It’s {t} in Milan.',mtZz:'I’m probably asleep.',mtDay:'I’m probably in class or coding.',mtEve:'I’m probably coding something.',
     mindHintTap:'psst, tap the network a few times',abTapClick:'click to step · replay',pidxLbl:'Projects on this page',
     viceOn:'Welcome to Vice City. To leave, click the network 5 more times or use the link at the bottom.',viceOnTap:'Welcome to Vice City. To leave, tap the network 5 more times or use the link at the bottom.',viceOff:'Back to Milan.',viceLeave:'Leave Vice City',
-    wfRow:'Watch faces',wfPlay:'Play the slideshow',wfPause:'Pause the slideshow',wfMore:'More faces',wfBack:'Earlier faces',flipFront:'Photo of Saeed in front of the Milan Duomo. Turn it over',flipBack:'Saeed in sunglasses on a train. Turn it back',flipBackVice:'Saeed in sunglasses, drawn into a Miami sunset. Turn it back',flipFrontVice:'Saeed, drawn into a Miami sunset. Turn it over',wfNext:'Next watch face',wfOf:'of',wfFace:'watch face',
+    wfRow:'Watch faces',wfPlay:'Play the slideshow',wfPause:'Pause the slideshow',wfMore:'More faces',wfBack:'Earlier faces',wfNext:'Next watch face',wfOf:'of',wfFace:'watch face',
     themeToDark:'Switch to dark mode',themeToLight:'Switch to light mode',
     lbClose:'Close',lbPrev:'Previous',lbNext:'Next',lbZoomIn:'Zoom in',lbZoomOut:'Zoom out'};
   EN[titleKey]=document.title;
@@ -422,7 +422,7 @@ var SITE_NOZOOM='.p-watch';
       if(hint)hint.classList.add('gone');
       // the same counter serves the Vice egg: five clicks within 4 seconds
       var n=Date.now();hits.push(n);hits=hits.filter(function(t){return n-t<=4000});hitK=hits.length;
-      if(hits.length===3&&!isVice()){var pre=location.pathname.indexOf('/projects')>-1?'../':'';(new Image()).src=pre+'img/vice-bg.webp';(new Image()).src=pre+'img/portrait-vice-front.webp';(new Image()).src=pre+'img/portrait-vice.webp'} // warm the pictures before the switch
+      if(hits.length===3&&!isVice()){var pre=location.pathname.indexOf('/projects')>-1?'../':'';(new Image()).src=pre+'img/vice-bg.webp';(new Image()).src=pre+'img/portrait-vice.webp'} // warm the pictures before the switch
       if(clicks===5)reward(e);
       if(hits.length>=5){hits=[];toggleVice(e);if(clicks!==5)reward(e)}
     },{passive:true});
@@ -1040,37 +1040,47 @@ var SITE_NOZOOM='.p-watch';
   strip.addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(upd)},{passive:true});
 })();
 
-// The hero portrait is a card: a click turns it over to the second photo and back.
-// In Vice City both sides are the drawn versions (CSS swaps the pictures); switching Vice on or off gives the card one
-// full turn while the pictures change, and it lands on the front.
+// The hero portrait is a card with one picture: the Duomo photo, or in Vice City the drawn sunglasses picture.
+// Switching Vice on or off turns the card edge-on with the old picture still in place (.keep-old), swaps the picture
+// while it is invisible (waiting up to 1.5 s for the drawn one to download), then turns it back.
+// Reduced motion: no turning, the picture simply changes once the new one is ready.
 (function(){
   var f=document.querySelector('.arch .flip');
   if(!f)return;
   var root=document.documentElement,card=f.querySelector('.card'),calm=matchMedia('(prefers-reduced-motion: reduce)');
-  function T(k,d){return (window.siteTx&&window.siteTx(k))||d}
-  function set(on){
-    f.classList.toggle('on',on);
-    var v=root.hasAttribute('data-vice');
-    f.setAttribute('aria-label',on
-      ?(v?T('flipBackVice','Saeed in sunglasses, drawn into a Miami sunset. Turn it back'):T('flipBack','Saeed in sunglasses on a train. Turn it back'))
-      :(v?T('flipFrontVice','Saeed, drawn into a Miami sunset. Turn it over'):T('flipFront','Photo of Saeed in front of the Milan Duomo. Turn it over')));
+  var art=f.querySelector('.p-vice'),turning=false,ticket=0;
+  function vice(){return root.hasAttribute('data-vice')}
+  // call cb once the drawn picture is downloaded (only needed when switching to Vice), at most 1.5 s later
+  function ready(v,cb){
+    if(!v||!art||(art.complete&&art.naturalWidth))return cb();
+    var done=false,go=function(){if(!done){done=true;cb()}};
+    var pre=new Image();pre.onload=pre.onerror=go;pre.src=art.src;setTimeout(go,1500);
   }
-  f.addEventListener('click',function(){set(!f.classList.contains('on'))});
-  var was=root.hasAttribute('data-vice');
+  function stop(){turning=false;f.classList.remove('keep-old');if(card)card.classList.remove('turn-out','turn-in')}
+  var was=vice();
   if('MutationObserver' in window)new MutationObserver(function(){
-    var v=root.hasAttribute('data-vice');if(v===was)return;was=v;
-    set(false);
-    // the drawn front may not be downloaded yet (typing "vice" skips the early fetch): keep the photo until it is
-    var dv=f.querySelector('.frame:not(.back) .p-vice');
-    if(v&&dv&&!(dv.complete&&dv.naturalWidth)){
-      f.classList.add('pv-wait');
-      var pre=new Image();pre.onload=pre.onerror=function(){f.classList.remove('pv-wait')};pre.src=dv.src;
+    var v=vice();if(v===was)return;was=v;
+    var my=++ticket;
+    if(turning){stop();return} // switched back mid-turn: just show the current picture
+    f.classList.add('keep-old');
+    if(calm.matches||!card){ready(v,function(){if(my===ticket)f.classList.remove('keep-old')});return}
+    turning=true;
+    card.classList.add('turn-out');
+    var half=false;
+    function edge(){ // the card is edge-on: swap the picture and turn back
+      if(half||my!==ticket)return;half=true;card.removeEventListener('animationend',out);
+      ready(v,function(){
+        if(my!==ticket)return;
+        f.classList.remove('keep-old'); // the swap, while the card is invisible
+        card.classList.remove('turn-out');card.classList.add('turn-in');
+        setTimeout(function(){if(my===ticket&&turning){card.classList.remove('turn-in');turning=false}},900); // in case animationend never comes
+      });
     }
-    if(!calm.matches&&card){card.classList.remove('spin');void card.offsetWidth;card.classList.add('spin')}
+    function out(e){if(e.animationName==='card-out')edge()}
+    card.addEventListener('animationend',out);
+    setTimeout(edge,450); // in case animationend never comes (e.g. a background tab)
   }).observe(root,{attributes:true,attributeFilter:['data-vice']});
-  if(card)card.addEventListener('animationend',function(e){if(e.animationName==='card-spin')card.classList.remove('spin')});
-  if(window.siteOnLang)window.siteOnLang(function(){set(f.classList.contains('on'))});
-  set(false);
+  if(card)card.addEventListener('animationend',function(e){if(e.animationName==='card-in'){card.classList.remove('turn-in');turning=false}});
 })();
 
 // Numbers in the fact rows count up once when they scroll into view ("21", "11,000×", "99.08%"); ranges and words stay as they are.

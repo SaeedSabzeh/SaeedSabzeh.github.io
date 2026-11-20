@@ -680,40 +680,13 @@ html[dir="rtl"] .arch::before{inset:-2% 4% -4% -5%;transform:rotate(4deg)}
 html[dir="rtl"] .arch .frame{transform:rotate(-2deg)}
 @media (hover:hover){html[dir="rtl"] .arch:hover .frame{transform:rotate(-.6deg) translateY(-4px)}}
 @media (prefers-reduced-motion:reduce){.arch .frame,.arch img,.arch .frame::after{transition:none}}
-/* ---- the portrait card: front = Duomo, back = sunglasses; click turns it over (site.js), the Vice theme turns it too ---- */
-.arch .flip{position:relative;display:block;width:100%;aspect-ratio:4/5;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer;perspective:1100px;-webkit-tap-highlight-color:transparent}
-.arch .card{position:absolute;inset:0;display:block;transform-style:preserve-3d;transform:rotate(2deg);transition:transform .8s cubic-bezier(.3,1.35,.45,1)}
-.arch .flip.on .card{transform:rotate(2deg) rotateY(180deg)}
-.arch .card .frame.frame,.arch:hover .card .frame{position:absolute;inset:0;display:block;aspect-ratio:auto;transform:none;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.arch .card .frame.back,.arch:hover .card .frame.back{transform:rotateY(180deg)}
+/* ---- the portrait card: the Duomo photo; in Vice City it turns over to the drawn sunglasses picture (site.js) ---- */
+.arch .flip{position:relative;display:block;width:100%;aspect-ratio:4/5;perspective:1100px}
+.arch .card{position:absolute;inset:0;display:block;transform-style:preserve-3d;transform:rotate(var(--tilt));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.arch .card .frame.frame,.arch:hover .card .frame,html[dir="rtl"] .arch .card .frame,html[dir="rtl"] .arch:hover .card .frame{position:absolute;inset:0;display:block;aspect-ratio:auto;transform:none;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .arch .card img{object-position:50% 30%}
-.flip-badge{position:absolute;right:-13px;bottom:-13px;z-index:2;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--paper);box-shadow:0 8px 18px -8px rgba(0,0,0,.5);transition:transform .6s cubic-bezier(.3,1.35,.45,1)}
-.flip.on .flip-badge{transform:rotate(180deg)}
-@media (max-width:640px){.flip-badge{width:26px;height:26px;right:-9px;bottom:-9px}.flip-badge svg{width:12px;height:12px}html[dir="rtl"] .flip-badge{left:-9px}}
-.arch .flip:focus-visible{outline:2px solid var(--accent);outline-offset:14px;border-radius:10px}
-@media (hover:hover){
-  .arch:hover .card{transform:rotate(.6deg) translateY(-4px) rotateY(-9deg)}
-  .arch:hover .flip.on .card{transform:rotate(.6deg) translateY(-4px) rotateY(171deg)}
-  .arch:hover .flip-badge{transform:scale(1.1)}
-  .arch:hover .flip.on .flip-badge{transform:rotate(180deg) scale(1.1)}
-}
-html[dir="rtl"] .arch .card{transform:rotate(-2deg)}
-html[dir="rtl"] .arch .flip.on .card{transform:rotate(-2deg) rotateY(-180deg)}
-html[dir="rtl"] .arch .card .frame,html[dir="rtl"] .arch:hover .card .frame{transform:none}
-html[dir="rtl"] .arch .card .frame.back,html[dir="rtl"] .arch:hover .card .frame.back{transform:rotateY(180deg)}
-html[dir="rtl"] .flip-badge{right:auto;left:-13px}
-@media (hover:hover){
-  html[dir="rtl"] .arch:hover .card{transform:rotate(-.6deg) translateY(-4px) rotateY(9deg)}
-  html[dir="rtl"] .arch:hover .flip.on .card{transform:rotate(-.6deg) translateY(-4px) rotateY(-171deg)}
-}
-/* reduced motion: no spin, the photos simply cross-fade */
-@media (prefers-reduced-motion:reduce){
-  .arch .card,.arch .flip.on .card,.arch:hover .card,.arch:hover .flip.on .card{transition:none;transform:rotate(2deg)}
-  html[dir="rtl"] .arch .card,html[dir="rtl"] .arch .flip.on .card{transform:rotate(-2deg)}
-  .arch .card .frame.back,.arch:hover .card .frame.back{transform:none;opacity:0;transition:opacity .25s}
-  .arch .flip.on .card .frame.back{opacity:1}
-  .flip-badge{transition:none}
-}
+@media (hover:hover){.arch:hover .card{transform:rotate(calc(var(--tilt)*.3)) translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.arch .card,.arch:hover .card{transition:none;transform:rotate(var(--tilt))}}
 @media (max-width:640px){.arch .frame{outline:0}.arch::before{inset:-3% -6% -5% 6%}}
 /* wide screens: the portrait sits at the top of the hero and shrinks on short windows, so the first screen never cuts it in half */
 @media (min-width:641px){.arch{align-self:start;margin-top:clamp(6px,1.6vw,24px);max-width:min(330px,max(200px,calc((100svh - 215px)*.8)))}}
@@ -1129,15 +1102,23 @@ html[dir="rtl"] .pidx{-webkit-mask-image:linear-gradient(270deg,#000 85%,transpa
 .plate .vis img.zoomable:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
 /* Toolbox on phones: no separator dots (they were left dangling at line ends), just space between the names */
 @media (max-width:640px){.tools dd{gap:4px 16px}.tools dd span:not(:last-child)::after{content:none}}
-/* the portrait card's back: the sunglasses photo, or in Vice City the same moment drawn into a Miami sunset */
+/* the portrait: the photo normally, the drawn sunglasses picture in Vice City */
 .arch .frame .p-vice,html[data-vice] .arch .frame .p-real{display:none}
 html[data-vice] .arch .frame .p-vice{display:block}
-/* switching Vice on or off: one full turn of the card while the pictures change */
+/* switching Vice on or off (site.js): the card turns edge-on still showing the old pictures (.keep-old),
+   the pictures change while it is invisible, and it turns back to the front */
+html[data-vice] .arch .flip.keep-old .frame .p-real{display:block}
+html[data-vice] .arch .flip.keep-old .frame .p-vice{display:none}
+html:not([data-vice]) .arch .flip.keep-old .frame .p-vice{display:block}
+html:not([data-vice]) .arch .flip.keep-old .frame .p-real{display:none}
 .arch .card{--tilt:2deg}
 html[dir="rtl"] .arch .card{--tilt:-2deg}
-.arch .card.spin{animation:card-spin 1s cubic-bezier(.3,1.2,.45,1)}
-@keyframes card-spin{from{transform:rotate(var(--tilt)) rotateY(0)}to{transform:rotate(var(--tilt)) rotateY(360deg)}}
-@media (prefers-reduced-motion:reduce){.arch .card.spin{animation:none}}
-/* until the drawn front has downloaded, the photo stays in place (site.js adds .pv-wait) */
-html[data-vice] .arch .flip.pv-wait .frame .p-real{display:block}
-html[data-vice] .arch .flip.pv-wait .frame .p-vice{display:none}
+.arch .card.turn-out,.arch .card.turn-in{transition:none}
+.arch .card.turn-out{animation:card-out .3s cubic-bezier(.55,0,.9,.45) forwards}
+.arch .card.turn-in{animation:card-in .6s cubic-bezier(.2,1.25,.4,1)}
+@keyframes card-out{from{transform:rotate(var(--tilt)) rotateY(var(--ry0,0deg))}to{transform:rotate(var(--tilt)) rotateY(calc(var(--ry0,0deg) + 90deg))}}
+@keyframes card-in{from{transform:rotate(var(--tilt)) rotateY(-90deg)}to{transform:rotate(var(--tilt)) rotateY(0deg)}}
+/* the Vice page fade leaves the portrait out, so the old photo never ghosts over the turning card */
+html.vice-vt .arch{view-transition-name:portrait}
+html.vice-vt::view-transition-old(portrait){display:none}
+html.vice-vt::view-transition-new(portrait),html.vice-vt::view-transition-group(portrait){animation:none}
