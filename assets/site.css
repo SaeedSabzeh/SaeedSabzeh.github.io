@@ -67,9 +67,6 @@ img{display:block;max-width:100%}
 .chip{font-family:var(--mono);font-size:13px;letter-spacing:.03em;padding:9px 0;border-top:1px solid var(--line);color:var(--ink-soft)}
 .chip:last-child{border-bottom:1px solid var(--line)}
 .chip::before{content:"";display:inline-block;width:7px;height:7px;background:var(--accent);margin-inline-end:12px;vertical-align:1px}
-.arch{position:relative;justify-self:end;width:100%;max-width:330px;margin:0 0 10px}
-.arch .frame{aspect-ratio:4/5;overflow:hidden;background:var(--paper-2);outline:1px solid var(--ink);outline-offset:9px}
-.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 
 /* ---------- section heads: numbered like a journal ---------- */
 main{counter-reset:sec plate}
@@ -366,8 +363,6 @@ html[lang="fa"] .mail a{text-align:right}
 /* ---------- responsive ---------- */
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:minmax(0,1.5fr) minmax(0,.62fr);gap:28px}
-  .arch{margin:0 9px 9px 0}
-  html[dir="rtl"] .arch{margin:0 0 9px 9px}
   .p-bots,.p-book{grid-column:1/-1}
   .p-ml{flex-direction:column;align-items:stretch}
   .p-ml .cap{padding-top:4px}
@@ -385,9 +380,6 @@ html[lang="fa"] .mail a{text-align:right}
   .name{grid-column:1;grid-row:1;font-size:clamp(46px,15vw,84px);align-self:center}
   html[lang="fa"] .name{font-size:clamp(40px,13.5vw,80px)}
   .name span+span{padding-inline-start:.28em}
-  .arch{grid-column:2;grid-row:1;justify-self:stretch;max-width:none;margin:6px 6px 0 0}
-  html[dir="rtl"] .arch{margin:6px 0 0 6px}
-  .arch .frame{outline-offset:5px}
   .intro,.hero-cta,.where{grid-column:1/-1}
   .intro{margin-top:22px}
   .hero-cta{margin-top:20px}
@@ -665,31 +657,6 @@ html[dir="rtl"] .go,html[dir="rtl"] .repo-all{background-position:100% 100%}
 }
 
 /* ======== round 3: hero portrait card, Say hi balance, Persian name weight, phone thread ======== */
-/* portrait: a slightly tilted card with a soft shadow and a tinted sheet behind it (no flat outlined rectangle) */
-.arch{isolation:isolate}
-.arch::before{content:"";position:absolute;inset:-2% -5% -4% 4%;z-index:-1;border-radius:10px;background:linear-gradient(150deg,var(--accent),transparent 80%);opacity:.22;transform:rotate(-4deg)}
-.arch .frame{position:relative;outline:0;border-radius:8px;transform:rotate(2deg);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 26px 50px -24px rgba(0,0,0,.5),0 6px 16px -8px rgba(0,0,0,.28);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
-.arch .frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,var(--accent),#1b1b2f 90%);mix-blend-mode:soft-light;opacity:0;transition:opacity .5s}
-.arch img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-@media (hover:hover){
-  .arch:hover .frame{transform:rotate(.6deg) translateY(-4px);box-shadow:0 34px 60px -26px rgba(0,0,0,.55),0 8px 20px -8px rgba(0,0,0,.3)}
-  .arch:hover .frame::after{opacity:.55}
-  .arch:hover img{transform:scale(1.03)}
-}
-html[dir="rtl"] .arch::before{inset:-2% 4% -4% -5%;transform:rotate(4deg)}
-html[dir="rtl"] .arch .frame{transform:rotate(-2deg)}
-@media (hover:hover){html[dir="rtl"] .arch:hover .frame{transform:rotate(-.6deg) translateY(-4px)}}
-@media (prefers-reduced-motion:reduce){.arch .frame,.arch img,.arch .frame::after{transition:none}}
-/* ---- the portrait card: the Duomo photo; in Vice City it turns over to the drawn sunglasses picture (site.js) ---- */
-.arch .flip{position:relative;display:block;width:100%;aspect-ratio:4/5;perspective:1100px}
-.arch .card{position:absolute;inset:0;display:block;transform-style:preserve-3d;transform:rotate(var(--tilt));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.arch .card .frame.frame,.arch:hover .card .frame,html[dir="rtl"] .arch .card .frame,html[dir="rtl"] .arch:hover .card .frame{position:absolute;inset:0;display:block;aspect-ratio:auto;transform:none;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.arch .card img{object-position:50% 30%}
-@media (hover:hover){.arch:hover .card{transform:rotate(calc(var(--tilt)*.3)) translateY(-4px)}}
-@media (prefers-reduced-motion:reduce){.arch .card,.arch:hover .card{transition:none;transform:rotate(var(--tilt))}}
-@media (max-width:640px){.arch .frame{outline:0}.arch::before{inset:-3% -6% -5% 6%}}
-/* wide screens: the portrait sits at the top of the hero and shrinks on short windows, so the first screen never cuts it in half */
-@media (min-width:641px){.arch{align-self:start;margin-top:clamp(6px,1.6vw,24px);max-width:min(330px,max(200px,calc((100svh - 215px)*.8)))}}
 
 /* Say hi: columns top-aligned, tighter gap above, a bigger word with a rule under it so the left side carries its weight */
 .contact{padding-top:clamp(12px,2vw,32px)}
@@ -1102,23 +1069,3 @@ html[dir="rtl"] .pidx{-webkit-mask-image:linear-gradient(270deg,#000 85%,transpa
 .plate .vis img.zoomable:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
 /* Toolbox on phones: no separator dots (they were left dangling at line ends), just space between the names */
 @media (max-width:640px){.tools dd{gap:4px 16px}.tools dd span:not(:last-child)::after{content:none}}
-/* the portrait: the photo normally, the drawn sunglasses picture in Vice City */
-.arch .frame .p-vice,html[data-vice] .arch .frame .p-real{display:none}
-html[data-vice] .arch .frame .p-vice{display:block}
-/* switching Vice on or off (site.js): the card turns edge-on still showing the old pictures (.keep-old),
-   the pictures change while it is invisible, and it turns back to the front */
-html[data-vice] .arch .flip.keep-old .frame .p-real{display:block}
-html[data-vice] .arch .flip.keep-old .frame .p-vice{display:none}
-html:not([data-vice]) .arch .flip.keep-old .frame .p-vice{display:block}
-html:not([data-vice]) .arch .flip.keep-old .frame .p-real{display:none}
-.arch .card{--tilt:2deg}
-html[dir="rtl"] .arch .card{--tilt:-2deg}
-.arch .card.turn-out,.arch .card.turn-in{transition:none}
-.arch .card.turn-out{animation:card-out .3s cubic-bezier(.55,0,.9,.45) forwards}
-.arch .card.turn-in{animation:card-in .6s cubic-bezier(.2,1.25,.4,1)}
-@keyframes card-out{from{transform:rotate(var(--tilt)) rotateY(var(--ry0,0deg))}to{transform:rotate(var(--tilt)) rotateY(calc(var(--ry0,0deg) + 90deg))}}
-@keyframes card-in{from{transform:rotate(var(--tilt)) rotateY(-90deg)}to{transform:rotate(var(--tilt)) rotateY(0deg)}}
-/* the Vice page fade leaves the portrait out, so the old photo never ghosts over the turning card */
-html.vice-vt .arch{view-transition-name:portrait}
-html.vice-vt::view-transition-old(portrait){display:none}
-html.vice-vt::view-transition-new(portrait),html.vice-vt::view-transition-group(portrait){animation:none}

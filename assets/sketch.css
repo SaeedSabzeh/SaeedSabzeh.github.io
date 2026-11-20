@@ -90,10 +90,6 @@ html:not(.sk-on) .sk-hold{display:none} /* the x-ray button only makes sense whi
 .sk-on .sk-built:where(:not(.sk-settled)) .links a:nth-child(3):not(:hover){transition-delay:0s,0s,.14s}
 .sk-on .sk-built:where(:not(.sk-settled)) .links a:nth-child(4):not(:hover){transition-delay:0s,0s,.21s}
 .sk-on .sk-built:where(:not(.sk-settled)) .links a:nth-child(5):not(:hover){transition-delay:0s,0s,.28s}
-/* portrait frame outline */
-.sk-on .arch .frame{position:relative}
-.sk-on :where([data-sk]:not(.sk-settled)) .arch .frame{transition:background-color .5s,outline-color .6s}
-.sk-on [data-sk]:not(.sk-built) .arch .frame{background-color:transparent;outline-style:dashed;outline-color:var(--pencil)}
 /* section rule: dashed pencil line is always there underneath; the ink rule draws over it from the inline-start.
    The real border colour is hidden until the drawn line has covered it. */
 .sk-on .sec-head{
@@ -129,18 +125,6 @@ html:not(.sk-on) .sk-hold{display:none} /* the x-ray button only makes sense whi
 .sk-on .sk-built:where(:not(.sk-settled)) .hero-cta a:nth-child(2):not(:hover){transition-delay:.22s}
 .sk-on .sk-built:where(:not(.sk-settled)) .hero-cta a:nth-child(3):not(:hover){transition-delay:.29s}
 .sk-on .sk-built:where(:not(.sk-settled)) .allp:not(:hover),.sk-on .sk-built:where(:not(.sk-settled)) .btn:not(:hover){transition-delay:.1s}
-
-/* ---------- 5. portrait: crossed box with "4 : 5", photo revealed top to bottom ---------- */
-.sk-on .arch .frame::after{
-  content:"4 : 5";position:absolute;inset:0;padding:8px 10px;direction:ltr;text-align:left;
-  font:11px/1 var(--mono);letter-spacing:.06em;color:var(--pencil);background-image:var(--sk-cross);
-  pointer-events:none;opacity:0;transition:opacity .4s;
-}
-.sk-on [data-sk]:not(.sk-built) .arch .frame::after{opacity:1}
-.sk-on .arch img{opacity:1;clip-path:inset(0 0 0 0)}
-.sk-on :where([data-sk]:not(.sk-settled)) .arch img{transition:opacity .3s,clip-path .7s var(--sk-ease)}
-.sk-on [data-sk]:not(.sk-built) .arch img{opacity:0;clip-path:inset(0 0 100% 0)}
-.sk-on .sk-built:where(:not(.sk-settled)) .arch img{transition-delay:.35s}
 
 /* ---------- 6. project pictures: wireframe, ground grows up, pictures appear ---------- */
 /* the dark ground moves from .vis to .vis::before so it can grow on its own */

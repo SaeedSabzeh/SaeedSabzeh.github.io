@@ -58,7 +58,11 @@
     // instead of drawing a second underline just above it
     var hw=h.parentNode,wr0=hw.getBoundingClientRect(),bw=parseFloat(getComputedStyle(hw,'::after').width)||0;
     if(bw&&wr0.height){ex=rtl?wr0.right-bw:wr0.left+bw;ey=wr0.bottom-1.5}
-    var P=[[cx,cy],[gx,cy],[gx,er.top+.5],[tx,er.top+.5],[tx,er.bottom-.5],[gx,er.bottom-.5],[gx,ey],[ex,ey]]
+    // when the hero photo lies between the last chip and the gutter (Persian: text left, photo right), drop below the hero first and run
+    // along its bottom edge, so the line and its spark never cross the portrait; y still never decreases along the route
+    var hp=q('.hero .hp'),pr=hp&&hp.getBoundingClientRect(),hb2=q('.hero').getBoundingClientRect().bottom,
+        over=pr&&pr.width&&pr.top<cy&&pr.bottom>cy&&Math.max(Math.min(cx,gx),pr.left)<Math.min(Math.max(cx,gx),pr.right)&&hb2>cy;
+    var P=(over?[[cx,cy],[cx,hb2],[gx,hb2],[gx,er.top+.5]]:[[cx,cy],[gx,cy],[gx,er.top+.5]]).concat([[tx,er.top+.5],[tx,er.bottom-.5],[gx,er.bottom-.5],[gx,ey],[ex,ey]])
       .map(function(p){return [p[0]-mr.left,p[1]-mr.top]});
     var ys=[].slice.call(document.querySelectorAll('#work .plate')).map(function(p){
       var t=p.querySelector('h3');if(!t)return null;
