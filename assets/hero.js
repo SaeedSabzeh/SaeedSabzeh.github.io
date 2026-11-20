@@ -124,7 +124,7 @@
 
   /* ---------- measurements the CSS needs: header height, photo box, CTA row and hint row ---------- */
   var hero = document.querySelector('.hero'), cta = hero && hero.querySelector('.hero-cta'), hint = document.getElementById('mindHint');
-  var topWrap = document.querySelector('.top .wrap'), phone = matchMedia('(max-width: 820px)');
+  var topWrap = document.querySelector('.top .wrap'), phone = matchMedia('(max-width: 820px) and (orientation: portrait), (max-width: 820px) and (min-height: 541px)');   /* the layout with the photo across the top (hero.css) */
   if (hero) {
     var measure = function () {
       var h = hero.getBoundingClientRect(), s = root.style;
