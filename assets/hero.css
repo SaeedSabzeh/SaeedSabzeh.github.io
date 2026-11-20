@@ -146,7 +146,8 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
 /* day: wash the left toward the page colour; night: dim the street lamp */
 .hp::before,.hp::after{content:"";position:absolute;inset:0;z-index:1;transition:opacity var(--t-swap) var(--ease-soft)}
 .hp::before{opacity:var(--hp-wash);background:linear-gradient(to right,color-mix(in srgb,var(--paper) 45%,transparent) 0,color-mix(in srgb,var(--paper) 14%,transparent) 28%,transparent 46%)}
-.hp::after{opacity:var(--hp-dim);background:linear-gradient(to right,rgba(14,14,18,.7) 0,rgba(14,14,18,.5) 42%,transparent 62%)}
+/* the dimmer covers the lamp (about a quarter into the photo) and is gone before the face starts (about 37-40%), so it never shades half of it */
+.hp::after{opacity:var(--hp-dim);background:linear-gradient(to right,rgba(14,14,18,.7) 0,rgba(14,14,18,.55) 24%,rgba(14,14,18,.22) 31%,transparent 36%)}
 /* Vice: a sky-coloured layer hides the page's own skyline and palms under the photo and the text, so one horizon shows */
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:var(--sky-bg);opacity:var(--hp-sky);transition:opacity var(--t-swap) var(--ease-soft);
