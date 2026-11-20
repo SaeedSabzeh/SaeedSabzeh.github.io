@@ -1129,3 +1129,15 @@ html[dir="rtl"] .pidx{-webkit-mask-image:linear-gradient(270deg,#000 85%,transpa
 .plate .vis img.zoomable:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
 /* Toolbox on phones: no separator dots (they were left dangling at line ends), just space between the names */
 @media (max-width:640px){.tools dd{gap:4px 16px}.tools dd span:not(:last-child)::after{content:none}}
+/* the portrait card's back: the sunglasses photo, or in Vice City the same moment drawn into a Miami sunset */
+.arch .frame .p-vice,html[data-vice] .arch .frame .p-real{display:none}
+html[data-vice] .arch .frame .p-vice{display:block}
+/* switching Vice on or off: one full turn of the card while the pictures change */
+.arch .card{--tilt:2deg}
+html[dir="rtl"] .arch .card{--tilt:-2deg}
+.arch .card.spin{animation:card-spin 1s cubic-bezier(.3,1.2,.45,1)}
+@keyframes card-spin{from{transform:rotate(var(--tilt)) rotateY(0)}to{transform:rotate(var(--tilt)) rotateY(360deg)}}
+@media (prefers-reduced-motion:reduce){.arch .card.spin{animation:none}}
+/* until the drawn front has downloaded, the photo stays in place (site.js adds .pv-wait) */
+html[data-vice] .arch .flip.pv-wait .frame .p-real{display:block}
+html[data-vice] .arch .flip.pv-wait .frame .p-vice{display:none}
