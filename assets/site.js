@@ -653,7 +653,7 @@ var SITE_NOZOOM='.p-watch';
     tick();langHooks.push(tick);setInterval(function(){if(!document.hidden)tick()},20000);
   })();
 
-  // Greeting above the contact heading: Hi. / سلام. / Ciao. cycling, starting with the current language.
+  // Greeting above the contact heading: Hi. / هی. / Ehi. cycling, starting with the current language.
   (function(){
     var box=document.querySelector('.hello');if(!box)return;
     var all=[].slice.call(box.children),i=0,timer=0,visible=false;

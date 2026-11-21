@@ -92,10 +92,10 @@
     };
   }
 
-  /* ---------- depth: the pictures drift a few pixels with the pointer and the scroll (transform only, one rAF at a time) ---------- */
+  /* ---------- depth: the pictures drift a few pixels with the scroll (transform only, one rAF at a time) ---------- */
   if (fig && !calm.matches) {
     var hover = matchMedia('(hover:hover) and (pointer:fine)');
-    var mx = 0, my = 0, tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, lastT = 0, W = innerWidth, H = innerHeight;
+    var mx = 0, my = 0, tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, lastT = 0;
     var retarget = function () {
       var sc = Math.min(1, Math.max(0, scrollY / Math.max(1, heroH)));
       tx = mx; ty = my + sc * 5;
@@ -113,13 +113,7 @@
     var ask = function () { if (!raf) raf = requestAnimationFrame(step); };
     /* mouse devices only: on phones the scroll drift would repaint the masked photo on every frame */
     addEventListener('scroll', function () { if (hover.matches && scrollY < heroH + 200) { retarget(); ask(); } }, { passive: true });
-    document.addEventListener('pointermove', function (e) {
-      if (e.pointerType !== 'mouse' || !hover.matches || scrollY > heroH + 200) return;   /* the hero is off screen */
-      mx = (e.clientX / W - .5) * -16; my = (e.clientY / H - .5) * -7;   /* opposite to the pointer, like the sky */
-      retarget(); ask();
-    }, { passive: true });
-    root.addEventListener('pointerleave', function () { mx = 0; my = 0; retarget(); ask(); }, { passive: true });
-    addEventListener('resize', function () { W = innerWidth; H = innerHeight; }, { passive: true });
+    /* no pointer drift: the photo stays still under the mouse (Saeed's call, 2026-11-21) */
     retarget();
   }
 

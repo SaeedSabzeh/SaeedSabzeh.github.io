@@ -659,7 +659,7 @@ html[dir="rtl"] .go,html[dir="rtl"] .repo-all{background-position:100% 100%}
 /* ======== round 3: hero portrait card, Say hi balance, Persian name weight, phone thread ======== */
 
 /* Say hi: columns top-aligned, tighter gap above, a bigger word with a rule under it so the left side carries its weight */
-.contact{padding-top:clamp(12px,2vw,32px)}
+.contact{padding-top:clamp(12px,2vw,32px);overflow-x:clip} /* the heading's hover glow is wider than a full-width heading; keep it from widening the page */
 #work{padding-bottom:clamp(14px,2.5vw,36px)}
 .contact .wrap{align-items:start}
 .hello-wrap{max-width:640px}
