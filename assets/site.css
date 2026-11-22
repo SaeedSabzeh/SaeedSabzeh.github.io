@@ -250,7 +250,8 @@ html[lang="fa"] .wf-name{letter-spacing:.14em!important}
 .wip-list a:hover,.wip-list a:focus-visible{background-size:100% 1.5px}
 .wip-list span[data-i]{color:var(--ink-soft);font-size:15.5px}
 .wip-spin{flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--accent);animation:wip-spin 1.4s linear infinite}
-.wip-list li:nth-child(2) .wip-spin{animation-delay:-.45s}.wip-list li:nth-child(3) .wip-spin{animation-delay:-.9s}
+.wip-list li:nth-child(2) .wip-spin{animation-delay:-.45s}.wip-list li:nth-child(3) .wip-spin{animation-delay:-.9s}.wip-list li:nth-child(4) .wip-spin{animation-delay:-1.35s}
+.wip-t{color:var(--ink);font-size:17px;align-self:flex-start}
 @keyframes wip-spin{to{transform:rotate(360deg)}}
 @keyframes wip-pulse{50%{opacity:.3}}
 @media (prefers-reduced-motion:reduce){.wip-spin,.wip-h::before{animation:none}.wip-spin{border-style:dotted}}

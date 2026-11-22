@@ -12,6 +12,7 @@ fa: {
   "wip1": "یه مسابقهٔ Kaggle که باید حدس بزنی یه متن کوتاه رو کدوم یکی از ۱۸ تا مدل هوش مصنوعی نوشته.",
   "wip2": "یه مسابقهٔ دیگه توی Kaggle که باید ۱ تا ۱۰۰۰ تا مربع رو توی کوچیک‌ترین جعبه‌ای که می‌تونم جا بدم.",
   "wip3": "یه افزونهٔ QGIS، مثل Norme Milano ولی برای برلین: روی نقشه کلیک کن تا طرح ساخت‌وساز همون‌جا رو ببینی.",
+  "wip4": "بیست‌ویک تا صفحه‌ساعت برای Wear OS با حال‌وهوای نئونیِ میامیِ دههٔ ۸۰، همه رو با کد Python کشیدم. الان توی Google Play تو مرحلهٔ تست بسته‌ان.",
   "wfNext": "صفحه‌ساعت بعدی",
   "wfMore": "صفحه‌ساعت‌های بعدی",
   "wfBack": "صفحه‌ساعت‌های قبلی",
@@ -204,6 +205,7 @@ fa: {
   "projClose": "دوست دارید دربارهٔ یکی از اینا حرف بزنیم؟ <a href=\"../#contact\">یه سلامی بکنید.</a>"
 },
 it: {
+  "wip4": "Ventuno quadranti per Wear OS in stile neon anni '80 di Miami, tutti disegnati con codice Python. Ora sono in test chiuso su Google Play.",
   "wololoHint": "Hai giocato ad Age of Empires? Digita «wololo» o tocca qui.",
   "viceHint": "Hai giocato a GTA? Digita «vice» o tocca qui.",
   "viceOn": "Eccoti a Vice City. Per tornare indietro, clicca altre 5 volte sulla rete o usa il link in fondo alla pagina.",
