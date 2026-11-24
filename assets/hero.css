@@ -36,10 +36,23 @@ html[data-vice]{
 }
 
 /* picture tokens: day (default, also what shows without scripts), night, Vice. Masks fade toward the text side (x), the bottom (b),
-   and on phones the bottom (p) and the top (t). */
+   the left edge of a capped picture (in), and on phones the bottom (p) and the top (t). */
 .hp{
   --hp-day:1;--hp-night:0;--hp-vice:0;
   --hp-wash:1;--hp-dim:0;                    /* day wash toward the page colour, night lamp dimmer */
+  /* side by side, a picture is never wider than its cap (see "each picture is sized like object-fit:cover" below). The square photos
+     fit the box height minus 20% of the header, so the hair (about 10% down the day photo, 16% the night one) stays below the
+     header. The Vice drawing (4:5, chin about 62% down, starting at --vice-top) keeps its chin above 80% of the box height, where
+     the bottom fade starts to bite: (.8 x box height - --vice-top) / .62 tall, which works out to this width. */
+  --w-photo:calc(var(--hh) + var(--hdr)*.8);
+  --w-vice:calc(var(--hh)*.64/.62);
+  --hp-pw:var(--w-photo);                    /* the capped width of the picture shown */
+  /* a capped picture sits on the right; when it is narrower than the box, its left edge (--hp-x0) dissolves, eased so no line shows,
+     over up to 18% of its width (never more than 90% of the gap beside it; the Vice ear starts at about 18%). When the picture covers
+     the box, the fade length is 0 and every stop is off the left edge, so this layer does nothing. */
+  --hp-x0:calc(100% - var(--hp-pw));
+  --hp-fl:min(var(--hp-pw)*.18,max(0px,100% - var(--hp-pw))*.9);
+  --hp-in:linear-gradient(to right,transparent var(--hp-x0),rgba(0,0,0,.12) calc(var(--hp-x0) + var(--hp-fl)*.3),rgba(0,0,0,.45) calc(var(--hp-x0) + var(--hp-fl)*.6),rgba(0,0,0,.8) calc(var(--hp-x0) + var(--hp-fl)*.82),#000 calc(var(--hp-x0) + var(--hp-fl)));
   --hp-x:linear-gradient(to right,transparent 0,transparent 10%,rgba(0,0,0,.03) 14%,rgba(0,0,0,.09) 19%,rgba(0,0,0,.22) 25%,rgba(0,0,0,.44) 31%,rgba(0,0,0,.68) 37%,rgba(0,0,0,.9) 42%,#000 46%);
   --hp-b:linear-gradient(to top,transparent 0,transparent 3px,rgba(0,0,0,.2) 8%,rgba(0,0,0,.65) 18%,#000 28%);
   --hp-p:linear-gradient(to top,transparent 0,transparent 3px,rgba(0,0,0,.2) 6%,rgba(0,0,0,.55) 15%,rgba(0,0,0,.85) 30%,#000 45%);
@@ -49,7 +62,7 @@ html[data-vice]{
   --hp-x:linear-gradient(to right,transparent 0,transparent 4%,rgba(0,0,0,.12) 9%,rgba(0,0,0,.45) 18%,rgba(0,0,0,.8) 30%,#000 40%);
 }
 .hp[data-hp="vice"]{
-  --hp-day:0;--hp-night:0;--hp-vice:1;--hp-wash:0;--hp-dim:0;
+  --hp-day:0;--hp-night:0;--hp-vice:1;--hp-wash:0;--hp-dim:0;--hp-pw:var(--w-vice);
   /* the drawing has almost no headroom, so it starts below the header and dissolves into the sky layer above it */
   /* the fade starts exactly at the drawing's top edge (--vice-top), so the edge itself is never seen, on desktop and on phones */
   --hp-top:linear-gradient(to bottom,transparent 0,transparent var(--vice-top),rgba(0,0,0,.5) calc(var(--vice-top) + 18px),#000 calc(var(--vice-top) + 52px));
@@ -113,8 +126,8 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
   top:calc(-1*var(--hdr));right:var(--hp-r);width:var(--hp-w);height:calc(var(--hh) + var(--hdr));
   --hp-top:linear-gradient(to bottom,transparent 0,transparent calc(var(--hdr)*.1),#000 calc(var(--hdr)*.5));
   --hp-edge:linear-gradient(#000,#000);
-  -webkit-mask-image:var(--hp-top),var(--hp-x),var(--hp-b),var(--hp-edge);
-  mask-image:var(--hp-top),var(--hp-x),var(--hp-b),var(--hp-edge);
+  -webkit-mask-image:var(--hp-top),var(--hp-x),var(--hp-b),var(--hp-edge),var(--hp-in);
+  mask-image:var(--hp-top),var(--hp-x),var(--hp-b),var(--hp-edge),var(--hp-in);
   -webkit-mask-composite:source-in;mask-composite:intersect;
   opacity:calc(var(--hp-o,1)*var(--sk-o,1));
   transition:opacity var(--t-load) var(--ease-soft),filter var(--t-sketch) var(--ease-soft)}
@@ -125,9 +138,13 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
 }
 /* each picture is sized like object-fit:cover but placed by its face, so the face stays in view at any box shape.
    The box reaches up behind the header; the pictures are fitted to the box minus 20% of the header (close to the size they had below
-   the header) and the square ones sit on the bottom of the box, so the small gap that is left is at the very top, under the top fade. */
+   the header) and the square ones sit on the bottom of the box, so the small gap that is left is at the very top, under the top fade.
+   Beside the text, a box wider than it is tall (laptop screens) would make "cover" fit the picture to the width, and the head would
+   be pushed up past the top of the screen (the Vice drawing's chin down past the bottom). There each picture is capped at the width
+   --wcap that keeps the whole face in view (--w-photo, --w-vice in the picture tokens); it then sits on the right, and its left edge,
+   now inside the box, dissolves (--hp-in) over the side that already fades toward the text. */
 .hp img{
-  --iw:max(100cqw,calc((100cqh - var(--hdr)*.2)*var(--ar)));--ih:calc(var(--iw)/var(--ar));
+  --iw:min(max(100cqw,calc((100cqh - var(--hdr)*.2)*var(--ar))),var(--wcap,9999px));--ih:calc(var(--iw)/var(--ar));
   position:absolute;max-width:none;width:var(--iw);height:var(--ih);
   left:clamp(calc(100cqw - var(--iw)),calc(var(--face-x)*100cqw - var(--fx)*var(--iw)),0px);
   top:calc((100cqh - var(--ih))*var(--py));
@@ -141,6 +158,12 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
 .hp-vice{--ar:.8;--fx:.35;--py:.25;opacity:var(--hp-vice)}
 .hp{--vice-top:calc(var(--hdr)*.8)}                  /* where the drawing starts inside the box */
 .hp .hp-vice{top:var(--vice-top)}
+/* side by side (wide screens, tablets, landscape phones): the caps (--w-photo, --w-vice in the picture tokens). A tall box still
+   covers as before, since the cap is then wider than "cover". */
+@media (min-width:821px),(orientation:landscape) and (max-height:540px) and (max-width:1000px){
+  .hp-day,.hp-night{--wcap:var(--w-photo)}
+  .hp-vice{--wcap:var(--w-vice)}
+}
 /* engines without container query units (Safari before 16) would lose the photo's size and place: fall back to cover, kept high for the face */
 @supports not (width:1cqw){.hp img,.hp .hp-vice{left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;translate:none}}
 /* day: wash the left toward the page colour; night: dim the street lamp */
@@ -205,8 +228,8 @@ html.vice-vt .hp,html.vice-vt .hp img,html.vice-vt .hp::before,html.vice-vt .hp:
 @media (orientation:landscape) and (max-height:540px) and (max-width:1000px){
   .hero{--hh:max(300px,calc(100svh - var(--hdr)));--hp-w:54vw}
   .hp{--hp-edge:linear-gradient(to left,transparent 0,rgba(0,0,0,.55) 4%,#000 11%)}
-  .hp-day,.hp-night{--py:.3}
-  .hp .hp-vice{top:calc((100cqh - var(--ih))*.25)}          /* placed by the face: the band is short */
+  /* the pictures are capped here as on wide screens (see the picture tokens), so they keep the same placement: the photos on the
+     bottom, the drawing at --vice-top, which is what the caps are worked out for */
   .hero .wrap>div,html[dir="rtl"] .hero .wrap>div{display:block;max-width:48%}
   .hero .name{font-size:clamp(38px,min(7.6vw,calc((100svh - var(--hdr))*.2)),68px)}
   html[lang="fa"] .hero .name{font-size:clamp(38px,min(7.6vw,calc((100svh - var(--hdr))*.19)),68px);line-height:.85}

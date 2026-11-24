@@ -425,6 +425,9 @@ var SITE_NOZOOM='.p-watch';
       if(e.pointerType==='touch'){down={id:e.pointerId,x:e.clientX,y:e.clientY,moved:false};return}
       count(e);
     },{passive:true});
+    // quick clicks are a double, triple... click to the browser, which would select the nearest line of text (the name, with its
+    // selection colours). From the second quick click on, the press selects nothing; a single press or a drag still selects text.
+    hero.addEventListener('mousedown',function(e){if(e.detail>1&&!(e.target.closest&&e.target.closest('a,button')))e.preventDefault()});
     hero.addEventListener('pointermove',function(e){if(down&&e.pointerId===down.id&&Math.hypot(e.clientX-down.x,e.clientY-down.y)>=10)down.moved=true},{passive:true});
     hero.addEventListener('pointerup',function(e){var d=down;down=null;if(!d||e.pointerId!==d.id||d.moved||Math.hypot(e.clientX-d.x,e.clientY-d.y)>=10)return;count(e)},{passive:true});
     hero.addEventListener('pointercancel',function(){down=null},{passive:true});

@@ -997,6 +997,8 @@ html.vice-live body::before{content:none}
 .vice-warm{position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(255,150,110,.06),rgba(255,176,110,.48));opacity:0}
 html[data-vice] main{text-shadow:0 0 14px rgba(246,170,176,.85),0 0 4px rgba(246,170,176,.6)}
 html[data-vice] main .vis,html[data-vice] main .mark,html[data-vice] main button,html[data-vice] main .repo,html[data-vice] main a.solid,html[data-vice] .hero-cta a,html[data-vice] .allp{text-shadow:none}
+/* text painted through background-clip:text (the name and the headings while the sketch theme is on) would get the glow on top of its ink and look washed out */
+html[data-vice] main :is(.name span,.h2){text-shadow:none}
 .vice-sky{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 /* sections stay transparent so the sky runs unbroken: no tint bands (:nth-child(n) and :not() keep up with the band rules' specificity) */
 html[data-vice] #work .plates>.plate:nth-child(n)::before,html[data-vice] #projects .plates>.plate:nth-child(n):not(.x)::before{content:none}
