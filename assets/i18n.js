@@ -62,7 +62,7 @@ fa: {
   "ctaStory": "داستان من",
   "ctaWork": "تازه چی ساختم",
   "ctaContact": "چطور پیدام کنید",
-  "chip1": "دانشجوی کارشناسی ارشد هوش مصنوعی توی دانشگاه میلان-بیکوکا",
+  "chip1": "دانشجوی کارشناسی ارشد هوش مصنوعی توی دانشگاه <span class=\"nw\">میلان-بیکوکا</span>",
   "mindHint": "پیس، چند بار روی بک‌گراند کلیک کن",
   "chip2": "اهل ایرانم. از اکتبر ۲۰۲۵ توی میلان زندگی می‌کنم.",
   "workH": "چیزایی که ساختم",
@@ -205,6 +205,10 @@ fa: {
   "projClose": "دوست دارید دربارهٔ یکی از اینا حرف بزنیم؟ <a href=\"../#contact\">یه سلامی بکنید.</a>"
 },
 it: {
+  "wipH": "A cosa sto lavorando",
+  "wip1": "Una competizione Kaggle in cui cerco di capire quale dei 18 modelli di IA ha scritto un breve testo.",
+  "wip2": "In un'altra competizione Kaggle cerco di far stare da 1 a 1.000 quadrati nel quadrato più piccolo possibile.",
+  "wip3": "Un plugin per QGIS, il cugino berlinese di Norme Milano. Clicca su un punto della mappa per vedere il piano urbanistico in vigore lì.",
   "wip4": "Ventuno quadranti per Wear OS in stile neon anni '80 di Miami, tutti disegnati con codice Python. Ora sono in test chiuso su Google Play.",
   "wololoHint": "Hai giocato ad Age of Empires? Digita «wololo» o tocca qui.",
   "viceHint": "Hai giocato a GTA? Digita «vice» o tocca qui.",
@@ -246,7 +250,7 @@ it: {
   "ctaStory": "La mia storia",
   "ctaWork": "Gli ultimi progetti",
   "ctaContact": "Come contattarmi",
-  "chip1": "Studente di laurea magistrale in IA all’Università di Milano-Bicocca",
+  "chip1": "Studente di laurea magistrale in IA all’Università di <span class=\"nw\">Milano-Bicocca</span>",
   "mindHint": "psst, clicca più volte sulla rete",
   "mindHintTap": "psst, tocca più volte la rete",
   "chip2": "Vengo dall’Iran. Vivo a Milano dall’ottobre 2025.",

@@ -115,6 +115,10 @@ html[dir="rtl"] .hero .wrap>div{margin-right:auto;margin-left:0;max-width:min(36
 /* short laptop screens: the intro runs wider (two lines) so the chips and the hint stay above the fold */
 @media (min-width:821px) and (max-height:760px){
   .hero .intro{max-width:46ch}
+  /* the photo is capped here and starts further right, so there is room to widen: the Italian first chip then fits on one line and the Persian
+     column holds the intro in two lines instead of three (it needs about 545px), which keeps the hint row above the fold */
+  html[lang="it"] .hero .where{max-width:610px}
+  html[dir="rtl"] .hero .wrap>div{max-width:min(46vw,580px)}
   html[lang="fa"] .hero .name{font-size:clamp(80px,min(13vw,calc((100svh - var(--hdr))*.19)),190px)}
 }
 /* background-clip:text only paints inside the span box: padding covers ascenders, descenders and dots, negative margins keep the lines tight */
@@ -153,8 +157,9 @@ html[lang="fa"] .name span,html.sk-on[lang="fa"] .name span{display:block;paddin
      for that drift and the settle after load (scale), so the two never fight */
   translate:var(--dx,0px) var(--dy,0px);scale:1.025;
   transition:opacity var(--t-swap) var(--ease-soft),scale var(--t-load) var(--ease-soft)}
-.hp-day{--ar:1;--fx:.54;--py:1;opacity:var(--hp-day)}
-.hp-night{--ar:1;--fx:.51;--py:1;opacity:var(--hp-night)}
+/* --hy: where the hair starts, as a share of the picture's height (flyaway strands ignored); used by the phone and tablet layout */
+.hp-day{--ar:1;--fx:.54;--py:1;--hy:.105;opacity:var(--hp-day)}
+.hp-night{--ar:1;--fx:.51;--py:1;--hy:.16;opacity:var(--hp-night)}
 .hp-vice{--ar:.8;--fx:.35;--py:.25;opacity:var(--hp-vice)}
 .hp{--vice-top:calc(var(--hdr)*.8)}                  /* where the drawing starts inside the box */
 .hp .hp-vice{top:var(--vice-top)}
@@ -260,6 +265,12 @@ html.vice-vt .hp,html.vice-vt .hp img,html.vice-vt .hp::before,html.vice-vt .hp:
   :root:root .mind{
     -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px));
     mask-image:linear-gradient(to bottom,rgba(0,0,0,.05) 0,rgba(0,0,0,.05) var(--net-quiet),rgba(0,0,0,.35) calc(var(--net-quiet) + 160px))}
+  /* a box shorter than the picture is wide (tablets in portrait) would push the hair up under the header, since the picture sits on the
+     bottom; so the photos are placed by their hair line instead: the hair starts at the header line (--hdr), as far as the picture can
+     move without leaving the bottom of the box bare (lower bound) or the top bare (upper bound, 0). When the picture is shorter than
+     the box (phones: it fits the box height minus 20% of the header) the lower bound is above 0 and wins, which is the bottom placement
+     of before. Only with container units: without them the cover fallback (top:0, near the top of this file) must keep winning. */
+  @supports (width:1cqw){.hp .hp-day,.hp .hp-night{top:clamp(calc(100cqh - var(--ih)),calc(var(--hdr) - var(--hy)*var(--ih)),0px)}}
   html:not([data-vice]) .name{filter:drop-shadow(0 0 10px var(--paper)) drop-shadow(0 0 4px var(--paper))}
   html[data-vice] .name span{--fill:var(--vice-name-1)}
   html[data-vice] .name span+span{--fill:var(--vice-name-2)}

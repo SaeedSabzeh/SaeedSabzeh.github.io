@@ -1106,7 +1106,7 @@ var SITE_NOZOOM='.p-watch';
       var h=p.querySelector('h3');if(!h)return;
       var name=h.textContent.split(/[,،:]| – /)[0].trim(),n=(k<9?'0':'')+(k+1);
       if(fa)n=n.replace(/\d/g,function(d){return FA[d]});
-      var a=document.createElement('a');a.href='#'+p.id;a.innerHTML='<b>'+n+'</b>';a.appendChild(document.createTextNode(name));
+      var a=document.createElement('a');a.href='#'+p.id;a.innerHTML='<b>'+n+'</b><bdi></bdi>';a.lastChild.textContent=name;
       nav.appendChild(a);
     });
   }
